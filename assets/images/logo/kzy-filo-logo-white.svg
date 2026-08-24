@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 90" width="340" height="90" fill="none">
+  <!-- ─── STAR EMBLEM ─────────────────────────────────────────────── -->
+  <g transform="translate(10, 10)">
+    <!-- Speed Trail Shooting Left -->
+    <path d="M 0 38 L 48 38" stroke="#F58220" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M 2 34 L 20 34" stroke="#F58220" stroke-width="1.5" opacity="0.6"/>
+    <path d="M 2 42 L 24 42" stroke="#F58220" stroke-width="1.5" opacity="0.6"/>
+
+    <!-- Outline Star with Diagonal Cut Effect -->
+    <path d="M 52 4 L 62 26 L 86 28 L 68 44 L 74 68 L 52 54 L 30 68 L 36 44 L 18 28 L 42 26 Z" 
+          stroke="#F58220" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round"/>
+    
+    <!-- Dynamic Slice Accent -->
+    <path d="M 64 2 L 48 42" stroke="#F58220" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- ─── TYPOGRAPHY: kzyfilo (white, lowercase, joined, custom triangle dot) ── -->
+  <g transform="translate(105, 54)">
+    <!-- kzyf -->
+    <text x="0" y="0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="44" font-weight="600" fill="#FFFFFF" letter-spacing="-1.5">kzyf</text>
+    
+    <!-- i without standard dot (stem only) -->
+    <text x="83" y="0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="44" font-weight="600" fill="#FFFFFF" letter-spacing="-1.5">ı</text>
+    <!-- Inverted Orange Triangle Dot for "i" -->
+    <polygon points="86,-36 96,-36 91,-26" fill="#F58220"/>
+    
+    <!-- lo -->
+    <text x="96" y="0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="44" font-weight="600" fill="#FFFFFF" letter-spacing="-1.5">lo</text>
+  </g>
+</svg>

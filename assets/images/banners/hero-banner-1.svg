@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" fill="none">
+  <defs>
+    <linearGradient id="bgGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="50%" stop-color="#e2e8f0"/>
+      <stop offset="100%" stop-color="#cbd5e1"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f15a24"/>
+      <stop offset="100%" stop-color="#ff7a29"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="600" fill="url(#bgGrad1)"/>
+  
+  <!-- Geometric Fleet Design Lines -->
+  <path d="M 0 500 L 1200 350 L 1200 600 L 0 600 Z" fill="#ffffff" opacity="0.6"/>
+  <path d="M 600 0 L 1200 0 L 1200 450 Z" fill="url(#accentGrad)" opacity="0.08"/>
+
+  <!-- Stylized Car Silhouette Wireframe -->
+  <g transform="translate(450, 180)">
+    <path d="M 50 180 C 100 180, 150 130, 220 120 C 300 110, 480 100, 560 120 C 620 135, 680 160, 710 180 C 730 200, 735 220, 725 240 L 40 240 C 25 220, 30 190, 50 180 Z" fill="#1e293b"/>
+    <circle cx="170" cy="240" r="48" fill="#0f172a"/>
+    <circle cx="170" cy="240" r="32" fill="#64748b"/>
+    <circle cx="580" cy="240" r="48" fill="#0f172a"/>
+    <circle cx="580" cy="240" r="32" fill="#64748b"/>
+  </g>
+</svg>

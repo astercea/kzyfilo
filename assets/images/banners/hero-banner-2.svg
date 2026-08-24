@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" fill="none">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+    <linearGradient id="greenGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="600" fill="url(#bgGrad2)"/>
+  
+  <!-- Electric Circuit Lines -->
+  <path d="M 0 450 L 500 450 L 650 300 L 1200 300" stroke="#10b981" stroke-width="3" opacity="0.4"/>
+  <circle cx="650" cy="300" r="8" fill="#10b981" opacity="0.8"/>
+  <circle cx="500" cy="450" r="6" fill="#10b981" opacity="0.8"/>
+
+  <!-- EV Silhouette -->
+  <g transform="translate(480, 160)">
+    <path d="M 60 190 C 120 190, 170 120, 240 110 C 330 95, 480 90, 560 110 C 620 125, 670 160, 690 190 L 40 190 Z" fill="#ffffff" opacity="0.9"/>
+    <circle cx="170" cy="190" r="44" fill="#0f172a"/>
+    <circle cx="170" cy="190" r="28" fill="#10b981"/>
+    <circle cx="570" cy="190" r="44" fill="#0f172a"/>
+    <circle cx="570" cy="190" r="28" fill="#10b981"/>
+  </g>
+</svg>

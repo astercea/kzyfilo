@@ -1,0 +1,561 @@
+<?php
+/**
+ * kzyfilo — English Language File
+ * 
+ * All UI texts are read from this file.
+ * Keys are accessed via dot notation: t('header.phone')
+ * Missing keys fall back to Turkish.
+ */
+
+return [
+
+    // ─── General ────────────────────────────────────────────────────
+    'site_name' => 'kzyfilo',
+    'site_tagline' => 'Corporate Vehicle Leasing & Fleet Management',
+    'site_description' => 'Discover long-term vehicle leasing and fleet management solutions with kzyfilo. Get customized leasing quotes for your company.',
+    'demo_notice' => 'Prices and content shown on this page are for demonstration purposes.',
+    'demo_price' => 'Demo price',
+    'sample_price' => 'Sample price',
+    'currency' => '₺',
+    'per_month' => '/mo',
+    'vat_excluded' => '+ VAT',
+    'vat_included' => 'VAT Included',
+    'starting_from' => 'Starting from',
+    'loading' => 'Loading...',
+
+    // ─── Top Bar ────────────────────────────────────────────────────
+    'topbar' => [
+        'phone' => '444 7 599',
+        'phone_full' => '+904447599',
+        'mobile' => '+90 530 919 85 99',
+        'email' => 'info@kzyfilo.com.tr',
+        'working_hours' => 'Mon - Fri: 09:00 - 18:00',
+    ],
+
+    // ─── Header / Navigation ────────────────────────────────────────
+    'header' => [
+        'home' => 'Home',
+        'vehicles' => 'Vehicles',
+        'solutions' => 'Solutions',
+        'about' => 'About Us',
+        'resources' => 'Resources',
+        'contact' => 'Contact',
+        'my_list' => 'My List',
+        'get_quote' => 'Get a Quote',
+        'skip_to_content' => 'Skip to content',
+    ],
+
+    // ─── Mega Menu — Solutions ──────────────────────────────────────
+    'solutions_menu' => [
+        'long_term_rental' => 'Long-Term Vehicle Leasing',
+        'fleet_management' => 'Fleet Management',
+        'passenger_rental' => 'Passenger Vehicle Leasing',
+        'commercial_rental' => 'Commercial Vehicle Leasing',
+        'electric_rental' => 'Electric Vehicle Leasing',
+        'additional_services' => 'Additional Products & Services',
+        'online_operations' => 'Online Operations',
+        'delivery_return' => 'Vehicle Delivery & Return',
+    ],
+
+    // ─── Mega Menu — Resources ──────────────────────────────────────
+    'resources_menu' => [
+        'blog' => 'Blog',
+        'news' => 'News',
+        'faq' => 'FAQ',
+    ],
+
+    // ─── Vehicle Card ───────────────────────────────────────────────
+    'vehicle_card' => [
+        'fuel' => 'Fuel',
+        'transmission' => 'Trans.',
+        'body' => 'Body',
+        'seats' => 'Seats',
+        'monthly_from' => 'Monthly',
+        'view_details' => 'View Details',
+        'add_to_list' => 'Add to My List',
+        'remove_from_list' => 'Remove from List',
+        'compare' => 'Compare',
+        'campaign' => 'Campaign',
+        'premium' => 'Premium',
+        'fast_delivery' => 'Fast Delivery',
+    ],
+
+    // ─── Fuel / Transmission / Body Types ───────────────────────────
+    'fuel_types' => [
+        'benzin' => 'Gasoline',
+        'dizel' => 'Diesel',
+        'hibrit' => 'Hybrid',
+        'elektrik' => 'Electric',
+        'benzin-lpg' => 'Gasoline + LPG',
+    ],
+    'transmission_types' => [
+        'otomatik' => 'Automatic',
+        'manuel' => 'Manual',
+        'yarim-otomatik' => 'Semi-Automatic',
+    ],
+    'body_types' => [
+        'sedan' => 'Sedan',
+        'hatchback' => 'Hatchback',
+        'suv' => 'SUV',
+        'crossover' => 'Crossover',
+        'station-wagon' => 'Station Wagon',
+        'minivan' => 'Minivan',
+        'panelvan' => 'Panel Van',
+        'pickup' => 'Pickup',
+    ],
+    'categories' => [
+        'binek' => 'Passenger Vehicles',
+        'ticari' => 'Commercial Vehicles',
+        'elektrikli' => 'Electric Vehicles',
+        'kampanyali' => 'Campaign Vehicles',
+        'premium' => 'Premium Vehicles',
+        'hizli-teslim' => 'Fast Delivery Vehicles',
+    ],
+
+    // ─── Catalog ────────────────────────────────────────────────────
+    'catalog' => [
+        'title' => 'Vehicle Catalog',
+        'description' => 'Explore kzyfilo vehicle options and find the right one for you.',
+        'filters' => 'Filters',
+        'filter' => 'Filter',
+        'clear_filters' => 'Clear Filters',
+        'active_filters' => 'Active Filters',
+        'results_count' => ':count vehicles found',
+        'no_results' => 'No vehicles found matching your criteria.',
+        'no_results_desc' => 'Try changing your filters or browse all vehicles.',
+        'show_all' => 'Show All Vehicles',
+        'sort_by' => 'Sort By',
+        'sort_recommended' => 'Recommended',
+        'sort_price_asc' => 'Price (Low → High)',
+        'sort_price_desc' => 'Price (High → Low)',
+        'sort_brand_az' => 'Brand (A → Z)',
+        'sort_newest' => 'Newest',
+        'brand' => 'Brand',
+        'model' => 'Model',
+        'fuel' => 'Fuel Type',
+        'transmission' => 'Transmission',
+        'body_type' => 'Body Type',
+        'segment' => 'Segment',
+        'seats' => 'Seats',
+        'price_range' => 'Monthly Price Range',
+        'min_price' => 'Min Price',
+        'max_price' => 'Max Price',
+        'category' => 'Category',
+        'all' => 'All',
+        'campaign_only' => 'Campaign',
+        'premium_only' => 'Premium',
+        'fast_delivery_only' => 'Fast Delivery',
+    ],
+
+    // ─── Vehicle Detail ─────────────────────────────────────────────
+    'vehicle_detail' => [
+        'title' => 'Vehicle Detail',
+        'share' => 'Share',
+        'add_compare' => 'Add to Compare',
+        'monthly_rental' => 'Monthly Rental Fee',
+        'package' => 'Service Package',
+        'deposit' => 'Deposit',
+        'duration' => 'Lease Duration',
+        'annual_km' => 'Annual Mileage',
+        'vehicle_count' => 'Vehicle Count',
+        'custom_offer' => 'Let us prepare a custom offer for these options.',
+        'quick_quote' => 'Quick Quote',
+        'compare_packages' => 'Compare Packages',
+        'add_to_list' => 'Add to My List',
+        'call_me' => 'Call Me Back',
+        'similar_vehicles' => 'Similar Vehicles',
+        'tab_specs' => 'Technical Specs',
+        'tab_services' => 'Included & Add-on Services',
+        'tab_rental' => 'Rental Details',
+        'tab_faq' => 'FAQ',
+    ],
+
+    'spec_categories' => [
+        'engine' => 'Engine',
+        'fuel_performance' => 'Fuel & Performance',
+        'dimensions' => 'Dimensions & Weight',
+        'exterior' => 'Exterior',
+        'safety' => 'Safety',
+        'interior' => 'Interior & Comfort',
+        'connectivity' => 'Connectivity & Technology',
+    ],
+
+    // ─── Compare ────────────────────────────────────────────────────
+    'compare' => [
+        'title' => 'Vehicle Comparison',
+        'description' => 'Compare your selected vehicles side by side with technical specs and pricing.',
+        'compare_vehicles' => 'Compare',
+        'add_vehicle' => 'Add Vehicle to Compare',
+        'add_nth_vehicle' => '+ Add :n. Vehicle',
+        'remove' => 'Remove from Comparison',
+        'clear_all' => 'Clear Comparison',
+        'empty_title' => 'Comparison List is Empty',
+        'empty_desc' => 'Select vehicles from the catalog to compare up to 4 vehicles side by side.',
+        'go_to_catalog' => 'Go to Vehicle Catalog',
+        'highlight_diff' => 'Highlight Differences',
+        'max_warning' => 'You can compare up to 4 vehicles.',
+        'compare_now' => 'Compare',
+    ],
+
+    // ─── My List ────────────────────────────────────────────────────
+    'my_list' => [
+        'title' => 'My List',
+        'description' => 'List your favorite vehicles, compare them, and request a bulk quote.',
+        'clear_all' => 'Clear All',
+        'compare_selected' => 'Compare Selected',
+        'bulk_quote' => 'Request Bulk Quote',
+        'share_list' => 'Share List',
+        'empty_title' => 'Your List is Empty',
+        'empty_desc' => 'Add vehicles from the catalog to your list.',
+        'go_to_catalog' => 'Browse Vehicles',
+    ],
+
+    // ─── Package Compare ────────────────────────────────────────────
+    'package_compare' => [
+        'title' => 'Package Comparison',
+        'description' => 'Choose the best service package for your vehicle.',
+        'step_vehicle' => 'Vehicle Selection',
+        'step_options' => 'Leasing Options',
+        'step_packages' => 'Packages & Add-ons',
+        'step_info' => 'Your Information',
+        'step_summary' => 'Quote Summary',
+        'select_package' => 'Select Package',
+        'selected' => 'Selected',
+        'most_popular' => 'Most Popular',
+        'compare_all' => 'Compare All Features',
+        'included' => 'Included',
+        'not_included' => 'Not Included',
+        'additional_services' => 'Additional Services',
+        'add_service' => 'Add',
+        'remove_service' => 'Remove',
+        'more_info' => 'More Info',
+        'monthly_fee' => 'Monthly',
+        'one_time_fee' => 'One-time',
+        'continue_quote' => 'Continue to Quote',
+    ],
+
+    // ─── Quote Summary ──────────────────────────────────────────────
+    'quote_summary' => [
+        'title' => 'Quote Summary',
+        'vehicle_rent' => 'Monthly Vehicle Rental',
+        'package_fee' => 'Package Fee',
+        'monthly_extras' => 'Monthly Add-on Services',
+        'one_time_extras' => 'One-time Services',
+        'discount' => 'Discount',
+        'subtotal' => 'Monthly Subtotal (excl. VAT)',
+        'vat' => 'VAT (20%)',
+        'total' => 'Monthly Total (incl. VAT)',
+        'price_disclaimer' => 'The amount shown is an estimated monthly fee based on your selections. The final price will be confirmed after the quote is prepared by kzyfilo.',
+    ],
+
+    // ─── Quote Form ─────────────────────────────────────────────────
+    'quote_form' => [
+        'quick_title' => 'Quick Quote',
+        'quick_desc' => 'Enter your vehicle and leasing details to request a quick quote.',
+        'fleet_title' => 'Fleet Management Quote',
+        'fleet_desc' => 'Get a customized quote for your corporate fleet needs.',
+        'step_vehicle_info' => 'Vehicle & Leasing Info',
+        'step_personal' => 'Personal Information',
+        'step_corporate' => 'Corporate Information',
+        'step_confirm' => 'Confirmation & Summary',
+        'next' => 'Continue',
+        'previous' => 'Back',
+        'submit' => 'Request Quote',
+    ],
+
+    // ─── Form Fields ────────────────────────────────────────────────
+    'form' => [
+        'name' => 'First Name',
+        'surname' => 'Last Name',
+        'full_name' => 'Full Name',
+        'phone' => 'Phone',
+        'email' => 'Email',
+        'company' => 'Company Name',
+        'city' => 'City',
+        'sector' => 'Industry',
+        'vehicle_count' => 'Requested Vehicle Count',
+        'current_vehicles' => 'Current Vehicle Count',
+        'start_date' => 'Start Date',
+        'description' => 'Description',
+        'preferred_time' => 'Preferred Call Time',
+        'plate' => 'License Plate',
+        'operation_type' => 'Operation Type',
+        'file_upload' => 'Upload File',
+        'required' => 'Required field',
+        'optional' => 'Optional',
+        'select' => 'Select',
+        'kvkk_consent' => 'I have read and accept the KVKK Privacy Notice.',
+        'marketing_consent' => 'I would like to receive commercial electronic messages.',
+        'contact_email' => 'Contact via email',
+        'contact_sms' => 'Contact via SMS',
+        'contact_phone' => 'Contact via phone',
+        'send' => 'Send',
+        'sending' => 'Sending...',
+    ],
+
+    // ─── Form Errors ────────────────────────────────────────────────
+    'errors' => [
+        'required' => 'This field is required.',
+        'email' => 'Please enter a valid email address.',
+        'phone' => 'Please enter a valid phone number.',
+        'min_length' => 'Please enter at least :min characters.',
+        'max_length' => 'Please enter at most :max characters.',
+        'kvkk_required' => 'KVKK consent is required.',
+        'invalid_value' => 'Invalid value.',
+    ],
+
+    // ─── Success Messages ───────────────────────────────────────────
+    'success' => [
+        'quote_submitted' => 'Your quote request has been received.',
+        'quote_prototype_notice' => 'This is a frontend prototype. No actual quote has been created.',
+        'added_to_list' => 'Vehicle added to your list.',
+        'removed_from_list' => 'Vehicle removed from your list.',
+        'added_to_compare' => 'Vehicle added to comparison.',
+        'removed_from_compare' => 'Vehicle removed from comparison.',
+        'list_cleared' => 'Your list has been cleared.',
+    ],
+
+    // ─── Home ───────────────────────────────────────────────────────
+    'home' => [
+        'title' => 'Home',
+        'meta_desc' => 'Discover corporate vehicle leasing and fleet management solutions with kzyfilo.',
+        'hero_subtitle' => 'Corporate Fleet Solutions',
+        'hero_title_1' => 'Smart Fleet Management for Your Business',
+        'hero_desc_1' => 'Optimize your operating costs with long-term vehicle leasing.',
+        'hero_cta_vehicles' => 'Browse Vehicles',
+        'hero_cta_quote' => 'Get a Quote',
+        'search_title' => 'Find a Vehicle',
+        'search_btn' => 'Find Vehicle',
+        'featured_title' => 'Ready to Choose Your Smart Fleet Solution?',
+        'featured_subtitle' => 'Explore our corporate vehicle leasing options',
+        'categories_title' => 'Vehicle Categories',
+        'categories_subtitle' => 'Select the vehicle category that suits your needs',
+        'stats_title' => 'kzyfilo in Numbers',
+        'stats_subtitle' => 'Demo data',
+        'process_title' => 'How It Works',
+        'process_subtitle' => 'Corporate vehicle leasing in five steps',
+        'process_step1_title' => 'Filter Vehicles',
+        'process_step1_desc' => 'Filter and choose the vehicle that suits your needs.',
+        'process_step2_title' => 'Set Your Options',
+        'process_step2_desc' => 'Choose your package, duration, and mileage.',
+        'process_step3_title' => 'Add to Your List',
+        'process_step3_desc' => 'Add your preferred vehicle to your list.',
+        'process_step4_title' => 'Fill in Your Details',
+        'process_step4_desc' => 'Enter your personal and corporate information.',
+        'process_step5_title' => 'Await Your Quote',
+        'process_step5_desc' => 'Wait for a kzyfilo representative to contact you.',
+        'solutions_title' => 'Our Fleet Solutions',
+        'solutions_subtitle' => 'Solutions that add value to your business',
+        'sol_finance' => 'Flexible Financial Management',
+        'sol_finance_desc' => 'Enjoy financial flexibility with payment plans that fit your budget.',
+        'sol_invoice' => 'No-Surprise Billing',
+        'sol_invoice_desc' => 'Keep your budget under control with fixed monthly payments.',
+        'sol_time' => 'Time Savings',
+        'sol_time_desc' => 'Leave vehicle management to us and focus on your business.',
+        'sol_operations' => 'Operational Ease',
+        'sol_operations_desc' => 'Maintenance, insurance, tires, and all operational processes handled by us.',
+        'sol_maintenance' => 'Maintenance & Damage Management',
+        'sol_maintenance_desc' => 'Periodic maintenance at authorized centers and professional damage management.',
+        'sol_roadside' => 'Roadside Assistance',
+        'sol_roadside_desc' => '24/7 roadside assistance support — always by your side.',
+        'references_title' => 'Our References',
+        'references_subtitle' => 'Trusted by leading companies',
+        'resources_title' => 'Resources',
+        'resources_subtitle' => 'Blog, news, and latest content',
+        'cta_title' => 'Let\'s find the right vehicle for your fleet together.',
+        'cta_desc' => 'Contact us for your corporate vehicle leasing needs.',
+        'cta_vehicles' => 'Browse Vehicles',
+        'cta_quote' => 'Get a Quote',
+        'cta_call' => 'Call Me Back',
+    ],
+
+    // ─── Footer ─────────────────────────────────────────────────────
+    'footer' => [
+        'about_text' => 'kzyfilo is a corporate brand providing long-term vehicle leasing and fleet management services to companies and professionals.',
+        'menu_solutions' => 'Solutions',
+        'menu_corporate' => 'Corporate',
+        'menu_resources' => 'Resources',
+        'menu_legal' => 'Legal',
+        'sitemap' => 'Sitemap',
+        'kvkk' => 'KVKK',
+        'privacy' => 'Privacy Policy',
+        'cookies' => 'Cookie Policy',
+        'legal_notice' => 'Legal Notice',
+        'contact_info' => 'Contact Information',
+        'address' => 'Çobançeşme Mah. Kımız Sk. No:38/A NISSAN KUZEY PLAZA, Bahçelievler/İstanbul',
+        'copyright' => '© :year kzyfilo. All rights reserved.',
+        'all_rights' => 'All rights reserved.',
+    ],
+
+    // ─── Floating Contact ───────────────────────────────────────────
+    'floating' => [
+        'title' => 'How Can We Help?',
+        'contact_form' => 'Contact Form',
+        'phone' => 'Phone',
+        'whatsapp' => 'WhatsApp',
+        'faq' => 'FAQ',
+        'callback' => 'Call Me Back',
+    ],
+
+    // ─── Callback Modal ─────────────────────────────────────────────
+    'callback' => [
+        'title' => 'Call Me Back',
+        'desc' => 'Leave your details and we\'ll call you back.',
+        'preferred_time' => 'Preferred Call Time',
+        'time_morning' => 'Morning (09:00 - 12:00)',
+        'time_afternoon' => 'Afternoon (12:00 - 15:00)',
+        'time_evening' => 'Evening (15:00 - 18:00)',
+        'time_anytime' => 'Anytime',
+        'submit' => 'Request Callback',
+    ],
+
+    // ─── Cookie Banner ──────────────────────────────────────────────
+    'cookies' => [
+        'title' => 'Cookie Preferences',
+        'description' => 'This website uses cookies to improve your experience. Manage your preferences below.',
+        'required' => 'Required Cookies',
+        'required_desc' => 'Essential cookies for basic site functionality.',
+        'analytics' => 'Analytics Cookies',
+        'analytics_desc' => 'Help us analyze site usage.',
+        'marketing' => 'Marketing Cookies',
+        'marketing_desc' => 'Used to show personalized ads.',
+        'accept_all' => 'Accept All',
+        'accept_required' => 'Required Only',
+        'manage' => 'Manage Preferences',
+        'save' => 'Save Preferences',
+    ],
+
+    'breadcrumb' => [
+        'home' => 'Home',
+    ],
+
+    'error' => [
+        '404_title' => 'Page Not Found',
+        '404_desc' => 'The page you are looking for could not be found or may have been removed.',
+        '404_btn' => 'Go to Home',
+        '500_title' => 'Server Error',
+        '500_desc' => 'An unexpected error occurred. Please try again later.',
+        '500_btn' => 'Go to Home',
+    ],
+
+    'contact' => [
+        'title' => 'Contact',
+        'description' => 'Get in touch with kzyfilo for your questions and quote requests.',
+        'address_title' => 'Address',
+        'phone_title' => 'Phone',
+        'email_title' => 'Email',
+        'hours_title' => 'Working Hours',
+        'form_title' => 'Write to Us',
+        'whatsapp' => 'Contact via WhatsApp',
+    ],
+
+    'faq' => [
+        'title' => 'Frequently Asked Questions',
+        'description' => 'Common questions about long-term vehicle leasing and fleet management.',
+    ],
+
+    'about' => [
+        'title' => 'About Us',
+        'description' => 'Learn more about kzyfilo.',
+    ],
+
+    'services' => [
+        'title' => 'Solutions',
+        'description' => 'Discover kzyfilo corporate fleet solutions.',
+        'long_term_title' => 'Long-Term Vehicle Leasing',
+        'long_term_desc' => 'Flexible and advantageous long-term vehicle leasing solutions for your business.',
+        'fleet_title' => 'Fleet Management',
+        'fleet_desc' => 'Increase operational efficiency with professional fleet management.',
+        'passenger_title' => 'Passenger Vehicle Leasing',
+        'passenger_desc' => 'Corporate passenger vehicle leasing solutions.',
+        'commercial_title' => 'Commercial Vehicle Leasing',
+        'commercial_desc' => 'Commercial vehicle leasing options for your business.',
+        'electric_title' => 'Electric Vehicle Leasing',
+        'electric_desc' => 'Electric vehicle leasing for sustainable fleet management.',
+        'additional_title' => 'Additional Products & Services',
+        'additional_desc' => 'Additional products and services to support your fleet management.',
+        'delivery_title' => 'Vehicle Delivery & Return',
+        'delivery_desc' => 'Information about vehicle delivery and return processes.',
+    ],
+
+    'online' => [
+        'title' => 'Online Operations',
+        'description' => 'Submit your vehicle-related requests online.',
+        'maintenance' => 'Maintenance Request',
+        'damage' => 'Damage Report',
+        'tire' => 'Tire Service',
+        'replacement' => 'Replacement Vehicle',
+        'hgs' => 'HGS Transaction',
+        'fine' => 'Fine Processing',
+        'change' => 'Vehicle Change',
+        'return' => 'Vehicle Return',
+        'other' => 'Other',
+    ],
+
+    'content' => [
+        'blog' => 'Blog',
+        'news' => 'News',
+        'announcement' => 'Announcement',
+        'podcast' => 'Podcast',
+        'read_more' => 'Read More',
+        'listen' => 'Listen',
+        'min_read' => 'min read',
+        'min_listen' => 'min listen',
+        'published' => 'Published',
+        'blog_title' => 'Blog',
+        'blog_desc' => 'kzyfilo blog posts and industry content.',
+        'news_title' => 'News',
+        'news_desc' => 'kzyfilo news and announcements.',
+        'podcast_title' => 'Podcast',
+        'podcast_desc' => 'kzyfilo podcast content.',
+    ],
+
+    'btn' => [
+        'view_all' => 'View All',
+        'learn_more' => 'Learn More',
+        'back' => 'Back',
+        'close' => 'Close',
+        'save' => 'Save',
+        'cancel' => 'Cancel',
+        'confirm' => 'Confirm',
+        'scroll_top' => 'Back to Top',
+        'get_directions' => 'Get Directions',
+    ],
+
+    'references' => [
+        'title' => 'References',
+        'description' => 'kzyfilo references.',
+    ],
+
+    'offices' => [
+        'title' => 'Offices',
+        'description' => 'kzyfilo office and branch information.',
+        'filter_city' => 'Select City',
+        'all_cities' => 'All Cities',
+        'working_hours' => 'Working Hours',
+    ],
+
+    'return_points' => [
+        'title' => 'Vehicle Return Points',
+        'description' => 'kzyfilo vehicle return points.',
+        'create_request' => 'Create Return Request',
+    ],
+
+    'legal' => [
+        'kvkk_title' => 'KVKK Privacy Notice',
+        'privacy_title' => 'Privacy Policy',
+        'cookie_title' => 'Cookie Policy',
+        'legal_title' => 'Legal Notice',
+    ],
+
+    'sitemap' => [
+        'title' => 'Sitemap',
+        'description' => 'kzyfilo website pages.',
+    ],
+
+    'pagination' => [
+        'previous' => 'Previous',
+        'next' => 'Next',
+        'page' => 'Page :page',
+    ],
+];

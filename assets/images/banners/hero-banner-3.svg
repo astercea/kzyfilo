@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" fill="none">
+  <defs>
+    <linearGradient id="bgGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18181b"/>
+      <stop offset="100%" stop-color="#27272a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="600" fill="url(#bgGrad3)"/>
+  
+  <path d="M 1200 100 L 700 600 L 1200 600 Z" fill="#3f3f46" opacity="0.3"/>
+  <path d="M 0 0 L 500 0 L 200 600 L 0 600 Z" fill="#f15a24" opacity="0.1"/>
+
+  <!-- Luxury Sedan Silhouette -->
+  <g transform="translate(480, 160)">
+    <path d="M 40 200 C 90 200, 150 120, 230 110 C 340 90, 520 90, 610 110 C 660 120, 710 160, 730 200 L 20 200 Z" fill="#ffffff" opacity="0.95"/>
+    <circle cx="160" cy="200" r="46" fill="#09090b"/>
+    <circle cx="160" cy="200" r="30" fill="#a1a1aa"/>
+    <circle cx="590" cy="200" r="46" fill="#09090b"/>
+    <circle cx="590" cy="200" r="30" fill="#a1a1aa"/>
+  </g>
+</svg>

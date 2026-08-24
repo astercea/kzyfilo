@@ -1,0 +1,36 @@
+# Proje Görev Listesi: KZY Filo
+
+- [x] Aşama 1: Çekirdek Altyapı, Dil Sistemi ve Ortak Bileşenler <!-- id: 0 -->
+    - [x] Dil Altyapısı: `lang/tr.php` ve `lang/en.php` <!-- id: 1 -->
+    - [x] Logo SVGs: `kzy-filo-logo.svg`, `kzy-filo-logo-white.svg`, `kzy-star.svg` <!-- id: 2 -->
+    - [x] Yapılandırma ve Yardımcılar: `includes/config.php` <!-- id: 3 -->
+    - [x] CSS Tasarım Sistemi: `reset.css`, `variables.css`, `base.css`, `layout.css`, `components.css`, `pages.css`, `responsive.css` <!-- id: 4 -->
+    - [x] Ortak Bileşenler: `header.php`, `footer.php`, `language-switcher.php`, `mobile-menu.php`, `floating-contact.php`, `callback-modal.php`, `cookie-banner.php`, `vehicle-card.php`, `breadcrumbs.php` <!-- id: 5 -->
+    - [x] Ana JavaScript: `assets/js/app.js` ve `assets/js/favorites.js` <!-- id: 6 -->
+- [x] Aşama 2: Ana Sayfa Geliştirme (`index.php` ve `assets/js/slider.js`) <!-- id: 7 -->
+    - [x] Hero Slider, Hızlı Arama, Öne Çıkanlar Carousel, Kategoriler, İstatistikler (Demo), 5 Adımlı Süreç, Çözümler Accordion, Referanslar, Kaynaklar, CTA <!-- id: 8 -->
+- [x] Aşama 3: Veri Yapıları ve Araç Kataloğu (`data/*.php`, `araclar.php`, `assets/js/catalog.js`) <!-- id: 9 -->
+    - [x] Veri Dosyaları: `vehicles.php`, `packages.php`, `services.php`, `faqs.php`, `articles.php`, `locations.php` <!-- id: 10 -->
+    - [x] Katalog Sayfası: Masaüstü filtre sidebar, mobil filtre çekmecesi, aktif filtre etiketleri, sıralama, boş durum <!-- id: 11 -->
+- [x] Aşama 4: Araç Detay Sayfası (`arac-detay.php` ve `assets/js/quote.js`) <!-- id: 12 -->
+    - [x] Görsel galeri, teknik özellik sekmeleri, dinamik kiralama hesaplayıcı, paket karşılaştırma bağlantısı, benzer araçlar <!-- id: 13 -->
+- [x] Aşama 5: Listem ve Araç Karşılaştırma (`listem.php`, `arac-karsilastir.php`, `assets/js/vehicle-compare.js`) <!-- id: 14 -->
+    - [x] localStorage senkronizasyonu, 3 araç yan yana karşılaştırma tablosu, farkları vurgulama anahtarı, favori yönetimi <!-- id: 15 -->
+- [x] Aşama 6: Paket Karşılaştırma ve Teklif Özeti (`paket-karsilastir.php`, `assets/js/package-compare.js`) <!-- id: 16 -->
+    - [x] 3 seviye paket kartları, detaylı özellik matrisi, ek hizmet seçimleri, sticky dinamik fiyat kırılımı paneli <!-- id: 17 -->
+- [x] Aşama 7: Hızlı Teklif Formu (`hizli-teklif.php`, `assets/js/forms.js`) <!-- id: 18 -->
+    - [x] 4 adımlı form akışı, doğrulama, talep özeti, demo başarı ekranı <!-- id: 19 -->
+- [x] Aşama 8: Filo Yönetimi Teklif Formu (`filo-teklif.php`) <!-- id: 20 -->
+    - [x] Kurumsal filo ihtiyaç analiz formu, sektör ve adet tercihleri, başarı ekranı <!-- id: 21 -->
+- [x] Aşama 9: Çözümlerimiz — Hizmet Sayfaları <!-- id: 22 -->
+    - [x] `hizmetler.php`, `uzun-donem-arac-kiralama.php`, `filo-yonetimi.php`, `binek-arac-kiralama.php`, `ticari-arac-kiralama.php`, `elektrikli-arac-kiralama.php`, `ek-urun-ve-hizmetler.php`, `arac-teslim-ve-iade.php` <!-- id: 23 -->
+- [x] Aşama 10: Kurumsal ve İçerik Sayfaları <!-- id: 24 -->
+    - [x] `hakkimizda.php`, `referanslar.php`, `blog.php`, `blog-detay.php`, `haberler.php`, `podcast.php`, `sss.php`, `iletisim.php`, `site-haritasi.php` <!-- id: 25 -->
+- [x] Aşama 11: Online İşlemler ve Lokasyon Sayfaları <!-- id: 26 -->
+    - [x] `online-islemler.php`, `ofisler.php`, `arac-iade-noktalari.php` <!-- id: 27 -->
+- [x] Aşama 12: Yasal Sayfalar ve Hata Ekranları <!-- id: 28 -->
+    - [x] `kvkk.php`, `gizlilik.php`, `cerez-politikasi.php`, `yasal-uyari.php`, `404.php`, `500.php`, `robots.txt`, `sitemap.xml` <!-- id: 29 -->
+- [x] Aşama 13: Yönetim Paneli Frontend Prototipi (`admin/`) <!-- id: 30 -->
+    - [x] Dashboard (`index.php`), Araçlar (`araclar.php`, `arac-form.php`), Paketler (`paketler.php`), Fiyatlar (`fiyatlar.php`), Teklifler (`teklifler.php`, `teklif-detay.php`), Aranma Talepleri (`aranma-talepleri.php`), Online İşlemler (`online-islemler.php`), İçerikler (`icerikler.php`), SSS (`sss.php`), Ofisler (`ofisler.php`), SEO (`seo.php`), Ayarlar (`ayarlar.php`), Ortak şablonlar ve stiller <!-- id: 31 -->
+- [x] Aşama 14: Test, Doğrulama ve Teslim Hazırlığı <!-- id: 32 -->
+    - [x] PHP sözdizimi doğrulama (Tüm 60+ dosya hatasız test edildi) <!-- id: 33 -->

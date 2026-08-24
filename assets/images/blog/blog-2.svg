@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" fill="none">
+  <rect width="800" height="450" fill="#064e3b"/>
+  <rect x="50" y="50" width="700" height="350" rx="12" fill="#022c22"/>
+  
+  <circle cx="400" cy="200" r="80" stroke="#10b981" stroke-width="4" stroke-dasharray="8 8"/>
+  <polygon points="400 140 370 210 410 210 390 260 440 190 405 190" fill="#10b981"/>
+  
+  <text x="400" y="360" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="#6ee7b7" text-anchor="middle">ELEKTRİKLİ FİLO DÖNÜŞÜMÜ</text>
+</svg>
