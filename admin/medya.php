@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — Admin Medya Kütüphanesi (admin/medya.php)
  */
@@ -13,12 +13,12 @@ require_once __DIR__ . '/includes/admin-header.php';
     <button class="btn btn-primary btn-sm" onclick="adminNotice('Dosya yükleme penceresi açıldı')">+ Yeni Medya Yükle</button>
 </div>
 
-<!-- Yükleme Alanı Dropzone (Demo) -->
+<!-- Yükleme Alanı Dropzone -->
 <div class="admin-card mb-8">
     <div class="admin-card-body text-center py-12" style="border: 2px dashed var(--admin-border); border-radius: 8px; cursor: pointer;" onclick="adminNotice('Dosya seçimi tetiklendi')">
         <div style="font-size: 36px; margin-bottom: 8px;">📁</div>
         <h3 class="text-base fw-bold mb-1">Görselleri buraya sürükleyin veya dosya seçin</h3>
-        <p class="text-xs text-muted mb-0">PNG, JPG, SVG, WebP formatları desteklenmektedir (Maksimum 5 MB / Demo)</p>
+        <p class="text-xs text-muted mb-0">PNG, JPG, SVG, WebP formatları desteklenmektedir (Maksimum 5 MB)</p>
     </div>
 </div>
 

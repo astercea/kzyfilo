@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — Admin Giriş Ekranı (admin/login.php)
  */
@@ -32,10 +32,6 @@ require_once dirname(__DIR__) . '/includes/config.php';
             <div class="form-group mb-6">
                 <label style="color: #cbd5e1; font-size: 13px; display: block; margin-bottom: 6px; font-weight: 500;">Şifre</label>
                 <input type="password" class="form-input" value="••••••••••••" required style="background-color: #0f172a; border-color: #334155; color: #ffffff;">
-            </div>
-
-            <div class="demo-notice mb-6 p-2 text-center" style="border-radius: 6px; width: 100%; display: block; font-size: 11px;">
-                ℹ️ Frontend Prototip: Giriş butonuna tıklayarak doğrudan panele geçebilirsiniz.
             </div>
 
             <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px; font-size: 15px; font-weight: 600;">

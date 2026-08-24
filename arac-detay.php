@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — Araç Detay Sayfası (arac-detay.php)
  */
@@ -195,7 +195,6 @@ include includePath('breadcrumbs.php');
                 <div class="quote-sidebar-card card card-body sticky-panel" id="detail-quote-calculator">
                     <div class="flex flex-between items-center mb-4">
                         <h3 class="text-lg fw-bold mb-0">Teklifinizi Oluşturun</h3>
-                        <span class="badge badge-primary"><?php e('demo_price'); ?></span>
                     </div>
 
                     <form id="vehicle-quote-calculator-form" novalidate>

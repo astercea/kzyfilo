@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — Admin Header & Navigation Component
  */
@@ -98,12 +98,12 @@ function adminActive(string $page, string $activePage): string {
     <div class="admin-main-wrap">
         <header class="admin-topbar">
             <div class="flex items-center gap-3">
-                <span class="badge badge-warning">Frontend Prototip</span>
-                <span class="text-xs text-muted">Demo Yönetim Paneli</span>
+                <span class="badge badge-primary">kzyfilo</span>
+                <span class="text-xs text-muted">Yönetim Paneli</span>
             </div>
 
             <div class="flex items-center gap-4">
-                <span class="text-sm fw-semibold">Yönetici: <strong>Admin Demo</strong></span>
+                <span class="text-sm fw-semibold">Yönetici: <strong>Sistem Yöneticisi</strong></span>
                 <div style="width: 36px; height: 36px; border-radius: 50%; background-color: var(--color-primary); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: bold;">A</div>
             </div>
         </header>

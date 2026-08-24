@@ -129,7 +129,7 @@ $detailUrl = url('arac-detay.php', ['slug' => $vSlug]);
         <!-- Footer: Price & Actions -->
         <div class="vehicle-card-footer">
             <div class="vehicle-card-price">
-                <span class="vehicle-card-price-label"><?php e('vehicle_card.monthly_from'); ?> (<?php e('demo_price'); ?>)</span>
+                <span class="vehicle-card-price-label"><?php e('vehicle_card.monthly_from'); ?></span>
                 <div class="vehicle-card-price-value">
                     <?php echo number_format($vPrice, 0, ',', '.'); ?> <?php e('currency'); ?>
                     <span class="vehicle-card-price-suffix"><?php e('per_month'); ?> <?php e('vat_excluded'); ?></span>
