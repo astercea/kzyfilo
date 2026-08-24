@@ -455,9 +455,14 @@
 }
 
 .catalog-sort label {
-    font-size: var(--font-size-sm);
+    font-size: 13.5px;
+    font-weight: 500;
     color: var(--color-muted);
     white-space: nowrap;
+}
+
+.catalog-sort .custom-select-wrapper {
+    min-width: 195px;
 }
 
 /* ─── Active Filters ─────────────────────────────────────────────── */
