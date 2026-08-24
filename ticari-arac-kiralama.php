@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — Ticari Araç Kiralama (ticari-arac-kiralama.php)
  */
@@ -18,9 +18,7 @@ $breadcrumbs = [
     ['title' => t('solutions_menu.commercial_rental')]
 ];
 
-include includePath('header.php');
-include includePath('breadcrumbs.php');
-?>
+include includePath('header.php');?>
 
 <div class="service-hero">
     <div class="container">
@@ -33,7 +31,8 @@ include includePath('breadcrumbs.php');
             <div class="flex gap-4">
                 <a href="<?php echo url('araclar.php', ['kategori' => 'ticari']); ?>" class="btn btn-primary btn-lg"><?php e('home.hero_cta_vehicles'); ?></a>
                 <a href="<?php echo url('hizli-teklif.php'); ?>" class="btn btn-outline btn-lg"><?php e('header.get_quote'); ?></a>
-            </div>
+                    <?php include includePath('breadcrumbs.php'); ?>
+    </div>
         </div>
     </div>
 </div>

@@ -1,6 +1,8 @@
 <?php
 /**
- * kzyfilo — Araç Veri Listesi
+ * kzyfilo — Demo Araç Veri Listesi
+ * 
+ * Tüm araçlar demo amaçlıdır. "Demo Fiyat" etiketleriyle gösterilir.
  */
 
 return [

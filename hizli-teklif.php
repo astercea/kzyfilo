@@ -19,14 +19,12 @@ $breadcrumbs = [
     ['title' => t('quote_form.quick_title')]
 ];
 
-include includePath('header.php');
-include includePath('breadcrumbs.php');
-?>
+include includePath('header.php');?>
 
 <div class="page-header">
-    <div class="container container-narrow text-center">
+    <div class="container">
         <h1><?php e('quote_form.quick_title'); ?></h1>
-        <p><?php e('quote_form.quick_desc'); ?></p>
+        <?php include includePath('breadcrumbs.php'); ?>
     </div>
 </div>
 
@@ -291,6 +289,9 @@ include includePath('breadcrumbs.php');
             <p class="text-muted max-w-md mx-auto mb-6">
                 <?php echo (CURRENT_LANG === 'tr') ? 'Filo danışmanımız başvurunuzu inceledikten sonra belirttiğiniz iletişim kanalları üzerinden en kısa sürede size özel teklif dosyasıyla dönüş yapacaktır.' : 'Our fleet consultant will review your request and get back to you shortly with a customized quote.'; ?>
             </p>
+            <div class="demo-notice mb-8 p-3" style="border-radius: var(--radius-md);">
+                ℹ️ <?php e('success.quote_prototype_notice'); ?>
+            </div>
             <div class="flex gap-4 justify-center">
                 <a href="<?php echo url('index.php'); ?>" class="btn btn-primary"><?php e('error.404_btn'); ?></a>
                 <a href="<?php echo url('araclar.php'); ?>" class="btn btn-outline"><?php e('home.hero_cta_vehicles'); ?></a>

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — SSS (Sıkça Sorulan Sorular) (sss.php)
  */
@@ -16,14 +16,12 @@ $breadcrumbs = [
     ['title' => t('faq.title')]
 ];
 
-include includePath('header.php');
-include includePath('breadcrumbs.php');
-?>
+include includePath('header.php');?>
 
 <div class="page-header">
-    <div class="container text-center">
+    <div class="container">
         <h1><?php e('faq.title'); ?></h1>
-        <p><?php e('faq.description'); ?></p>
+        <?php include includePath('breadcrumbs.php'); ?>
     </div>
 </div>
 

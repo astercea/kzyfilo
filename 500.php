@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — 500 Sunucu Hatası (500.php)
  */
@@ -16,9 +16,7 @@ $breadcrumbs = [
     ['title' => t('error.500_title')]
 ];
 
-include includePath('header.php');
-include includePath('breadcrumbs.php');
-?>
+include includePath('header.php');?>
 
 <section class="section">
     <div class="container text-center">

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — Filo Yönetimi Hizmet Sayfası (filo-yonetimi.php)
  */
@@ -15,9 +15,7 @@ $breadcrumbs = [
     ['title' => t('solutions_menu.fleet_management')]
 ];
 
-include includePath('header.php');
-include includePath('breadcrumbs.php');
-?>
+include includePath('header.php');?>
 
 <div class="service-hero">
     <div class="container">
@@ -30,7 +28,8 @@ include includePath('breadcrumbs.php');
             <div class="flex gap-4">
                 <a href="<?php echo url('filo-teklif.php'); ?>" class="btn btn-primary btn-lg"><?php e('quote_form.fleet_title'); ?></a>
                 <button type="button" class="btn btn-outline btn-lg" data-open-modal="callback"><?php e('home.cta_call'); ?></button>
-            </div>
+                    <?php include includePath('breadcrumbs.php'); ?>
+    </div>
         </div>
     </div>
 </div>

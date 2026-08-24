@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — KVKK Aydınlatma Metni (kvkk.php)
  */
@@ -14,14 +14,12 @@ $breadcrumbs = [
     ['title' => t('legal.kvkk_title')]
 ];
 
-include includePath('header.php');
-include includePath('breadcrumbs.php');
-?>
+include includePath('header.php');?>
 
 <div class="page-header">
-    <div class="container text-center">
+    <div class="container">
         <h1><?php e('legal.kvkk_title'); ?></h1>
-        <p>6698 Sayılı Kişisel Verilerin Korunması Kanunu Kapsamında Bilgilendirme</p>
+        <?php include includePath('breadcrumbs.php'); ?>
     </div>
 </div>
 

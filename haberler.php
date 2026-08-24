@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — Haberler ve Duyurular (haberler.php)
  */
@@ -18,14 +18,12 @@ $breadcrumbs = [
     ['title' => t('content.news_title')]
 ];
 
-include includePath('header.php');
-include includePath('breadcrumbs.php');
-?>
+include includePath('header.php');?>
 
 <div class="page-header">
-    <div class="container text-center">
+    <div class="container">
         <h1><?php e('content.news_title'); ?></h1>
-        <p><?php e('content.news_desc'); ?></p>
+        <?php include includePath('breadcrumbs.php'); ?>
     </div>
 </div>
 

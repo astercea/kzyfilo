@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — Admin İçerik Yönetimi (admin/icerikler.php)
  */

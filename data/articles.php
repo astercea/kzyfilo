@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — Blog ve Haber İçerikleri
  */

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — Çerez Politikası (cerez-politikasi.php)
  */
@@ -14,14 +14,12 @@ $breadcrumbs = [
     ['title' => t('legal.cookie_title')]
 ];
 
-include includePath('header.php');
-include includePath('breadcrumbs.php');
-?>
+include includePath('header.php');?>
 
 <div class="page-header">
-    <div class="container text-center">
+    <div class="container">
         <h1><?php e('legal.cookie_title'); ?></h1>
-        <p>Web sitemizdeki çerez türleri ve kullanım amaçları</p>
+        <?php include includePath('breadcrumbs.php'); ?>
     </div>
 </div>
 

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — Araç Kataloğu (araclar.php)
  */
@@ -29,14 +29,12 @@ $breadcrumbs = [
     ['title' => t('catalog.title')]
 ];
 
-include includePath('header.php');
-include includePath('breadcrumbs.php');
-?>
+include includePath('header.php');?>
 
 <div class="page-header">
     <div class="container">
         <h1><?php e('catalog.title'); ?></h1>
-        <p><?php e('catalog.description'); ?></p>
+        <?php include includePath('breadcrumbs.php'); ?>
     </div>
 </div>
 

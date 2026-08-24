@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — Ofislerimiz (ofisler.php)
  */
@@ -17,14 +17,12 @@ $breadcrumbs = [
     ['title' => t('offices.title')]
 ];
 
-include includePath('header.php');
-include includePath('breadcrumbs.php');
-?>
+include includePath('header.php');?>
 
 <div class="page-header">
-    <div class="container text-center">
+    <div class="container">
         <h1><?php e('offices.title'); ?></h1>
-        <p><?php e('offices.description'); ?></p>
+        <?php include includePath('breadcrumbs.php'); ?>
     </div>
 </div>
 

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — Araç Teslim ve İade Rehberi (arac-teslim-ve-iade.php)
  */
@@ -15,9 +15,7 @@ $breadcrumbs = [
     ['title' => t('solutions_menu.delivery_return')]
 ];
 
-include includePath('header.php');
-include includePath('breadcrumbs.php');
-?>
+include includePath('header.php');?>
 
 <div class="service-hero">
     <div class="container text-center">

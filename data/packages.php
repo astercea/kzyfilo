@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — Hizmet Paketleri Demo Verisi
  * 

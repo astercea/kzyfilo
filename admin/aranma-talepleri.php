@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — Admin Aranma Talepleri (admin/aranma-talepleri.php)
  */

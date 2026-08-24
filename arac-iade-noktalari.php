@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — Araç İade Noktaları (arac-iade-noktalari.php)
  */
@@ -18,14 +18,12 @@ $breadcrumbs = [
     ['title' => t('return_points.title')]
 ];
 
-include includePath('header.php');
-include includePath('breadcrumbs.php');
-?>
+include includePath('header.php');?>
 
 <div class="page-header">
-    <div class="container text-center">
+    <div class="container">
         <h1><?php e('return_points.title'); ?></h1>
-        <p>Sözleşme sonu ekspertiz ve araç teslim/iade lokasyonlarımız</p>
+        <?php include includePath('breadcrumbs.php'); ?>
     </div>
 </div>
 

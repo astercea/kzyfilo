@@ -1,4 +1,4 @@
-﻿/**
+/**
  * kzyfilo — Teklif Hesaplama ve Seçim Yönetimi (sessionStorage)
  */
 

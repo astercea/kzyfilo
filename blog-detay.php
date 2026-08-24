@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — Blog Detay Sayfası (blog-detay.php)
  */
@@ -32,19 +32,23 @@ $breadcrumbs = [
     ['title' => $article['title'] ?? 'Detay']
 ];
 
-include includePath('header.php');
-include includePath('breadcrumbs.php');
-?>
+include includePath('header.php');?>
+
+<div class="page-header">
+    <div class="container container-narrow">
+        <h1><?php echo esc($article['title']); ?></h1>
+        <?php include includePath('breadcrumbs.php'); ?>
+    </div>
+</div>
 
 <article class="section">
     <div class="container container-narrow">
         <div class="mb-6">
-            <div class="flex items-center gap-3 text-xs text-muted mb-3">
+            <div class="flex items-center gap-3 text-xs text-muted mb-4">
                 <span class="badge badge-primary"><?php echo strtoupper($article['type']); ?></span>
                 <span><?php echo date('d F Y', strtotime($article['date'])); ?></span>
                 <span>• <?php echo esc($article['read_time']); ?> <?php e('content.min_read'); ?></span>
             </div>
-            <h1 class="text-3xl mb-4"><?php echo esc($article['title']); ?></h1>
             <p class="text-lg text-muted"><?php echo esc($article['summary']); ?></p>
         </div>
 

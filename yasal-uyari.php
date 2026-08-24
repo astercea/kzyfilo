@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — Yasal Uyarı (yasal-uyari.php)
  */
@@ -14,14 +14,12 @@ $breadcrumbs = [
     ['title' => t('legal.legal_title')]
 ];
 
-include includePath('header.php');
-include includePath('breadcrumbs.php');
-?>
+include includePath('header.php');?>
 
 <div class="page-header">
-    <div class="container text-center">
+    <div class="container">
         <h1><?php e('legal.legal_title'); ?></h1>
-        <p>Web Sitesi Kullanım Koşulları ve Yasal Şartlar</p>
+        <?php include includePath('breadcrumbs.php'); ?>
     </div>
 </div>
 

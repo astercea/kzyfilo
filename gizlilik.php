@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — Gizlilik Politikası (gizlilik.php)
  */
@@ -14,14 +14,12 @@ $breadcrumbs = [
     ['title' => t('legal.privacy_title')]
 ];
 
-include includePath('header.php');
-include includePath('breadcrumbs.php');
-?>
+include includePath('header.php');?>
 
 <div class="page-header">
-    <div class="container text-center">
+    <div class="container">
         <h1><?php e('legal.privacy_title'); ?></h1>
-        <p>Gizliliğinize ve kurumsal veri güvenliğinize önem veriyoruz</p>
+        <?php include includePath('breadcrumbs.php'); ?>
     </div>
 </div>
 

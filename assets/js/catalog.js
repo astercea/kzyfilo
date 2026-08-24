@@ -1,4 +1,4 @@
-﻿/**
+/**
  * kzyfilo — Araç Kataloğu Filtreleme ve Sıralama JavaScript Modülü
  */
 

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — Admin SSS Yönetimi (admin/sss.php)
  */

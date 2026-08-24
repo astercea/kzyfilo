@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — Hakkımızda (hakkimizda.php)
  */
@@ -14,14 +14,12 @@ $breadcrumbs = [
     ['title' => t('about.title')]
 ];
 
-include includePath('header.php');
-include includePath('breadcrumbs.php');
-?>
+include includePath('header.php');?>
 
 <div class="page-header">
-    <div class="container text-center">
+    <div class="container">
         <h1><?php e('about.title'); ?></h1>
-        <p><?php e('site_tagline'); ?></p>
+        <?php include includePath('breadcrumbs.php'); ?>
     </div>
 </div>
 

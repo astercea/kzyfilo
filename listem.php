@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — Listem (Favori Araçlar) (listem.php)
  */
@@ -16,14 +16,12 @@ $breadcrumbs = [
     ['title' => t('my_list.title')]
 ];
 
-include includePath('header.php');
-include includePath('breadcrumbs.php');
-?>
+include includePath('header.php');?>
 
 <div class="page-header">
     <div class="container">
         <h1><?php e('my_list.title'); ?></h1>
-        <p><?php e('my_list.description'); ?></p>
+        <?php include includePath('breadcrumbs.php'); ?>
     </div>
 </div>
 

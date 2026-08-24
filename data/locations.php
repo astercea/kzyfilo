@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — Ofisler ve Araç İade Noktaları Demo Verisi
  */

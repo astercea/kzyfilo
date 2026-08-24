@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — Ek Ürün ve Hizmetler (ek-urun-ve-hizmetler.php)
  */
@@ -17,9 +17,7 @@ $breadcrumbs = [
     ['title' => t('solutions_menu.additional_services')]
 ];
 
-include includePath('header.php');
-include includePath('breadcrumbs.php');
-?>
+include includePath('header.php');?>
 
 <div class="service-hero">
     <div class="container text-center">
@@ -47,7 +45,8 @@ include includePath('breadcrumbs.php');
                         <p class="text-xs text-dark" style="background-color: var(--color-surface-soft); padding: 12px; border-radius: 8px;">
                             ℹ️ <?php echo esc($service['info']); ?>
                         </p>
-                    </div>
+                            <?php include includePath('breadcrumbs.php'); ?>
+    </div>
                 </div>
             <?php endforeach; ?>
         </div>

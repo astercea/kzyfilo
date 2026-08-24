@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — Admin Haber ve Duyuru Yönetimi (admin/haberler.php)
  */

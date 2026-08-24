@@ -29,7 +29,7 @@ require_once __DIR__ . '/includes/admin-header.php';
             <?php for ($i = 1; $i <= 6; $i++): ?>
                 <tr>
                     <td><strong><?php echo $i; ?></strong></td>
-                    <td><strong>Kurumsal Referans <?php echo $i; ?></strong></td>
+                    <td><strong>Kurumsal Referans <?php echo $i; ?> (Demo)</strong></td>
                     <td>Lojistik / Sanayi</td>
                     <td><span class="badge badge-light">Nötr Logo <?php echo $i; ?></span></td>
                     <td><span class="status-badge status-approved">Aktif</span></td>

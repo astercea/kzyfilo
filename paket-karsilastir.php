@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — Paket Karşılaştırma ve Teklif Özeti (paket-karsilastir.php)
  */
@@ -37,12 +37,17 @@ $breadcrumbs = [
     ['title' => t('package_compare.title')]
 ];
 
-include includePath('header.php');
-include includePath('breadcrumbs.php');
-?>
+include includePath('header.php');?>
+
+<div class="page-header">
+    <div class="container">
+        <h1><?php e('package_compare.title'); ?></h1>
+        <?php include includePath('breadcrumbs.php'); ?>
+    </div>
+</div>
 
 <!-- ─── PROGRESS PIPELINE ─────────────────────────────────────────── -->
-<div class="container">
+<div class="container" style="padding-top: var(--space-6);">
     <div class="progress-steps">
         <div class="progress-step is-completed">
             <span class="progress-step-number">✓</span>

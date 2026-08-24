@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — Admin Blog Yönetimi (admin/blog.php)
  */

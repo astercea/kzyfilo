@@ -17,14 +17,12 @@ $breadcrumbs = [
     ['title' => t('compare.title')]
 ];
 
-include includePath('header.php');
-include includePath('breadcrumbs.php');
-?>
+include includePath('header.php');?>
 
 <div class="page-header">
     <div class="container">
         <h1><?php e('compare.title'); ?></h1>
-        <p><?php e('compare.description'); ?></p>
+        <?php include includePath('breadcrumbs.php'); ?>
     </div>
 </div>
 

@@ -34,7 +34,7 @@ $id = $_GET['id'] ?? null;
                     <input type="text" class="form-input" required value="<?php echo $id ? '1.0 TCe Evolution 90 BG' : ''; ?>" placeholder="Örn: 1.0 TCe Evolution 90 BG">
                 </div>
                 <div class="form-group">
-                    <label class="form-label">Başlangıç Fiyatı (₺/ay) <span class="required">*</span></label>
+                    <label class="form-label">Başlangıç Demo Fiyatı (₺/ay) <span class="required">*</span></label>
                     <input type="number" class="form-input" required value="<?php echo $id ? '14850' : '15000'; ?>">
                 </div>
             </div>

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — HTML Site Haritası (site-haritasi.php)
  */
@@ -14,14 +14,12 @@ $breadcrumbs = [
     ['title' => t('sitemap.title')]
 ];
 
-include includePath('header.php');
-include includePath('breadcrumbs.php');
-?>
+include includePath('header.php');?>
 
 <div class="page-header">
-    <div class="container text-center">
+    <div class="container">
         <h1><?php e('sitemap.title'); ?></h1>
-        <p><?php e('sitemap.description'); ?></p>
+        <?php include includePath('breadcrumbs.php'); ?>
     </div>
 </div>
 

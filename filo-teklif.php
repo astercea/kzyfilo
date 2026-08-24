@@ -14,14 +14,12 @@ $breadcrumbs = [
     ['title' => t('quote_form.fleet_title')]
 ];
 
-include includePath('header.php');
-include includePath('breadcrumbs.php');
-?>
+include includePath('header.php');?>
 
 <div class="page-header">
-    <div class="container container-narrow text-center">
+    <div class="container">
         <h1><?php e('quote_form.fleet_title'); ?></h1>
-        <p><?php e('quote_form.fleet_desc'); ?></p>
+        <?php include includePath('breadcrumbs.php'); ?>
     </div>
 </div>
 
@@ -142,6 +140,12 @@ include includePath('breadcrumbs.php');
                 </svg>
             </div>
             <h2 class="text-2xl mb-3"><?php e('success.quote_submitted'); ?></h2>
+            <p class="text-muted max-w-md mx-auto mb-6">
+                <?php echo (CURRENT_LANG === 'tr') ? 'Kurumsal filo yönetim uzmanımız talebinizi inceleyerek en geç 1 iş günü içinde şirketiniz için hazırlanan kapsamlı teklif dosyasıyla iletişime geçecektir.' : 'Our corporate fleet specialist will review your request and get back to you within 1 business day.'; ?>
+            </p>
+            <div class="demo-notice mb-8 p-3" style="border-radius: var(--radius-md);">
+                ℹ️ <?php e('success.quote_prototype_notice'); ?>
+            </div>
             <div class="flex gap-4 justify-center">
                 <a href="<?php echo url('index.php'); ?>" class="btn btn-primary"><?php e('error.404_btn'); ?></a>
                 <a href="<?php echo url('filo-yonetimi.php'); ?>" class="btn btn-outline"><?php e('solutions_menu.fleet_management'); ?></a>
