@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — Blog Detay Sayfası (blog-detay.php)
  */
@@ -33,20 +33,24 @@ $breadcrumbs = [
 ];
 
 include includePath('header.php');
-include includePath('breadcrumbs.php');
 ?>
+
+<div class="page-header">
+    <div class="container container-narrow">
+        <div class="flex items-center gap-3 text-xs text-muted mb-3">
+            <span class="badge badge-primary"><?php echo strtoupper($article['type']); ?></span>
+            <span><?php echo date('d F Y', strtotime($article['date'])); ?></span>
+            <span>• <?php echo esc($article['read_time']); ?> <?php e('content.min_read'); ?></span>
+        </div>
+        <h1><?php echo esc($article['title']); ?></h1>
+        <p><?php echo esc($article['summary']); ?></p>
+    </div>
+</div>
+
+<?php include includePath('breadcrumbs.php'); ?>
 
 <article class="section">
     <div class="container container-narrow">
-        <div class="mb-6">
-            <div class="flex items-center gap-3 text-xs text-muted mb-3">
-                <span class="badge badge-primary"><?php echo strtoupper($article['type']); ?></span>
-                <span><?php echo date('d F Y', strtotime($article['date'])); ?></span>
-                <span>• <?php echo esc($article['read_time']); ?> <?php e('content.min_read'); ?></span>
-            </div>
-            <h1 class="text-3xl mb-4"><?php echo esc($article['title']); ?></h1>
-            <p class="text-lg text-muted"><?php echo esc($article['summary']); ?></p>
-        </div>
 
         <div class="card overflow-hidden mb-8">
             <img src="<?php echo esc($article['image']); ?>" alt="<?php echo esc($article['title']); ?>" class="card-img" style="aspect-ratio: 16/9; max-height: 440px;">

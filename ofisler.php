@@ -1,6 +1,6 @@
-ï»¿<?php
+<?php
 /**
- * kzyfilo â€” Ofislerimiz (ofisler.php)
+ * kzyfilo — Ofislerimiz (ofisler.php)
  */
 require_once __DIR__ . '/includes/config.php';
 
@@ -18,7 +18,6 @@ $breadcrumbs = [
 ];
 
 include includePath('header.php');
-include includePath('breadcrumbs.php');
 ?>
 
 <div class="page-header">
@@ -26,11 +25,13 @@ include includePath('breadcrumbs.php');
         <h1><?php e('offices.title'); ?></h1>
         <p><?php e('offices.description'); ?></p>
     </div>
+
+<?php include includePath('breadcrumbs.php'); ?>
 </div>
 
 <section class="section">
     <div class="container">
-        <!-- Ofis KartlarÄ± -->
+        <!-- Ofis Kartlarý -->
         <div class="grid grid-2 gap-8 mb-12">
             <?php foreach ($offices as $office): ?>
                 <div class="card card-body flex flex-col justify-between">
@@ -38,7 +39,7 @@ include includePath('breadcrumbs.php');
                         <div class="flex flex-between items-start mb-3">
                             <h3 class="text-xl"><?php echo esc($office['name']); ?></h3>
                             <?php if (!empty($office['is_headquarters'])): ?>
-                                <span class="badge badge-primary">Genel MÃ¼dÃ¼rlÃ¼k</span>
+                                <span class="badge badge-primary">Genel Müdürlük</span>
                             <?php else: ?>
                                 <span class="badge badge-light"><?php echo esc($office['city']); ?></span>
                             <?php endif; ?>
@@ -64,13 +65,13 @@ include includePath('breadcrumbs.php');
 
                         <div class="flex gap-2 flex-wrap mb-6">
                             <?php foreach ($office['services'] as $srv): ?>
-                                <span class="badge badge-light text-xs">â€¢ <?php echo esc($srv); ?></span>
+                                <span class="badge badge-light text-xs">• <?php echo esc($srv); ?></span>
                             <?php endforeach; ?>
                         </div>
                     </div>
 
                     <a href="https://maps.google.com/?q=<?php echo urlencode($office['address']); ?>" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
-                        <?php e('btn.get_directions'); ?> â†—
+                        <?php e('btn.get_directions'); ?> ?
                     </a>
                 </div>
             <?php endforeach; ?>

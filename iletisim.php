@@ -1,6 +1,6 @@
-ï»¿<?php
+<?php
 /**
- * kzyfilo â€” Ä°letiÅŸim SayfasÄ± (iletisim.php)
+ * kzyfilo — Ýletiþim Sayfasý (iletisim.php)
  */
 require_once __DIR__ . '/includes/config.php';
 
@@ -15,7 +15,6 @@ $breadcrumbs = [
 ];
 
 include includePath('header.php');
-include includePath('breadcrumbs.php');
 ?>
 
 <div class="page-header">
@@ -23,13 +22,15 @@ include includePath('breadcrumbs.php');
         <h1><?php e('contact.title'); ?></h1>
         <p><?php e('contact.description'); ?></p>
     </div>
+
+<?php include includePath('breadcrumbs.php'); ?>
 </div>
 
 <section class="section">
     <div class="container">
         <div class="layout-sidebar-right">
             
-            <!-- â”€â”€â”€ Sol: Ä°letiÅŸim Formu â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+            <!-- ¦¦¦ Sol: Ýletiþim Formu ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ -->
             <div>
                 <div class="card card-body">
                     <h2 class="text-2xl mb-6"><?php e('contact.form_title'); ?></h2>
@@ -58,22 +59,22 @@ include includePath('breadcrumbs.php');
 
                         <div class="form-group">
                             <label for="c-company" class="form-label"><?php e('form.company'); ?></label>
-                            <input type="text" id="c-company" name="company" class="form-input" placeholder="Åžirket AdÄ± (Opsiyonel)">
+                            <input type="text" id="c-company" name="company" class="form-input" placeholder="Þirket Adý (Opsiyonel)">
                         </div>
 
                         <div class="form-group">
                             <label for="c-subject" class="form-label"><?php echo (CURRENT_LANG === 'tr') ? 'Konu' : 'Subject'; ?> <span class="required">*</span></label>
                             <select id="c-subject" name="subject" class="form-select" required>
                                 <option value="quote"><?php echo (CURRENT_LANG === 'tr') ? 'Kurumsal Kiralama Teklifi' : 'Corporate Leasing Quote'; ?></option>
-                                <option value="fleet"><?php echo (CURRENT_LANG === 'tr') ? 'Filo YÃ¶netimi DanÄ±ÅŸmanlÄ±ÄŸÄ±' : 'Fleet Management Consulting'; ?></option>
-                                <option value="operations"><?php echo (CURRENT_LANG === 'tr') ? 'Mevcut AraÃ§ & Operasyonel Talep' : 'Existing Vehicle & Operational Request'; ?></option>
-                                <option value="other"><?php echo (CURRENT_LANG === 'tr') ? 'DiÄŸer Konular' : 'Other Inquiries'; ?></option>
+                                <option value="fleet"><?php echo (CURRENT_LANG === 'tr') ? 'Filo Yönetimi Danýþmanlýðý' : 'Fleet Management Consulting'; ?></option>
+                                <option value="operations"><?php echo (CURRENT_LANG === 'tr') ? 'Mevcut Araç & Operasyonel Talep' : 'Existing Vehicle & Operational Request'; ?></option>
+                                <option value="other"><?php echo (CURRENT_LANG === 'tr') ? 'Diðer Konular' : 'Other Inquiries'; ?></option>
                             </select>
                         </div>
 
                         <div class="form-group">
                             <label for="c-message" class="form-label"><?php e('form.description'); ?> <span class="required">*</span></label>
-                            <textarea id="c-message" name="message" class="form-textarea" rows="4" required placeholder="MesajÄ±nÄ±zÄ± buraya yazÄ±nÄ±z..."></textarea>
+                            <textarea id="c-message" name="message" class="form-textarea" rows="4" required placeholder="Mesajýnýzý buraya yazýnýz..."></textarea>
                         </div>
 
                         <div class="form-group">
@@ -94,7 +95,7 @@ include includePath('breadcrumbs.php');
                 </div>
             </div>
 
-            <!-- â”€â”€â”€ SaÄŸ: GerÃ§ek Ä°letiÅŸim Bilgileri KartÄ± â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+            <!-- ¦¦¦ Sað: Gerçek Ýletiþim Bilgileri Kartý ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ -->
             <aside>
                 <div class="card card-body flex flex-col gap-6">
                     <h3 class="text-xl"><?php e('footer.contact_info'); ?></h3>
@@ -149,8 +150,8 @@ include includePath('breadcrumbs.php');
 <script>
     document.getElementById('contact-page-form').addEventListener('submit', function(e) {
         e.preventDefault();
-        // TODO: Backend API iletiÅŸimi
-        window.showToast('MesajÄ±nÄ±z baÅŸarÄ±yla iletildi. (Frontend Prototip)', 'success', 5000);
+        // TODO: Backend API iletiþimi
+        window.showToast('Mesajýnýz baþarýyla iletildi. (Frontend Prototip)', 'success', 5000);
         this.reset();
     });
 </script>

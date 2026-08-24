@@ -1,6 +1,6 @@
-ï»¿<?php
+<?php
 /**
- * kzyfilo â€” AraÃ§ Ä°ade NoktalarÄ± (arac-iade-noktalari.php)
+ * kzyfilo — Araç Ýade Noktalarý (arac-iade-noktalari.php)
  */
 require_once __DIR__ . '/includes/config.php';
 
@@ -19,14 +19,15 @@ $breadcrumbs = [
 ];
 
 include includePath('header.php');
-include includePath('breadcrumbs.php');
 ?>
 
 <div class="page-header">
     <div class="container text-center">
         <h1><?php e('return_points.title'); ?></h1>
-        <p>SÃ¶zleÅŸme sonu ekspertiz ve araÃ§ teslim/iade lokasyonlarÄ±mÄ±z</p>
+        <p>Sözleþme sonu ekspertiz ve araç teslim/iade lokasyonlarýmýz</p>
     </div>
+
+<?php include includePath('breadcrumbs.php'); ?>
 </div>
 
 <section class="section">
@@ -44,12 +45,12 @@ include includePath('breadcrumbs.php');
                             <p class="mb-1"><strong>Adres:</strong> <?php echo esc($point['address']); ?></p>
                             <p class="mb-1"><strong>Telefon:</strong> <a href="tel:<?php e('topbar.phone_full'); ?>"><?php echo esc($point['phone']); ?></a></p>
                             <p class="mb-1"><strong>Kabul Saatleri:</strong> <?php echo esc($point['hours']); ?></p>
-                            <p class="mb-0 text-success">âœ“ Uzman Ekspertiz Personeli Mevcut</p>
+                            <p class="mb-0 text-success">? Uzman Ekspertiz Personeli Mevcut</p>
                         </div>
                     </div>
 
                     <a href="<?php echo url('online-islemler.php'); ?>" class="btn btn-outline btn-sm">
-                        Ä°ade Randevusu OluÅŸtur â†’
+                        Ýade Randevusu Oluþtur ›
                     </a>
                 </div>
             <?php endforeach; ?>

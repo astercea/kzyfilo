@@ -1,6 +1,6 @@
-ï»¿<?php
+<?php
 /**
- * kzyfilo â€” Elektrikli AraÃ§ Kiralama (elektrikli-arac-kiralama.php)
+ * kzyfilo — Elektrikli Araç Kiralama (elektrikli-arac-kiralama.php)
  */
 require_once __DIR__ . '/includes/config.php';
 
@@ -9,7 +9,7 @@ $evVehicles = array_filter($vehicles, fn($v) => $v['category'] === 'elektrikli')
 
 setPageMeta([
     'title' => t('solutions_menu.electric_rental') . ' | ' . SITE_NAME,
-    'description' => 'SÃ¼rdÃ¼rÃ¼lebilir, Ã§evreci ve yÃ¼ksek verimli elektrikli araÃ§ filosu kiralama Ã§Ã¶zÃ¼mleri.',
+    'description' => 'Sürdürülebilir, çevreci ve yüksek verimli elektrikli araç filosu kiralama çözümleri.',
     'canonical' => canonical('elektrikli-arac-kiralama.php'),
 ]);
 
@@ -19,30 +19,31 @@ $breadcrumbs = [
 ];
 
 include includePath('header.php');
-include includePath('breadcrumbs.php');
 ?>
 
 <div class="service-hero">
     <div class="container">
         <div class="max-w-xl">
-            <span class="hero-subtitle">GeleceÄŸin Mobilite Vizyonu</span>
+            <span class="hero-subtitle">Geleceğin Mobilite Vizyonu</span>
             <h1 class="text-4xl mb-4"><?php e('solutions_menu.electric_rental'); ?></h1>
             <p class="text-lg text-muted mb-6">
-                SÄ±fÄ±r egzoz emisyonu, ultra sessiz sÃ¼rÃ¼ÅŸ ve %70'e varan yakÄ±t/enerji tasarrufu ile ÅŸirketinizin yeÅŸil filo dÃ¶nÃ¼ÅŸÃ¼mÃ¼nÃ¼ baÅŸlatÄ±n.
+                Sıfır egzoz emisyonu, ultra sessiz sürüş ve %70'e varan yakıt/enerji tasarrufu ile şirketinizin yeşil filo dönüşümünü başlatın.
             </p>
             <div class="flex gap-4">
                 <a href="<?php echo url('araclar.php', ['kategori' => 'elektrikli']); ?>" class="btn btn-primary btn-lg"><?php e('home.hero_cta_vehicles'); ?></a>
                 <a href="<?php echo url('hizli-teklif.php'); ?>" class="btn btn-outline btn-lg"><?php e('header.get_quote'); ?></a>
             </div>
         </div>
+
+<?php include includePath('breadcrumbs.php'); ?>
     </div>
 </div>
 
 <section class="section">
     <div class="container">
         <div class="flex flex-between mb-8">
-            <h2 class="text-2xl">Ã–ne Ã‡Ä±kan Elektrikli AraÃ§lar</h2>
-            <a href="<?php echo url('araclar.php', ['kategori' => 'elektrikli']); ?>" class="btn btn-outline btn-sm">TÃ¼m Elektrikli AraÃ§lar â†’</a>
+            <h2 class="text-2xl">Öne Çıkan Elektrikli Araçlar</h2>
+            <a href="<?php echo url('araclar.php', ['kategori' => 'elektrikli']); ?>" class="btn btn-outline btn-sm">Tüm Elektrikli Araçlar ›</a>
         </div>
 
         <div class="grid grid-3 gap-6 mb-16">
@@ -53,19 +54,19 @@ include includePath('breadcrumbs.php');
 
         <div class="service-features">
             <div class="service-feature-card">
-                <div class="service-feature-icon">ğŸŒ±</div>
-                <h4 class="text-base mb-2">Kurumsal SÃ¼rdÃ¼rÃ¼lebilirlik & ESG</h4>
-                <p class="text-sm text-muted">Åirketinizin karbon ayak izini azaltÄ±n, yeÅŸil mutabakat ve uluslararasÄ± sÃ¼rdÃ¼rÃ¼lebilirlik raporlarÄ±nda Ã¶ne geÃ§in.</p>
+                <div class="service-feature-icon">??</div>
+                <h4 class="text-base mb-2">Kurumsal Sürdürülebilirlik & ESG</h4>
+                <p class="text-sm text-muted">Şirketinizin karbon ayak izini azaltın, yeşil mutabakat ve uluslararası sürdürülebilirlik raporlarında öne geçin.</p>
             </div>
             <div class="service-feature-card">
-                <div class="service-feature-icon">ğŸ”‹</div>
-                <h4 class="text-base mb-2">Åarj Ä°stasyonu DanÄ±ÅŸmanlÄ±ÄŸÄ±</h4>
-                <p class="text-sm text-muted">Åirket genel merkeziniz veya otoparklarÄ±nÄ±z iÃ§in kurumsal AC/DC ÅŸarj altyapÄ±sÄ± Ã§Ã¶zÃ¼mleri.</p>
+                <div class="service-feature-icon">??</div>
+                <h4 class="text-base mb-2">Şarj İstasyonu Danışmanlığı</h4>
+                <p class="text-sm text-muted">Şirket genel merkeziniz veya otoparklarınız için kurumsal AC/DC şarj altyapısı çözümleri.</p>
             </div>
             <div class="service-feature-card">
-                <div class="service-feature-icon">ğŸ’¡</div>
-                <h4 class="text-base mb-2">DÃ¼ÅŸÃ¼k BakÄ±m ve Enerji Gideri</h4>
-                <p class="text-sm text-muted">Elektrik motorlarÄ±nÄ±n basit mekanik yapÄ±sÄ± sayesinde dÃ¼ÅŸÃ¼k periyodik bakÄ±m maliyetleri ve ekonomik kilometre baÅŸÄ± maliyet.</p>
+                <div class="service-feature-icon">??</div>
+                <h4 class="text-base mb-2">Düşük Bakım ve Enerji Gideri</h4>
+                <p class="text-sm text-muted">Elektrik motorlarının basit mekanik yapısı sayesinde düşük periyodik bakım maliyetleri ve ekonomik kilometre başı maliyet.</p>
             </div>
         </div>
     </div>

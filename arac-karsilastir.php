@@ -18,7 +18,6 @@ $breadcrumbs = [
 ];
 
 include includePath('header.php');
-include includePath('breadcrumbs.php');
 ?>
 
 <div class="page-header">
@@ -26,6 +25,8 @@ include includePath('breadcrumbs.php');
         <h1><?php e('compare.title'); ?></h1>
         <p><?php e('compare.description'); ?></p>
     </div>
+
+<?php include includePath('breadcrumbs.php'); ?>
 </div>
 
 <section class="section">

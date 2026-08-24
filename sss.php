@@ -1,6 +1,6 @@
-ï»¿<?php
+<?php
 /**
- * kzyfilo â€” SSS (SÄ±kÃ§a Sorulan Sorular) (sss.php)
+ * kzyfilo — SSS (Sıkça Sorulan Sorular) (sss.php)
  */
 require_once __DIR__ . '/includes/config.php';
 
@@ -17,7 +17,6 @@ $breadcrumbs = [
 ];
 
 include includePath('header.php');
-include includePath('breadcrumbs.php');
 ?>
 
 <div class="page-header">
@@ -25,6 +24,8 @@ include includePath('breadcrumbs.php');
         <h1><?php e('faq.title'); ?></h1>
         <p><?php e('faq.description'); ?></p>
     </div>
+
+<?php include includePath('breadcrumbs.php'); ?>
 </div>
 
 <section class="section">
@@ -55,8 +56,8 @@ include includePath('breadcrumbs.php');
 
         <!-- Sorunuz mu var CTA -->
         <div class="card card-body p-8 text-center bg-surface-soft mt-12">
-            <h3 class="text-xl mb-2">BaÅŸka Bir Sorunuz mu Var?</h3>
-            <p class="text-muted text-sm mb-4">Filo uzmanlarÄ±mÄ±z tÃ¼m sorularÄ±nÄ±zÄ± yanÄ±tlamaktan memnuniyet duyacaktÄ±r.</p>
+            <h3 class="text-xl mb-2">Başka Bir Sorunuz mu Var?</h3>
+            <p class="text-muted text-sm mb-4">Filo uzmanlarımız tüm sorularınızı yanıtlamaktan memnuniyet duyacaktır.</p>
             <div class="flex gap-4 justify-center">
                 <a href="<?php echo url('iletisim.php'); ?>" class="btn btn-primary"><?php e('header.contact'); ?></a>
                 <button type="button" class="btn btn-outline" data-open-modal="callback"><?php e('home.cta_call'); ?></button>

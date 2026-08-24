@@ -1,12 +1,12 @@
-ï»¿<?php
+<?php
 /**
- * kzyfilo â€” KVKK AydÄ±nlatma Metni (kvkk.php)
+ * kzyfilo — KVKK Aydınlatma Metni (kvkk.php)
  */
 require_once __DIR__ . '/includes/config.php';
 
 setPageMeta([
     'title' => t('legal.kvkk_title') . ' | ' . SITE_NAME,
-    'description' => 'kzyfilo KiÅŸisel Verilerin KorunmasÄ± Kanunu (KVKK) AydÄ±nlatma Metni.',
+    'description' => 'kzyfilo Kişisel Verilerin Korunması Kanunu (KVKK) Aydınlatma Metni.',
     'canonical' => canonical('kvkk.php'),
 ]);
 
@@ -15,14 +15,15 @@ $breadcrumbs = [
 ];
 
 include includePath('header.php');
-include includePath('breadcrumbs.php');
 ?>
 
 <div class="page-header">
     <div class="container text-center">
         <h1><?php e('legal.kvkk_title'); ?></h1>
-        <p>6698 SayÄ±lÄ± KiÅŸisel Verilerin KorunmasÄ± Kanunu KapsamÄ±nda Bilgilendirme</p>
+        <p>6698 Sayılı Kişisel Verilerin Korunması Kanunu Kapsamında Bilgilendirme</p>
     </div>
+
+<?php include includePath('breadcrumbs.php'); ?>
 </div>
 
 <section class="section">
@@ -30,26 +31,26 @@ include includePath('breadcrumbs.php');
         <div class="card card-body text-sm" style="line-height: 1.8;">
             <h3 class="text-base fw-bold mb-3">1. Veri Sorumlusu</h3>
             <p>
-                6698 sayÄ±lÄ± KiÅŸisel Verilerin KorunmasÄ± Kanunu (â€œKVKKâ€) uyarÄ±nca, kzyfilo (â€œÅirketâ€) olarak, veri sorumlusu sÄ±fatÄ±yla, kiÅŸisel verilerinizi aÅŸaÄŸÄ±da aÃ§Ä±klanan amaÃ§lar kapsamÄ±nda; hukuka ve dÃ¼rÃ¼stlÃ¼k kurallarÄ±na uygun bir ÅŸekilde iÅŸleyebilecek, kaydedebilecek, saklayabilecek ve mevzuatÄ±n izin verdiÄŸi hallerde Ã¼Ã§Ã¼ncÃ¼ kiÅŸilere aktarabilecektir.
+                6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”) uyarınca, kzyfilo (“Şirket”) olarak, veri sorumlusu sıfatıyla, kişisel verilerinizi aşağıda açıklanan amaçlar kapsamında; hukuka ve dürüstlük kurallarına uygun bir şekilde işleyebilecek, kaydedebilecek, saklayabilecek ve mevzuatın izin verdiği hallerde üçüncü kişilere aktarabilecektir.
             </p>
 
-            <h3 class="text-base fw-bold my-4">2. KiÅŸisel Verilerin Ä°ÅŸlenme AmaÃ§larÄ±</h3>
+            <h3 class="text-base fw-bold my-4">2. Kişisel Verilerin İşlenme Amaçları</h3>
             <p>
-                Toplanan kiÅŸisel verileriniz; kurumsal filo kiralama ve filo yÃ¶netimi hizmetlerimizin sunulabilmesi, teklif ve sÃ¶zleÅŸme sÃ¼reÃ§lerinin yÃ¼rÃ¼tÃ¼lmesi, mÃ¼ÅŸteri iliÅŸkileri yÃ¶netimi, faturalandÄ±rma ve yasal yÃ¼kÃ¼mlÃ¼lÃ¼klerin yerine getirilmesi amaÃ§larÄ±yla iÅŸlenmektedir.
+                Toplanan kişisel verileriniz; kurumsal filo kiralama ve filo yönetimi hizmetlerimizin sunulabilmesi, teklif ve sözleşme süreçlerinin yürütülmesi, müşteri ilişkileri yönetimi, faturalandırma ve yasal yükümlülüklerin yerine getirilmesi amaçlarıyla işlenmektedir.
             </p>
 
-            <h3 class="text-base fw-bold my-4">3. Ä°ÅŸlenen KiÅŸisel Verilerin AktarÄ±lmasÄ±</h3>
+            <h3 class="text-base fw-bold my-4">3. İşlenen Kişisel Verilerin Aktarılması</h3>
             <p>
-                KiÅŸisel verileriniz; yetkili kamu kurum ve kuruluÅŸlarÄ±na, adli makamlara, kanunen yetkili Ã¶zel hukuk tÃ¼zel kiÅŸilerine ve hizmetlerimizin ifasÄ± amacÄ±yla anlaÅŸmalÄ± yetkili servis, sigorta ÅŸirketleri ve finans kuruluÅŸlarÄ±na kanunun 8. ve 9. maddelerine uygun olarak aktarÄ±labilecektir.
+                Kişisel verileriniz; yetkili kamu kurum ve kuruluşlarına, adli makamlara, kanunen yetkili özel hukuk tüzel kişilerine ve hizmetlerimizin ifası amacıyla anlaşmalı yetkili servis, sigorta şirketleri ve finans kuruluşlarına kanunun 8. ve 9. maddelerine uygun olarak aktarılabilecektir.
             </p>
 
-            <h3 class="text-base fw-bold my-4">4. Ä°lgili KiÅŸinin HaklarÄ±</h3>
+            <h3 class="text-base fw-bold my-4">4. İlgili Kişinin Hakları</h3>
             <p>
-                KVKKâ€™nÄ±n 11. maddesi uyarÄ±nca veri sahipleri; kiÅŸisel verilerinin iÅŸlenip iÅŸlenmediÄŸini Ã¶ÄŸrenme, iÅŸlenmiÅŸse buna iliÅŸkin bilgi talep etme, silinmesini veya dÃ¼zeltilmesini isteme ve kanuna aykÄ±rÄ± iÅŸleme sebebiyle zarara uÄŸramasÄ± halinde zararÄ±n giderilmesini talep etme haklarÄ±na sahiptir.
+                KVKK’nın 11. maddesi uyarınca veri sahipleri; kişisel verilerinin işlenip işlenmediğini öğrenme, işlenmişse buna ilişkin bilgi talep etme, silinmesini veya düzeltilmesini isteme ve kanuna aykırı işleme sebebiyle zarara uğraması halinde zararın giderilmesini talep etme haklarına sahiptir.
             </p>
 
             <p class="mt-6 text-muted text-xs">
-                Son GÃ¼ncelleme: 24 AÄŸustos 2026 | kzyfilo YÃ¶netimi
+                Son Güncelleme: 24 Ağustos 2026 | kzyfilo Yönetimi
             </p>
         </div>
     </div>

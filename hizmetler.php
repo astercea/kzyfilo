@@ -1,6 +1,6 @@
-ï»¿<?php
+<?php
 /**
- * kzyfilo â€” Genel Ã‡Ã¶zÃ¼mlerimiz SayfasÄ± (hizmetler.php)
+ * kzyfilo — Genel Çözümlerimiz Sayfasý (hizmetler.php)
  */
 require_once __DIR__ . '/includes/config.php';
 
@@ -15,7 +15,6 @@ $breadcrumbs = [
 ];
 
 include includePath('header.php');
-include includePath('breadcrumbs.php');
 ?>
 
 <div class="page-header">
@@ -23,12 +22,14 @@ include includePath('breadcrumbs.php');
         <h1><?php e('services.title'); ?></h1>
         <p><?php e('services.description'); ?></p>
     </div>
+
+<?php include includePath('breadcrumbs.php'); ?>
 </div>
 
 <section class="section">
     <div class="container">
         <div class="grid grid-3 gap-8">
-            <!-- 1. Uzun DÃ¶nem AraÃ§ Kiralama -->
+            <!-- 1. Uzun Dönem Araç Kiralama -->
             <div class="card card-body flex flex-col justify-between">
                 <div>
                     <div class="service-feature-icon">
@@ -40,14 +41,14 @@ include includePath('breadcrumbs.php');
                         </svg>
                     </div>
                     <h3 class="text-xl mb-2"><?php e('solutions_menu.long_term_rental'); ?></h3>
-                    <p class="text-sm text-muted mb-4"><?php echo (CURRENT_LANG === 'tr') ? '12 aydan 48 aya varan esnek kiralama vadeleri, sÄ±fÄ±r sermaye baÄŸlama ve tam vergi avantajÄ± ile ÅŸirketinizi bÃ¼yÃ¼tÃ¼n.' : 'Grow your business with flexible 12 to 48 months leases, zero capital lock-in, and total tax benefits.'; ?></p>
+                    <p class="text-sm text-muted mb-4"><?php echo (CURRENT_LANG === 'tr') ? '12 aydan 48 aya varan esnek kiralama vadeleri, sýfýr sermaye baðlama ve tam vergi avantajý ile þirketinizi büyütün.' : 'Grow your business with flexible 12 to 48 months leases, zero capital lock-in, and total tax benefits.'; ?></p>
                 </div>
                 <a href="<?php echo url('uzun-donem-arac-kiralama.php'); ?>" class="btn btn-outline btn-sm">
-                    <?php e('btn.learn_more'); ?> â†’
+                    <?php e('btn.learn_more'); ?> ›
                 </a>
             </div>
 
-            <!-- 2. Filo YÃ¶netimi -->
+            <!-- 2. Filo Yönetimi -->
             <div class="card card-body flex flex-col justify-between">
                 <div>
                     <div class="service-feature-icon">
@@ -56,14 +57,14 @@ include includePath('breadcrumbs.php');
                         </svg>
                     </div>
                     <h3 class="text-xl mb-2"><?php e('solutions_menu.fleet_management'); ?></h3>
-                    <p class="text-sm text-muted mb-4"><?php echo (CURRENT_LANG === 'tr') ? 'BakÄ±m, hasar, telematik ve yakÄ±t yÃ¶netimini tek Ã§atÄ± altÄ±nda toplayarak filo maliyetlerinizi optimize edin.' : 'Optimize fleet costs by bringing maintenance, damage, telematics, and fuel management under one roof.'; ?></p>
+                    <p class="text-sm text-muted mb-4"><?php echo (CURRENT_LANG === 'tr') ? 'Bakým, hasar, telematik ve yakýt yönetimini tek çatý altýnda toplayarak filo maliyetlerinizi optimize edin.' : 'Optimize fleet costs by bringing maintenance, damage, telematics, and fuel management under one roof.'; ?></p>
                 </div>
                 <a href="<?php echo url('filo-yonetimi.php'); ?>" class="btn btn-outline btn-sm">
-                    <?php e('btn.learn_more'); ?> â†’
+                    <?php e('btn.learn_more'); ?> ›
                 </a>
             </div>
 
-            <!-- 3. Binek AraÃ§ Kiralama -->
+            <!-- 3. Binek Araç Kiralama -->
             <div class="card card-body flex flex-col justify-between">
                 <div>
                     <div class="service-feature-icon">
@@ -74,14 +75,14 @@ include includePath('breadcrumbs.php');
                         </svg>
                     </div>
                     <h3 class="text-xl mb-2"><?php e('solutions_menu.passenger_rental'); ?></h3>
-                    <p class="text-sm text-muted mb-4"><?php echo (CURRENT_LANG === 'tr') ? 'Saha satÄ±ÅŸtan Ã¼st dÃ¼zey yÃ¶netici araÃ§larÄ±na kadar geniÅŸ sedan, hatchback ve SUV model seÃ§enekleri.' : 'Extensive sedan, hatchback, and SUV models from field sales to executive fleet cars.'; ?></p>
+                    <p class="text-sm text-muted mb-4"><?php echo (CURRENT_LANG === 'tr') ? 'Saha satýþtan üst düzey yönetici araçlarýna kadar geniþ sedan, hatchback ve SUV model seçenekleri.' : 'Extensive sedan, hatchback, and SUV models from field sales to executive fleet cars.'; ?></p>
                 </div>
                 <a href="<?php echo url('binek-arac-kiralama.php'); ?>" class="btn btn-outline btn-sm">
-                    <?php e('btn.learn_more'); ?> â†’
+                    <?php e('btn.learn_more'); ?> ›
                 </a>
             </div>
 
-            <!-- 4. Ticari AraÃ§ Kiralama -->
+            <!-- 4. Ticari Araç Kiralama -->
             <div class="card card-body flex flex-col justify-between">
                 <div>
                     <div class="service-feature-icon">
@@ -93,14 +94,14 @@ include includePath('breadcrumbs.php');
                         </svg>
                     </div>
                     <h3 class="text-xl mb-2"><?php e('solutions_menu.commercial_rental'); ?></h3>
-                    <p class="text-sm text-muted mb-4"><?php echo (CURRENT_LANG === 'tr') ? 'Hafif ticari, minivan ve panelvan araÃ§larla lojistik ve saha operasyonlarÄ±nÄ±zda maksimum taÅŸÄ±ma verimliliÄŸi.' : 'Maximum transport efficiency for logistics and field operations with light commercial and van vehicles.'; ?></p>
+                    <p class="text-sm text-muted mb-4"><?php echo (CURRENT_LANG === 'tr') ? 'Hafif ticari, minivan ve panelvan araçlarla lojistik ve saha operasyonlarýnýzda maksimum taþýma verimliliði.' : 'Maximum transport efficiency for logistics and field operations with light commercial and van vehicles.'; ?></p>
                 </div>
                 <a href="<?php echo url('ticari-arac-kiralama.php'); ?>" class="btn btn-outline btn-sm">
-                    <?php e('btn.learn_more'); ?> â†’
+                    <?php e('btn.learn_more'); ?> ›
                 </a>
             </div>
 
-            <!-- 5. Elektrikli AraÃ§ Kiralama -->
+            <!-- 5. Elektrikli Araç Kiralama -->
             <div class="card card-body flex flex-col justify-between">
                 <div>
                     <div class="service-feature-icon">
@@ -109,14 +110,14 @@ include includePath('breadcrumbs.php');
                         </svg>
                     </div>
                     <h3 class="text-xl mb-2"><?php e('solutions_menu.electric_rental'); ?></h3>
-                    <p class="text-sm text-muted mb-4"><?php echo (CURRENT_LANG === 'tr') ? '%100 elektrikli ve hibrit filo filosuyla Ã§evresel sÃ¼rdÃ¼rÃ¼lebilirliÄŸe katkÄ± saÄŸlayÄ±n, yakÄ±ttan tasarruf edin.' : 'Contribute to environmental sustainability and save on fuel with 100% electric and hybrid fleets.'; ?></p>
+                    <p class="text-sm text-muted mb-4"><?php echo (CURRENT_LANG === 'tr') ? '%100 elektrikli ve hibrit filo filosuyla çevresel sürdürülebilirliðe katký saðlayýn, yakýttan tasarruf edin.' : 'Contribute to environmental sustainability and save on fuel with 100% electric and hybrid fleets.'; ?></p>
                 </div>
                 <a href="<?php echo url('elektrikli-arac-kiralama.php'); ?>" class="btn btn-outline btn-sm">
-                    <?php e('btn.learn_more'); ?> â†’
+                    <?php e('btn.learn_more'); ?> ›
                 </a>
             </div>
 
-            <!-- 6. Ek ÃœrÃ¼n ve Hizmetler -->
+            <!-- 6. Ek Ürün ve Hizmetler -->
             <div class="card card-body flex flex-col justify-between">
                 <div>
                     <div class="service-feature-icon">
@@ -126,10 +127,10 @@ include includePath('breadcrumbs.php');
                         </svg>
                     </div>
                     <h3 class="text-xl mb-2"><?php e('solutions_menu.additional_services'); ?></h3>
-                    <p class="text-sm text-muted mb-4"><?php echo (CURRENT_LANG === 'tr') ? 'Lastik oteli, ek sÃ¼rÃ¼cÃ¼, GPS takip, VIP teslimat ve mini hasar paketi gibi katma deÄŸerli Ã§Ã¶zÃ¼mler.' : 'Value-added solutions such as tire hotel, extra driver, GPS tracking, VIP delivery, and mini damage cover.'; ?></p>
+                    <p class="text-sm text-muted mb-4"><?php echo (CURRENT_LANG === 'tr') ? 'Lastik oteli, ek sürücü, GPS takip, VIP teslimat ve mini hasar paketi gibi katma deðerli çözümler.' : 'Value-added solutions such as tire hotel, extra driver, GPS tracking, VIP delivery, and mini damage cover.'; ?></p>
                 </div>
                 <a href="<?php echo url('ek-urun-ve-hizmetler.php'); ?>" class="btn btn-outline btn-sm">
-                    <?php e('btn.learn_more'); ?> â†’
+                    <?php e('btn.learn_more'); ?> ›
                 </a>
             </div>
         </div>

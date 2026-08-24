@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — Paket Karşılaştırma ve Teklif Özeti (paket-karsilastir.php)
  */
@@ -38,11 +38,19 @@ $breadcrumbs = [
 ];
 
 include includePath('header.php');
-include includePath('breadcrumbs.php');
 ?>
 
+<div class="page-header">
+    <div class="container">
+        <h1><?php e('package_compare.title'); ?></h1>
+        <p><?php echo esc($selectedVehicle['brand'] . ' ' . $selectedVehicle['model'] . ' ' . $selectedVehicle['version']); ?> <?php e('package_compare.description'); ?></p>
+    </div>
+</div>
+
+<?php include includePath('breadcrumbs.php'); ?>
+
 <!-- ─── PROGRESS PIPELINE ─────────────────────────────────────────── -->
-<div class="container">
+<div class="container" style="padding-top: var(--space-6);">
     <div class="progress-steps">
         <div class="progress-step is-completed">
             <span class="progress-step-number">✓</span>

@@ -35,6 +35,7 @@ include includePath('header.php');
                         <p class="hero-desc"><?php e('home.hero_desc_1'); ?></p>
 
                         <div class="hero-price">
+                            <span class="demo-notice"><?php e('demo_price'); ?></span>
                             <span class="hero-price-value">14.850 <?php e('currency'); ?></span>
                             <span class="hero-price-suffix"><?php e('per_month'); ?> <?php e('vat_excluded'); ?></span>
                         </div>
@@ -63,6 +64,7 @@ include includePath('header.php');
                         <p class="hero-desc"><?php echo (CURRENT_LANG === 'tr') ? 'Sıfır emisyon ve düşük yakıt maliyetiyle geleceğin kurumsal filosunu bugün kurun.' : 'Build the corporate fleet of the future today with zero emissions and low fuel costs.'; ?></p>
 
                         <div class="hero-price">
+                            <span class="demo-notice"><?php e('demo_price'); ?></span>
                             <span class="hero-price-value">26.200 <?php e('currency'); ?></span>
                             <span class="hero-price-suffix"><?php e('per_month'); ?> <?php e('vat_excluded'); ?></span>
                         </div>
@@ -91,6 +93,7 @@ include includePath('header.php');
                         <p class="hero-desc"><?php echo (CURRENT_LANG === 'tr') ? 'Üst segment sedan ve SUV modelleriyle yöneticilerinize kusursuz sürüş ayrıcalığı yaşatın.' : 'Provide your executives with premium driving privilege with luxury sedans and SUVs.'; ?></p>
 
                         <div class="hero-price">
+                            <span class="demo-notice"><?php e('demo_price'); ?></span>
                             <span class="hero-price-value">46.500 <?php e('currency'); ?></span>
                             <span class="hero-price-suffix"><?php e('per_month'); ?> <?php e('vat_excluded'); ?></span>
                         </div>
@@ -335,22 +338,22 @@ include includePath('header.php');
     </div>
 </section>
 
-<!-- ─── 5. İSTATİSTİKLER ───────────────────────────────────────────── -->
+<!-- ─── 5. İSTATİSTİKLER (DEMO) ───────────────────────────────────── -->
 <section class="section section-bg" aria-labelledby="stats-title">
     <div class="container">
         <div class="section-header">
             <h2 id="stats-title"><?php e('home.stats_title'); ?></h2>
-            <p><?php e('home.stats_subtitle'); ?></p>
+            <p><span class="demo-notice"><?php e('home.stats_subtitle'); ?></span></p>
         </div>
 
         <div class="stats-grid">
             <div class="stat-item card">
                 <div class="stat-number" data-target="10000" data-suffix="+">10.000+</div>
-                <div class="stat-label"><?php echo (CURRENT_LANG === 'tr') ? 'Aktif Filo Aracı' : 'Active Fleet Vehicles'; ?></div>
+                <div class="stat-label"><?php echo (CURRENT_LANG === 'tr') ? 'Aktif Filo Aracı (Demo)' : 'Active Fleet Vehicles (Demo)'; ?></div>
             </div>
             <div class="stat-item card">
                 <div class="stat-number" data-target="1250" data-suffix="+">1.250+</div>
-                <div class="stat-label"><?php echo (CURRENT_LANG === 'tr') ? 'Kurumsal Müşteri' : 'Corporate Clients'; ?></div>
+                <div class="stat-label"><?php echo (CURRENT_LANG === 'tr') ? 'Kurumsal Müşteri (Demo)' : 'Corporate Clients (Demo)'; ?></div>
             </div>
             <div class="stat-item card">
                 <div class="stat-number" data-target="81">81</div>
@@ -358,7 +361,7 @@ include includePath('header.php');
             </div>
             <div class="stat-item card">
                 <div class="stat-number" data-target="98" data-prefix="%" data-suffix="">%98</div>
-                <div class="stat-label"><?php echo (CURRENT_LANG === 'tr') ? 'Müşteri Memnuniyeti' : 'Customer Satisfaction'; ?></div>
+                <div class="stat-label"><?php echo (CURRENT_LANG === 'tr') ? 'Müşteri Memnuniyeti (Demo)' : 'Customer Satisfaction (Demo)'; ?></div>
             </div>
             <div class="stat-item card">
                 <div class="stat-number" data-target="24" data-suffix="/7">7/24</div>
@@ -372,46 +375,126 @@ include includePath('header.php');
 <section class="section" aria-labelledby="process-title">
     <div class="container">
         <div class="section-header">
-            <span class="section-subtitle"><?php e('home.process_subtitle'); ?></span>
             <h2 id="process-title"><?php e('home.process_title'); ?></h2>
+            <p><?php e('home.process_subtitle'); ?></p>
         </div>
 
         <div class="process-steps">
+            <!-- Adım 1 -->
             <div class="process-step">
                 <div class="process-step-number">1</div>
-                <h4 class="process-step-title"><?php e('home.process_step_1_title'); ?></h4>
-                <p class="process-step-desc"><?php e('home.process_step_1_desc'); ?></p>
+                <div class="process-step-connector" aria-hidden="true"></div>
+                <h4><?php e('home.process_step1_title'); ?></h4>
+                <p><?php e('home.process_step1_desc'); ?></p>
             </div>
+
+            <!-- Adım 2 -->
             <div class="process-step">
                 <div class="process-step-number">2</div>
-                <h4 class="process-step-title"><?php e('home.process_step_2_title'); ?></h4>
-                <p class="process-step-desc"><?php e('home.process_step_2_desc'); ?></p>
+                <div class="process-step-connector" aria-hidden="true"></div>
+                <h4><?php e('home.process_step2_title'); ?></h4>
+                <p><?php e('home.process_step2_desc'); ?></p>
             </div>
+
+            <!-- Adım 3 -->
             <div class="process-step">
                 <div class="process-step-number">3</div>
-                <h4 class="process-step-title"><?php e('home.process_step_3_title'); ?></h4>
-                <p class="process-step-desc"><?php e('home.process_step_3_desc'); ?></p>
+                <div class="process-step-connector" aria-hidden="true"></div>
+                <h4><?php e('home.process_step3_title'); ?></h4>
+                <p><?php e('home.process_step3_desc'); ?></p>
             </div>
+
+            <!-- Adım 4 -->
             <div class="process-step">
                 <div class="process-step-number">4</div>
-                <h4 class="process-step-title"><?php e('home.process_step_4_title'); ?></h4>
-                <p class="process-step-desc"><?php e('home.process_step_4_desc'); ?></p>
+                <div class="process-step-connector" aria-hidden="true"></div>
+                <h4><?php e('home.process_step4_title'); ?></h4>
+                <p><?php e('home.process_step4_desc'); ?></p>
             </div>
+
+            <!-- Adım 5 -->
             <div class="process-step">
                 <div class="process-step-number">5</div>
-                <h4 class="process-step-title"><?php e('home.process_step_5_title'); ?></h4>
-                <p class="process-step-desc"><?php e('home.process_step_5_desc'); ?></p>
+                <h4><?php e('home.process_step5_title'); ?></h4>
+                <p><?php e('home.process_step5_desc'); ?></p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ─── 7. KAPSAMLI FİLO ÇÖZÜMLERİ ACCORDION ──────────────────────── -->
-<section class="section section-bg-soft" aria-labelledby="solutions-title">
+<!-- ─── 7. FİLO ÇÖZÜMLERİMİZ (ACCORDION) ──────────────────────────── -->
+<section class="section section-bg" aria-labelledby="solutions-title">
     <div class="container">
         <div class="section-header">
-            <span class="section-subtitle"><?php e('home.solutions_subtitle'); ?></span>
             <h2 id="solutions-title"><?php e('home.solutions_title'); ?></h2>
+            <p><?php e('home.solutions_subtitle'); ?></p>
+        </div>
+
+        <div class="accordion container-narrow" id="solutions-accordion">
+            <!-- 1. Esnek Finans -->
+            <div class="accordion-item is-open">
+                <button type="button" class="accordion-trigger" aria-expanded="true">
+                    <span><?php e('home.sol_finance'); ?></span>
+                    <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="accordion-panel" style="max-height: 200px;">
+                    <div class="accordion-panel-content">
+                        <?php e('home.sol_finance_desc'); ?>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Sürprizsiz Fatura -->
+            <div class="accordion-item">
+                <button type="button" class="accordion-trigger" aria-expanded="false">
+                    <span><?php e('home.sol_invoice'); ?></span>
+                    <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="accordion-panel">
+                    <div class="accordion-panel-content">
+                        <?php e('home.sol_invoice_desc'); ?>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Zamandan Tasarruf -->
+            <div class="accordion-item">
+                <button type="button" class="accordion-trigger" aria-expanded="false">
+                    <span><?php e('home.sol_time'); ?></span>
+                    <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="accordion-panel">
+                    <div class="accordion-panel-content">
+                        <?php e('home.sol_time_desc'); ?>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Operasyonel Kolaylık -->
+            <div class="accordion-item">
+                <button type="button" class="accordion-trigger" aria-expanded="false">
+                    <span><?php e('home.sol_operations'); ?></span>
+                    <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="accordion-panel">
+                    <div class="accordion-panel-content">
+                        <?php e('home.sol_operations_desc'); ?>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Bakım ve Hasar -->
+            <div class="accordion-item">
+                <button type="button" class="accordion-trigger" aria-expanded="false">
+                    <span><?php e('home.sol_maintenance'); ?></span>
                     <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                         <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
@@ -452,7 +535,7 @@ include includePath('header.php');
         <div class="references-grid">
             <?php for ($i = 1; $i <= 6; $i++): ?>
                 <div class="reference-logo">
-                    <span class="text-sm fw-semibold text-muted">KURUMSAL REFERANS <?php echo $i; ?></span>
+                    <span class="text-sm fw-semibold text-muted">KURUMSAL REFERANS <?php echo $i; ?> (DEMO)</span>
                 </div>
             <?php endfor; ?>
         </div>

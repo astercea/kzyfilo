@@ -1,6 +1,6 @@
-ï»¿<?php
+<?php
 /**
- * kzyfilo â€” Haberler ve Duyurular (haberler.php)
+ * kzyfilo — Haberler ve Duyurular (haberler.php)
  */
 require_once __DIR__ . '/includes/config.php';
 
@@ -19,7 +19,6 @@ $breadcrumbs = [
 ];
 
 include includePath('header.php');
-include includePath('breadcrumbs.php');
 ?>
 
 <div class="page-header">
@@ -27,6 +26,8 @@ include includePath('breadcrumbs.php');
         <h1><?php e('content.news_title'); ?></h1>
         <p><?php e('content.news_desc'); ?></p>
     </div>
+
+<?php include includePath('breadcrumbs.php'); ?>
 </div>
 
 <section class="section">
@@ -45,7 +46,7 @@ include includePath('breadcrumbs.php');
                         <h4><?php echo esc($news['title']); ?></h4>
                         <p><?php echo esc($news['summary']); ?></p>
                         <a href="<?php echo url('blog-detay.php', ['slug' => $news['slug']]); ?>" class="content-card-link">
-                            <span><?php e('content.read_more'); ?></span> â†’
+                            <span><?php e('content.read_more'); ?></span> ›
                         </a>
                     </div>
                 </article>

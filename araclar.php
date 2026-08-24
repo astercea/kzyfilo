@@ -1,10 +1,10 @@
-ï»¿<?php
+<?php
 /**
- * kzyfilo â€” AraÃ§ KataloÄŸu (araclar.php)
+ * kzyfilo — Araç Kataloðu (araclar.php)
  */
 require_once __DIR__ . '/includes/config.php';
 
-// Verileri yÃ¼kle
+// Verileri yükle
 $vehicles = loadData('vehicles.php');
 
 // URL query parametreleri
@@ -30,7 +30,6 @@ $breadcrumbs = [
 ];
 
 include includePath('header.php');
-include includePath('breadcrumbs.php');
 ?>
 
 <div class="page-header">
@@ -38,13 +37,15 @@ include includePath('breadcrumbs.php');
         <h1><?php e('catalog.title'); ?></h1>
         <p><?php e('catalog.description'); ?></p>
     </div>
+
+<?php include includePath('breadcrumbs.php'); ?>
 </div>
 
 <section class="section">
     <div class="container">
         <div class="layout-sidebar">
             
-            <!-- â”€â”€â”€ DESKTOP FILTER SIDEBAR â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+            <!-- ¦¦¦ DESKTOP FILTER SIDEBAR ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ -->
             <aside class="catalog-sidebar">
                 <form id="catalog-filter-form" class="card card-body">
                     <div class="flex flex-between mb-4">
@@ -99,7 +100,7 @@ include includePath('breadcrumbs.php');
                         </div>
                     </div>
 
-                    <!-- YakÄ±t Tipi -->
+                    <!-- Yakýt Tipi -->
                     <div class="filter-section">
                         <div class="filter-section-title"><?php e('catalog.fuel'); ?></div>
                         <div class="filter-options">
@@ -133,18 +134,18 @@ include includePath('breadcrumbs.php');
                         </div>
                     </div>
 
-                    <!-- Fiyat AralÄ±ÄŸÄ± -->
+                    <!-- Fiyat Aralýðý -->
                     <div class="filter-section">
                         <div class="filter-section-title"><?php e('catalog.price_range'); ?></div>
                         <div class="grid grid-2 gap-2">
-                            <input type="number" name="min_fiyat" class="form-input" placeholder="Min â‚º" min="0" step="1000">
-                            <input type="number" name="maks_fiyat" class="form-input" placeholder="Maks â‚º" value="<?php echo esc($maxPrice); ?>" min="0" step="1000">
+                            <input type="number" name="min_fiyat" class="form-input" placeholder="Min ?" min="0" step="1000">
+                            <input type="number" name="maks_fiyat" class="form-input" placeholder="Maks ?" value="<?php echo esc($maxPrice); ?>" min="0" step="1000">
                         </div>
                     </div>
 
-                    <!-- Ã–zel Filtreler -->
+                    <!-- Özel Filtreler -->
                     <div class="filter-section">
-                        <div class="filter-section-title"><?php echo (CURRENT_LANG === 'tr') ? 'Ã–zel SeÃ§enekler' : 'Special Filters'; ?></div>
+                        <div class="filter-section-title"><?php echo (CURRENT_LANG === 'tr') ? 'Özel Seçenekler' : 'Special Filters'; ?></div>
                         <div class="filter-options">
                             <label class="form-check">
                                 <input type="checkbox" name="kampanya" value="1" <?php echo $isCampaign ? 'checked' : ''; ?>>
@@ -163,12 +164,12 @@ include includePath('breadcrumbs.php');
                 </form>
             </aside>
 
-            <!-- â”€â”€â”€ VEHICLE RESULTS MAIN â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+            <!-- ¦¦¦ VEHICLE RESULTS MAIN ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ -->
             <main class="catalog-main">
                 <!-- Toolbar -->
                 <div class="catalog-toolbar">
                     <div class="catalog-count">
-                        <strong><span id="catalog-count-number"><?php echo count($vehicles); ?></span></strong> <?php echo (CURRENT_LANG === 'tr') ? 'araÃ§ listeleniyor' : 'vehicles listed'; ?>
+                        <strong><span id="catalog-count-number"><?php echo count($vehicles); ?></span></strong> <?php echo (CURRENT_LANG === 'tr') ? 'araç listeleniyor' : 'vehicles listed'; ?>
                     </div>
 
                     <div class="flex items-center gap-3">
@@ -230,9 +231,9 @@ include includePath('breadcrumbs.php');
     </div>
 </section>
 
-<!-- â”€â”€â”€ MOBILE FILTER DRAWER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+<!-- ¦¦¦ MOBILE FILTER DRAWER ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ -->
 <div class="filter-drawer-backdrop" id="catalog-drawer-backdrop" aria-hidden="true"></div>
-<div class="filter-drawer" id="catalog-filter-drawer" role="dialog" aria-modal="true" aria-label="Filtreleme MenÃ¼sÃ¼" aria-hidden="true">
+<div class="filter-drawer" id="catalog-filter-drawer" role="dialog" aria-modal="true" aria-label="Filtreleme Menüsü" aria-hidden="true">
     <div class="filter-drawer-header">
         <h3><?php e('catalog.filters'); ?></h3>
         <button type="button" class="modal-close" id="catalog-drawer-close" aria-label="<?php e('btn.close'); ?>">

@@ -1,12 +1,12 @@
-ï»¿<?php
+<?php
 /**
- * kzyfilo â€” AraÃ§ Teslim ve Ä°ade Rehberi (arac-teslim-ve-iade.php)
+ * kzyfilo — Araç Teslim ve İade Rehberi (arac-teslim-ve-iade.php)
  */
 require_once __DIR__ . '/includes/config.php';
 
 setPageMeta([
     'title' => t('solutions_menu.delivery_return') . ' | ' . SITE_NAME,
-    'description' => 'kzyfilo araÃ§ teslim alma, kullanÄ±m iÃ§i sÃ¼reÃ§ler ve sÃ¶zleÅŸme sonu iade adÄ±mlarÄ± rehberi.',
+    'description' => 'kzyfilo araç teslim alma, kullanım içi süreçler ve sözleşme sonu iade adımları rehberi.',
     'canonical' => canonical('arac-teslim-ve-iade.php'),
 ]);
 
@@ -16,86 +16,87 @@ $breadcrumbs = [
 ];
 
 include includePath('header.php');
-include includePath('breadcrumbs.php');
 ?>
 
 <div class="service-hero">
     <div class="container text-center">
-        <span class="hero-subtitle">Åeffaf ve GÃ¼venilir SÃ¼reÃ§ler</span>
+        <span class="hero-subtitle">Şeffaf ve Güvenilir Süreçler</span>
         <h1 class="text-4xl mb-4"><?php e('solutions_menu.delivery_return'); ?></h1>
         <p class="text-lg text-muted max-w-xl mx-auto mb-6">
-            AracÄ±nÄ±zÄ± teslim alÄ±rken ve sÃ¶zleÅŸme sonunda iade ederken izlenecek pratik adÄ±mlar, gerekli evraklar ve teslim noktalarÄ±.
+            Aracınızı teslim alırken ve sözleşme sonunda iade ederken izlenecek pratik adımlar, gerekli evraklar ve teslim noktaları.
         </p>
     </div>
 </div>
 
+<?php include includePath('breadcrumbs.php'); ?>
+
 <section class="section">
     <div class="container container-narrow">
-        <!-- 1. AraÃ§ Teslim Alma SÃ¼reci -->
+        <!-- 1. Araç Teslim Alma Süreci -->
         <div class="mb-12">
-            <h2 class="text-2xl mb-6">1. AraÃ§ Teslim Alma SÃ¼reci</h2>
+            <h2 class="text-2xl mb-6">1. Araç Teslim Alma Süreci</h2>
             <div class="card card-body">
                 <div class="flex flex-col gap-4 text-sm">
                     <div class="flex gap-3 items-start">
-                        <span class="badge badge-primary">AdÄ±m 1</span>
+                        <span class="badge badge-primary">Adım 1</span>
                         <div>
-                            <strong>SÃ¶zleÅŸme OnayÄ± ve Randevu</strong>
-                            <p class="text-muted mb-0">Finansal onay ve sÃ¶zleÅŸme imzalanmasÄ±nÄ±n ardÄ±ndan mÃ¼ÅŸteri temsilciniz teslimat randevusunu oluÅŸturur.</p>
+                            <strong>Sözleşme Onayı ve Randevu</strong>
+                            <p class="text-muted mb-0">Finansal onay ve sözleşme imzalanmasının ardından müşteri temsilciniz teslimat randevusunu oluşturur.</p>
                         </div>
                     </div>
                     <div class="flex gap-3 items-start">
-                        <span class="badge badge-primary">AdÄ±m 2</span>
+                        <span class="badge badge-primary">Adım 2</span>
                         <div>
-                            <strong>Gerekli Belgelerin Ä°brazÄ±</strong>
-                            <p class="text-muted mb-0">Yetkili ÅŸirket imza sirkÃ¼leri, vekaletname (varsa) ve teslim alacak sÃ¼rÃ¼cÃ¼nÃ¼n ehliyet/kimlik belgesi kontrol edilir.</p>
+                            <strong>Gerekli Belgelerin İbrazı</strong>
+                            <p class="text-muted mb-0">Yetkili şirket imza sirküleri, vekaletname (varsa) ve teslim alacak sürücünün ehliyet/kimlik belgesi kontrol edilir.</p>
                         </div>
                     </div>
                     <div class="flex gap-3 items-start">
-                        <span class="badge badge-primary">AdÄ±m 3</span>
+                        <span class="badge badge-primary">Adım 3</span>
                         <div>
-                            <strong>Teslim TutanaÄŸÄ± ve AraÃ§ Ä°ntikali</strong>
-                            <p class="text-muted mb-0">Kilometre, yakÄ±t seviyesi ve mevcut araÃ§ durumu tutanak altÄ±na alÄ±narak anahtar teslim edilir.</p>
+                            <strong>Teslim Tutanağı ve Araç İntikali</strong>
+                            <p class="text-muted mb-0">Kilometre, yakıt seviyesi ve mevcut araç durumu tutanak altına alınarak anahtar teslim edilir.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- 2. AraÃ§ Ä°ade SÃ¼reci -->
+        <!-- 2. Araç İade Süreci -->
         <div class="mb-12">
-            <h2 class="text-2xl mb-6">2. SÃ¶zleÅŸme Sonu Ä°ade SÃ¼reci</h2>
+            <h2 class="text-2xl mb-6">2. Sözleşme Sonu İade Süreci</h2>
             <div class="card card-body">
                 <div class="flex flex-col gap-4 text-sm">
                     <div class="flex gap-3 items-start">
                         <span class="badge badge-warning">Kontrol 1</span>
                         <div>
-                            <strong>Ä°ade Ã–ncesi Randevu</strong>
-                            <p class="text-muted mb-0">SÃ¶zleÅŸme bitim tarihinden en az 15 gÃ¼n Ã¶nce iade noktasÄ± ve saatini belirlemek iÃ§in temsilcinizle iletiÅŸime geÃ§iniz.</p>
+                            <strong>İade Öncesi Randevu</strong>
+                            <p class="text-muted mb-0">Sözleşme bitim tarihinden en az 15 gün önce iade noktası ve saatini belirlemek için temsilcinizle iletişime geçiniz.</p>
                         </div>
                     </div>
                     <div class="flex gap-3 items-start">
                         <span class="badge badge-warning">Kontrol 2</span>
                         <div>
-                            <strong>Ekipman ve Evrak TamlÄ±ÄŸÄ±</strong>
-                            <p class="text-muted mb-0">Ruhsat, yedek anahtar, stepne/tamir kiti, yangÄ±n tÃ¼pÃ¼ ve ilk yardÄ±m seti araÃ§ iÃ§inde eksiksiz bulunmalÄ±dÄ±r.</p>
+                            <strong>Ekipman ve Evrak Tamlığı</strong>
+                            <p class="text-muted mb-0">Ruhsat, yedek anahtar, stepne/tamir kiti, yangın tüpü ve ilk yardım seti araç içinde eksiksiz bulunmalıdır.</p>
                         </div>
                     </div>
                     <div class="flex gap-3 items-start">
                         <span class="badge badge-warning">Kontrol 3</span>
                         <div>
-                            <strong>Ekspertiz ve Ä°ade TutanaÄŸÄ±</strong>
-                            <p class="text-muted mb-0">Ä°ade noktasÄ±ndaki uzman ekspertiz ekibi tarafÄ±ndan kontrol yapÄ±lÄ±r ve karÅŸÄ±lÄ±klÄ± Ä±slak/dijital imzalÄ± tutanak dÃ¼zenlenir.</p>
+                            <strong>Ekspertiz ve İade Tutanağı</strong>
+                            <p class="text-muted mb-0">İade noktasındaki uzman ekspertiz ekibi tarafından kontrol yapılır ve karşılıklı ıslak/dijital imzalı tutanak düzenlenir.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Ä°ade NoktalarÄ±na YÃ¶nlendirme -->
+        <!-- İade Noktalarına Yönlendirme -->
         <div class="card card-body p-8 text-center bg-surface-soft">
-            <h3 class="text-xl mb-2">Size En YakÄ±n Ä°ade NoktasÄ±nÄ± Bulun</h3>
-            <p class="text-muted text-sm mb-6">Ä°stanbul, Ankara, Ä°zmir ve diÄŸer illerdeki yetkili teslim ve iade noktalarÄ±mÄ±zÄ±n adres ve Ã§alÄ±ÅŸma saatlerini inceleyin.</p>
-            <a href="<?php echo url('arac-iade-noktalari.php'); ?>" class="btn btn-primary"><?php e('return_points.title'); ?> â†’</a>
+            <h3 class="text-xl mb-2">Size En Yakın İade Noktasını Bulun</h3>
+            <p class="text-muted text-sm mb-6">İstanbul, Ankara, İzmir ve diğer illerdeki yetkili teslim ve iade noktalarımızın adres ve çalışma saatlerini inceleyin.</p>
+            <a href="<?php echo url('arac-iade-noktalari.php'); ?>" class="btn btn-primary"><?php e('return_points.title'); ?> ›</a>
         </div>
     </div>
 </section>

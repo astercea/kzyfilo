@@ -1,6 +1,6 @@
-ï»¿<?php
+<?php
 /**
- * kzyfilo â€” Blog Listesi (blog.php)
+ * kzyfilo — Blog Listesi (blog.php)
  */
 require_once __DIR__ . '/includes/config.php';
 
@@ -19,7 +19,6 @@ $breadcrumbs = [
 ];
 
 include includePath('header.php');
-include includePath('breadcrumbs.php');
 ?>
 
 <div class="page-header">
@@ -27,6 +26,8 @@ include includePath('breadcrumbs.php');
         <h1><?php e('content.blog_title'); ?></h1>
         <p><?php e('content.blog_desc'); ?></p>
     </div>
+
+<?php include includePath('breadcrumbs.php'); ?>
 </div>
 
 <section class="section">
@@ -43,7 +44,7 @@ include includePath('breadcrumbs.php');
                         <div class="content-card-meta">
                             <span class="content-card-type">BLOG</span>
                             <span><?php echo date('d.m.Y', strtotime($post['date'])); ?></span>
-                            <span>â€¢ <?php echo esc($post['read_time']); ?> <?php e('content.min_read'); ?></span>
+                            <span>• <?php echo esc($post['read_time']); ?> <?php e('content.min_read'); ?></span>
                         </div>
                         <h4>
                             <a href="<?php echo url('blog-detay.php', ['slug' => $post['slug']]); ?>">
@@ -52,7 +53,7 @@ include includePath('breadcrumbs.php');
                         </h4>
                         <p><?php echo esc($post['summary']); ?></p>
                         <a href="<?php echo url('blog-detay.php', ['slug' => $post['slug']]); ?>" class="content-card-link">
-                            <span><?php e('content.read_more'); ?></span> â†’
+                            <span><?php e('content.read_more'); ?></span> ›
                         </a>
                     </div>
                 </article>

@@ -15,7 +15,6 @@ $breadcrumbs = [
 ];
 
 include includePath('header.php');
-include includePath('breadcrumbs.php');
 ?>
 
 <div class="page-header">
@@ -23,13 +22,15 @@ include includePath('breadcrumbs.php');
         <h1><?php e('references.title'); ?></h1>
         <p>Bize güvenen yüzlerce seçkin kurumsal marka ve iş ortağımız</p>
     </div>
+
+<?php include includePath('breadcrumbs.php'); ?>
 </div>
 
 <section class="section">
     <div class="container">
         <div class="section-header">
             <h2>Farklı Sektörlerden Güçlü İş Birlikleri</h2>
-            <p>Sanayi, perakende, lojistik, teknoloji ve finans sektörlerinde filolarını kzyfilo'ya emanet eden şirketler.</p>
+            <p>Sanayi, perakende, lojistik, teknoloji ve finans sektörlerinde filolarını kzyfilo'ya emanet eden şirketler (Demo).</p>
         </div>
 
         <div class="grid grid-4 gap-6 mb-16">
@@ -39,7 +40,7 @@ include includePath('breadcrumbs.php');
                         🏢
                     </div>
                     <strong class="text-sm text-dark">KURUMSAL MÜŞTERİ <?php echo $i; ?></strong>
-                    <span class="text-xs text-muted">Sektörel Lider</span>
+                    <span class="text-xs text-muted">Sektörel Lider (Demo)</span>
                 </div>
             <?php endfor; ?>
         </div>

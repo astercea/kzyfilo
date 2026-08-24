@@ -65,7 +65,7 @@
                         <div class="text-xs text-muted mb-3" style="min-height: 18px;">${v.version || ''}</div>
                         <div class="text-xl fw-extrabold text-primary mb-4">
                             ${v.starting_price.toLocaleString('tr-TR')} ₺ 
-                            <span class="text-xs text-muted fw-normal block">/ay + KDV</span>
+                            <span class="text-xs text-muted fw-normal block">/ay + KDV (Demo)</span>
                         </div>
                         <div class="flex flex-col gap-2">
                             <a href="${baseUrl}hizli-teklif.php?arac=${v.slug}" class="btn btn-primary btn-sm" style="width: 100%;">Teklif Al</a>
@@ -264,7 +264,7 @@
                         <h3 class="vehicle-card-model"><a href="${window.KZY.baseUrl}arac-detay.php?slug=${v.slug}">${v.model}</a></h3>
                         <div class="vehicle-card-footer">
                             <div class="vehicle-card-price">
-                                <span class="vehicle-card-price-label">Aylık Başlangıç</span>
+                                <span class="vehicle-card-price-label">Aylık (Demo)</span>
                                 <div class="vehicle-card-price-value">${v.starting_price.toLocaleString('tr-TR')} ₺</div>
                             </div>
                             <div class="flex gap-2">

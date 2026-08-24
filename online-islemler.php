@@ -15,7 +15,6 @@ $breadcrumbs = [
 ];
 
 include includePath('header.php');
-include includePath('breadcrumbs.php');
 ?>
 
 <div class="page-header">
@@ -23,6 +22,8 @@ include includePath('breadcrumbs.php');
         <h1><?php e('online.title'); ?></h1>
         <p><?php e('online.description'); ?></p>
     </div>
+
+<?php include includePath('breadcrumbs.php'); ?>
 </div>
 
 <section class="section">
@@ -74,7 +75,7 @@ include includePath('breadcrumbs.php');
             </div>
 
             <div class="form-group">
-                <label class="form-label"><?php e('form.file_upload'); ?> (Opsiyonel)</label>
+                <label class="form-label"><?php e('form.file_upload'); ?> (Opsiyonel / Demo)</label>
                 <input type="file" class="form-input" accept="image/*,.pdf">
                 <span class="form-hint">Kaza tespit tutanağı, ruhsat veya hasar fotoğrafları ekleyebilirsiniz.</span>
             </div>
@@ -103,6 +104,9 @@ include includePath('breadcrumbs.php');
             </div>
             <h2 class="text-2xl mb-3">Talebiniz Alındı</h2>
             <p class="text-muted max-w-md mx-auto mb-6">Operasyon ekibimiz en kısa sürede plakanıza bağlı sözleşme üzerinden işlemleri başlatacaktır.</p>
+            <div class="demo-notice mb-8 p-3" style="border-radius: var(--radius-md);">
+                ℹ️ <?php e('success.quote_prototype_notice'); ?>
+            </div>
             <a href="<?php echo url('index.php'); ?>" class="btn btn-primary"><?php e('error.404_btn'); ?></a>
         </div>
     </div>
