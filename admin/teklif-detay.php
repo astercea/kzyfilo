@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — Admin Teklif Detay Sayfası (admin/teklif-detay.php)
  */

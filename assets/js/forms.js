@@ -1,4 +1,4 @@
-﻿/**
+/**
  * kzyfilo — Çok Adımlı Formlar ve Doğrulama JavaScript Modülü
  */
 

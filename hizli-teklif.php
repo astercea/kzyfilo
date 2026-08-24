@@ -19,16 +19,13 @@ $breadcrumbs = [
     ['title' => t('quote_form.quick_title')]
 ];
 
-include includePath('header.php');
-?>
+include includePath('header.php');?>
 
 <div class="page-header">
-    <div class="container container-narrow text-center">
+    <div class="container">
         <h1><?php e('quote_form.quick_title'); ?></h1>
-        <p><?php e('quote_form.quick_desc'); ?></p>
+        <?php include includePath('breadcrumbs.php'); ?>
     </div>
-
-<?php include includePath('breadcrumbs.php'); ?>
 </div>
 
 <!-- ─── 4 ADIMLI İLERLEME ÇUBUĞU ──────────────────────────────────── -->

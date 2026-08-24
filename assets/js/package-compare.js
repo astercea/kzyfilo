@@ -1,4 +1,4 @@
-﻿/**
+/**
  * kzyfilo — Paket Karşılaştırma ve Fiyat Kırılımı JavaScript Modülü
  */
 

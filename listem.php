@@ -1,6 +1,6 @@
 <?php
 /**
- * kzyfilo — Listem (Favori Araçlar) (listem.php)
+ * kzyfilo â€” Listem (Favori AraÃ§lar) (listem.php)
  */
 require_once __DIR__ . '/includes/config.php';
 
@@ -16,16 +16,13 @@ $breadcrumbs = [
     ['title' => t('my_list.title')]
 ];
 
-include includePath('header.php');
-?>
+include includePath('header.php');?>
 
 <div class="page-header">
     <div class="container">
         <h1><?php e('my_list.title'); ?></h1>
-        <p><?php e('my_list.description'); ?></p>
+        <?php include includePath('breadcrumbs.php'); ?>
     </div>
-
-<?php include includePath('breadcrumbs.php'); ?>
 </div>
 
 <section class="section">
@@ -33,7 +30,7 @@ include includePath('header.php');
         <div class="flex flex-between mb-8 flex-wrap gap-4">
             <div class="flex items-center gap-3">
                 <a href="<?php echo url('araclar.php'); ?>" class="btn btn-outline btn-sm">
-                    <?php echo (CURRENT_LANG === 'tr') ? '+ Yeni Araç Ekle' : '+ Add New Vehicle'; ?>
+                    <?php echo (CURRENT_LANG === 'tr') ? '+ Yeni AraÃ§ Ekle' : '+ Add New Vehicle'; ?>
                 </a>
                 <a href="<?php echo url('arac-karsilastir.php'); ?>" class="btn btn-secondary btn-sm">
                     <?php e('my_list.compare_selected'); ?>

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — Ek Ürün ve Hizmetler Demo Verisi
  */

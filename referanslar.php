@@ -14,16 +14,13 @@ $breadcrumbs = [
     ['title' => t('references.title')]
 ];
 
-include includePath('header.php');
-?>
+include includePath('header.php');?>
 
 <div class="page-header">
-    <div class="container text-center">
+    <div class="container">
         <h1><?php e('references.title'); ?></h1>
-        <p>Bize güvenen yüzlerce seçkin kurumsal marka ve iş ortağımız</p>
+        <?php include includePath('breadcrumbs.php'); ?>
     </div>
-
-<?php include includePath('breadcrumbs.php'); ?>
 </div>
 
 <section class="section">

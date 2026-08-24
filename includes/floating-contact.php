@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — Yüzer İletişim Butonu ve Açılır Menü
  */

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — Admin SEO & Meta Yönetimi (admin/seo.php)
  */

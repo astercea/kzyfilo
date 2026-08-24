@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — Admin Teklif Listesi (admin/teklifler.php)
  */

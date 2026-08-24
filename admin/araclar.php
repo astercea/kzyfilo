@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — Admin Araç Yönetimi Listesi (admin/araclar.php)
  */

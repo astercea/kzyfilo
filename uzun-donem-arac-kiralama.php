@@ -1,6 +1,6 @@
 <?php
 /**
- * kzyfilo — Uzun Dönem Araç Kiralama (uzun-donem-arac-kiralama.php)
+ * kzyfilo â€” Uzun DÃ¶nem AraÃ§ Kiralama (uzun-donem-arac-kiralama.php)
  */
 require_once __DIR__ . '/includes/config.php';
 
@@ -9,7 +9,7 @@ $faqsData = loadData('faqs.php');
 
 setPageMeta([
     'title' => t('solutions_menu.long_term_rental') . ' | ' . SITE_NAME,
-    'description' => 'Şirketiniz için 12-48 ay vadeli avantajlı uzun dönem kurumsal araç kiralama çözümleri.',
+    'description' => 'Åirketiniz iÃ§in 12-48 ay vadeli avantajlÄ± uzun dÃ¶nem kurumsal araÃ§ kiralama Ã§Ã¶zÃ¼mleri.',
     'canonical' => canonical('uzun-donem-arac-kiralama.php'),
 ]);
 
@@ -18,71 +18,69 @@ $breadcrumbs = [
     ['title' => t('solutions_menu.long_term_rental')]
 ];
 
-include includePath('header.php');
-?>
+include includePath('header.php');?>
 
 <div class="service-hero">
     <div class="container">
         <div class="max-w-xl">
-            <span class="hero-subtitle"><?php e('site_name'); ?> Filo Çözümleri</span>
+            <span class="hero-subtitle"><?php e('site_name'); ?> Filo Ã‡Ã¶zÃ¼mleri</span>
             <h1 class="text-4xl mb-4"><?php e('solutions_menu.long_term_rental'); ?></h1>
             <p class="text-lg text-muted mb-6">
-                Şirket sermayenizi araç satın almaya bağlamadan, sabit aylık giderler, tam vergi avantajı ve sıfır operasyonel risk ile filonuzu yenileyin.
+                Åirket sermayenizi araÃ§ satÄ±n almaya baÄŸlamadan, sabit aylÄ±k giderler, tam vergi avantajÄ± ve sÄ±fÄ±r operasyonel risk ile filonuzu yenileyin.
             </p>
             <div class="flex gap-4">
                 <a href="<?php echo url('hizli-teklif.php'); ?>" class="btn btn-primary btn-lg"><?php e('header.get_quote'); ?></a>
                 <a href="<?php echo url('araclar.php'); ?>" class="btn btn-outline btn-lg"><?php e('home.hero_cta_vehicles'); ?></a>
-            </div>
+                    <?php include includePath('breadcrumbs.php'); ?>
+    </div>
         </div>
-
-<?php include includePath('breadcrumbs.php'); ?>
     </div>
 </div>
 
 <section class="section">
     <div class="container">
         <div class="section-header">
-            <h2>Neden Uzun Dönem Filo Kiralama?</h2>
-            <p>Satın alma yerine operasyonel kiralamayı tercih etmeniz için 6 stratejik neden</p>
+            <h2>Neden Uzun DÃ¶nem Filo Kiralama?</h2>
+            <p>SatÄ±n alma yerine operasyonel kiralamayÄ± tercih etmeniz iÃ§in 6 stratejik neden</p>
         </div>
 
         <div class="service-features mb-16">
             <div class="service-feature-card">
-                <div class="service-feature-icon">??</div>
+                <div class="service-feature-icon">ğŸ’°</div>
                 <h4 class="text-base mb-2">Finansal Esneklik</h4>
-                <p class="text-sm text-muted">Büyük peşinatlar ve banka kredi limitlerinizi tüketmeden filonuzu kurun, nakit akışınızı ana işinize yönlendirin.</p>
+                <p class="text-sm text-muted">BÃ¼yÃ¼k peÅŸinatlar ve banka kredi limitlerinizi tÃ¼ketmeden filonuzu kurun, nakit akÄ±ÅŸÄ±nÄ±zÄ± ana iÅŸinize yÃ¶nlendirin.</p>
             </div>
             <div class="service-feature-card">
-                <div class="service-feature-icon">??</div>
-                <h4 class="text-base mb-2">Tam Vergi Avantajı</h4>
-                <p class="text-sm text-muted">Aylık kira faturalarını mevzuat sınırları dahilinde doğrudan gider gösterin, KDV indiriminden faydalanın.</p>
+                <div class="service-feature-icon">ğŸ“‘</div>
+                <h4 class="text-base mb-2">Tam Vergi AvantajÄ±</h4>
+                <p class="text-sm text-muted">AylÄ±k kira faturalarÄ±nÄ± mevzuat sÄ±nÄ±rlarÄ± dahilinde doÄŸrudan gider gÃ¶sterin, KDV indiriminden faydalanÄ±n.</p>
             </div>
             <div class="service-feature-card">
-                <div class="service-feature-icon">??</div>
-                <h4 class="text-base mb-2">Bakım & Hasar Güvencesi</h4>
-                <p class="text-sm text-muted">Yetkili servis bakımları, kasko, sigorta ve lastik değişim masrafları aylık kiranıza dahildir.</p>
+                <div class="service-feature-icon">ğŸ”§</div>
+                <h4 class="text-base mb-2">BakÄ±m & Hasar GÃ¼vencesi</h4>
+                <p class="text-sm text-muted">Yetkili servis bakÄ±mlarÄ±, kasko, sigorta ve lastik deÄŸiÅŸim masraflarÄ± aylÄ±k kiranÄ±za dahildir.</p>
             </div>
             <div class="service-feature-card">
-                <div class="service-feature-icon">??</div>
-                <h4 class="text-base mb-2">İkame Araç Desteği</h4>
-                <p class="text-sm text-muted">Aracınız servisteyken işlerinizin aksamaması için aynı segmentte yedek araç anında tahsis edilir.</p>
+                <div class="service-feature-icon">ğŸš—</div>
+                <h4 class="text-base mb-2">Ä°kame AraÃ§ DesteÄŸi</h4>
+                <p class="text-sm text-muted">AracÄ±nÄ±z servisteyken iÅŸlerinizin aksamamasÄ± iÃ§in aynÄ± segmentte yedek araÃ§ anÄ±nda tahsis edilir.</p>
             </div>
             <div class="service-feature-card">
-                <div class="service-feature-icon">??</div>
-                <h4 class="text-base mb-2">İkinci El Değer Kaybı Riski Yok</h4>
-                <p class="text-sm text-muted">Kiralama süresi sonunda aracın piyasa değer kaybı veya satış zahmeti tamamen kzyfilo sorumluluğundadır.</p>
+                <div class="service-feature-icon">ğŸ“‰</div>
+                <h4 class="text-base mb-2">Ä°kinci El DeÄŸer KaybÄ± Riski Yok</h4>
+                <p class="text-sm text-muted">Kiralama sÃ¼resi sonunda aracÄ±n piyasa deÄŸer kaybÄ± veya satÄ±ÅŸ zahmeti tamamen kzyfilo sorumluluÄŸundadÄ±r.</p>
             </div>
             <div class="service-feature-card">
-                <div class="service-feature-icon">??</div>
-                <h4 class="text-base mb-2">Zaman ve İş Gücü Tasarrufu</h4>
-                <p class="text-sm text-muted">Muayene, MTV, trafik cezaları ve operasyonel takipleri uzman ekibimiz yönetir, siz işinize odaklanırsınız.</p>
+                <div class="service-feature-icon">â±ï¸</div>
+                <h4 class="text-base mb-2">Zaman ve Ä°ÅŸ GÃ¼cÃ¼ Tasarrufu</h4>
+                <p class="text-sm text-muted">Muayene, MTV, trafik cezalarÄ± ve operasyonel takipleri uzman ekibimiz yÃ¶netir, siz iÅŸinize odaklanÄ±rsÄ±nÄ±z.</p>
             </div>
         </div>
 
-        <!-- Öne Çıkan Araçlar -->
+        <!-- Ã–ne Ã‡Ä±kan AraÃ§lar -->
         <div class="mb-16">
             <div class="flex flex-between mb-8">
-                <h2 class="text-2xl">Uzun Dönem İçin Popüler Araçlar</h2>
+                <h2 class="text-2xl">Uzun DÃ¶nem Ä°Ã§in PopÃ¼ler AraÃ§lar</h2>
                 <a href="<?php echo url('araclar.php'); ?>" class="btn btn-outline btn-sm"><?php e('btn.view_all'); ?></a>
             </div>
             <div class="grid grid-3 gap-6">
@@ -94,7 +92,7 @@ include includePath('header.php');
 
         <!-- SSS -->
         <div class="container-narrow">
-            <h2 class="text-2xl text-center mb-8">Sıkça Sorulan Sorular</h2>
+            <h2 class="text-2xl text-center mb-8">SÄ±kÃ§a Sorulan Sorular</h2>
             <div class="accordion">
                 <?php foreach ($faqsData['general']['items'] as $faq): ?>
                     <div class="accordion-item">
@@ -115,8 +113,8 @@ include includePath('header.php');
 <!-- CTA -->
 <section class="cta-section">
     <div class="container">
-        <h2>Filonuzu Uzun Dönem Kiralamayla Hemen Büyütün</h2>
-        <p>Uzman filo danışmanlarımız şirketinizin ihtiyaçlarına özel teklif hazırlamak için hazır.</p>
+        <h2>Filonuzu Uzun DÃ¶nem Kiralamayla Hemen BÃ¼yÃ¼tÃ¼n</h2>
+        <p>Uzman filo danÄ±ÅŸmanlarÄ±mÄ±z ÅŸirketinizin ihtiyaÃ§larÄ±na Ã¶zel teklif hazÄ±rlamak iÃ§in hazÄ±r.</p>
         <div class="cta-actions">
             <a href="<?php echo url('hizli-teklif.php'); ?>" class="btn btn-primary btn-lg"><?php e('header.get_quote'); ?></a>
             <button type="button" class="btn btn-outline btn-lg" style="color: #ffffff; border-color: #ffffff;" data-open-modal="callback"><?php e('home.cta_call'); ?></button>

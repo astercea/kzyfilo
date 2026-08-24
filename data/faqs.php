@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — SSS (Sıkça Sorulan Sorular) Demo Verisi
  */

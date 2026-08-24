@@ -1,12 +1,12 @@
 <?php
 /**
- * kzyfilo — Yasal Uyarı (yasal-uyari.php)
+ * kzyfilo â€” Yasal UyarÄ± (yasal-uyari.php)
  */
 require_once __DIR__ . '/includes/config.php';
 
 setPageMeta([
     'title' => t('legal.legal_title') . ' | ' . SITE_NAME,
-    'description' => 'kzyfilo web sitesi kullanım koşulları ve yasal uyarı metni.',
+    'description' => 'kzyfilo web sitesi kullanÄ±m koÅŸullarÄ± ve yasal uyarÄ± metni.',
     'canonical' => canonical('yasal-uyari.php'),
 ]);
 
@@ -14,29 +14,26 @@ $breadcrumbs = [
     ['title' => t('legal.legal_title')]
 ];
 
-include includePath('header.php');
-?>
+include includePath('header.php');?>
 
 <div class="page-header">
-    <div class="container text-center">
+    <div class="container">
         <h1><?php e('legal.legal_title'); ?></h1>
-        <p>Web Sitesi Kullanım Koşulları ve Yasal Şartlar</p>
+        <?php include includePath('breadcrumbs.php'); ?>
     </div>
-
-<?php include includePath('breadcrumbs.php'); ?>
 </div>
 
 <section class="section">
     <div class="container container-narrow">
         <div class="card card-body text-sm" style="line-height: 1.8;">
-            <h3 class="text-base fw-bold mb-3">Fikri Mülkiyet Hakları</h3>
+            <h3 class="text-base fw-bold mb-3">Fikri MÃ¼lkiyet HaklarÄ±</h3>
             <p>
-                Bu web sitesinde yer alan tüm ticari markalar, logolar, grafikler, metinler ve yazılımlar kzyfilo’ya ait olup ulusal ve uluslararası telif hakkı mevzuatıyla korunmaktadır. İzinsiz kopyalanamaz ve çoğaltılamaz.
+                Bu web sitesinde yer alan tÃ¼m ticari markalar, logolar, grafikler, metinler ve yazÄ±lÄ±mlar kzyfiloâ€™ya ait olup ulusal ve uluslararasÄ± telif hakkÄ± mevzuatÄ±yla korunmaktadÄ±r. Ä°zinsiz kopyalanamaz ve Ã§oÄŸaltÄ±lamaz.
             </p>
 
-            <h3 class="text-base fw-bold my-4">İçerik ve Fiyatlandırma Sorumluluğu</h3>
+            <h3 class="text-base fw-bold my-4">Ä°Ã§erik ve FiyatlandÄ±rma SorumluluÄŸu</h3>
             <p>
-                Sitede yer alan araç teknik özellikleri, kiralama paketleri ve fiyatlar bilgilendirme amaçlıdır. Nihai kiralama koşulları ve fiyatlar kzyfilo tarafından onaylanan resmi teklif ve sözleşme belgeleri ile kesinlik kazanır.
+                Sitede yer alan araÃ§ teknik Ã¶zellikleri, kiralama paketleri ve fiyatlar bilgilendirme amaÃ§lÄ±dÄ±r. Nihai kiralama koÅŸullarÄ± ve fiyatlar kzyfilo tarafÄ±ndan onaylanan resmi teklif ve sÃ¶zleÅŸme belgeleri ile kesinlik kazanÄ±r.
             </p>
         </div>
     </div>

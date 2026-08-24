@@ -1,4 +1,4 @@
-﻿/**
+/**
  * kzyfilo — Hero Slider & Carousel JavaScript Modülü
  */
 

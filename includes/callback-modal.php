@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — "Sizi Arayalım" Modal Bileşeni
  */

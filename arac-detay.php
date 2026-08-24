@@ -61,9 +61,7 @@ $breadcrumbs = [
     ['title' => $vTitle]
 ];
 
-include includePath('header.php');
-include includePath('breadcrumbs.php');
-?>
+include includePath('header.php');?>
 
 <div class="section">
     <div class="container">

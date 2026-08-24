@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — Admin Genel Ayarlar (admin/ayarlar.php)
  */

@@ -1,12 +1,12 @@
 <?php
 /**
- * kzyfilo — Çerez Politikası (cerez-politikasi.php)
+ * kzyfilo â€” Ã‡erez PolitikasÄ± (cerez-politikasi.php)
  */
 require_once __DIR__ . '/includes/config.php';
 
 setPageMeta([
     'title' => t('legal.cookie_title') . ' | ' . SITE_NAME,
-    'description' => 'kzyfilo çerez kullanım politikası ve tercih yönetimi bilgilendirmesi.',
+    'description' => 'kzyfilo Ã§erez kullanÄ±m politikasÄ± ve tercih yÃ¶netimi bilgilendirmesi.',
     'canonical' => canonical('cerez-politikasi.php'),
 ]);
 
@@ -14,36 +14,33 @@ $breadcrumbs = [
     ['title' => t('legal.cookie_title')]
 ];
 
-include includePath('header.php');
-?>
+include includePath('header.php');?>
 
 <div class="page-header">
-    <div class="container text-center">
+    <div class="container">
         <h1><?php e('legal.cookie_title'); ?></h1>
-        <p>Web sitemizdeki çerez türleri ve kullanım amaçları</p>
+        <?php include includePath('breadcrumbs.php'); ?>
     </div>
-
-<?php include includePath('breadcrumbs.php'); ?>
 </div>
 
 <section class="section">
     <div class="container container-narrow">
         <div class="card card-body text-sm" style="line-height: 1.8;">
-            <h3 class="text-base fw-bold mb-3">Çerez (Cookie) Nedir?</h3>
+            <h3 class="text-base fw-bold mb-3">Ã‡erez (Cookie) Nedir?</h3>
             <p>
-                Çerezler, ziyaret ettiğiniz web siteleri tarafından tarayıcınız aracılığıyla cihazınıza veya ağ sunucusuna depolanan küçük metin dosyalarıdır.
+                Ã‡erezler, ziyaret ettiÄŸiniz web siteleri tarafÄ±ndan tarayÄ±cÄ±nÄ±z aracÄ±lÄ±ÄŸÄ±yla cihazÄ±nÄ±za veya aÄŸ sunucusuna depolanan kÃ¼Ã§Ã¼k metin dosyalarÄ±dÄ±r.
             </p>
 
-            <h3 class="text-base fw-bold my-4">Kullandığımız Çerez Türleri</h3>
+            <h3 class="text-base fw-bold my-4">KullandÄ±ÄŸÄ±mÄ±z Ã‡erez TÃ¼rleri</h3>
             <ul class="flex flex-col gap-3">
-                <li>• <strong>Zorunlu Çerezler:</strong> Web sitesinin düzgün çalışabilmesi, oturum yönetimi ve dil tercihinin korunması için gereklidir.</li>
-                <li>• <strong>Analitik Çerezler:</strong> Sitenin performansını ölçmek ve ziyaretçi deneyimini optimize etmek amacıyla anonim istatistiksel veriler toplar.</li>
-                <li>• <strong>Pazarlama Çerezleri:</strong> İlgi alanlarınıza uygun teklif ve kampanyalar sunulabilmesi için kullanılır.</li>
+                <li>â€¢ <strong>Zorunlu Ã‡erezler:</strong> Web sitesinin dÃ¼zgÃ¼n Ã§alÄ±ÅŸabilmesi, oturum yÃ¶netimi ve dil tercihinin korunmasÄ± iÃ§in gereklidir.</li>
+                <li>â€¢ <strong>Analitik Ã‡erezler:</strong> Sitenin performansÄ±nÄ± Ã¶lÃ§mek ve ziyaretÃ§i deneyimini optimize etmek amacÄ±yla anonim istatistiksel veriler toplar.</li>
+                <li>â€¢ <strong>Pazarlama Ã‡erezleri:</strong> Ä°lgi alanlarÄ±nÄ±za uygun teklif ve kampanyalar sunulabilmesi iÃ§in kullanÄ±lÄ±r.</li>
             </ul>
 
-            <h3 class="text-base fw-bold my-4">Çerez Tercihlerini Değiştirme</h3>
+            <h3 class="text-base fw-bold my-4">Ã‡erez Tercihlerini DeÄŸiÅŸtirme</h3>
             <p>
-                Sitemizin alt kısmında yer alan çerez tercih paneli veya tarayıcınızın ayarları üzerinden dilediğiniz zaman çerez kullanım tercihlerinizi güncelleyebilirsiniz.
+                Sitemizin alt kÄ±smÄ±nda yer alan Ã§erez tercih paneli veya tarayÄ±cÄ±nÄ±zÄ±n ayarlarÄ± Ã¼zerinden dilediÄŸiniz zaman Ã§erez kullanÄ±m tercihlerinizi gÃ¼ncelleyebilirsiniz.
             </p>
         </div>
     </div>

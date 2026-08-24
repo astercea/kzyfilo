@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — Admin Online İşlem Talepleri (admin/online-islemler.php)
  */

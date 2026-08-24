@@ -1,6 +1,6 @@
 <?php
 /**
- * kzyfilo — Ticari Araç Kiralama (ticari-arac-kiralama.php)
+ * kzyfilo â€” Ticari AraÃ§ Kiralama (ticari-arac-kiralama.php)
  */
 require_once __DIR__ . '/includes/config.php';
 
@@ -9,7 +9,7 @@ $ticariVehicles = array_filter($vehicles, fn($v) => $v['category'] === 'ticari')
 
 setPageMeta([
     'title' => t('solutions_menu.commercial_rental') . ' | ' . SITE_NAME,
-    'description' => 'Hafif ticari, minivan ve panelvan kiralama çözümleri ile saha ve lojistik operasyonlarınızı güçlendirin.',
+    'description' => 'Hafif ticari, minivan ve panelvan kiralama Ã§Ã¶zÃ¼mleri ile saha ve lojistik operasyonlarÄ±nÄ±zÄ± gÃ¼Ã§lendirin.',
     'canonical' => canonical('ticari-arac-kiralama.php'),
 ]);
 
@@ -18,32 +18,30 @@ $breadcrumbs = [
     ['title' => t('solutions_menu.commercial_rental')]
 ];
 
-include includePath('header.php');
-?>
+include includePath('header.php');?>
 
 <div class="service-hero">
     <div class="container">
         <div class="max-w-xl">
-            <span class="hero-subtitle">İşletmenizin Güçlü Ortağı</span>
+            <span class="hero-subtitle">Ä°ÅŸletmenizin GÃ¼Ã§lÃ¼ OrtaÄŸÄ±</span>
             <h1 class="text-4xl mb-4"><?php e('solutions_menu.commercial_rental'); ?></h1>
             <p class="text-lg text-muted mb-6">
-                Yüksek taşıma kapasitesi, dayanıklı gövde yapıları ve avantajlı kiralama vadeleri ile lojistik, servis ve dağıtım filonuzu kurun.
+                YÃ¼ksek taÅŸÄ±ma kapasitesi, dayanÄ±klÄ± gÃ¶vde yapÄ±larÄ± ve avantajlÄ± kiralama vadeleri ile lojistik, servis ve daÄŸÄ±tÄ±m filonuzu kurun.
             </p>
             <div class="flex gap-4">
                 <a href="<?php echo url('araclar.php', ['kategori' => 'ticari']); ?>" class="btn btn-primary btn-lg"><?php e('home.hero_cta_vehicles'); ?></a>
                 <a href="<?php echo url('hizli-teklif.php'); ?>" class="btn btn-outline btn-lg"><?php e('header.get_quote'); ?></a>
-            </div>
+                    <?php include includePath('breadcrumbs.php'); ?>
+    </div>
         </div>
-
-<?php include includePath('breadcrumbs.php'); ?>
     </div>
 </div>
 
 <section class="section">
     <div class="container">
         <div class="flex flex-between mb-8">
-            <h2 class="text-2xl">Öne Çıkan Ticari Araçlar</h2>
-            <a href="<?php echo url('araclar.php', ['kategori' => 'ticari']); ?>" class="btn btn-outline btn-sm">Tüm Ticari Araçlar ›</a>
+            <h2 class="text-2xl">Ã–ne Ã‡Ä±kan Ticari AraÃ§lar</h2>
+            <a href="<?php echo url('araclar.php', ['kategori' => 'ticari']); ?>" class="btn btn-outline btn-sm">TÃ¼m Ticari AraÃ§lar â†’</a>
         </div>
 
         <div class="grid grid-3 gap-6 mb-16">
@@ -54,19 +52,19 @@ include includePath('header.php');
 
         <div class="service-features">
             <div class="service-feature-card">
-                <div class="service-feature-icon">??</div>
-                <h4 class="text-base mb-2">Geniş Yükleme Hacimleri</h4>
-                <p class="text-sm text-muted">Kombi minivanlardan büyük panelvanlara kadar her türlü koli, palet ve teknik ekipman taşımasına uygun hacim seçenekleri.</p>
+                <div class="service-feature-icon">ğŸ“¦</div>
+                <h4 class="text-base mb-2">GeniÅŸ YÃ¼kleme Hacimleri</h4>
+                <p class="text-sm text-muted">Kombi minivanlardan bÃ¼yÃ¼k panelvanlara kadar her tÃ¼rlÃ¼ koli, palet ve teknik ekipman taÅŸÄ±masÄ±na uygun hacim seÃ§enekleri.</p>
             </div>
             <div class="service-feature-card">
-                <div class="service-feature-icon">??</div>
-                <h4 class="text-base mb-2">Saha Dayanıklılığı & Düşük TCO</h4>
-                <p class="text-sm text-muted">Yoğun kilometre yapan ticari filolar için tasarlanmış dayanıklı dizel motorlar ve ağır hizmet tipi süspansiyonlar.</p>
+                <div class="service-feature-icon">ğŸšš</div>
+                <h4 class="text-base mb-2">Saha DayanÄ±klÄ±lÄ±ÄŸÄ± & DÃ¼ÅŸÃ¼k TCO</h4>
+                <p class="text-sm text-muted">YoÄŸun kilometre yapan ticari filolar iÃ§in tasarlanmÄ±ÅŸ dayanÄ±klÄ± dizel motorlar ve aÄŸÄ±r hizmet tipi sÃ¼spansiyonlar.</p>
             </div>
             <div class="service-feature-card">
-                <div class="service-feature-icon">??</div>
-                <h4 class="text-base mb-2">Hızlı Ticari İkame Desteği</h4>
-                <p class="text-sm text-muted">Saha operasyonlarınızın durmaması için ticari araç arızalarında ticari ikame araç önceliği.</p>
+                <div class="service-feature-icon">ğŸ”„</div>
+                <h4 class="text-base mb-2">HÄ±zlÄ± Ticari Ä°kame DesteÄŸi</h4>
+                <p class="text-sm text-muted">Saha operasyonlarÄ±nÄ±zÄ±n durmamasÄ± iÃ§in ticari araÃ§ arÄ±zalarÄ±nda ticari ikame araÃ§ Ã¶nceliÄŸi.</p>
             </div>
         </div>
     </div>

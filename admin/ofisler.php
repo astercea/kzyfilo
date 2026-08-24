@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — Admin Ofisler ve İade Noktaları Yönetimi (admin/ofisler.php)
  */

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — Çerez Tercih Banner'ı
  */

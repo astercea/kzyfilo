@@ -1,6 +1,6 @@
 <?php
 /**
- * kzyfilo — Hakkımızda (hakkimizda.php)
+ * kzyfilo â€” HakkÄ±mÄ±zda (hakkimizda.php)
  */
 require_once __DIR__ . '/includes/config.php';
 
@@ -14,16 +14,13 @@ $breadcrumbs = [
     ['title' => t('about.title')]
 ];
 
-include includePath('header.php');
-?>
+include includePath('header.php');?>
 
 <div class="page-header">
-    <div class="container text-center">
+    <div class="container">
         <h1><?php e('about.title'); ?></h1>
-        <p><?php e('site_tagline'); ?></p>
+        <?php include includePath('breadcrumbs.php'); ?>
     </div>
-
-<?php include includePath('breadcrumbs.php'); ?>
 </div>
 
 <section class="section">
@@ -31,10 +28,10 @@ include includePath('header.php');
         <div class="mb-12">
             <h2 class="text-3xl mb-4">Biz Kimiz?</h2>
             <p class="text-lg text-muted mb-4">
-                kzyfilo; kurumsal şirketlere, KOBİ'lere ve profesyonellere uzun dönem araç kiralama, filo optimizasyonu ve bütünleşik mobilite yönetimi hizmetleri sunan öncü ve güvenilir bir filo kiralama markasıdır.
+                kzyfilo; kurumsal ÅŸirketlere, KOBÄ°'lere ve profesyonellere uzun dÃ¶nem araÃ§ kiralama, filo optimizasyonu ve bÃ¼tÃ¼nleÅŸik mobilite yÃ¶netimi hizmetleri sunan Ã¶ncÃ¼ ve gÃ¼venilir bir filo kiralama markasÄ±dÄ±r.
             </p>
             <p class="text-muted">
-                Otomotiv sektöründeki köklü deneyimimiz, güçlü finansal yapımız ve müşteri odaklı hizmet felsefemiz ile şirketlerin operasyonel araç ihtiyaçlarını sıfır risk ve maksimum maliyet avantajı ile karşılıyoruz.
+                Otomotiv sektÃ¶rÃ¼ndeki kÃ¶klÃ¼ deneyimimiz, gÃ¼Ã§lÃ¼ finansal yapÄ±mÄ±z ve mÃ¼ÅŸteri odaklÄ± hizmet felsefemiz ile ÅŸirketlerin operasyonel araÃ§ ihtiyaÃ§larÄ±nÄ± sÄ±fÄ±r risk ve maksimum maliyet avantajÄ± ile karÅŸÄ±lÄ±yoruz.
             </p>
         </div>
 
@@ -43,35 +40,35 @@ include includePath('header.php');
             <div class="card card-body">
                 <h3 class="text-xl text-primary mb-3">Misyonumuz</h3>
                 <p class="text-sm text-muted mb-0">
-                    İşletmelerin mobilite ihtiyaçlarını en doğru araç modelleri, şeffaf fiyatlandırma ve kesintisiz 7/24 operasyonel destekle karşılayarak onların ana işlerine odaklanmalarını sağlamak.
+                    Ä°ÅŸletmelerin mobilite ihtiyaÃ§larÄ±nÄ± en doÄŸru araÃ§ modelleri, ÅŸeffaf fiyatlandÄ±rma ve kesintisiz 7/24 operasyonel destekle karÅŸÄ±layarak onlarÄ±n ana iÅŸlerine odaklanmalarÄ±nÄ± saÄŸlamak.
                 </p>
             </div>
             <div class="card card-body">
                 <h3 class="text-xl text-primary mb-3">Vizyonumuz</h3>
                 <p class="text-sm text-muted mb-0">
-                    Yenilikçi telematik teknolojileri, sürdürülebilir elektrikli araç filoları ve üstün müşteri deneyimi ile Türkiye'nin en çok tercih edilen kurumsal filo çözüm ortağı olmak.
+                    YenilikÃ§i telematik teknolojileri, sÃ¼rdÃ¼rÃ¼lebilir elektrikli araÃ§ filolarÄ± ve Ã¼stÃ¼n mÃ¼ÅŸteri deneyimi ile TÃ¼rkiye'nin en Ã§ok tercih edilen kurumsal filo Ã§Ã¶zÃ¼m ortaÄŸÄ± olmak.
                 </p>
             </div>
         </div>
 
-        <!-- Değerlerimiz -->
+        <!-- DeÄŸerlerimiz -->
         <div class="mb-16">
-            <h2 class="text-2xl mb-6 text-center">Kurumsal Değerlerimiz</h2>
+            <h2 class="text-2xl mb-6 text-center">Kurumsal DeÄŸerlerimiz</h2>
             <div class="grid grid-3 gap-6">
                 <div class="service-feature-card">
-                    <div class="service-feature-icon">??</div>
-                    <h4 class="text-base mb-2">Güven ve Şeffaflık</h4>
-                    <p class="text-sm text-muted">Sürpriz masraf içermeyen net faturalandırma ve açık sözleşme şartları.</p>
+                    <div class="service-feature-icon">ğŸ¤</div>
+                    <h4 class="text-base mb-2">GÃ¼ven ve ÅeffaflÄ±k</h4>
+                    <p class="text-sm text-muted">SÃ¼rpriz masraf iÃ§ermeyen net faturalandÄ±rma ve aÃ§Ä±k sÃ¶zleÅŸme ÅŸartlarÄ±.</p>
                 </div>
                 <div class="service-feature-card">
-                    <div class="service-feature-icon">?</div>
-                    <h4 class="text-base mb-2">Hız ve Çözüm Odaklılık</h4>
-                    <p class="text-sm text-muted">Yetkili servis süreçlerinde ve ikame araç temininde anında reaksiyon.</p>
+                    <div class="service-feature-icon">âš¡</div>
+                    <h4 class="text-base mb-2">HÄ±z ve Ã‡Ã¶zÃ¼m OdaklÄ±lÄ±k</h4>
+                    <p class="text-sm text-muted">Yetkili servis sÃ¼reÃ§lerinde ve ikame araÃ§ temininde anÄ±nda reaksiyon.</p>
                 </div>
                 <div class="service-feature-card">
-                    <div class="service-feature-icon">??</div>
-                    <h4 class="text-base mb-2">Sürdürülebilirlik</h4>
-                    <p class="text-sm text-muted">Çevreci hibrit ve elektrikli araç modelleriyle yeşil filo dönüşümüne öncülük.</p>
+                    <div class="service-feature-icon">ğŸŒ±</div>
+                    <h4 class="text-base mb-2">SÃ¼rdÃ¼rÃ¼lebilirlik</h4>
+                    <p class="text-sm text-muted">Ã‡evreci hibrit ve elektrikli araÃ§ modelleriyle yeÅŸil filo dÃ¶nÃ¼ÅŸÃ¼mÃ¼ne Ã¶ncÃ¼lÃ¼k.</p>
                 </div>
             </div>
         </div>

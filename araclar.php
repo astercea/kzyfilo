@@ -1,10 +1,10 @@
 <?php
 /**
- * kzyfilo — Araç Kataloðu (araclar.php)
+ * kzyfilo â€” AraÃ§ KataloÄŸu (araclar.php)
  */
 require_once __DIR__ . '/includes/config.php';
 
-// Verileri yükle
+// Verileri yÃ¼kle
 $vehicles = loadData('vehicles.php');
 
 // URL query parametreleri
@@ -29,23 +29,20 @@ $breadcrumbs = [
     ['title' => t('catalog.title')]
 ];
 
-include includePath('header.php');
-?>
+include includePath('header.php');?>
 
 <div class="page-header">
     <div class="container">
         <h1><?php e('catalog.title'); ?></h1>
-        <p><?php e('catalog.description'); ?></p>
+        <?php include includePath('breadcrumbs.php'); ?>
     </div>
-
-<?php include includePath('breadcrumbs.php'); ?>
 </div>
 
 <section class="section">
     <div class="container">
         <div class="layout-sidebar">
             
-            <!-- ¦¦¦ DESKTOP FILTER SIDEBAR ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ -->
+            <!-- â”€â”€â”€ DESKTOP FILTER SIDEBAR â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
             <aside class="catalog-sidebar">
                 <form id="catalog-filter-form" class="card card-body">
                     <div class="flex flex-between mb-4">
@@ -100,7 +97,7 @@ include includePath('header.php');
                         </div>
                     </div>
 
-                    <!-- Yakýt Tipi -->
+                    <!-- YakÄ±t Tipi -->
                     <div class="filter-section">
                         <div class="filter-section-title"><?php e('catalog.fuel'); ?></div>
                         <div class="filter-options">
@@ -134,18 +131,18 @@ include includePath('header.php');
                         </div>
                     </div>
 
-                    <!-- Fiyat Aralýðý -->
+                    <!-- Fiyat AralÄ±ÄŸÄ± -->
                     <div class="filter-section">
                         <div class="filter-section-title"><?php e('catalog.price_range'); ?></div>
                         <div class="grid grid-2 gap-2">
-                            <input type="number" name="min_fiyat" class="form-input" placeholder="Min ?" min="0" step="1000">
-                            <input type="number" name="maks_fiyat" class="form-input" placeholder="Maks ?" value="<?php echo esc($maxPrice); ?>" min="0" step="1000">
+                            <input type="number" name="min_fiyat" class="form-input" placeholder="Min â‚º" min="0" step="1000">
+                            <input type="number" name="maks_fiyat" class="form-input" placeholder="Maks â‚º" value="<?php echo esc($maxPrice); ?>" min="0" step="1000">
                         </div>
                     </div>
 
-                    <!-- Özel Filtreler -->
+                    <!-- Ã–zel Filtreler -->
                     <div class="filter-section">
-                        <div class="filter-section-title"><?php echo (CURRENT_LANG === 'tr') ? 'Özel Seçenekler' : 'Special Filters'; ?></div>
+                        <div class="filter-section-title"><?php echo (CURRENT_LANG === 'tr') ? 'Ã–zel SeÃ§enekler' : 'Special Filters'; ?></div>
                         <div class="filter-options">
                             <label class="form-check">
                                 <input type="checkbox" name="kampanya" value="1" <?php echo $isCampaign ? 'checked' : ''; ?>>
@@ -164,12 +161,12 @@ include includePath('header.php');
                 </form>
             </aside>
 
-            <!-- ¦¦¦ VEHICLE RESULTS MAIN ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ -->
+            <!-- â”€â”€â”€ VEHICLE RESULTS MAIN â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
             <main class="catalog-main">
                 <!-- Toolbar -->
                 <div class="catalog-toolbar">
                     <div class="catalog-count">
-                        <strong><span id="catalog-count-number"><?php echo count($vehicles); ?></span></strong> <?php echo (CURRENT_LANG === 'tr') ? 'araç listeleniyor' : 'vehicles listed'; ?>
+                        <strong><span id="catalog-count-number"><?php echo count($vehicles); ?></span></strong> <?php echo (CURRENT_LANG === 'tr') ? 'araÃ§ listeleniyor' : 'vehicles listed'; ?>
                     </div>
 
                     <div class="flex items-center gap-3">
@@ -231,9 +228,9 @@ include includePath('header.php');
     </div>
 </section>
 
-<!-- ¦¦¦ MOBILE FILTER DRAWER ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦ -->
+<!-- â”€â”€â”€ MOBILE FILTER DRAWER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
 <div class="filter-drawer-backdrop" id="catalog-drawer-backdrop" aria-hidden="true"></div>
-<div class="filter-drawer" id="catalog-filter-drawer" role="dialog" aria-modal="true" aria-label="Filtreleme Menüsü" aria-hidden="true">
+<div class="filter-drawer" id="catalog-filter-drawer" role="dialog" aria-modal="true" aria-label="Filtreleme MenÃ¼sÃ¼" aria-hidden="true">
     <div class="filter-drawer-header">
         <h3><?php e('catalog.filters'); ?></h3>
         <button type="button" class="modal-close" id="catalog-drawer-close" aria-label="<?php e('btn.close'); ?>">

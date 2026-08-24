@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — Merkezi Yapılandırma ve Helper Fonksiyonlar
  * 
@@ -9,6 +9,14 @@
 // Hata raporlama (geliştirme ortamı)
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
+
+// UTF-8 Karakter Kodlaması
+if (!headers_sent()) {
+    header('Content-Type: text/html; charset=UTF-8');
+}
+if (function_exists('mb_internal_encoding')) {
+    mb_internal_encoding('UTF-8');
+}
 
 // Oturum başlat (dil seçimi için)
 if (session_status() === PHP_SESSION_NONE) {

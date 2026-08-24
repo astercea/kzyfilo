@@ -1,12 +1,12 @@
 <?php
 /**
- * kzyfilo — Gizlilik Politikası (gizlilik.php)
+ * kzyfilo â€” Gizlilik PolitikasÄ± (gizlilik.php)
  */
 require_once __DIR__ . '/includes/config.php';
 
 setPageMeta([
     'title' => t('legal.privacy_title') . ' | ' . SITE_NAME,
-    'description' => 'kzyfilo Gizlilik Politikası ve veri güvenliği esasları.',
+    'description' => 'kzyfilo Gizlilik PolitikasÄ± ve veri gÃ¼venliÄŸi esaslarÄ±.',
     'canonical' => canonical('gizlilik.php'),
 ]);
 
@@ -14,31 +14,28 @@ $breadcrumbs = [
     ['title' => t('legal.privacy_title')]
 ];
 
-include includePath('header.php');
-?>
+include includePath('header.php');?>
 
 <div class="page-header">
-    <div class="container text-center">
+    <div class="container">
         <h1><?php e('legal.privacy_title'); ?></h1>
-        <p>Gizliliğinize ve kurumsal veri güvenliğinize önem veriyoruz</p>
+        <?php include includePath('breadcrumbs.php'); ?>
     </div>
-
-<?php include includePath('breadcrumbs.php'); ?>
 </div>
 
 <section class="section">
     <div class="container container-narrow">
         <div class="card card-body text-sm" style="line-height: 1.8;">
             <p>
-                kzyfilo (“kzyfilo.com.tr”), web sitemizi ziyaret eden kullanıcıların ve hizmetlerimizden yararlanan kurumsal müşterilerimizin gizliliğini korumayı taahhüt eder. Bu Gizlilik Politikası, sitemizi ziyaret ettiğinizde toplanan bilgilerin nasıl kullanıldığını ve korunduğunu açıklar.
+                kzyfilo (â€œkzyfilo.com.trâ€), web sitemizi ziyaret eden kullanÄ±cÄ±larÄ±n ve hizmetlerimizden yararlanan kurumsal mÃ¼ÅŸterilerimizin gizliliÄŸini korumayÄ± taahhÃ¼t eder. Bu Gizlilik PolitikasÄ±, sitemizi ziyaret ettiÄŸinizde toplanan bilgilerin nasÄ±l kullanÄ±ldÄ±ÄŸÄ±nÄ± ve korunduÄŸunu aÃ§Ä±klar.
             </p>
-            <h3 class="text-base fw-bold my-4">Bilgi Toplama ve Kullanımı</h3>
+            <h3 class="text-base fw-bold my-4">Bilgi Toplama ve KullanÄ±mÄ±</h3>
             <p>
-                Teklif formları, iletişim talepleri ve online işlem bildirimleri esnasında sizlerden talep edilen ad, soyad, telefon, e-posta ve şirket bilgileri yalnızca hizmet taleplerinizin karşılanması ve iletişim amacıyla kullanılır.
+                Teklif formlarÄ±, iletiÅŸim talepleri ve online iÅŸlem bildirimleri esnasÄ±nda sizlerden talep edilen ad, soyad, telefon, e-posta ve ÅŸirket bilgileri yalnÄ±zca hizmet taleplerinizin karÅŸÄ±lanmasÄ± ve iletiÅŸim amacÄ±yla kullanÄ±lÄ±r.
             </p>
-            <h3 class="text-base fw-bold my-4">Bilgi Güvenliği</h3>
+            <h3 class="text-base fw-bold my-4">Bilgi GÃ¼venliÄŸi</h3>
             <p>
-                Kişisel ve kurumsal verileriniz yetkisiz erişim, kayıp veya kötüye kullanıma karşı uluslararası standartlarda SSL şifreleme ve güvenlik duvarı altyapıları ile korunmaktadır.
+                KiÅŸisel ve kurumsal verileriniz yetkisiz eriÅŸim, kayÄ±p veya kÃ¶tÃ¼ye kullanÄ±ma karÅŸÄ± uluslararasÄ± standartlarda SSL ÅŸifreleme ve gÃ¼venlik duvarÄ± altyapÄ±larÄ± ile korunmaktadÄ±r.
             </p>
         </div>
     </div>

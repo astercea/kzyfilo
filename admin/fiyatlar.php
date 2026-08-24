@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — Admin Fiyat Kombinasyonları (admin/fiyatlar.php)
  */

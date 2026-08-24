@@ -37,17 +37,14 @@ $breadcrumbs = [
     ['title' => t('package_compare.title')]
 ];
 
-include includePath('header.php');
-?>
+include includePath('header.php');?>
 
 <div class="page-header">
     <div class="container">
         <h1><?php e('package_compare.title'); ?></h1>
-        <p><?php echo esc($selectedVehicle['brand'] . ' ' . $selectedVehicle['model'] . ' ' . $selectedVehicle['version']); ?> <?php e('package_compare.description'); ?></p>
+        <?php include includePath('breadcrumbs.php'); ?>
     </div>
 </div>
-
-<?php include includePath('breadcrumbs.php'); ?>
 
 <!-- ─── PROGRESS PIPELINE ─────────────────────────────────────────── -->
 <div class="container" style="padding-top: var(--space-6);">

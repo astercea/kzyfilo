@@ -1,6 +1,6 @@
 <?php
 /**
- * kzyfilo — Binek Araç Kiralama (binek-arac-kiralama.php)
+ * kzyfilo â€” Binek AraÃ§ Kiralama (binek-arac-kiralama.php)
  */
 require_once __DIR__ . '/includes/config.php';
 
@@ -9,7 +9,7 @@ $binekVehicles = array_filter($vehicles, fn($v) => $v['category'] === 'binek');
 
 setPageMeta([
     'title' => t('solutions_menu.passenger_rental') . ' | ' . SITE_NAME,
-    'description' => 'Şirketiniz için sedan, hatchback ve SUV binek araç kiralama çözümleri.',
+    'description' => 'Åirketiniz iÃ§in sedan, hatchback ve SUV binek araÃ§ kiralama Ã§Ã¶zÃ¼mleri.',
     'canonical' => canonical('binek-arac-kiralama.php'),
 ]);
 
@@ -18,8 +18,7 @@ $breadcrumbs = [
     ['title' => t('solutions_menu.passenger_rental')]
 ];
 
-include includePath('header.php');
-?>
+include includePath('header.php');?>
 
 <div class="service-hero">
     <div class="container">
@@ -27,23 +26,22 @@ include includePath('header.php');
             <span class="hero-subtitle"><?php e('site_name'); ?> Binek Filo</span>
             <h1 class="text-4xl mb-4"><?php e('solutions_menu.passenger_rental'); ?></h1>
             <p class="text-lg text-muted mb-6">
-                Ekonomik hatchback modellerden üst segment yönetici sedan ve SUV araçlarına kadar zengin binek araç seçenekleri.
+                Ekonomik hatchback modellerden Ã¼st segment yÃ¶netici sedan ve SUV araÃ§larÄ±na kadar zengin binek araÃ§ seÃ§enekleri.
             </p>
             <div class="flex gap-4">
                 <a href="<?php echo url('araclar.php', ['kategori' => 'binek']); ?>" class="btn btn-primary btn-lg"><?php e('home.hero_cta_vehicles'); ?></a>
                 <a href="<?php echo url('hizli-teklif.php'); ?>" class="btn btn-outline btn-lg"><?php e('header.get_quote'); ?></a>
-            </div>
+                    <?php include includePath('breadcrumbs.php'); ?>
+    </div>
         </div>
-
-<?php include includePath('breadcrumbs.php'); ?>
     </div>
 </div>
 
 <section class="section">
     <div class="container">
         <div class="flex flex-between mb-8">
-            <h2 class="text-2xl">Öne Çıkan Binek Araçlar</h2>
-            <a href="<?php echo url('araclar.php', ['kategori' => 'binek']); ?>" class="btn btn-outline btn-sm">Tüm Binek Araçlar ›</a>
+            <h2 class="text-2xl">Ã–ne Ã‡Ä±kan Binek AraÃ§lar</h2>
+            <a href="<?php echo url('araclar.php', ['kategori' => 'binek']); ?>" class="btn btn-outline btn-sm">TÃ¼m Binek AraÃ§lar â†’</a>
         </div>
 
         <div class="grid grid-3 gap-6 mb-16">
@@ -54,19 +52,19 @@ include includePath('header.php');
 
         <div class="service-features">
             <div class="service-feature-card">
-                <div class="service-feature-icon">??</div>
-                <h4 class="text-base mb-2">Her İhtiyaca Uygun Segmentler</h4>
-                <p class="text-sm text-muted">Saha çalışanları için ekonomik B segmenti, orta kademe için C segmenti, yöneticiler için D ve Premium segmentler.</p>
+                <div class="service-feature-icon">ğŸŒŸ</div>
+                <h4 class="text-base mb-2">Her Ä°htiyaca Uygun Segmentler</h4>
+                <p class="text-sm text-muted">Saha Ã§alÄ±ÅŸanlarÄ± iÃ§in ekonomik B segmenti, orta kademe iÃ§in C segmenti, yÃ¶neticiler iÃ§in D ve Premium segmentler.</p>
             </div>
             <div class="service-feature-card">
-                <div class="service-feature-icon">???</div>
-                <h4 class="text-base mb-2">Güvenlik ve Konfor Standartları</h4>
-                <p class="text-sm text-muted">Tüm binek filomuz gelişmiş sürüş destek sistemleri, Apple CarPlay/Android Auto ve modern güvenlik donanımlarıyla gelir.</p>
+                <div class="service-feature-icon">ğŸ›¡ï¸</div>
+                <h4 class="text-base mb-2">GÃ¼venlik ve Konfor StandartlarÄ±</h4>
+                <p class="text-sm text-muted">TÃ¼m binek filomuz geliÅŸmiÅŸ sÃ¼rÃ¼ÅŸ destek sistemleri, Apple CarPlay/Android Auto ve modern gÃ¼venlik donanÄ±mlarÄ±yla gelir.</p>
             </div>
             <div class="service-feature-card">
-                <div class="service-feature-icon">?</div>
-                <h4 class="text-base mb-2">Düşük Yakıt Tüketimi</h4>
-                <p class="text-sm text-muted">Yeni nesil Euro 6D motorlar ve hibrit seçeneklerle şirketinizin yakıt giderlerini asgariye indirin.</p>
+                <div class="service-feature-icon">âš¡</div>
+                <h4 class="text-base mb-2">DÃ¼ÅŸÃ¼k YakÄ±t TÃ¼ketimi</h4>
+                <p class="text-sm text-muted">Yeni nesil Euro 6D motorlar ve hibrit seÃ§eneklerle ÅŸirketinizin yakÄ±t giderlerini asgariye indirin.</p>
             </div>
         </div>
     </div>

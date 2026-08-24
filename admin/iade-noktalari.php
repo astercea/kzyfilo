@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — Admin Araç İade Noktaları Yönetimi (admin/iade-noktalari.php)
  */

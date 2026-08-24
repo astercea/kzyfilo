@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — Admin Hizmet Paketleri Yönetimi (admin/paketler.php)
  */

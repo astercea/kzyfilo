@@ -1,6 +1,6 @@
 <?php
 /**
- * kzyfilo ó HTML Site Haritas˝ (site-haritasi.php)
+ * kzyfilo ‚Äî HTML Site Haritasƒ± (site-haritasi.php)
  */
 require_once __DIR__ . '/includes/config.php';
 
@@ -14,81 +14,78 @@ $breadcrumbs = [
     ['title' => t('sitemap.title')]
 ];
 
-include includePath('header.php');
-?>
+include includePath('header.php');?>
 
 <div class="page-header">
-    <div class="container text-center">
+    <div class="container">
         <h1><?php e('sitemap.title'); ?></h1>
-        <p><?php e('sitemap.description'); ?></p>
+        <?php include includePath('breadcrumbs.php'); ?>
     </div>
-
-<?php include includePath('breadcrumbs.php'); ?>
 </div>
 
 <section class="section">
     <div class="container container-narrow">
         <div class="grid grid-3 gap-8">
-            <!-- 1. Ana Sayfa & AraÁlar -->
+            <!-- 1. Ana Sayfa & Ara√ßlar -->
             <div class="card card-body">
-                <h3 class="text-lg fw-bold text-primary mb-4">?? AraÁlar & Katalog</h3>
+                <h3 class="text-lg fw-bold text-primary mb-4">üöó Ara√ßlar & Katalog</h3>
                 <ul class="flex flex-col gap-2 text-sm">
-                    <li><a href="<?php echo url('index.php'); ?>">ï <?php e('header.home'); ?></a></li>
-                    <li><a href="<?php echo url('araclar.php'); ?>">ï <?php e('header.vehicles'); ?></a></li>
-                    <li><a href="<?php echo url('arac-karsilastir.php'); ?>">ï <?php e('compare.title'); ?></a></li>
-                    <li><a href="<?php echo url('paket-karsilastir.php'); ?>">ï <?php e('package_compare.title'); ?></a></li>
-                    <li><a href="<?php echo url('listem.php'); ?>">ï <?php e('my_list.title'); ?></a></li>
-                    <li><a href="<?php echo url('hizli-teklif.php'); ?>">ï <?php e('quote_form.quick_title'); ?></a></li>
-                    <li><a href="<?php echo url('filo-teklif.php'); ?>">ï <?php e('quote_form.fleet_title'); ?></a></li>
+                    <li><a href="<?php echo url('index.php'); ?>">‚Ä¢ <?php e('header.home'); ?></a></li>
+                    <li><a href="<?php echo url('araclar.php'); ?>">‚Ä¢ <?php e('header.vehicles'); ?></a></li>
+                    <li><a href="<?php echo url('arac-karsilastir.php'); ?>">‚Ä¢ <?php e('compare.title'); ?></a></li>
+                    <li><a href="<?php echo url('paket-karsilastir.php'); ?>">‚Ä¢ <?php e('package_compare.title'); ?></a></li>
+                    <li><a href="<?php echo url('listem.php'); ?>">‚Ä¢ <?php e('my_list.title'); ?></a></li>
+                    <li><a href="<?php echo url('hizli-teklif.php'); ?>">‚Ä¢ <?php e('quote_form.quick_title'); ?></a></li>
+                    <li><a href="<?php echo url('filo-teklif.php'); ?>">‚Ä¢ <?php e('quote_form.fleet_title'); ?></a></li>
                 </ul>
             </div>
 
-            <!-- 2. «ˆz¸mlerimiz -->
+            <!-- 2. √á√∂z√ºmlerimiz -->
             <div class="card card-body">
-                <h3 class="text-lg fw-bold text-primary mb-4">?? «ˆz¸mlerimiz</h3>
+                <h3 class="text-lg fw-bold text-primary mb-4">üíº √á√∂z√ºmlerimiz</h3>
                 <ul class="flex flex-col gap-2 text-sm">
-                    <li><a href="<?php echo url('hizmetler.php'); ?>">ï Genel «ˆz¸mlerimiz</a></li>
-                    <li><a href="<?php echo url('uzun-donem-arac-kiralama.php'); ?>">ï <?php e('solutions_menu.long_term_rental'); ?></a></li>
-                    <li><a href="<?php echo url('filo-yonetimi.php'); ?>">ï <?php e('solutions_menu.fleet_management'); ?></a></li>
-                    <li><a href="<?php echo url('binek-arac-kiralama.php'); ?>">ï <?php e('solutions_menu.passenger_rental'); ?></a></li>
-                    <li><a href="<?php echo url('ticari-arac-kiralama.php'); ?>">ï <?php e('solutions_menu.commercial_rental'); ?></a></li>
-                    <li><a href="<?php echo url('elektrikli-arac-kiralama.php'); ?>">ï <?php e('solutions_menu.electric_rental'); ?></a></li>
-                    <li><a href="<?php echo url('ek-urun-ve-hizmetler.php'); ?>">ï <?php e('solutions_menu.additional_services'); ?></a></li>
-                    <li><a href="<?php echo url('arac-teslim-ve-iade.php'); ?>">ï <?php e('solutions_menu.delivery_return'); ?></a></li>
+                    <li><a href="<?php echo url('hizmetler.php'); ?>">‚Ä¢ Genel √á√∂z√ºmlerimiz</a></li>
+                    <li><a href="<?php echo url('uzun-donem-arac-kiralama.php'); ?>">‚Ä¢ <?php e('solutions_menu.long_term_rental'); ?></a></li>
+                    <li><a href="<?php echo url('filo-yonetimi.php'); ?>">‚Ä¢ <?php e('solutions_menu.fleet_management'); ?></a></li>
+                    <li><a href="<?php echo url('binek-arac-kiralama.php'); ?>">‚Ä¢ <?php e('solutions_menu.passenger_rental'); ?></a></li>
+                    <li><a href="<?php echo url('ticari-arac-kiralama.php'); ?>">‚Ä¢ <?php e('solutions_menu.commercial_rental'); ?></a></li>
+                    <li><a href="<?php echo url('elektrikli-arac-kiralama.php'); ?>">‚Ä¢ <?php e('solutions_menu.electric_rental'); ?></a></li>
+                    <li><a href="<?php echo url('ek-urun-ve-hizmetler.php'); ?>">‚Ä¢ <?php e('solutions_menu.additional_services'); ?></a></li>
+                    <li><a href="<?php echo url('arac-teslim-ve-iade.php'); ?>">‚Ä¢ <?php e('solutions_menu.delivery_return'); ?></a></li>
                 </ul>
             </div>
 
-            <!-- 3. Kurumsal & ›leti˛im -->
+            <!-- 3. Kurumsal & ƒ∞leti≈üim -->
             <div class="card card-body">
-                <h3 class="text-lg fw-bold text-primary mb-4">?? Kurumsal & ›leti˛im</h3>
+                <h3 class="text-lg fw-bold text-primary mb-4">üè¢ Kurumsal & ƒ∞leti≈üim</h3>
                 <ul class="flex flex-col gap-2 text-sm">
-                    <li><a href="<?php echo url('hakkimizda.php'); ?>">ï <?php e('header.about'); ?></a></li>
-                    <li><a href="<?php echo url('referanslar.php'); ?>">ï <?php e('references.title'); ?></a></li>
-                    <li><a href="<?php echo url('iletisim.php'); ?>">ï <?php e('header.contact'); ?></a></li>
-                    <li><a href="<?php echo url('ofisler.php'); ?>">ï <?php e('offices.title'); ?></a></li>
-                    <li><a href="<?php echo url('arac-iade-noktalari.php'); ?>">ï <?php e('return_points.title'); ?></a></li>
-                    <li><a href="<?php echo url('online-islemler.php'); ?>">ï <?php e('online.title'); ?></a></li>
+                    <li><a href="<?php echo url('hakkimizda.php'); ?>">‚Ä¢ <?php e('header.about'); ?></a></li>
+                    <li><a href="<?php echo url('referanslar.php'); ?>">‚Ä¢ <?php e('references.title'); ?></a></li>
+                    <li><a href="<?php echo url('iletisim.php'); ?>">‚Ä¢ <?php e('header.contact'); ?></a></li>
+                    <li><a href="<?php echo url('ofisler.php'); ?>">‚Ä¢ <?php e('offices.title'); ?></a></li>
+                    <li><a href="<?php echo url('arac-iade-noktalari.php'); ?>">‚Ä¢ <?php e('return_points.title'); ?></a></li>
+                    <li><a href="<?php echo url('online-islemler.php'); ?>">‚Ä¢ <?php e('online.title'); ?></a></li>
                 </ul>
             </div>
 
             <!-- 4. Kaynaklar -->
             <div class="card card-body">
-                <h3 class="text-lg fw-bold text-primary mb-4">?? Kaynaklar & Medya</h3>
+                <h3 class="text-lg fw-bold text-primary mb-4">üìö Kaynaklar & Medya</h3>
                 <ul class="flex flex-col gap-2 text-sm">
-                    <li><a href="<?php echo url('blog.php'); ?>">ï <?php e('resources_menu.blog'); ?></a></li>
-                    <li><a href="<?php echo url('haberler.php'); ?>">ï <?php e('resources_menu.news'); ?></a></li>
-                    <li><a href="<?php echo url('sss.php'); ?>">ï <?php e('resources_menu.faq'); ?></a></li>
+                    <li><a href="<?php echo url('blog.php'); ?>">‚Ä¢ <?php e('resources_menu.blog'); ?></a></li>
+                    <li><a href="<?php echo url('haberler.php'); ?>">‚Ä¢ <?php e('resources_menu.news'); ?></a></li>
+                    <li><a href="<?php echo url('sss.php'); ?>">‚Ä¢ <?php e('resources_menu.faq'); ?></a></li>
                 </ul>
             </div>
 
             <!-- 5. Yasal & Politikalar -->
             <div class="card card-body">
-                <h3 class="text-lg fw-bold text-primary mb-4">?? Yasal & Politikalar</h3>
+                <h3 class="text-lg fw-bold text-primary mb-4">‚öñÔ∏è Yasal & Politikalar</h3>
                 <ul class="flex flex-col gap-2 text-sm">
-                    <li><a href="<?php echo url('kvkk.php'); ?>">ï <?php e('legal.kvkk_title'); ?></a></li>
-                    <li><a href="<?php echo url('gizlilik.php'); ?>">ï <?php e('legal.privacy_title'); ?></a></li>
-                    <li><a href="<?php echo url('cerez-politikasi.php'); ?>">ï <?php e('legal.cookie_title'); ?></a></li>
-                    <li><a href="<?php echo url('yasal-uyari.php'); ?>">ï <?php e('legal.legal_title'); ?></a></li>
+                    <li><a href="<?php echo url('kvkk.php'); ?>">‚Ä¢ <?php e('legal.kvkk_title'); ?></a></li>
+                    <li><a href="<?php echo url('gizlilik.php'); ?>">‚Ä¢ <?php e('legal.privacy_title'); ?></a></li>
+                    <li><a href="<?php echo url('cerez-politikasi.php'); ?>">‚Ä¢ <?php e('legal.cookie_title'); ?></a></li>
+                    <li><a href="<?php echo url('yasal-uyari.php'); ?>">‚Ä¢ <?php e('legal.legal_title'); ?></a></li>
                 </ul>
             </div>
         </div>

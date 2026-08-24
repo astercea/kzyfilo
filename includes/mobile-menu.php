@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * kzyfilo — Mobil Navigasyon Menüsü (Drawer)
  */
