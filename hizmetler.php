@@ -41,7 +41,7 @@ include includePath('header.php');?>
                     <p class="text-sm text-muted mb-4"><?php echo (CURRENT_LANG === 'tr') ? '12 aydan 48 aya varan esnek kiralama vadeleri, sıfır sermaye bağlama ve tam vergi avantajı ile şirketinizi büyütün.' : 'Grow your business with flexible 12 to 48 months leases, zero capital lock-in, and total tax benefits.'; ?></p>
                 </div>
                 <a href="<?php echo url('uzun-donem-arac-kiralama.php'); ?>" class="btn btn-outline btn-sm">
-                    <?php e('btn.learn_more'); ?> →
+                    <?php e('btn.learn_more'); ?>
                 </a>
             </div>
 
@@ -57,7 +57,7 @@ include includePath('header.php');?>
                     <p class="text-sm text-muted mb-4"><?php echo (CURRENT_LANG === 'tr') ? 'Bakım, hasar, telematik ve yakıt yönetimini tek çatı altında toplayarak filo maliyetlerinizi optimize edin.' : 'Optimize fleet costs by bringing maintenance, damage, telematics, and fuel management under one roof.'; ?></p>
                 </div>
                 <a href="<?php echo url('filo-yonetimi.php'); ?>" class="btn btn-outline btn-sm">
-                    <?php e('btn.learn_more'); ?> →
+                    <?php e('btn.learn_more'); ?>
                 </a>
             </div>
 
@@ -75,7 +75,7 @@ include includePath('header.php');?>
                     <p class="text-sm text-muted mb-4"><?php echo (CURRENT_LANG === 'tr') ? 'Saha satıştan üst düzey yönetici araçlarına kadar geniş sedan, hatchback ve SUV model seçenekleri.' : 'Extensive sedan, hatchback, and SUV models from field sales to executive fleet cars.'; ?></p>
                 </div>
                 <a href="<?php echo url('binek-arac-kiralama.php'); ?>" class="btn btn-outline btn-sm">
-                    <?php e('btn.learn_more'); ?> →
+                    <?php e('btn.learn_more'); ?>
                 </a>
             </div>
 
@@ -94,7 +94,7 @@ include includePath('header.php');?>
                     <p class="text-sm text-muted mb-4"><?php echo (CURRENT_LANG === 'tr') ? 'Hafif ticari, minivan ve panelvan araçlarla lojistik ve saha operasyonlarınızda maksimum taşıma verimliliği.' : 'Maximum transport efficiency for logistics and field operations with light commercial and van vehicles.'; ?></p>
                 </div>
                 <a href="<?php echo url('ticari-arac-kiralama.php'); ?>" class="btn btn-outline btn-sm">
-                    <?php e('btn.learn_more'); ?> →
+                    <?php e('btn.learn_more'); ?>
                 </a>
             </div>
 
@@ -110,7 +110,7 @@ include includePath('header.php');?>
                     <p class="text-sm text-muted mb-4"><?php echo (CURRENT_LANG === 'tr') ? '%100 elektrikli ve hibrit filo filosuyla çevresel sürdürülebilirliğe katkı sağlayın, yakıttan tasarruf edin.' : 'Contribute to environmental sustainability and save on fuel with 100% electric and hybrid fleets.'; ?></p>
                 </div>
                 <a href="<?php echo url('elektrikli-arac-kiralama.php'); ?>" class="btn btn-outline btn-sm">
-                    <?php e('btn.learn_more'); ?> →
+                    <?php e('btn.learn_more'); ?>
                 </a>
             </div>
 
@@ -127,7 +127,7 @@ include includePath('header.php');?>
                     <p class="text-sm text-muted mb-4"><?php echo (CURRENT_LANG === 'tr') ? 'Lastik oteli, ek sürücü, GPS takip, VIP teslimat ve mini hasar paketi gibi katma değerli çözümler.' : 'Value-added solutions such as tire hotel, extra driver, GPS tracking, VIP delivery, and mini damage cover.'; ?></p>
                 </div>
                 <a href="<?php echo url('ek-urun-ve-hizmetler.php'); ?>" class="btn btn-outline btn-sm">
-                    <?php e('btn.learn_more'); ?> →
+                    <?php e('btn.learn_more'); ?>
                 </a>
             </div>
         </div>

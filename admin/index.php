@@ -53,7 +53,7 @@ $vehicles = loadData('vehicles.php');
 <div class="admin-card">
     <div class="admin-card-header">
         <h3 class="text-base fw-bold">Son Gelen Teklif Talepleri</h3>
-        <a href="teklifler.php" class="text-xs text-primary fw-semibold">Tümünü Gör →</a>
+        <a href="teklifler.php" class="text-xs text-primary fw-semibold">Tümünü Gör</a>
     </div>
 
     <table class="admin-table">

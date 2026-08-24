@@ -78,7 +78,7 @@ include includePath('header.php');?>
         <div class="card card-body p-12 text-center" style="background: linear-gradient(135deg, var(--color-surface-soft) 0%, var(--color-background) 100%);">
             <h3 class="text-2xl mb-3">Filonuz İçin Özel Yönetim Teklifi Alın</h3>
             <p class="text-muted max-w-lg mx-auto mb-6">Mevcut veya yeni kuracağınız filonuz için bütçe hedeflerinize uygun teklif hazırlayalım.</p>
-            <a href="<?php echo url('filo-teklif.php'); ?>" class="btn btn-primary btn-lg"><?php e('quote_form.fleet_title'); ?> →</a>
+            <a href="<?php echo url('filo-teklif.php'); ?>" class="btn btn-primary btn-lg"><?php e('quote_form.fleet_title'); ?></a>
         </div>
     </div>
 </section>

@@ -41,7 +41,7 @@ include includePath('header.php');?>
     <div class="container">
         <div class="flex flex-between mb-8">
             <h2 class="text-2xl">Öne Çıkan Binek Araçlar</h2>
-            <a href="<?php echo url('araclar.php', ['kategori' => 'binek']); ?>" class="btn btn-outline btn-sm">Tüm Binek Araçlar →</a>
+            <a href="<?php echo url('araclar.php', ['kategori' => 'binek']); ?>" class="btn btn-outline btn-sm">Tüm Binek Araçlar</a>
         </div>
 
         <div class="grid grid-3 gap-6 mb-16">

@@ -262,7 +262,7 @@ include includePath('header.php');?>
                     <!-- CTA Continue to Quote -->
                     <div class="mt-6">
                         <a href="<?php echo url('hizli-teklif.php', ['arac' => $selectedVehicle['slug']]); ?>" class="btn btn-primary" style="width: 100%;">
-                            <?php e('package_compare.continue_quote'); ?> →
+                            <?php e('package_compare.continue_quote'); ?>
                         </a>
                     </div>
 

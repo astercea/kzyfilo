@@ -80,7 +80,7 @@ include includePath('header.php');?>
             <h3><?php e('compare.empty_title'); ?></h3>
             <p><?php e('compare.empty_desc'); ?></p>
             <a href="<?php echo url('araclar.php'); ?>" class="btn btn-primary btn-lg">
-                <?php e('compare.go_to_catalog'); ?> →
+                <?php e('compare.go_to_catalog'); ?>
             </a>
         </div>
     </div>

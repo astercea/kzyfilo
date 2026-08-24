@@ -84,7 +84,7 @@
                         <div class="compare-empty-slot-icon">+</div>
                         <div class="compare-empty-slot-title">+ ${vehicles.length + 1}. Aracı Ekle</div>
                         <div class="compare-empty-slot-desc">Katalogdan başka bir araç seçerek yan yana karşılaştırın.</div>
-                        <span class="btn btn-outline btn-sm">Araç Kataloğu →</span>
+                        <span class="btn btn-outline btn-sm">Araç Kataloğu</span>
                     </a>
                 `;
                 theadRow.appendChild(addTh);
