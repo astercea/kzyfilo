@@ -40,7 +40,7 @@ include includePath('header.php');?>
 
 <section class="section">
     <div class="container">
-        <div class="layout-sidebar">
+        <div class="layout-sidebar" data-reveal="fade-up">
             
             <!-- ─── DESKTOP FILTER SIDEBAR ─────────────────────────────── -->
             <aside class="catalog-sidebar">

@@ -1,41 +1,91 @@
 /* ═══════════════════════════════════════════════════════════════════
    kzyfilo — CSS Variables (Design Tokens)
-   All colors, typography, spacing, shadows, and transitions
+   KZY Luminous Midnight Navy — Premium Fleet Experience
    ═══════════════════════════════════════════════════════════════════ */
 
 :root {
-    /* ─── Brand Colors ───────────────────────────────────────────── */
-    --color-primary: #f15a24;
-    --color-primary-dark: #c94312;
-    --color-primary-light: #fff0e9;
-    --color-primary-hover: #dc4d17;
+    /* ─── Luminous Midnight Navy Palette ─────────────────────────── */
+    --night-1000: #06111e;
+    --night-950: #091829;
+    --night-900: #0c2037;
+    --night-850: #102947;
+    --night-800: #153459;
+
+    /* ─── Navy, Cobalt & Indigo Flare Reflections ────────────────── */
+    --navy-950: #081627;
+    --navy-900: #0d233d;
+    --navy-850: #123053;
+    --navy-800: #183e6b;
+    --navy-700: #1f5088;
+    --navy-600: #2968ad;
+    --navy-500: #3580d4;
+
+    /* ─── Luminous Glow & Spark Tokens ────────────────────────────── */
+    --blue-flare: #2979d4;
+    --blue-flare-bright: #3ea0ff;
+    --blue-flare-glow: rgba(41, 121, 212, 0.35);
+    --blue-flare-soft: rgba(30, 95, 175, 0.25);
+    --cyan-spark: #00d2ff;
+    --cyan-spark-soft: rgba(0, 210, 255, 0.18);
+    --indigo-aura: #4361ee;
+    --indigo-aura-soft: rgba(67, 97, 238, 0.22);
+
+    /* ─── Brand Orange Accent (KZY Filo Identity) ────────────────── */
+    --brand-orange: #f15a24;
+    --brand-orange-dark: #cf4210;
+    --brand-orange-light: #ff7847;
+    --brand-orange-glow: rgba(241, 90, 36, 0.4);
+    --brand-orange-subtle: rgba(241, 90, 36, 0.15);
+    --color-primary: var(--brand-orange);
+    --color-primary-dark: var(--brand-orange-dark);
+    --color-primary-light: rgba(241, 90, 36, 0.18);
+    --color-primary-hover: #ff6833;
     --color-primary-rgb: 241, 90, 36;
 
-    /* ─── Neutral Colors ─────────────────────────────────────────── */
-    --color-dark: #1e2329;
-    --color-charcoal: #32373e;
-    --color-text: #4f5661;
-    --color-muted: #747c87;
-    --color-light-text: #9aa1ab;
+    /* ─── Surface & Luminous Glass Tokens ────────────────────────── */
+    --surface-dark: #0b1a2d;
+    --surface-dark-soft: #0f243d;
+    --surface-glass: rgba(14, 34, 58, 0.65);
+    --surface-glass-card: rgba(12, 30, 52, 0.72);
+    --surface-glass-elevated: rgba(18, 44, 76, 0.78);
+    --surface-white: #ffffff;
 
-    /* ─── Background Colors ──────────────────────────────────────── */
-    --color-background: #f5f6f8;
-    --color-surface: #ffffff;
-    --color-surface-soft: #fafafa;
-    --color-border: #e3e6ea;
-    --color-border-light: #eef0f3;
+    /* Semantic Aliases */
+    --color-background: var(--night-1000);
+    --color-surface: var(--surface-dark-soft);
+    --color-surface-soft: var(--surface-dark);
+
+    /* ─── Borders & Glowing Rims ─────────────────────────────────── */
+    --border-dark: rgba(255, 255, 255, 0.12);
+    --border-dark-subtle: rgba(255, 255, 255, 0.07);
+    --border-light: rgba(62, 160, 255, 0.35);
+    --border-glow: rgba(62, 160, 255, 0.5);
+    --border-orange: rgba(241, 90, 36, 0.5);
+    --color-border: var(--border-dark);
+    --color-border-light: var(--border-dark-subtle);
+
+    /* ─── Typography & Contrast Text ─────────────────────────────── */
+    --text-white: #f6f8fa;
+    --text-light: #cbd4de;
+    --text-muted: #7f8b99;
+    --text-dim: #556272;
+
+    --color-dark: var(--text-white);
+    --color-charcoal: #e2e8f0;
+    --color-text: var(--text-light);
+    --color-light-text: var(--text-muted);
 
     /* ─── Semantic Colors ────────────────────────────────────────── */
-    --color-success: #138a5b;
-    --color-success-light: #e8f5ef;
-    --color-warning: #d99500;
-    --color-warning-light: #fef8e7;
-    --color-error: #c9362b;
-    --color-error-light: #fdecea;
-    --color-info: #2563eb;
-    --color-info-light: #eff6ff;
+    --color-success: #10b981;
+    --color-success-light: rgba(16, 185, 129, 0.14);
+    --color-warning: #f59e0b;
+    --color-warning-light: rgba(245, 158, 11, 0.14);
+    --color-error: #ef4444;
+    --color-error-light: rgba(239, 68, 68, 0.14);
+    --color-info: #3b82f6;
+    --color-info-light: rgba(59, 130, 246, 0.14);
 
-    /* ─── Typography ─────────────────────────────────────────────── */
+    /* ─── Typography Tokens ──────────────────────────────────────── */
     --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     --font-family-heading: 'Outfit', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     --font-family-mono: "SF Mono", "Fira Code", monospace;
@@ -51,12 +101,14 @@
     --font-size-4xl: 2.25rem;    /* 36px */
     --font-size-5xl: 3rem;       /* 48px */
     --font-size-6xl: 3.75rem;    /* 60px */
+    --font-size-7xl: 4.5rem;     /* 72px */
 
     --font-weight-normal: 400;
     --font-weight-medium: 500;
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
     --font-weight-extrabold: 800;
+    --font-weight-black: 900;
 
     --line-height-tight: 1.2;
     --line-height-normal: 1.6;
@@ -75,33 +127,49 @@
     --space-16: 4rem;     /* 64px */
     --space-20: 5rem;     /* 80px */
     --space-24: 6rem;     /* 96px */
+    --space-32: 8rem;     /* 128px */
 
     /* ─── Border Radius ──────────────────────────────────────────── */
-    --radius-sm: 4px;
-    --radius-md: 8px;
-    --radius-lg: 12px;
-    --radius-xl: 16px;
-    --radius-2xl: 20px;
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
+    --radius-xl: 18px;
+    --radius-2xl: 24px;
+    --radius-3xl: 32px;
     --radius-full: 9999px;
 
-    /* ─── Shadows ────────────────────────────────────────────────── */
-    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
-    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.04);
-    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.06), 0 4px 6px rgba(0, 0, 0, 0.04);
-    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.08), 0 10px 10px rgba(0, 0, 0, 0.04);
-    --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.12);
-    --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.06);
-    --shadow-card-hover: 0 8px 24px rgba(0, 0, 0, 0.1);
-    --shadow-sticky: 0 2px 12px rgba(0, 0, 0, 0.08);
+    /* ─── Shadows & Glows ────────────────────────────────────────── */
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.6);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.7);
+    --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.8);
+    --shadow-2xl: 0 30px 60px rgba(0, 0, 0, 0.9);
+    --shadow-card: 0 4px 20px rgba(3, 7, 13, 0.7);
+    --shadow-card-hover: 0 16px 40px rgba(0, 0, 0, 0.8), 0 0 24px rgba(40, 105, 178, 0.18);
+    --shadow-sticky: 0 4px 20px rgba(3, 7, 13, 0.85);
+
+    /* Cinematic Glows */
+    --shadow-navy: 0 12px 36px rgba(3, 7, 13, 0.7);
+    --shadow-navy-lg: 0 20px 60px rgba(3, 7, 13, 0.9);
+    --shadow-glow-blue: 0 0 30px rgba(40, 105, 178, 0.25);
+    --shadow-glow-orange: 0 4px 24px rgba(241, 90, 36, 0.35);
+    --shadow-glow-orange-lg: 0 8px 40px rgba(241, 90, 36, 0.45);
+    --shadow-float: 0 24px 48px rgba(0, 0, 0, 0.7), 0 0 30px rgba(23, 67, 111, 0.2);
 
     /* ─── Transitions ────────────────────────────────────────────── */
     --transition-fast: 150ms ease;
-    --transition-base: 200ms ease;
-    --transition-slow: 300ms ease;
-    --transition-slider: 500ms ease;
+    --transition-base: 250ms ease;
+    --transition-slow: 400ms ease;
+    --transition-slider: 600ms cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-reveal: 650ms cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-smooth: 350ms cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in-out-cubic: cubic-bezier(0.65, 0, 0.35, 1);
 
     /* ─── Z-Index Scale ──────────────────────────────────────────── */
+    --z-behind: -1;
+    --z-base: 1;
     --z-dropdown: 100;
     --z-sticky: 200;
     --z-fixed: 300;
@@ -110,6 +178,7 @@
     --z-modal: 600;
     --z-toast: 700;
     --z-tooltip: 800;
+    --z-scroll-progress: 900;
 
     /* ─── Layout ─────────────────────────────────────────────────── */
     --container-max: 1320px;
@@ -117,5 +186,7 @@
     --header-height: 72px;
     --header-height-scrolled: 60px;
     --topbar-height: 40px;
-    --footer-bg: var(--color-charcoal);
+    --footer-bg: var(--night-1000);
 }
+
+

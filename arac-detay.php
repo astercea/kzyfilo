@@ -67,32 +67,32 @@ include includePath('header.php');?>
     <div class="container">
         
         <!-- ─── 1. TOP HERO STAGE: TITLE, ENLARGED PHOTO & FAST SPECS ─── -->
-        <div class="detail-hero-stage mb-12">
+        <div class="detail-hero-stage mb-12" data-reveal="fade-up">
             <div class="detail-header mb-6">
                 <h1 class="text-3xl mb-1"><?php echo esc($vTitle); ?></h1>
                 <p class="text-base text-muted"><?php echo esc($vVersion); ?></p>
             </div>
 
             <!-- Centered & Enlarged Main Image Stage -->
-            <div class="detail-stage-card card mb-8">
+            <div class="detail-stage-card card mb-8" data-spotlight>
                 <img src="<?php echo esc($vehicle['image']); ?>" alt="<?php echo esc($vTitle); ?>" class="card-img" id="detail-main-image">
             </div>
 
             <!-- Fast Spec Badges Strip -->
             <div class="detail-specs-grid grid grid-4 gap-4">
-                <div class="card p-3 text-center">
+                <div class="card p-3 text-center" data-spotlight>
                     <span class="text-xs text-muted block mb-1"><?php e('catalog.fuel'); ?></span>
                     <strong><?php e('fuel_types.' . $vehicle['fuel']); ?></strong>
                 </div>
-                <div class="card p-3 text-center">
+                <div class="card p-3 text-center" data-spotlight>
                     <span class="text-xs text-muted block mb-1"><?php e('catalog.transmission'); ?></span>
                     <strong><?php e('transmission_types.' . $vehicle['transmission']); ?></strong>
                 </div>
-                <div class="card p-3 text-center">
+                <div class="card p-3 text-center" data-spotlight>
                     <span class="text-xs text-muted block mb-1"><?php e('catalog.body_type'); ?></span>
                     <strong><?php e('body_types.' . $vehicle['body']); ?></strong>
                 </div>
-                <div class="card p-3 text-center">
+                <div class="card p-3 text-center" data-spotlight>
                     <span class="text-xs text-muted block mb-1"><?php e('catalog.seats'); ?></span>
                     <strong><?php echo esc($vehicle['seats']); ?> <?php e('vehicle_card.seats'); ?></strong>
                 </div>
@@ -100,7 +100,7 @@ include includePath('header.php');?>
         </div>
 
         <!-- ─── 2. TWO-COLUMN GRID: TECHNICAL TABS (LEFT) & QUOTE CALCULATOR (RIGHT) ─── -->
-        <div class="detail-content-grid">
+        <div class="detail-content-grid" data-reveal="fade-up">
             
             <!-- Left: Detailed Specs Tabs -->
             <div class="detail-tabs-wrap">

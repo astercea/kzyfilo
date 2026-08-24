@@ -6,55 +6,72 @@
 
 /* ─── Card ───────────────────────────────────────────────────────── */
 .card {
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border-light);
-    border-radius: var(--radius-lg);
+    background-color: var(--surface-glass-card);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid var(--border-dark);
+    border-radius: var(--radius-xl);
     overflow: hidden;
-    transition: box-shadow var(--transition-base), transform var(--transition-base);
+    transition: box-shadow var(--transition-smooth), transform var(--transition-smooth), border-color var(--transition-smooth);
 }
 
 .card:hover {
     box-shadow: var(--shadow-card-hover);
+    border-color: var(--border-light);
 }
 
 .card-body {
-    padding: var(--space-5);
+    padding: var(--space-6);
 }
 
 .card-img {
     width: 100%;
     aspect-ratio: 16/10;
     object-fit: cover;
-    background-color: var(--color-background);
+    background-color: rgba(3, 7, 13, 0.6);
 }
 
 /* ─── Vehicle Card ───────────────────────────────────────────────── */
 .vehicle-card {
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border-light);
-    border-radius: var(--radius-lg);
+    background: linear-gradient(155deg, rgba(16, 42, 74, 0.85) 0%, rgba(10, 26, 48, 0.92) 100%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(62, 160, 255, 0.28);
+    border-radius: var(--radius-2xl);
     overflow: hidden;
-    transition: box-shadow var(--transition-base), transform var(--transition-base);
+    transition: box-shadow var(--transition-smooth), transform var(--transition-smooth), border-color var(--transition-smooth);
     display: flex;
     flex-direction: column;
+    position: relative;
+    box-shadow: 0 12px 30px rgba(4, 12, 22, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
 .vehicle-card:hover {
-    box-shadow: var(--shadow-card-hover);
-    transform: translateY(-2px);
+    box-shadow: 0 18px 45px rgba(4, 12, 22, 0.65), 0 0 30px rgba(41, 121, 212, 0.4);
+    transform: translateY(-6px);
+    border-color: rgba(62, 160, 255, 0.6);
 }
 
 .vehicle-card-image {
     position: relative;
-    background-color: var(--color-background);
+    background: radial-gradient(circle at 50% 60%, rgba(41, 121, 212, 0.3) 0%, rgba(12, 30, 54, 0.75) 80%);
     aspect-ratio: 16/10;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .vehicle-card-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform var(--transition-slow);
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.7));
+}
+
+.vehicle-card:hover .vehicle-card-image img {
+    transform: scale(1.05) translateY(-2px);
 }
 
 .vehicle-card-badges {
@@ -64,6 +81,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-2);
+    z-index: 2;
 }
 
 .vehicle-card-actions-top {
@@ -73,31 +91,38 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-2);
+    z-index: 2;
 }
 
 .vehicle-card-action-btn {
-    width: 36px;
-    height: 36px;
+    width: 38px;
+    height: 38px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(255, 255, 255, 0.92);
+    background-color: rgba(10, 24, 40, 0.85);
+    backdrop-filter: blur(8px);
     border-radius: var(--radius-md);
-    color: var(--color-muted);
+    color: var(--text-muted);
     transition: all var(--transition-fast);
-    border: none;
+    border: 1px solid var(--border-dark);
     cursor: pointer;
+    box-shadow: var(--shadow-xs);
 }
 
 .vehicle-card-action-btn:hover {
-    background-color: var(--color-surface);
-    color: var(--color-primary);
+    background-color: var(--night-850);
+    color: var(--brand-orange);
+    border-color: var(--border-light);
     box-shadow: var(--shadow-sm);
+    transform: scale(1.06);
 }
 
 .vehicle-card-action-btn.is-active {
-    background-color: var(--color-primary);
+    background-color: var(--brand-orange);
     color: #ffffff;
+    border-color: var(--brand-orange);
+    box-shadow: var(--shadow-glow-orange);
 }
 
 .vehicle-card-action-btn svg {
@@ -114,17 +139,18 @@
 
 .vehicle-card-brand {
     font-size: var(--font-size-xs);
-    color: var(--color-muted);
-    font-weight: var(--font-weight-medium);
+    color: var(--text-muted);
+    font-weight: var(--font-weight-semibold);
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.8px;
     margin-bottom: var(--space-1);
 }
 
 .vehicle-card-model {
+    font-family: var(--font-family-heading, 'Outfit', sans-serif);
     font-size: var(--font-size-lg);
     font-weight: var(--font-weight-bold);
-    color: var(--color-dark);
+    color: var(--text-white);
     margin-bottom: var(--space-3);
     line-height: var(--line-height-tight);
 }
@@ -132,22 +158,26 @@
 .vehicle-card-specs {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-3);
+    gap: var(--space-2);
     margin-bottom: var(--space-4);
 }
 
 .vehicle-card-spec {
     display: flex;
     align-items: center;
-    gap: var(--space-1);
+    gap: 4px;
     font-size: var(--font-size-xs);
-    color: var(--color-muted);
+    color: var(--text-light);
+    background-color: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-dark);
+    padding: 3px 8px;
+    border-radius: var(--radius-sm);
 }
 
 .vehicle-card-spec svg {
-    width: 14px;
-    height: 14px;
-    color: var(--color-primary);
+    width: 13px;
+    height: 13px;
+    color: var(--brand-orange);
     flex-shrink: 0;
 }
 
@@ -157,7 +187,7 @@
     flex-direction: column;
     gap: var(--space-3);
     padding-top: var(--space-4);
-    border-top: 1px solid var(--color-border-light);
+    border-top: 1px solid var(--border-dark);
 }
 
 .vehicle-card-price-row {
@@ -170,7 +200,7 @@
 
 .vehicle-card-price-label {
     font-size: var(--font-size-xs);
-    color: var(--color-muted);
+    color: var(--text-muted);
     font-weight: var(--font-weight-medium);
 }
 
@@ -181,15 +211,16 @@
 }
 
 .vehicle-card-price-amount {
+    font-family: var(--font-family-heading, 'Outfit', sans-serif);
     font-size: var(--font-size-xl);
     font-weight: var(--font-weight-extrabold);
-    color: var(--color-primary);
+    color: var(--brand-orange);
     line-height: 1;
 }
 
 .vehicle-card-price-suffix {
     font-size: var(--font-size-xs);
-    color: var(--color-muted);
+    color: var(--text-muted);
     font-weight: var(--font-weight-normal);
     white-space: nowrap;
 }
@@ -219,12 +250,12 @@
     align-items: center;
     gap: var(--space-2);
     font-size: var(--font-size-xs);
-    color: var(--color-muted);
+    color: var(--text-muted);
     cursor: pointer;
 }
 
 .vehicle-card-compare input[type="checkbox"] {
-    accent-color: var(--color-primary);
+    accent-color: var(--brand-orange);
 }
 
 /* ─── Badge ──────────────────────────────────────────────────────── */
@@ -940,17 +971,22 @@ ol.breadcrumb {
     flex-shrink: 0;
 }
 
-/* ─── Cookie Banner ──────────────────────────────────────────────── */
+/* ─── Cookie Banner (Floating Luminous Glass Capsule) ─────────────── */
 .cookie-banner {
     position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: var(--color-surface);
-    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+    bottom: var(--space-6);
+    left: 50%;
+    transform: translateX(-50%) translateY(40px);
+    width: calc(100% - var(--space-8));
+    max-width: 900px;
+    background: linear-gradient(135deg, rgba(14, 35, 60, 0.94) 0%, rgba(20, 50, 86, 0.9) 100%);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(62, 160, 255, 0.35);
+    border-radius: var(--radius-2xl);
+    box-shadow: 0 20px 50px rgba(3, 10, 20, 0.75), 0 0 30px rgba(41, 121, 212, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.18);
     z-index: var(--z-modal);
-    padding: var(--space-6);
-    transform: translateY(100%);
+    padding: var(--space-4) var(--space-6);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -958,17 +994,16 @@ ol.breadcrumb {
 }
 
 .cookie-banner.is-visible {
-    transform: translateY(0);
+    transform: translateX(-50%) translateY(0);
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
 }
 
 .cookie-banner-content {
-    max-width: var(--container-max);
-    margin: 0 auto;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: var(--space-6);
 }
 
@@ -978,19 +1013,42 @@ ol.breadcrumb {
 
 .cookie-banner-text h4 {
     font-size: var(--font-size-base);
-    margin-bottom: var(--space-2);
+    color: var(--text-white);
+    margin-bottom: var(--space-1);
+    font-weight: var(--font-weight-bold);
 }
 
 .cookie-banner-text p {
     font-size: var(--font-size-sm);
-    color: var(--color-muted);
+    color: var(--text-light);
     margin-bottom: 0;
 }
 
 .cookie-banner-actions {
     display: flex;
-    gap: var(--space-3);
+    gap: var(--space-2);
     flex-shrink: 0;
+    align-items: center;
+}
+
+.cookie-banner-actions .btn-primary {
+    background: linear-gradient(135deg, var(--brand-orange) 0%, var(--brand-orange-dark) 100%);
+    box-shadow: 0 0 15px rgba(241, 90, 36, 0.4);
+    border-radius: var(--radius-full);
+    padding: 8px 20px;
+}
+
+.cookie-banner-actions .btn-secondary {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: var(--text-light);
+    border-radius: var(--radius-full);
+    padding: 8px 16px;
+}
+
+.cookie-banner-actions .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
 }
 
 /* Cookie preferences panel */
@@ -998,7 +1056,7 @@ ol.breadcrumb {
     display: none;
     margin-top: var(--space-4);
     padding-top: var(--space-4);
-    border-top: 1px solid var(--color-border-light);
+    border-top: 1px solid rgba(62, 160, 255, 0.2);
 }
 
 .cookie-preferences.is-open {

@@ -78,7 +78,7 @@ include includePath('header.php');?>
 
 <section class="section-sm">
     <div class="container">
-        <div class="layout-sidebar-right">
+        <div class="layout-sidebar-right" data-reveal="fade-up">
             
             <!-- ─── LEFT: Packages & Addon Services ────────────────────── -->
             <div>
@@ -90,7 +90,7 @@ include includePath('header.php');?>
                 <!-- 3 Package Cards Grid -->
                 <div class="package-cards mb-12">
                     <?php foreach ($packages as $pkgId => $pkg): ?>
-                        <div class="package-card <?php echo !empty($pkg['is_popular']) ? 'is-popular is-selected' : ''; ?>" data-package="<?php echo esc($pkgId); ?>">
+                        <div class="package-card <?php echo !empty($pkg['is_popular']) ? 'is-popular is-selected' : ''; ?>" data-spotlight data-package="<?php echo esc($pkgId); ?>">
                             <?php if (!empty($pkg['is_popular'])): ?>
                                 <span class="package-popular-tag"><?php e('package_compare.most_popular'); ?></span>
                             <?php endif; ?>

@@ -55,7 +55,7 @@ include includePath('header.php');?>
         </div>
 
         <!-- ─── COMPARISON TABLE CONTAINER ─────────────────────────────── -->
-        <div class="card compare-table-wrapper" id="compare-table-wrapper">
+        <div class="card compare-table-wrapper" id="compare-table-wrapper" data-reveal="fade-up">
             <table class="compare-table" id="compare-table">
                 <thead>
                     <tr id="compare-table-head-row">

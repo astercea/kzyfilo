@@ -42,6 +42,7 @@ if (!defined('ROOT_DIR')) {
     <link rel="stylesheet" href="<?php echo asset('css/responsive.css'); ?>">
 </head>
 <body>
+    <div id="scroll-progress"></div>
     <a href="#main-content" class="skip-link"><?php e('header.skip_to_content'); ?></a>
 
     <div class="page-wrapper">
@@ -79,7 +80,8 @@ if (!defined('ROOT_DIR')) {
         </div>
 
         <!-- ─── Site Header ────────────────────────────────────────── -->
-        <header class="site-header" id="site-header">
+        <?php $isHome = (basename($_SERVER['SCRIPT_NAME']) === 'index.php'); ?>
+        <header class="site-header<?php echo $isHome ? ' is-transparent' : ''; ?>" id="site-header">
             <div class="container">
                 <!-- Logo -->
                 <a href="<?php echo url('index.php'); ?>" class="site-logo" aria-label="kzyfilo Ana Sayfa">
