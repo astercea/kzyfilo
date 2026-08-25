@@ -137,30 +137,38 @@
         function updateHorizontalTrack() {
             const wrapperRect = wrapper.getBoundingClientRect();
             const windowHeight = window.innerHeight;
-            const wrapperHeight = wrapper.offsetHeight;
+            const totalScrollDistance = wrapper.offsetHeight - windowHeight;
 
-            // Start animation ONLY when the bottom of the card row has fully entered the screen viewport
-            const cardRowBottomOffset = 640; // Total height from section top to bottom of first card row
-            const startScroll = Math.max(80, windowHeight - cardRowBottomOffset - 20);
-            const endScroll = -wrapperHeight * 0.45;
-            const activeRange = startScroll - endScroll;
-            const current = startScroll - wrapperRect.top;
-            let progress = current / activeRange;
+            if (totalScrollDistance <= 0) return;
 
-            // Clamp progress strictly between 0 and 1 (0 when section/card bottoms are entering)
+            const topbarEl = document.querySelector('.topbar');
+            const headerEl = document.querySelector('.site-header');
+            const topbarH = (topbarEl && window.getComputedStyle(topbarEl).display !== 'none') ? topbarEl.offsetHeight : 0;
+            const headerH = headerEl ? headerEl.offsetHeight : 72;
+            const headerOffset = topbarH + headerH;
+
+            // 1. First card does NOT start transitioning until the sticky section reaches top / header lock
+            // When wrapperRect.top > headerOffset, section hasn't locked into place -> progress is strictly 0
+            // When wrapperRect.top < headerOffset - totalScrollDistance -> progress is strictly 1
+            let progress = (headerOffset - wrapperRect.top) / totalScrollDistance;
             progress = Math.max(0, Math.min(1, progress));
 
-            // 2D Staircase Translation: instant 60fps/120fps direct hardware update
-            const maxTranslateX = Math.max(0, track.scrollWidth - window.innerWidth);
-            const maxTranslateY = 525;
+            const totalCards = cards.length;
+            const cardWidthWithGap = (cards.length > 1 && cards[1].offsetLeft > cards[0].offsetLeft) 
+                ? (cards[1].offsetLeft - cards[0].offsetLeft) 
+                : 372;
+            const maxTranslateX = (totalCards - 1) * cardWidthWithGap;
+            const stepY = 80;
+            const maxTranslateY = (totalCards - 1) * stepY;
+
+            // 2D Staircase Translation: Moves horizontally and climbs vertically per scroll step
             const translateX = progress * maxTranslateX;
             const translateY = progress * maxTranslateY;
 
             track.style.transform = 'translate3d(-' + translateX.toFixed(1) + 'px, -' + translateY.toFixed(1) + 'px, 0)';
 
-            // Update cards scaling: FIRST CARD starts enlarged, then subsequent cards in exact order
-            const totalCards = cards.length;
-            const activeIndex = progress * (totalCards - 1); // Float from 0.0 (card 1) to 7.0 (card 8)
+            // Active card calculation across the 5 cards (0.0 to 4.0)
+            const activeIndex = progress * (totalCards - 1);
             let maxCenterProximity = 0;
 
             cards.forEach(function (card, index) {
@@ -173,10 +181,10 @@
                     maxCenterProximity = eased;
                 }
 
-                // Card grows from 0.88 to 1.15 when active (Card 1 starts at 1.15 at progress 0)
-                const scale = (0.88 + (0.27 * eased)).toFixed(3);
-                // Opacity fades from 0.55 up to 1.0
-                const opacity = (0.55 + (0.45 * eased)).toFixed(3);
+                // Card grows comfortably from 0.90 to 1.06 when active without colliding with header
+                const scale = (0.90 + (0.16 * eased)).toFixed(3);
+                // Opacity fades from 0.50 up to 1.0
+                const opacity = (0.50 + (0.50 * eased)).toFixed(3);
                 const zIndex = Math.round(eased * 20) + 1;
 
                 card.style.setProperty('--card-scale', scale);
@@ -190,7 +198,7 @@
                 }
             });
 
-            // Update center luminous background aura (navy & orange glow)
+            // Update center luminous background aura
             if (aura) {
                 aura.style.opacity = (0.35 + 0.65 * maxCenterProximity).toFixed(3);
                 aura.style.transform = 'translate(-50%, -50%) scale(' + (0.9 + 0.35 * maxCenterProximity).toFixed(3) + ')';

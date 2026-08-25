@@ -265,35 +265,38 @@
    ═══════════════════════════════════════════════════════════════════ */
 .horizontal-scroll-wrapper {
     position: relative;
-    padding: var(--space-20) 0;
-    margin: var(--space-8) 0;
-    overflow: hidden;
+    height: calc(100vh + 2000px);
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 .horizontal-scroll-sticky {
-    position: relative;
+    position: sticky;
+    top: calc(var(--topbar-height, 40px) + var(--header-height, 72px));
+    height: calc(100vh - var(--topbar-height, 40px) - var(--header-height, 72px));
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     overflow: hidden;
     box-sizing: border-box;
     z-index: 5;
+    padding-top: var(--space-4);
 }
 
 /* Luminous Center Spotlight Aura (Navy & Orange Glow) */
 .horizontal-center-aura {
     position: absolute;
-    top: 52%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 820px;
-    height: 540px;
+    width: 750px;
+    height: 460px;
     border-radius: 50%;
     background: radial-gradient(ellipse at 50% 50%, rgba(41, 121, 212, 0.45) 0%, rgba(241, 90, 36, 0.3) 35%, rgba(13, 33, 58, 0.15) 60%, transparent 78%);
-    filter: blur(60px);
+    filter: blur(50px);
     pointer-events: none;
     z-index: 0;
     opacity: 0.85;
@@ -301,11 +304,12 @@
 }
 
 .horizontal-scroll-header {
-    margin-bottom: var(--space-6);
+    margin-bottom: var(--space-8);
     position: relative;
     z-index: 2;
-    text-align: left;
+    text-align: center;
     max-width: 760px;
+    flex-shrink: 0;
 }
 
 .horizontal-scroll-header-badge {
@@ -317,9 +321,9 @@
     color: var(--brand-orange);
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    margin-bottom: var(--space-2);
+    margin-bottom: var(--space-1);
     background-color: rgba(241, 90, 36, 0.12);
-    padding: 4px 12px;
+    padding: 3px 12px;
     border-radius: var(--radius-full);
     border: 1px solid rgba(241, 90, 36, 0.25);
     box-shadow: 0 0 12px rgba(241, 90, 36, 0.2);
@@ -327,18 +331,18 @@
 
 .horizontal-scroll-container {
     width: 100%;
-    overflow: hidden;
+    overflow: visible;
     position: relative;
-    padding: var(--space-6) 0 560px;
+    padding: var(--space-2) 0 360px;
     z-index: 1;
-    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 4%, #000 94%, transparent 100%);
-    mask-image: linear-gradient(90deg, transparent 0%, #000 4%, #000 94%, transparent 100%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 5%, #000 95%, transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0%, #000 5%, #000 95%, transparent 100%);
 }
 
 .horizontal-scroll-track {
     display: flex;
     gap: var(--space-8);
-    padding: 20px max(var(--container-padding, 24px), calc((100vw - var(--container-max, 1320px)) / 2 + var(--container-padding, 24px)));
+    padding: 10px calc(50vw - 170px);
     width: max-content;
     will-change: transform;
     transition: none;
@@ -347,14 +351,14 @@
 
 /* Individual Night Card in Staircase Track */
 .night-card {
-    flex: 0 0 350px;
-    height: 430px;
+    flex: 0 0 340px;
+    height: 390px;
     background: linear-gradient(155deg, rgba(16, 42, 74, 0.85) 0%, rgba(10, 26, 48, 0.9) 100%);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid rgba(62, 160, 255, 0.25);
     border-radius: var(--radius-2xl);
-    padding: var(--space-6);
+    padding: var(--space-5);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -362,9 +366,9 @@
     text-decoration: none;
     color: inherit;
     box-shadow: 0 14px 35px rgba(3, 10, 20, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.12);
-    transform: translateY(var(--step-y, 0px)) scale(var(--card-scale, 0.88));
+    transform: translateY(var(--step-y, 0px)) scale(var(--card-scale, 0.90));
     opacity: var(--card-opacity, 0.55);
-    transform-origin: center center;
+    transform-origin: center top;
     transition: transform 0.12s ease-out, 
                 opacity 0.12s ease-out, 
                 border-color 0.2s ease, 
@@ -373,15 +377,12 @@
     will-change: transform, opacity;
 }
 
-/* Descending Staircase Step Offsets (Aşağıya ve Sağa Doğru Basamaklar) */
+/* Descending Staircase Step Offsets (5 Kart İçin Basamaklar) */
 .night-card:nth-child(1) { --step-y: 0px; }
-.night-card:nth-child(2) { --step-y: 75px; }
-.night-card:nth-child(3) { --step-y: 150px; }
-.night-card:nth-child(4) { --step-y: 225px; }
-.night-card:nth-child(5) { --step-y: 300px; }
-.night-card:nth-child(6) { --step-y: 375px; }
-.night-card:nth-child(7) { --step-y: 450px; }
-.night-card:nth-child(8) { --step-y: 525px; }
+.night-card:nth-child(2) { --step-y: 80px; }
+.night-card:nth-child(3) { --step-y: 160px; }
+.night-card:nth-child(4) { --step-y: 240px; }
+.night-card:nth-child(5) { --step-y: 320px; }
 
 /* Active Center Spotlight State */
 .night-card.is-center-spotlight {

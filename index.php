@@ -323,54 +323,6 @@ include includePath('header.php');
                         <div class="night-card-arrow">→</div>
                     </div>
                 </a>
-
-                <!-- 6. Kampanyalı Araçlar -->
-                <a href="<?php echo url('araclar.php', ['kategori' => 'kampanyali']); ?>" class="night-card" data-spotlight>
-                    <div>
-                        <div class="night-card-tag"><span class="night-card-icon">🏷️</span> Maliyet Avantajı</div>
-                        <h3 class="night-card-title">Kampanyalı Araçlar</h3>
-                        <p class="night-card-desc">Dönemsel avantajlı fiyatlar ve esnek ödeme planlarıyla bütçenizi koruyan kiralama fırsatları.</p>
-                    </div>
-                    <div class="night-card-image-wrap">
-                        <img src="<?php echo asset('images/vehicles/hyundai-i20.svg'); ?>" alt="Kampanyalı Araçlar" class="night-card-img" onerror="this.src='<?php echo asset('images/vehicles/placeholder.svg'); ?>'">
-                    </div>
-                    <div class="night-card-footer">
-                        <span class="night-card-action">Fırsatları İncele</span>
-                        <div class="night-card-arrow">→</div>
-                    </div>
-                </a>
-
-                <!-- 7. Filo Yönetimi -->
-                <a href="<?php echo url('filo-yonetimi.php'); ?>" class="night-card" data-spotlight>
-                    <div>
-                        <div class="night-card-tag"><span class="night-card-icon">📊</span> Operasyonel Güç</div>
-                        <h3 class="night-card-title">Bütünleşik Filo Yönetimi</h3>
-                        <p class="night-card-desc">Periyodik bakım, muayene, vergi, lastik ve 7/24 ikame araç operasyonlarının sıfır riskle yönetimi.</p>
-                    </div>
-                    <div class="night-card-image-wrap">
-                        <img src="<?php echo asset('images/vehicles/placeholder.svg'); ?>" alt="Filo Yönetimi" class="night-card-img">
-                    </div>
-                    <div class="night-card-footer">
-                        <span class="night-card-action">Hizmet Detayları</span>
-                        <div class="night-card-arrow">→</div>
-                    </div>
-                </a>
-
-                <!-- 8. Ek Ürün ve Hizmetler -->
-                <a href="<?php echo url('ek-urun-ve-hizmetler.php'); ?>" class="night-card" data-spotlight>
-                    <div>
-                        <div class="night-card-tag"><span class="night-card-icon">🛡️</span> Esnek Güvence</div>
-                        <h3 class="night-card-title">Ek Ürün ve Hizmetler</h3>
-                        <p class="night-card-desc">Kış lastiği saklama, mini hasar muafiyeti, yakıt optimizasyon çipi ve VIP transfer paketleri.</p>
-                    </div>
-                    <div class="night-card-image-wrap">
-                        <img src="<?php echo asset('images/vehicles/placeholder.svg'); ?>" alt="Ek Hizmetler" class="night-card-img">
-                    </div>
-                    <div class="night-card-footer">
-                        <span class="night-card-action">Paketleri Gör</span>
-                        <div class="night-card-arrow">→</div>
-                    </div>
-                </a>
             </div>
         </div>
 
