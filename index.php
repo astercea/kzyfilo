@@ -246,6 +246,16 @@ include includePath('header.php');
             <div class="horizontal-scroll-track">
                 <!-- 1. Binek Araçlar -->
                 <a href="<?php echo url('binek-arac-kiralama.php'); ?>" class="night-card" data-spotlight>
+                    <div class="night-card-sparkles" aria-hidden="true">
+                        <span class="sparkle sparkle-1">✦</span>
+                        <span class="sparkle sparkle-2">✧</span>
+                        <span class="sparkle sparkle-3">✦</span>
+                        <span class="sparkle sparkle-4">✧</span>
+                        <span class="sparkle sparkle-5">✦</span>
+                        <span class="sparkle sparkle-6">✧</span>
+                        <div class="night-card-flare"></div>
+                        <div class="night-card-aura-ring"></div>
+                    </div>
                     <div>
                         <div class="night-card-tag"><span class="night-card-icon">🚗</span> Konfor & Verimlilik</div>
                         <h3 class="night-card-title">Binek Araçlar</h3>
@@ -262,6 +272,16 @@ include includePath('header.php');
 
                 <!-- 2. Ticari Araçlar -->
                 <a href="<?php echo url('ticari-arac-kiralama.php'); ?>" class="night-card" data-spotlight>
+                    <div class="night-card-sparkles" aria-hidden="true">
+                        <span class="sparkle sparkle-1">✦</span>
+                        <span class="sparkle sparkle-2">✧</span>
+                        <span class="sparkle sparkle-3">✦</span>
+                        <span class="sparkle sparkle-4">✧</span>
+                        <span class="sparkle sparkle-5">✦</span>
+                        <span class="sparkle sparkle-6">✧</span>
+                        <div class="night-card-flare"></div>
+                        <div class="night-card-aura-ring"></div>
+                    </div>
                     <div>
                         <div class="night-card-tag"><span class="night-card-icon">🚚</span> Yüksek Kapasite</div>
                         <h3 class="night-card-title">Ticari Araçlar</h3>
@@ -278,6 +298,16 @@ include includePath('header.php');
 
                 <!-- 3. Elektrikli Araçlar -->
                 <a href="<?php echo url('elektrikli-arac-kiralama.php'); ?>" class="night-card" data-spotlight>
+                    <div class="night-card-sparkles" aria-hidden="true">
+                        <span class="sparkle sparkle-1">✦</span>
+                        <span class="sparkle sparkle-2">✧</span>
+                        <span class="sparkle sparkle-3">✦</span>
+                        <span class="sparkle sparkle-4">✧</span>
+                        <span class="sparkle sparkle-5">✦</span>
+                        <span class="sparkle sparkle-6">✧</span>
+                        <div class="night-card-flare"></div>
+                        <div class="night-card-aura-ring"></div>
+                    </div>
                     <div>
                         <div class="night-card-tag"><span class="night-card-icon">⚡</span> Sıfır Emisyon</div>
                         <h3 class="night-card-title">Elektrikli Araçlar</h3>
@@ -294,6 +324,16 @@ include includePath('header.php');
 
                 <!-- 4. Premium Filo -->
                 <a href="<?php echo url('araclar.php', ['kategori' => 'premium']); ?>" class="night-card" data-spotlight>
+                    <div class="night-card-sparkles" aria-hidden="true">
+                        <span class="sparkle sparkle-1">✦</span>
+                        <span class="sparkle sparkle-2">✧</span>
+                        <span class="sparkle sparkle-3">✦</span>
+                        <span class="sparkle sparkle-4">✧</span>
+                        <span class="sparkle sparkle-5">✦</span>
+                        <span class="sparkle sparkle-6">✧</span>
+                        <div class="night-card-flare"></div>
+                        <div class="night-card-aura-ring"></div>
+                    </div>
                     <div>
                         <div class="night-card-tag"><span class="night-card-icon">💎</span> Üst Düzey Prestij</div>
                         <h3 class="night-card-title">Premium Filo</h3>
@@ -310,6 +350,16 @@ include includePath('header.php');
 
                 <!-- 5. Hızlı Teslim -->
                 <a href="<?php echo url('araclar.php', ['hizli_teslim' => '1']); ?>" class="night-card" data-spotlight>
+                    <div class="night-card-sparkles" aria-hidden="true">
+                        <span class="sparkle sparkle-1">✦</span>
+                        <span class="sparkle sparkle-2">✧</span>
+                        <span class="sparkle sparkle-3">✦</span>
+                        <span class="sparkle sparkle-4">✧</span>
+                        <span class="sparkle sparkle-5">✦</span>
+                        <span class="sparkle sparkle-6">✧</span>
+                        <div class="night-card-flare"></div>
+                        <div class="night-card-aura-ring"></div>
+                    </div>
                     <div>
                         <div class="night-card-tag"><span class="night-card-icon">⏱️</span> Hazır Stok</div>
                         <h3 class="night-card-title">Hızlı Teslim Filo</h3>

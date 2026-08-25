@@ -191,7 +191,8 @@
                 card.style.setProperty('--card-opacity', opacity);
                 card.style.zIndex = zIndex;
 
-                if (eased > 0.6) {
+                // Sparkles and aura trigger when card reaches center (eased >= 0.70 / dist <= 0.35)
+                if (eased >= 0.70) {
                     card.classList.add('is-center-spotlight');
                 } else {
                     card.classList.remove('is-center-spotlight');
