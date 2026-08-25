@@ -246,20 +246,10 @@ include includePath('header.php');
             <div class="horizontal-scroll-track">
                 <!-- 1. Binek Araçlar -->
                 <a href="<?php echo url('binek-arac-kiralama.php'); ?>" class="night-card" data-spotlight>
-                    <div class="night-card-sparkles" aria-hidden="true">
-                        <span class="sparkle sparkle-1">✦</span>
-                        <span class="sparkle sparkle-2">✧</span>
-                        <span class="sparkle sparkle-3">✦</span>
-                        <span class="sparkle sparkle-4">✧</span>
-                        <span class="sparkle sparkle-5">✦</span>
-                        <span class="sparkle sparkle-6">✧</span>
-                        <div class="night-card-flare"></div>
-                        <div class="night-card-aura-ring"></div>
-                    </div>
-                    <div>
-                        <div class="night-card-tag"><span class="night-card-icon">🚗</span> Konfor & Verimlilik</div>
+                    <div class="night-card-header">
+                        <div class="night-card-tag"><span class="night-card-icon">🚗</span> Konfor & Tasarruf</div>
                         <h3 class="night-card-title">Binek Araçlar</h3>
-                        <p class="night-card-desc">Saha çalışanları ve orta kademe yöneticiler için ekonomik sedan, hatchback ve kompakt SUV modelleri.</p>
+                        <p class="night-card-desc">Şirketinize özel ekonomik sedan, hatchback ve SUV filo modelleri.</p>
                     </div>
                     <div class="night-card-image-wrap">
                         <img src="<?php echo asset('images/vehicles/renault-megane.svg'); ?>" alt="Binek Araçlar" class="night-card-img" onerror="this.src='<?php echo asset('images/vehicles/placeholder.svg'); ?>'">
@@ -272,20 +262,10 @@ include includePath('header.php');
 
                 <!-- 2. Ticari Araçlar -->
                 <a href="<?php echo url('ticari-arac-kiralama.php'); ?>" class="night-card" data-spotlight>
-                    <div class="night-card-sparkles" aria-hidden="true">
-                        <span class="sparkle sparkle-1">✦</span>
-                        <span class="sparkle sparkle-2">✧</span>
-                        <span class="sparkle sparkle-3">✦</span>
-                        <span class="sparkle sparkle-4">✧</span>
-                        <span class="sparkle sparkle-5">✦</span>
-                        <span class="sparkle sparkle-6">✧</span>
-                        <div class="night-card-flare"></div>
-                        <div class="night-card-aura-ring"></div>
-                    </div>
-                    <div>
+                    <div class="night-card-header">
                         <div class="night-card-tag"><span class="night-card-icon">🚚</span> Yüksek Kapasite</div>
                         <h3 class="night-card-title">Ticari Araçlar</h3>
-                        <p class="night-card-desc">Lojistik ve dağıtım filonuz için geniş yük hacimli hafif ticari, van ve kamyonet çözümleri.</p>
+                        <p class="night-card-desc">Taşıma ve lojistik filonuz için geniş yük hacimli hafif ticari çözümler.</p>
                     </div>
                     <div class="night-card-image-wrap">
                         <img src="<?php echo asset('images/vehicles/ford-transit-custom.svg'); ?>" alt="Ticari Araçlar" class="night-card-img" onerror="this.src='<?php echo asset('images/vehicles/placeholder.svg'); ?>'">
@@ -298,20 +278,10 @@ include includePath('header.php');
 
                 <!-- 3. Elektrikli Araçlar -->
                 <a href="<?php echo url('elektrikli-arac-kiralama.php'); ?>" class="night-card" data-spotlight>
-                    <div class="night-card-sparkles" aria-hidden="true">
-                        <span class="sparkle sparkle-1">✦</span>
-                        <span class="sparkle sparkle-2">✧</span>
-                        <span class="sparkle sparkle-3">✦</span>
-                        <span class="sparkle sparkle-4">✧</span>
-                        <span class="sparkle sparkle-5">✦</span>
-                        <span class="sparkle sparkle-6">✧</span>
-                        <div class="night-card-flare"></div>
-                        <div class="night-card-aura-ring"></div>
-                    </div>
-                    <div>
+                    <div class="night-card-header">
                         <div class="night-card-tag"><span class="night-card-icon">⚡</span> Sıfır Emisyon</div>
                         <h3 class="night-card-title">Elektrikli Araçlar</h3>
-                        <p class="night-card-desc">%100 elektrikli, düşük tüketim maliyetli ve çevre dostu yeni nesil filo dönüşümü.</p>
+                        <p class="night-card-desc">Düşük tüketim maliyetli ve çevre dostu yeni nesil elektrikli filo.</p>
                     </div>
                     <div class="night-card-image-wrap">
                         <img src="<?php echo asset('images/vehicles/mg-mg4-electric.svg'); ?>" alt="Elektrikli Araçlar" class="night-card-img" onerror="this.src='<?php echo asset('images/vehicles/placeholder.svg'); ?>'">
@@ -324,20 +294,10 @@ include includePath('header.php');
 
                 <!-- 4. Premium Filo -->
                 <a href="<?php echo url('araclar.php', ['kategori' => 'premium']); ?>" class="night-card" data-spotlight>
-                    <div class="night-card-sparkles" aria-hidden="true">
-                        <span class="sparkle sparkle-1">✦</span>
-                        <span class="sparkle sparkle-2">✧</span>
-                        <span class="sparkle sparkle-3">✦</span>
-                        <span class="sparkle sparkle-4">✧</span>
-                        <span class="sparkle sparkle-5">✦</span>
-                        <span class="sparkle sparkle-6">✧</span>
-                        <div class="night-card-flare"></div>
-                        <div class="night-card-aura-ring"></div>
-                    </div>
-                    <div>
+                    <div class="night-card-header">
                         <div class="night-card-tag"><span class="night-card-icon">💎</span> Üst Düzey Prestij</div>
                         <h3 class="night-card-title">Premium Filo</h3>
-                        <p class="night-card-desc">Üst düzey yöneticiler ve kurumsal prestij için lüks D segment sedan ve premium SUV ayrıcalığı.</p>
+                        <p class="night-card-desc">Üst düzey yöneticiler için lüks D segment sedan ve SUV ayrıcalığı.</p>
                     </div>
                     <div class="night-card-image-wrap">
                         <img src="<?php echo asset('images/vehicles/bmw-320i-sedan.svg'); ?>" alt="Premium Filo" class="night-card-img" onerror="this.src='<?php echo asset('images/vehicles/placeholder.svg'); ?>'">
@@ -350,26 +310,16 @@ include includePath('header.php');
 
                 <!-- 5. Hızlı Teslim -->
                 <a href="<?php echo url('araclar.php', ['hizli_teslim' => '1']); ?>" class="night-card" data-spotlight>
-                    <div class="night-card-sparkles" aria-hidden="true">
-                        <span class="sparkle sparkle-1">✦</span>
-                        <span class="sparkle sparkle-2">✧</span>
-                        <span class="sparkle sparkle-3">✦</span>
-                        <span class="sparkle sparkle-4">✧</span>
-                        <span class="sparkle sparkle-5">✦</span>
-                        <span class="sparkle sparkle-6">✧</span>
-                        <div class="night-card-flare"></div>
-                        <div class="night-card-aura-ring"></div>
-                    </div>
-                    <div>
+                    <div class="night-card-header">
                         <div class="night-card-tag"><span class="night-card-icon">⏱️</span> Hazır Stok</div>
                         <h3 class="night-card-title">Hızlı Teslim Filo</h3>
-                        <p class="night-card-desc">Sözleşme onayı sonrası beklemeden, derhal teslim edilen sıfır kilometre hazır stok araçları.</p>
+                        <p class="night-card-desc">Sözleşme onayı sonrası derhal teslim edilen sıfır kilometre araçlar.</p>
                     </div>
                     <div class="night-card-image-wrap">
                         <img src="<?php echo asset('images/vehicles/fiat-egea-sedan.svg'); ?>" alt="Hızlı Teslim Filo" class="night-card-img" onerror="this.src='<?php echo asset('images/vehicles/placeholder.svg'); ?>'">
                     </div>
                     <div class="night-card-footer">
-                        <span class="night-card-action">Stokları Gör</span>
+                        <span class="night-card-action">Modelleri İncele</span>
                         <div class="night-card-arrow">→</div>
                     </div>
                 </a>

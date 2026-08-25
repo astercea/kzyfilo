@@ -114,10 +114,7 @@
                     const eased = Math.sin((proximity * Math.PI) / 2);
 
                     const scale = (0.92 + (0.16 * eased)).toFixed(3);
-                    const opacity = (0.65 + (0.35 * eased)).toFixed(3);
-
                     card.style.setProperty('--card-scale', scale);
-                    card.style.setProperty('--card-opacity', opacity);
 
                     if (eased > 0.6) {
                         card.classList.add('is-center-spotlight');
@@ -183,16 +180,12 @@
 
                 // Card grows comfortably from 0.90 to 1.06 when active without colliding with header
                 const scale = (0.90 + (0.16 * eased)).toFixed(3);
-                // Opacity fades from 0.50 up to 1.0
-                const opacity = (0.50 + (0.50 * eased)).toFixed(3);
                 const zIndex = Math.round(eased * 20) + 1;
 
                 card.style.setProperty('--card-scale', scale);
-                card.style.setProperty('--card-opacity', opacity);
                 card.style.zIndex = zIndex;
 
-                // Sparkles and aura trigger when card reaches center (eased >= 0.70 / dist <= 0.35)
-                if (eased >= 0.70) {
+                if (eased > 0.6) {
                     card.classList.add('is-center-spotlight');
                 } else {
                     card.classList.remove('is-center-spotlight');

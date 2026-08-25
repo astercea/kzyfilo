@@ -286,20 +286,20 @@
     padding-top: var(--space-4);
 }
 
-/* Luminous Center Spotlight Aura (Navy & Orange Glow) */
+/* Luminous Center Spotlight Aura (Compact Center Glow) */
 .horizontal-center-aura {
     position: absolute;
     top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 750px;
-    height: 460px;
+    width: 480px;
+    height: 380px;
     border-radius: 50%;
-    background: radial-gradient(ellipse at 50% 50%, rgba(41, 121, 212, 0.45) 0%, rgba(241, 90, 36, 0.3) 35%, rgba(13, 33, 58, 0.15) 60%, transparent 78%);
-    filter: blur(50px);
+    background: radial-gradient(ellipse at 50% 50%, rgba(241, 90, 36, 0.45) 0%, rgba(241, 90, 36, 0.15) 50%, transparent 72%);
+    filter: blur(40px);
     pointer-events: none;
     z-index: 0;
-    opacity: 0.85;
+    opacity: 0.75;
     transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
@@ -349,200 +349,29 @@
     align-items: flex-start;
 }
 
-/* Individual Night Card in Staircase Track */
+/* Individual Night Card in Staircase Track (100% Solid Non-Transparent) */
 .night-card {
     flex: 0 0 340px;
-    height: 390px;
-    background: linear-gradient(155deg, rgba(16, 42, 74, 0.85) 0%, rgba(10, 26, 48, 0.9) 100%);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(62, 160, 255, 0.25);
+    height: 410px;
+    background-color: #0b1a2d;
+    border: 1px solid rgba(62, 160, 255, 0.20);
     border-radius: var(--radius-2xl);
     padding: var(--space-5);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     position: relative;
-    overflow: visible;
     text-decoration: none;
     color: inherit;
-    box-shadow: 0 14px 35px rgba(3, 10, 20, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    box-shadow: 0 14px 35px rgba(3, 10, 20, 0.6);
     transform: translateY(var(--step-y, 0px)) scale(var(--card-scale, 0.90));
-    opacity: var(--card-opacity, 0.55);
+    opacity: 1 !important;
     transform-origin: center top;
     transition: transform 0.12s ease-out, 
-                opacity 0.12s ease-out, 
                 border-color 0.2s ease, 
                 box-shadow 0.2s ease,
-                background 0.2s ease;
-    will-change: transform, opacity;
-}
-
-/* ─── Center Spotlight Orange Sparkles & Radiant Aura System ──────── */
-.night-card-sparkles {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0;
-    transform: scale(0.7);
-    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.night-card.is-center-spotlight .night-card-sparkles {
-    opacity: 1;
-    transform: scale(1);
-}
-
-.night-card-flare {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 440px;
-    height: 500px;
-    border-radius: 50%;
-    background: radial-gradient(circle at 50% 50%, rgba(241, 90, 36, 0.75) 0%, rgba(255, 140, 0, 0.45) 30%, rgba(241, 90, 36, 0.18) 55%, transparent 75%);
-    filter: blur(35px);
-    pointer-events: none;
-    z-index: -2;
-    opacity: 0;
-    transition: opacity 0.35s ease;
-}
-
-.night-card.is-center-spotlight .night-card-flare {
-    opacity: 1;
-    animation: flarePulse 2.6s ease-in-out infinite alternate;
-}
-
-.night-card-aura-ring {
-    position: absolute;
-    inset: -4px;
-    border-radius: calc(var(--radius-2xl) + 4px);
-    background: linear-gradient(135deg, rgba(241, 90, 36, 0.85), rgba(255, 170, 50, 0.5), rgba(241, 90, 36, 0.9), rgba(255, 100, 0, 0.35));
-    background-size: 300% 300%;
-    filter: blur(10px);
-    opacity: 0;
-    z-index: -1;
-    pointer-events: none;
-    transition: opacity 0.35s ease;
-}
-
-.night-card.is-center-spotlight .night-card-aura-ring {
-    opacity: 1;
-    animation: auraGradientShift 3s ease infinite;
-}
-
-.sparkle {
-    position: absolute;
-    display: inline-block;
-    pointer-events: none;
-    user-select: none;
-    line-height: 1;
-    opacity: 0;
-    transform: scale(0);
-    transition: opacity 0.25s ease, transform 0.25s ease;
-}
-
-.night-card.is-center-spotlight .sparkle {
-    opacity: 1;
-}
-
-.sparkle-1 {
-    top: -16px;
-    left: -14px;
-    color: #ff9d00;
-    font-size: 24px;
-    text-shadow: 0 0 12px #ff9d00, 0 0 24px rgba(241, 90, 36, 0.95);
-}
-.night-card.is-center-spotlight .sparkle-1 {
-    animation: sparkleBurst 0.45s 0.05s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards,
-               sparkleFloat 2.2s 0.5s ease-in-out infinite alternate;
-}
-
-.sparkle-2 {
-    top: -14px;
-    right: 20px;
-    color: #ff6a00;
-    font-size: 20px;
-    text-shadow: 0 0 10px #ff6a00, 0 0 20px rgba(255, 140, 0, 0.9);
-}
-.night-card.is-center-spotlight .sparkle-2 {
-    animation: sparkleBurst 0.45s 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards,
-               sparkleFloat 2.6s 0.65s ease-in-out infinite alternate;
-}
-
-.sparkle-3 {
-    top: 48%;
-    right: -22px;
-    color: #ffb400;
-    font-size: 26px;
-    text-shadow: 0 0 14px #ffb400, 0 0 28px rgba(241, 90, 36, 1);
-}
-.night-card.is-center-spotlight .sparkle-3 {
-    animation: sparkleBurst 0.45s 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards,
-               sparkleFloat 2.4s 0.8s ease-in-out infinite alternate;
-}
-
-.sparkle-4 {
-    bottom: -16px;
-    right: 26px;
-    color: #ff4800;
-    font-size: 22px;
-    text-shadow: 0 0 12px #ff4800, 0 0 24px rgba(241, 90, 36, 0.9);
-}
-.night-card.is-center-spotlight .sparkle-4 {
-    animation: sparkleBurst 0.45s 0.12s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards,
-               sparkleFloat 2.8s 0.57s ease-in-out infinite alternate;
-}
-
-.sparkle-5 {
-    bottom: -18px;
-    left: -10px;
-    color: #ffa726;
-    font-size: 24px;
-    text-shadow: 0 0 12px #ffa726, 0 0 24px rgba(255, 140, 0, 0.95);
-}
-.night-card.is-center-spotlight .sparkle-5 {
-    animation: sparkleBurst 0.45s 0.28s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards,
-               sparkleFloat 2.1s 0.73s ease-in-out infinite alternate;
-}
-
-.sparkle-6 {
-    top: 42%;
-    left: -22px;
-    color: #ff7043;
-    font-size: 28px;
-    text-shadow: 0 0 14px #ff7043, 0 0 30px rgba(241, 90, 36, 1);
-}
-.night-card.is-center-spotlight .sparkle-6 {
-    animation: sparkleBurst 0.45s 0.18s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards,
-               sparkleFloat 2.5s 0.63s ease-in-out infinite alternate;
-}
-
-/* Keyframe Animations for Sparkles & Light FX */
-@keyframes flarePulse {
-    0% { transform: translate(-50%, -50%) scale(0.92); opacity: 0.80; }
-    50% { transform: translate(-50%, -50%) scale(1.12); opacity: 1; filter: blur(40px); }
-    100% { transform: translate(-50%, -50%) scale(0.95); opacity: 0.85; }
-}
-
-@keyframes auraGradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-@keyframes sparkleBurst {
-    0% { transform: scale(0) rotate(-45deg); opacity: 0; }
-    70% { transform: scale(1.4) rotate(15deg); opacity: 1; }
-    100% { transform: scale(1) rotate(0deg); opacity: 1; }
-}
-
-@keyframes sparkleFloat {
-    0% { transform: translateY(0px) rotate(0deg) scale(0.95); }
-    50% { transform: translateY(-9px) rotate(14deg) scale(1.18); filter: drop-shadow(0 0 16px rgba(255, 140, 0, 1)); }
-    100% { transform: translateY(7px) rotate(-12deg) scale(0.92); }
+                background-color 0.2s ease;
+    will-change: transform;
 }
 
 /* Descending Staircase Step Offsets (5 Kart İçin Basamaklar) */
@@ -552,14 +381,13 @@
 .night-card:nth-child(4) { --step-y: 240px; }
 .night-card:nth-child(5) { --step-y: 320px; }
 
-/* Active Center Spotlight State */
+/* Active Center Spotlight State (Solid Non-Transparent with Orange Glow) */
 .night-card.is-center-spotlight {
     border-color: rgba(241, 90, 36, 0.85) !important;
-    background: linear-gradient(155deg, rgba(22, 54, 94, 0.94) 0%, rgba(14, 34, 60, 0.96) 100%) !important;
-    box-shadow: 0 25px 60px rgba(2, 6, 12, 0.85), 
-                0 0 50px rgba(241, 90, 36, 0.65), 
-                0 0 25px rgba(255, 140, 0, 0.5), 
-                inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
+    background-color: #0e223d !important;
+    box-shadow: 0 20px 50px rgba(2, 6, 12, 0.85), 
+                0 0 30px rgba(241, 90, 36, 0.45), 
+                inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
 }
 
 .night-card:hover {
@@ -567,78 +395,96 @@
     box-shadow: 0 18px 45px rgba(3, 10, 20, 0.7), 0 0 30px rgba(41, 121, 212, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 
+.night-card-header {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
 .night-card-tag {
     display: inline-flex;
     align-items: center;
-    gap: var(--space-2);
-    font-size: var(--font-size-xs);
+    gap: 6px;
+    font-size: 11px;
     font-weight: var(--font-weight-semibold);
     color: var(--brand-orange);
     text-transform: uppercase;
     letter-spacing: 1px;
+    margin-bottom: 2px;
 }
 
 .night-card-icon {
-    font-size: 20px;
+    font-size: 16px;
+    line-height: 1;
 }
 
 .night-card-title {
     font-family: var(--font-family-heading, 'Outfit', sans-serif);
-    font-size: var(--font-size-2xl);
+    font-size: 1.25rem;
     font-weight: var(--font-weight-bold);
     color: var(--text-white);
-    margin: var(--space-2) 0 var(--space-2);
+    margin: 2px 0 4px;
     line-height: 1.2;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
 }
 
 .night-card-desc {
-    font-size: var(--font-size-sm);
+    font-size: 13px;
     color: var(--text-light);
-    line-height: var(--line-height-normal);
-    margin-bottom: var(--space-4);
+    line-height: 1.45;
+    margin-bottom: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 38px;
 }
 
 .night-card-image-wrap {
-    height: 160px;
+    height: 155px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: auto 0;
+    margin: 6px 0;
     position: relative;
-    background: radial-gradient(circle at 50% 60%, rgba(41, 121, 212, 0.2) 0%, transparent 70%);
+    background: radial-gradient(circle at 50% 60%, rgba(41, 121, 212, 0.15) 0%, transparent 70%);
     border-radius: var(--radius-lg);
+    flex-shrink: 0;
 }
 
 .night-card-img {
-    max-width: 90%;
+    width: 98%;
+    max-width: 98%;
     max-height: 100%;
     object-fit: contain;
     transition: transform var(--transition-smooth);
-    filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.7));
+    filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.7));
 }
 
 .night-card.is-center-spotlight .night-card-img {
-    transform: scale(1.12);
-    filter: drop-shadow(0 16px 25px rgba(0, 0, 0, 0.85));
+    transform: scale(1.10);
+    filter: drop-shadow(0 14px 22px rgba(0, 0, 0, 0.85));
 }
 
 .night-card:hover .night-card-img {
-    transform: scale(1.08) translateY(-4px);
+    transform: scale(1.08) translateY(-3px);
 }
 
 .night-card-footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: var(--space-3);
-    border-top: 1px solid rgba(62, 160, 255, 0.2);
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    flex-shrink: 0;
 }
 
 .night-card-action {
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-xs);
     font-weight: var(--font-weight-semibold);
     color: var(--text-light);
+    letter-spacing: 0.5px;
     transition: color var(--transition-fast);
 }
 
@@ -648,23 +494,25 @@
 }
 
 .night-card-arrow {
-    width: 32px;
-    height: 32px;
-    border-radius: var(--radius-full);
-    background: rgba(255, 255, 255, 0.08);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgba(241, 90, 36, 0.15);
+    color: var(--brand-orange);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--text-white);
-    transition: all var(--transition-fast);
+    font-size: 15px;
+    font-weight: bold;
+    transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
 }
 
 .night-card.is-center-spotlight .night-card-arrow,
 .night-card:hover .night-card-arrow {
     background: var(--brand-orange);
     color: #ffffff;
-    transform: translateX(4px);
-    box-shadow: 0 0 12px var(--brand-orange);
+    transform: translateX(3px);
+    box-shadow: 0 0 10px rgba(241, 90, 36, 0.5);
 }
 
 /* Horizontal Progress Line under track */

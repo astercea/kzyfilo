@@ -226,7 +226,7 @@
         height: 380px;
         scroll-snap-align: center;
         transform: scale(var(--card-scale, 0.94));
-        opacity: var(--card-opacity, 0.75);
+        opacity: 1;
     }
 
     .horizontal-progress-wrapper {
