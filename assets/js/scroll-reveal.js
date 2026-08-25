@@ -21,6 +21,7 @@
         initRevealAnimations();
         initCounterAnimations();
         initEditorialInlineReveal();
+        initScrollWordReveal();
     });
 
     // ─── Top Scroll Progress Bar ────────────────────────────────────
@@ -154,5 +155,49 @@
 
             requestAnimationFrame(tick);
         }
+    }
+
+    // ─── Scroll Word-by-Word Text Reveal ─────────────────────────────
+    function initScrollWordReveal() {
+        const textRevealEls = document.querySelectorAll('.editorial-headline-scroll');
+        if (!textRevealEls.length) return;
+
+        textRevealEls.forEach(function (el) {
+            const text = el.textContent.trim();
+            const words = text.split(/\s+/);
+            el.innerHTML = words.map(function (word) {
+                return '<span class="scroll-word">' + word + '</span>';
+            }).join(' ');
+        });
+
+        function updateWordProgress() {
+            const viewportHeight = window.innerHeight;
+
+            textRevealEls.forEach(function (el) {
+                const rect = el.getBoundingClientRect();
+                const words = el.querySelectorAll('.scroll-word');
+                if (!words.length) return;
+
+                // Start when element enters from bottom (90% of viewport)
+                // Fully completed when element reaches 20% of viewport (slower, wider pace)
+                const startY = viewportHeight * 0.90;
+                const endY = viewportHeight * 0.20;
+                const progress = Math.max(0, Math.min(1, (startY - rect.top) / (startY - endY)));
+
+                const activeWordCount = Math.floor(progress * (words.length + 1));
+
+                words.forEach(function (word, index) {
+                    if (index < activeWordCount) {
+                        word.classList.add('is-active');
+                    } else {
+                        word.classList.remove('is-active');
+                    }
+                });
+            });
+        }
+
+        window.addEventListener('scroll', updateWordProgress, { passive: true });
+        window.addEventListener('resize', updateWordProgress, { passive: true });
+        updateWordProgress();
     }
 })();

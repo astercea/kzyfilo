@@ -318,73 +318,46 @@
     color: var(--color-orange);
 }
 
-/* ─── Editorial Statement (With Inline Horizontal Vehicle Images) ── */
+/* ─── Editorial Statement (Centered Block, Left-Aligned Text) ────── */
 .editorial-statement {
-    padding: var(--space-24) 0;
+    min-height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 160px 0;
     background-color: var(--color-paper);
     border-top: 1px solid var(--color-border-light);
     border-bottom: 1px solid var(--color-border-light);
 }
 
 .editorial-quote-wrap {
-    max-width: 1200px;
+    max-width: 1080px;
     margin: 0 auto;
+    text-align: left;
+    padding: 0 var(--space-6);
 }
 
-.editorial-headline {
+.editorial-headline-scroll {
     font-family: var(--font-family-heading);
-    font-size: clamp(2.2rem, 4.2vw, 3.8rem);
+    font-size: clamp(2.4rem, 4.5vw, 4.2rem);
     font-weight: var(--font-weight-light);
-    line-height: 1.35;
+    line-height: 1.4;
     color: var(--color-text-dark);
     letter-spacing: -0.01em;
+    text-align: left;
+    margin: 0;
 }
 
-.editorial-inline-wrap {
-    display: inline-flex;
-    align-items: center;
-    vertical-align: middle;
-    margin: 0 0.4rem;
-    height: 1.15em;
-    width: 2.4em;
-    border-radius: var(--radius-xs);
-    overflow: hidden;
-    border: 1px solid var(--color-stone);
-    box-shadow: var(--shadow-sm);
-    transition: width var(--transition-smooth), transform var(--transition-smooth);
+.editorial-headline-scroll .scroll-word {
+    display: inline-block;
+    color: var(--color-paper);
+    transition: color 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    margin: 0 0.16em;
 }
 
-.editorial-inline-wrap:hover {
-    transform: scale(1.06);
-    border-color: var(--color-orange);
-}
-
-.editorial-inline-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.editorial-author-strip {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: var(--space-10);
-    padding-top: var(--space-6);
-    border-top: 1px solid var(--color-border-light);
-}
-
-.editorial-badge {
-    font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-semibold);
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--color-orange);
-}
-
-.editorial-sub {
-    font-size: var(--font-size-sm);
-    color: var(--color-text-muted);
+.editorial-headline-scroll .scroll-word.is-active {
+    color: var(--color-text-dark);
+    transform: translateY(0);
 }
 
 /* ─── Cinematic Media Section ────────────────────────────────────── */

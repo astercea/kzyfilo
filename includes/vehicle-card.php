@@ -133,7 +133,6 @@ $detailUrl = url('arac-detay.php', ['slug' => $vSlug]);
                 <span class="vehicle-card-price-label"><?php e('vehicle_card.monthly_from'); ?></span>
                 <div class="vehicle-card-price-val">
                     <span class="vehicle-card-price-amount"><?php echo number_format($vPrice, 0, ',', '.'); ?> <?php e('currency'); ?></span>
-                    <span class="vehicle-card-price-suffix">/ <?php echo (CURRENT_LANG === 'tr') ? 'ay + KDV' : 'mo + VAT'; ?></span>
                 </div>
             </div>
 

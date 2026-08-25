@@ -24,7 +24,7 @@ return [
         'is_campaign' => true,
         'is_fast_delivery' => true,
         'is_premium' => false,
-        'image' => asset('images/vehicles/placeholder.svg'),
+        'image' => asset('images/vehicles/renault-clio.jpg'),
         'description' => 'Şehir içi kullanımda yüksek yakıt verimliliği ve konfor sunan yeni Renault Clio, şirket filoları için en ekonomik tercihlerden biridir.',
         'specs' => [
             'engine' => [
@@ -86,7 +86,7 @@ return [
         'is_campaign' => true,
         'is_fast_delivery' => true,
         'is_premium' => false,
-        'image' => asset('images/vehicles/placeholder.svg'),
+        'image' => asset('images/vehicles/fiat-egea.jpg'),
         'description' => 'Geniş bagaj hacmi, güçlü dizel motoru ve düşük işletme maliyetiyle kurumsal filoların vazgeçilmez sedan modeli.',
         'specs' => [
             'engine' => [
@@ -142,7 +142,7 @@ return [
         'is_campaign' => false,
         'is_fast_delivery' => true,
         'is_premium' => false,
-        'image' => asset('images/vehicles/placeholder.svg'),
+        'image' => asset('images/vehicles/toyota-corolla.jpg'),
         'description' => 'Kendi kendini şarj eden hibrit teknolojisiyle sessiz, çevreci ve son derece ekonomik sürüş deneyimi.',
         'specs' => [
             'engine' => [
@@ -191,7 +191,7 @@ return [
         'is_campaign' => false,
         'is_fast_delivery' => true,
         'is_premium' => false,
-        'image' => asset('images/vehicles/placeholder.svg'),
+        'image' => asset('images/vehicles/hyundai-tucson.jpg'),
         'description' => 'Fütüristik tasarım, geniş iç hacim ve 48V hafif hibrit dizel motor kombinasyonu ile yöneticiler için ideal SUV.',
         'specs' => [
             'engine' => [
@@ -235,7 +235,7 @@ return [
         'is_campaign' => false,
         'is_fast_delivery' => false,
         'is_premium' => true,
-        'image' => asset('images/vehicles/placeholder.svg'),
+        'image' => asset('images/vehicles/bmw-320i.jpg'),
         'description' => 'Üst düzey kurumsal prestij, kusursuz dinamizm ve BMW Curved Display kokpit teknolojisi.',
         'specs' => [
             'engine' => [
@@ -280,7 +280,7 @@ return [
         'is_campaign' => true,
         'is_fast_delivery' => true,
         'is_premium' => false,
-        'image' => asset('images/vehicles/placeholder.svg'),
+        'image' => asset('images/vehicles/mg-zs-ev.jpg'),
         'description' => '%100 elektrikli motoruyla sıfır emisyon ve ultra düşük işletme maliyeti. Şirketlerin yeşil filo dönüşümüne öncülük eder.',
         'specs' => [
             'engine' => [
@@ -326,7 +326,7 @@ return [
         'is_campaign' => false,
         'is_fast_delivery' => true,
         'is_premium' => false,
-        'image' => asset('images/vehicles/placeholder.svg'),
+        'image' => asset('images/vehicles/ford-tourneo.jpg'),
         'description' => 'Geniş yükleme alanı, modüler koltuk yapısı ve dayanıklı gövdesi ile saha operasyonları ve lojistik ekiplerinin bir numarası.',
         'specs' => [
             'engine' => [
@@ -370,7 +370,7 @@ return [
         'is_campaign' => false,
         'is_fast_delivery' => true,
         'is_premium' => false,
-        'image' => asset('images/vehicles/placeholder.svg'),
+        'image' => asset('images/vehicles/vw-transporter.jpg'),
         'description' => 'Yüksek taşıma kapasitesi, DSG konforu ve Alman mühendisliği ile ticari filonuzun güvenilir taşıyıcısı.',
         'specs' => [
             'engine' => [

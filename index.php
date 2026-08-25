@@ -137,16 +137,12 @@ include includePath('header.php');
 </section>
 
 <!-- ─── 3. BÜYÜK EDİTORYAL MARKA BÖLÜMÜ ───────────────────────────── -->
-<section class="editorial-statement" aria-label="KZY Filo Vizyonu" data-reveal="fade-up">
+<section class="editorial-statement" aria-label="KZY Filo Vizyonu">
     <div class="container">
         <div class="editorial-quote-wrap">
-            <h2 class="editorial-headline">
+            <h2 class="editorial-headline-scroll">
                 Şirketiniz için esnek, operasyonel olarak güvenli ve sürdürülebilir uzun dönem mobilite çözümleri sunuyoruz.
             </h2>
-            <div class="editorial-author-strip">
-                <span class="editorial-badge">KZY Filo Yönetim Manifestosu</span>
-                <span class="editorial-sub">Sermaye bağlamadan, bakım, hasar ve lastik risklerini uzmanına devredin.</span>
-            </div>
         </div>
     </div>
 </section>
