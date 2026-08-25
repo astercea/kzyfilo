@@ -45,7 +45,7 @@ include includePath('header.php');?>
         <div class="card card-body p-12 text-center bg-surface-soft">
             <h3 class="text-2xl mb-3">Şirketiniz İçin Güvenilir Filo Çözüm Ortağı</h3>
             <p class="text-muted max-w-lg mx-auto mb-6">Kurumsal referanslarımızın arasına katılmak ve filonuzu profesyonelce yönetmek için teklif alın.</p>
-            <a href="<?php echo url('hizli-teklif.php'); ?>" class="btn btn-primary btn-lg"><?php e('header.get_quote'); ?> →</a>
+            <a href="<?php echo url('hizli-teklif.php'); ?>" class="btn btn-primary btn-lg"><?php e('header.get_quote'); ?></a>
         </div>
     </div>
 </section>

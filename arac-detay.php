@@ -66,49 +66,45 @@ include includePath('header.php');?>
 <div class="section">
     <div class="container">
         
-        <!-- ─── TOP MAIN GRID: GALLERY & CALCULATOR ────────────────────── -->
-        <div class="layout-detail">
+        <!-- ─── 1. TOP HERO STAGE: TITLE, ENLARGED PHOTO & FAST SPECS ─── -->
+        <div class="detail-hero-stage mb-12">
+            <div class="detail-header mb-6">
+                <h1 class="text-3xl mb-1"><?php echo esc($vTitle); ?></h1>
+                <p class="text-base text-muted"><?php echo esc($vVersion); ?></p>
+            </div>
+
+            <!-- Centered & Enlarged Main Image Stage -->
+            <div class="detail-stage-card card mb-8">
+                <img src="<?php echo esc($vehicle['image']); ?>" alt="<?php echo esc($vTitle); ?>" class="card-img" id="detail-main-image">
+            </div>
+
+            <!-- Fast Spec Badges Strip -->
+            <div class="detail-specs-grid grid grid-4 gap-4">
+                <div class="card p-3 text-center">
+                    <span class="text-xs text-muted block mb-1"><?php e('catalog.fuel'); ?></span>
+                    <strong><?php e('fuel_types.' . $vehicle['fuel']); ?></strong>
+                </div>
+                <div class="card p-3 text-center">
+                    <span class="text-xs text-muted block mb-1"><?php e('catalog.transmission'); ?></span>
+                    <strong><?php e('transmission_types.' . $vehicle['transmission']); ?></strong>
+                </div>
+                <div class="card p-3 text-center">
+                    <span class="text-xs text-muted block mb-1"><?php e('catalog.body_type'); ?></span>
+                    <strong><?php e('body_types.' . $vehicle['body']); ?></strong>
+                </div>
+                <div class="card p-3 text-center">
+                    <span class="text-xs text-muted block mb-1"><?php e('catalog.seats'); ?></span>
+                    <strong><?php echo esc($vehicle['seats']); ?> <?php e('vehicle_card.seats'); ?></strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- ─── 2. TWO-COLUMN GRID: TECHNICAL TABS (LEFT) & QUOTE CALCULATOR (RIGHT) ─── -->
+        <div class="detail-content-grid">
             
-            <!-- Left: Gallery & Vehicle Header -->
-            <div class="detail-gallery-wrap">
-                <div class="detail-header mb-6">
-                    <div class="flex items-center gap-3 mb-2">
-                        <span class="badge badge-light"><?php echo strtoupper($vehicle['category']); ?></span>
-                        <span class="text-sm text-muted"><?php echo esc($vehicle['segment']); ?></span>
-                        <?php if (!empty($vehicle['is_fast_delivery'])): ?>
-                            <span class="badge badge-success"><?php e('vehicle_card.fast_delivery'); ?></span>
-                        <?php endif; ?>
-                    </div>
-                    <h1 class="text-3xl mb-1"><?php echo esc($vTitle); ?></h1>
-                    <p class="text-base text-muted"><?php echo esc($vVersion); ?></p>
-                </div>
-
-                <!-- Main Image Stage -->
-                <div class="detail-stage-card card mb-6">
-                    <img src="<?php echo esc($vehicle['image']); ?>" alt="<?php echo esc($vTitle); ?>" class="card-img" id="detail-main-image" style="aspect-ratio: 16/10; object-fit: contain; padding: 20px;">
-                </div>
-
-                <!-- Fast Spec Badges Strip -->
-                <div class="grid grid-4 gap-4 mb-8">
-                    <div class="card p-3 text-center">
-                        <span class="text-xs text-muted block mb-1"><?php e('catalog.fuel'); ?></span>
-                        <strong><?php e('fuel_types.' . $vehicle['fuel']); ?></strong>
-                    </div>
-                    <div class="card p-3 text-center">
-                        <span class="text-xs text-muted block mb-1"><?php e('catalog.transmission'); ?></span>
-                        <strong><?php e('transmission_types.' . $vehicle['transmission']); ?></strong>
-                    </div>
-                    <div class="card p-3 text-center">
-                        <span class="text-xs text-muted block mb-1"><?php e('catalog.body_type'); ?></span>
-                        <strong><?php e('body_types.' . $vehicle['body']); ?></strong>
-                    </div>
-                    <div class="card p-3 text-center">
-                        <span class="text-xs text-muted block mb-1"><?php e('catalog.seats'); ?></span>
-                        <strong><?php echo esc($vehicle['seats']); ?> <?php e('vehicle_card.seats'); ?></strong>
-                    </div>
-                </div>
-
-                <!-- Detailed Specs Tabs -->
+            <!-- Left: Detailed Specs Tabs -->
+            <div class="detail-tabs-wrap">
+                <h2 class="detail-section-title mb-4">TEKNİK DETAYLAR VE HİZMETLER</h2>
                 <div class="tabs-container card p-6">
                     <div class="tabs-nav mb-6" role="tablist">
                         <button type="button" class="tab-btn is-active" role="tab" aria-selected="true" data-tab="specs"><?php e('vehicle_detail.tab_specs'); ?></button>
@@ -121,7 +117,7 @@ include includePath('header.php');?>
                     <div class="tab-panel is-active" id="tab-specs" role="tabpanel">
                         <?php foreach ($vehicle['specs'] as $groupKey => $groupData): ?>
                             <div class="mb-6">
-                                <h4 class="text-sm fw-bold text-primary mb-3" style="text-transform: uppercase; letter-spacing: 0.5px;">
+                                <h4 class="specs-group-title">
                                     <?php echo esc($groupKey); ?>
                                 </h4>
                                 <div class="specs-table">
@@ -138,41 +134,122 @@ include includePath('header.php');?>
 
                     <!-- Tab 2: Included & Extra Services -->
                     <div class="tab-panel hidden" id="tab-services" role="tabpanel">
-                        <h3 class="text-base fw-bold mb-4">Standart Kiralamaya Dahil Olan Hizmetler</h3>
-                        <div class="flex flex-col gap-3 text-sm mb-6">
-                            <div class="flex items-center gap-2 text-success">✓ <strong>Periyodik Bakım & Onarım:</strong> Üretici standartlarında yetkili servis güvencesi.</div>
-                            <div class="flex items-center gap-2 text-success">✓ <strong>Kasko & Trafik Sigortası:</strong> Tam kapsamlı filo kasko poliçesi.</div>
-                            <div class="flex items-center gap-2 text-success">✓ <strong>7/24 Kesintisiz Yol Yardımı:</strong> Türkiye genelinde çekici ve acil yardım desteği.</div>
-                            <div class="flex items-center gap-2 text-success">✓ <strong>İkame Araç Temini:</strong> Bakım ve hasar süreçlerinde kesintisiz mobilite.</div>
+                        <div class="tab-section-intro mb-6">
+                            <h3 class="text-base fw-bold text-dark mb-1">Standart Kiralamaya Dahil Olan Hizmetler</h3>
+                            <p class="text-sm text-muted mb-0">Kzyfilo uzun dönem kiralamalarında operasyonel tüm süreçler güvencemiz altındadır.</p>
                         </div>
 
-                        <div class="card p-4 bg-surface-soft">
-                            <h4 class="text-sm fw-bold mb-2">Daha Fazla Güvence mi İstiyorsunuz?</h4>
-                            <p class="text-xs text-muted mb-3">Kış lastiği, mini hasar muafiyeti ve esnek kilometre paketlerini karşılaştırın.</p>
-                            <a href="<?php echo url('paket-karsilastir.php', ['arac' => $vehicle['slug']]); ?>" class="btn btn-outline btn-sm">
-                                <?php e('vehicle_detail.compare_packages'); ?> →
-                            </a>
+                        <div class="services-feature-grid grid grid-2 gap-4 mb-6">
+                            <div class="service-feature-card">
+                                <div class="service-feature-icon">✓</div>
+                                <div class="service-feature-text">
+                                    <strong>Periyodik Bakım & Onarım</strong>
+                                    <p>Üretici standartlarında yetkili servis güvencesiyle tüm periyodik bakımlar dahil.</p>
+                                </div>
+                            </div>
+                            <div class="service-feature-card">
+                                <div class="service-feature-icon">✓</div>
+                                <div class="service-feature-text">
+                                    <strong>Kasko & Trafik Sigortası</strong>
+                                    <p>Muafiyetsiz tam kapsamlı filo kaskosu ve zorunlu mali sorumluluk sigortası.</p>
+                                </div>
+                            </div>
+                            <div class="service-feature-card">
+                                <div class="service-feature-icon">✓</div>
+                                <div class="service-feature-text">
+                                    <strong>7/24 Kesintisiz Yol Yardımı</strong>
+                                    <p>Türkiye genelinde çekici, lastik yardımı ve acil destek hizmetleri.</p>
+                                </div>
+                            </div>
+                            <div class="service-feature-card">
+                                <div class="service-feature-icon">✓</div>
+                                <div class="service-feature-text">
+                                    <strong>İkame Araç Temini</strong>
+                                    <p>Bakım ve kaza süreçlerinde 24 saat içinde kesintisiz yedek araç temini.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Promo Upgrade Box -->
+                        <div class="package-promo-card">
+                            <div class="package-promo-content">
+                                <div class="package-promo-badge">GÜVENCE SEÇENEKLERİ</div>
+                                <h4 class="package-promo-title">Daha Fazla Güvence mi İstiyorsunuz?</h4>
+                                <p class="package-promo-desc">Kış lastiği, mini hasar muafiyeti ve esnek kilometre paketlerini inceleyin.</p>
+                            </div>
+                            <div class="package-promo-action">
+                                <a href="<?php echo url('paket-karsilastir.php', ['arac' => $vehicle['slug']]); ?>" class="btn btn-primary">
+                                    <?php e('vehicle_detail.compare_packages'); ?>
+                                </a>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Tab 3: Lease Terms -->
                     <div class="tab-panel hidden" id="tab-terms" role="tabpanel">
-                        <div class="flex flex-col gap-4 text-sm">
-                            <div>
-                                <h4 class="fw-bold mb-1">Kiralama Süresi ve Kilometre Limitleri</h4>
-                                <p class="text-muted">Araçlarımız 24, 36 ve 48 aylık sözleşmelerle; yıllık 15.000, 20.000 veya 30.000 km paket seçenekleriyle kiralanabilmektedir.</p>
+                        <div class="tab-section-intro mb-6">
+                            <h3 class="text-base fw-bold text-dark mb-1">Operasyonel Kiralama Koşulları ve Avantajları</h3>
+                            <p class="text-sm text-muted mb-0">Şirketinizin nakit akışını koruyan, vergi avantajı sağlayan kurumsal filo çözümleri.</p>
+                        </div>
+
+                        <div class="terms-cards-grid grid grid-2 gap-4">
+                            <div class="term-card">
+                                <div class="term-card-header">
+                                    <span class="term-icon">⏱️</span>
+                                    <h4 class="term-title">Süre ve Kilometre Seçenekleri</h4>
+                                </div>
+                                <p class="term-desc">24, 36 ve 48 aylık esnek sözleşme süreleri; yıllık 15.000 km, 20.000 km veya 30.000 km kullanım paketleriyle filonuza tam uyum.</p>
                             </div>
-                            <div>
-                                <h4 class="fw-bold mb-1">Vergi ve Fatura Avantajı</h4>
-                                <p class="text-muted">Aylık kira bedeli KDV hariç olarak faturalandırılır ve mevzuat dahilinde doğrudan gider gösterilebilir.</p>
+
+                            <div class="term-card">
+                                <div class="term-card-header">
+                                    <span class="term-icon">📊</span>
+                                    <h4 class="term-title">Vergi ve Muhasebe Avantajı</h4>
+                                </div>
+                                <p class="term-desc">Aylık faturalar doğrudan gider olarak kaydedilebilir. KDV mahsubu yapılabilir ve araç bedeli bilançoda borç olarak görünmez.</p>
+                            </div>
+
+                            <div class="term-card">
+                                <div class="term-card-header">
+                                    <span class="term-icon">🛠️</span>
+                                    <h4 class="term-title">Sıfır Operasyonel Yük</h4>
+                                </div>
+                                <p class="term-desc">MTV, periyodik muayene, hasar takibi ve lastik saklama/değişim gibi tüm zaman alıcı süreçler Kzyfilo tarafından yönetilir.</p>
+                            </div>
+
+                            <div class="term-card">
+                                <div class="term-card-header">
+                                    <span class="term-icon">🤝</span>
+                                    <h4 class="term-title">Hızlı Teslimat ve Esneklik</h4>
+                                </div>
+                                <p class="term-desc">Kredi değerlendirme süreci sonrası stoktaki araçlar hızla kapınıza teslim edilir; sözleşme sonunda model yenileme kolaylığı sunulur.</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- Tab 4: FAQ -->
                     <div class="tab-panel hidden" id="tab-faq" role="tabpanel">
+                        <div class="tab-section-intro mb-6">
+                            <h3 class="text-base fw-bold text-dark mb-1">Sıkça Sorulan Sorular</h3>
+                            <p class="text-sm text-muted mb-0">Araç kiralama süreci, faturalandırma ve servis hakkında en çok merak edilenler.</p>
+                        </div>
+
+                        <?php 
+                        $detailFaqs = [];
+                        if (!empty($faqsData) && is_array($faqsData)) {
+                            foreach ($faqsData as $catKey => $cat) {
+                                if (!empty($cat['items']) && is_array($cat['items'])) {
+                                    foreach ($cat['items'] as $item) {
+                                        $detailFaqs[] = $item;
+                                    }
+                                }
+                            }
+                        }
+                        $detailFaqs = array_slice($detailFaqs, 0, 6);
+                        ?>
+
                         <div class="accordion">
-                            <?php foreach ($faqsData['rental_terms']['items'] as $faq): ?>
+                            <?php foreach ($detailFaqs as $faq): ?>
                                 <div class="accordion-item">
                                     <button type="button" class="accordion-trigger" aria-expanded="false">
                                         <span><?php echo esc($faq['question']); ?></span>
@@ -190,9 +267,10 @@ include includePath('header.php');?>
 
             <!-- Right: Dynamic Quote Calculator Sticky Sidebar -->
             <aside class="detail-sidebar">
+                <h2 class="detail-section-title mb-4">TEKLİFİNİZİ OLUŞTURUN</h2>
                 <div class="quote-sidebar-card card card-body sticky-panel" id="detail-quote-calculator">
-                    <div class="flex flex-between items-center mb-4">
-                        <h3 class="text-lg fw-bold mb-0">Teklifinizi Oluşturun</h3>
+                    <div class="quote-sidebar-header">
+                        <h3 class="text-base fw-bold mb-0">Hızlı Fiyat Hesaplama</h3>
                         <span class="badge badge-primary"><?php e('demo_price'); ?></span>
                     </div>
 
@@ -275,7 +353,7 @@ include includePath('header.php');?>
                         <!-- CTAs -->
                         <div class="flex flex-col gap-3">
                             <a href="<?php echo url('hizli-teklif.php', ['arac' => $vehicle['slug']]); ?>" class="btn btn-primary btn-lg" id="btn-goto-quote">
-                                <?php e('vehicle_detail.get_quick_quote'); ?> →
+                                <?php e('vehicle_detail.get_quick_quote'); ?>
                             </a>
 
                             <a href="<?php echo url('paket-karsilastir.php', ['arac' => $vehicle['slug']]); ?>" class="btn btn-outline" id="btn-goto-packages">
@@ -296,9 +374,9 @@ include includePath('header.php');?>
         </div>
 
         <!-- ─── SIMILAR VEHICLES ───────────────────────────────────────── -->
-        <div class="mt-16 pt-12" style="border-top: 1px solid var(--color-border-light);">
-            <div class="flex flex-between mb-8 flex-wrap gap-4">
-                <h2 class="text-2xl"><?php e('vehicle_detail.similar_vehicles'); ?></h2>
+        <div class="similar-vehicles-section mt-16">
+            <div class="flex flex-between mb-8 flex-wrap gap-4 items-center">
+                <h2 class="similar-vehicles-title"><?php e('vehicle_detail.similar_vehicles'); ?></h2>
                 <a href="<?php echo url('araclar.php', ['kategori' => $mainVehicle['category']]); ?>" class="btn btn-outline btn-sm">
                     <?php e('btn.view_all'); ?>
                 </a>

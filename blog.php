@@ -50,7 +50,7 @@ include includePath('header.php');?>
                         </h4>
                         <p><?php echo esc($post['summary']); ?></p>
                         <a href="<?php echo url('blog-detay.php', ['slug' => $post['slug']]); ?>" class="content-card-link">
-                            <span><?php e('content.read_more'); ?></span> →
+                            <span><?php e('content.read_more'); ?></span>
                         </a>
                     </div>
                 </article>

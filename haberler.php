@@ -43,7 +43,7 @@ include includePath('header.php');?>
                         <h4><?php echo esc($news['title']); ?></h4>
                         <p><?php echo esc($news['summary']); ?></p>
                         <a href="<?php echo url('blog-detay.php', ['slug' => $news['slug']]); ?>" class="content-card-link">
-                            <span><?php e('content.read_more'); ?></span> →
+                            <span><?php e('content.read_more'); ?></span>
                         </a>
                     </div>
                 </article>

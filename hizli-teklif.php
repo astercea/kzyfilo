@@ -122,7 +122,7 @@ include includePath('header.php');?>
                 <div class="form-actions">
                     <div></div>
                     <button type="button" class="btn btn-primary btn-step-next">
-                        <?php e('quote_form.next'); ?> →
+                        <?php e('quote_form.next'); ?>
                     </button>
                 </div>
             </div>
@@ -164,7 +164,7 @@ include includePath('header.php');?>
                         ← <?php e('quote_form.previous'); ?>
                     </button>
                     <button type="button" class="btn btn-primary btn-step-next">
-                        <?php e('quote_form.next'); ?> →
+                        <?php e('quote_form.next'); ?>
                     </button>
                 </div>
             </div>
@@ -218,7 +218,7 @@ include includePath('header.php');?>
                         ← <?php e('quote_form.previous'); ?>
                     </button>
                     <button type="button" class="btn btn-primary btn-step-next">
-                        <?php e('quote_form.next'); ?> →
+                        <?php e('quote_form.next'); ?>
                     </button>
                 </div>
             </div>

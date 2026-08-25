@@ -39,7 +39,7 @@ require_once dirname(__DIR__) . '/includes/config.php';
             </div>
 
             <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px; font-size: 15px; font-weight: 600;">
-                Giriş Yap →
+                Giriş Yap
             </button>
         </form>
 

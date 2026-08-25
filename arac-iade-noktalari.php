@@ -47,7 +47,7 @@ include includePath('header.php');?>
                     </div>
 
                     <a href="<?php echo url('online-islemler.php'); ?>" class="btn btn-outline btn-sm">
-                        İade Randevusu Oluştur →
+                        İade Randevusu Oluştur
                     </a>
                 </div>
             <?php endforeach; ?>

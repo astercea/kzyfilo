@@ -126,27 +126,29 @@ $detailUrl = url('arac-detay.php', ['slug' => $vSlug]);
             </div>
         </div>
 
-        <!-- Footer: Price & Actions -->
+        <!-- Footer: Horizontal Price & 2 Bottom Buttons -->
         <div class="vehicle-card-footer">
-            <div class="vehicle-card-price">
-                <span class="vehicle-card-price-label"><?php e('vehicle_card.monthly_from'); ?> (<?php e('demo_price'); ?>)</span>
-                <div class="vehicle-card-price-value">
-                    <?php echo number_format($vPrice, 0, ',', '.'); ?> <?php e('currency'); ?>
-                    <span class="vehicle-card-price-suffix"><?php e('per_month'); ?> <?php e('vat_excluded'); ?></span>
+            <div class="vehicle-card-price-row">
+                <span class="vehicle-card-price-label"><?php e('vehicle_card.monthly_from'); ?></span>
+                <div class="vehicle-card-price-val">
+                    <span class="vehicle-card-price-amount"><?php echo number_format($vPrice, 0, ',', '.'); ?> <?php e('currency'); ?></span>
+                    <span class="vehicle-card-price-suffix">/ <?php echo (CURRENT_LANG === 'tr') ? 'ay + KDV' : 'mo + VAT'; ?></span>
                 </div>
             </div>
 
-            <div class="flex items-center gap-2">
+            <div class="vehicle-card-actions">
                 <!-- Compare Button -->
                 <button type="button" 
                         class="btn btn-outline btn-sm btn-compare-action" 
                         data-id="<?php echo esc($vId); ?>" 
                         title="<?php e('compare.compare_vehicles'); ?>" 
                         aria-label="<?php echo esc($vBrand . ' ' . $vModel . ' - ' . t('compare.compare_vehicles')); ?>">
-                    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right: 4px;">
-                        <line x1="18" y1="20" x2="18" y2="10"></line>
-                        <line x1="12" y1="20" x2="12" y2="4"></line>
-                        <line x1="6" y1="20" x2="6" y2="14"></line>
+                    <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right: 5px;">
+                        <path d="M12 3v18"></path>
+                        <path d="M6 7l6-3 6 3"></path>
+                        <path d="M3 13l3-6 3 6a3 3 0 0 1-6 0z"></path>
+                        <path d="M15 13l3-6 3 6a3 3 0 0 1-6 0z"></path>
+                        <path d="M4 21h16"></path>
                     </svg>
                     <span><?php e('compare.compare_vehicles'); ?></span>
                 </button>

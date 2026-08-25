@@ -93,7 +93,7 @@ include includePath('header.php');?>
         <div class="card card-body p-8 text-center bg-surface-soft">
             <h3 class="text-xl mb-2">Size En Yakın İade Noktasını Bulun</h3>
             <p class="text-muted text-sm mb-6">İstanbul, Ankara, İzmir ve diğer illerdeki yetkili teslim ve iade noktalarımızın adres ve çalışma saatlerini inceleyin.</p>
-            <a href="<?php echo url('arac-iade-noktalari.php'); ?>" class="btn btn-primary"><?php e('return_points.title'); ?> →</a>
+            <a href="<?php echo url('arac-iade-noktalari.php'); ?>" class="btn btn-primary"><?php e('return_points.title'); ?></a>
         </div>
     </div>
 </section>

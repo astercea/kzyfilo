@@ -272,12 +272,20 @@
         grid-column: span 1;
     }
 
-    /* Grids */
+    /* Grids & Layouts */
     .grid-2,
     .grid-3,
     .grid-4,
-    .grid-6 {
+    .grid-6,
+    .layout-sidebar,
+    .layout-sidebar-right,
+    .layout-detail,
+    .detail-content-grid {
         grid-template-columns: 1fr;
+    }
+
+    .detail-stage-card {
+        max-width: 100%;
     }
 
     .stats-grid {

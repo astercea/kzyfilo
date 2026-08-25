@@ -165,6 +165,7 @@ if (!defined('ROOT_DIR')) {
         };
     </script>
     <script src="<?php echo asset('js/app.js'); ?>"></script>
+    <script src="<?php echo asset('js/custom-select.js'); ?>"></script>
     <script src="<?php echo asset('js/favorites.js'); ?>"></script>
 </body>
 </html>
