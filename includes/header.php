@@ -83,16 +83,8 @@ if (!defined('ROOT_DIR')) {
         <?php $isHome = (basename($_SERVER['SCRIPT_NAME']) === 'index.php'); ?>
         <header class="site-header<?php echo $isHome ? ' is-transparent' : ''; ?>" id="site-header">
             <div class="container">
-                <!-- Logo -->
-                <a href="<?php echo url('index.php'); ?>" class="site-logo" aria-label="kzyfilo Ana Sayfa">
-                    <img src="<?php echo asset('images/logo/kzy-filo-logo.svg'); ?>" alt="kzyfilo" width="180" height="44">
-                </a>
-
-                <!-- Desktop Navigation -->
+                <!-- Desktop Navigation (Left) -->
                 <nav class="main-nav" aria-label="Ana Menü">
-                    <a href="<?php echo url('index.php'); ?>" class="nav-link<?php echo activeClass('index.php'); ?>">
-                        <?php e('header.home'); ?>
-                    </a>
                     <a href="<?php echo url('araclar.php'); ?>" class="nav-link<?php echo activeClass('araclar.php'); ?>">
                         <?php e('header.vehicles'); ?>
                     </a>
@@ -113,7 +105,7 @@ if (!defined('ROOT_DIR')) {
                                     <a href="<?php echo url('uzun-donem-arac-kiralama.php'); ?>" class="mega-menu-link">
                                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                             <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                                             <line x1="16" y1="2" x2="16" y2="6"></line>
                                             <line x1="8" y1="2" x2="8" y2="6"></line>
                                             <line x1="3" y1="10" x2="21" y2="10"></line>
                                         </svg>
@@ -148,7 +140,7 @@ if (!defined('ROOT_DIR')) {
                                     <a href="<?php echo url('ticari-arac-kiralama.php'); ?>" class="mega-menu-link">
                                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                             <rect x="1" y="3" width="15" height="13"></rect>
-                                            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                                            <polygon points="16 8 20 8 23 11 23 16 16 16 8"></polygon>
                                             <circle cx="5.5" cy="18.5" r="2.5"></circle>
                                             <circle cx="18.5" cy="18.5" r="2.5"></circle>
                                         </svg>
@@ -252,7 +244,12 @@ if (!defined('ROOT_DIR')) {
                     </a>
                 </nav>
 
-                <!-- Header Actions -->
+                <!-- Logo (Center) -->
+                <a href="<?php echo url('index.php'); ?>" class="site-logo" aria-label="kzyfilo Ana Sayfa">
+                    <img src="<?php echo asset('images/logo/kzy-filo-logo.svg'); ?>" alt="kzyfilo" width="195" height="48">
+                </a>
+
+                <!-- Header Actions (Right) -->
                 <div class="header-actions">
                     <!-- Listem Button -->
                     <a href="<?php echo url('listem.php'); ?>" class="header-list-btn" id="header-list-btn" title="<?php e('header.my_list'); ?>" aria-label="<?php e('header.my_list'); ?>">

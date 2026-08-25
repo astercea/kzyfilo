@@ -9,6 +9,7 @@
     position: relative;
     background-color: var(--night-1000);
     overflow: hidden;
+    width: 100%;
     min-height: 600px;
 }
 
@@ -16,6 +17,11 @@
     position: relative;
     display: flex;
     align-items: center;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
     min-height: 620px;
     padding: calc(var(--space-20) + var(--space-6)) 0 var(--space-20);
 }
@@ -23,19 +29,18 @@
 .hero-bg {
     position: absolute;
     inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
     z-index: 0;
+    transform: none !important;
 }
 
 .hero-bg img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transform: scale(1.02);
-    transition: transform 6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.hero-slide.is-active .hero-bg img {
-    transform: scale(1);
+    display: block;
 }
 
 .hero-bg::after {

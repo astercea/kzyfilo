@@ -27,7 +27,6 @@
 
         if (!isTouch && !prefersReducedMotion) {
             initSpotlightEffect();
-            initHeroParallax();
             initAmbientFollower();
         }
     });

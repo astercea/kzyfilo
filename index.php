@@ -26,7 +26,7 @@ include includePath('header.php');
             <!-- Slide 1: Kurumsal Filo Çözümleri -->
             <div class="slider-slide hero-slide is-active" role="group" aria-roledescription="slide" aria-label="1 / 3">
                 <span class="hero-slide-number">01</span>
-                <div class="hero-bg" data-parallax="10">
+                <div class="hero-bg">
                     <img src="<?php echo asset('images/banners/hero-banner-1.jpg'); ?>" alt="kzyfilo Kurumsal Filo Kiralama" width="1920" height="640">
                 </div>
                 <div class="container">
@@ -56,7 +56,7 @@ include includePath('header.php');
             <!-- Slide 2: Elektrikli Filo Dönüşümü -->
             <div class="slider-slide hero-slide" role="group" aria-roledescription="slide" aria-label="2 / 3">
                 <span class="hero-slide-number">02</span>
-                <div class="hero-bg" data-parallax="10">
+                <div class="hero-bg">
                     <img src="<?php echo asset('images/banners/hero-banner-2.jpg'); ?>" alt="kzyfilo Elektrikli Filo Dönüşümü" width="1920" height="640">
                 </div>
                 <div class="container">
@@ -86,7 +86,7 @@ include includePath('header.php');
             <!-- Slide 3: Premium ve Yönetici Filosu -->
             <div class="slider-slide hero-slide" role="group" aria-roledescription="slide" aria-label="3 / 3">
                 <span class="hero-slide-number">03</span>
-                <div class="hero-bg" data-parallax="10">
+                <div class="hero-bg">
                     <img src="<?php echo asset('images/banners/hero-banner-3.jpg'); ?>" alt="kzyfilo Yönetici ve Premium Filo" width="1920" height="640">
                 </div>
                 <div class="container">

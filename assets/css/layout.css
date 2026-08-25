@@ -195,6 +195,7 @@
     align-items: center;
     justify-content: space-between;
     height: 100%;
+    position: relative;
 }
 
 /* ─── Transparent Header (Homepage) ──────────────────────────────── */
@@ -216,29 +217,35 @@
 }
 
 .site-header.is-scrolled .site-logo img {
-    height: 36px;
+    height: 40px;
     transition: height var(--transition-smooth);
 }
 
-/* ─── Logo ───────────────────────────────────────────────────────── */
+/* ─── Logo (Exact Horizontal Center) ──────────────────────────────── */
 .site-logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
     align-items: center;
-    flex-shrink: 0;
+    justify-content: center;
+    z-index: 2;
 }
 
 .site-logo img {
-    height: 44px;
+    height: 48px;
     width: auto;
     transition: height var(--transition-smooth);
     filter: brightness(0) invert(1);
 }
 
-/* ─── Navigation ─────────────────────────────────────────────────── */
+/* ─── Navigation (Left) ───────────────────────────────────────────── */
 .main-nav {
     display: flex;
     align-items: center;
     gap: var(--space-1);
+    z-index: 1;
 }
 
 .nav-link {
@@ -302,6 +309,7 @@
 .header-actions {
     display: flex;
     align-items: center;
+    justify-self: end;
     gap: var(--space-3);
 }
 

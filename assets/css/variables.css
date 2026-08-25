@@ -183,8 +183,8 @@
     /* ─── Layout ─────────────────────────────────────────────────── */
     --container-max: 1320px;
     --container-padding: var(--space-6);
-    --header-height: 72px;
-    --header-height-scrolled: 60px;
+    --header-height: 88px;
+    --header-height-scrolled: 72px;
     --topbar-height: 40px;
     --footer-bg: var(--night-1000);
 }

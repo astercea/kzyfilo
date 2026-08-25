@@ -690,16 +690,23 @@ ol.breadcrumb {
 .slider {
     position: relative;
     overflow: hidden;
+    width: 100%;
 }
 
 .slider-track {
     display: flex;
+    width: 100%;
     transition: transform var(--transition-slider);
+    will-change: transform;
 }
 
 .slider-slide {
     flex: 0 0 100%;
+    width: 100%;
     min-width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 .slider-btn {
