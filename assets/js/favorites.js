@@ -1,5 +1,6 @@
 /**
  * kzyfilo — Favoriler ve Karşılaştırma Listesi Yönetimi (localStorage)
+ * KZY Executive Motion — Compare Tray & Favorites Integration
  */
 
 (function () {
@@ -7,7 +8,7 @@
 
     const FAVORITES_KEY = 'kzy_favorites';
     const COMPARE_KEY = 'kzy_compare';
-    const MAX_COMPARE = 4;
+    const MAX_COMPARE = 3;
 
     // ─── Helpers ────────────────────────────────────────────────────
     function getFavorites() {
@@ -35,6 +36,7 @@
 
     function saveCompareList(items) {
         localStorage.setItem(COMPARE_KEY, JSON.stringify(items));
+        updateCompareTray();
         window.dispatchEvent(new CustomEvent('kzy:compare-updated', { detail: items }));
     }
 
@@ -63,12 +65,70 @@
         });
     }
 
+    // ─── Bottom Compare Tray Güncelleme ─────────────────────────────
+    function updateCompareTray() {
+        const tray = document.getElementById('compare-tray');
+        const itemsContainer = document.getElementById('compare-tray-items');
+        const countBadge = document.getElementById('compare-tray-count');
+        if (!tray || !itemsContainer) return;
+
+        const compareIds = getCompareList();
+
+        if (compareIds.length === 0) {
+            tray.classList.remove('is-active');
+            itemsContainer.innerHTML = '';
+            return;
+        }
+
+        tray.classList.add('is-active');
+        if (countBadge) {
+            countBadge.textContent = `${compareIds.length}/${MAX_COMPARE}`;
+        }
+
+        // Araç kartlarından veya global veriden model bilgisini çek
+        itemsContainer.innerHTML = '';
+        compareIds.forEach(function (id) {
+            const vehicleCard = document.querySelector(`.vehicle-card[data-id="${id}"]`);
+            let brand = '';
+            let model = '';
+            let img = '';
+
+            if (vehicleCard) {
+                brand = vehicleCard.getAttribute('data-brand') || '';
+                model = vehicleCard.querySelector('.vehicle-card-model')?.textContent.trim() || '';
+                img = vehicleCard.querySelector('.vehicle-card-image img')?.src || '';
+            } else if (window.allVehiclesData) {
+                const found = window.allVehiclesData.find(v => v.id === id);
+                if (found) {
+                    brand = found.brand;
+                    model = found.model;
+                    img = found.image;
+                }
+            }
+
+            const itemEl = document.createElement('div');
+            itemEl.className = 'compare-tray-item';
+            itemEl.innerHTML = `
+                ${img ? `<img src="${img}" alt="${brand} ${model}" width="40" height="25">` : ''}
+                <span>${brand} ${model || 'Araç #' + id}</span>
+                <button type="button" class="compare-tray-remove" data-remove-compare="${id}" title="Kaldır" aria-label="Kaldır">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            `;
+            itemsContainer.appendChild(itemEl);
+        });
+    }
+
     // ─── Event Delegations ──────────────────────────────────────────
     document.addEventListener('DOMContentLoaded', function () {
         updateListBadge();
         updateFavoriteButtons();
+        updateCompareTray();
 
-        // Favori Butonu Tıklamaları (Event delegation)
+        // Favori Butonu Tıklamaları
         document.body.addEventListener('click', function (e) {
             const btn = e.target.closest('.btn-favorite-toggle');
             if (!btn) return;
@@ -97,7 +157,7 @@
             }
         });
 
-        // Karşılaştır Butonu Tıklaması -> Listeye ekle ve Karşılaştırma Sayfasına yönlendir
+        // Karşılaştır Butonu Tıklaması (Araç Kartlarında)
         document.body.addEventListener('click', function (e) {
             const btn = e.target.closest('.btn-compare-action');
             if (!btn) return;
@@ -112,18 +172,52 @@
 
             if (!compareList.includes(id)) {
                 if (compareList.length >= MAX_COMPARE) {
-                    // Maksimuma ulaşıldıysa son aracı yenisiyle değiştir
-                    compareList[compareList.length - 1] = id;
+                    if (window.showToast) {
+                        window.showToast(window.KZY?.i18n?.maxCompareWarning || `En fazla ${MAX_COMPARE} araç karşılaştırabilirsiniz.`, 'error');
+                    }
+                    return;
                 } else {
                     compareList.push(id);
+                    saveCompareList(compareList);
+                    if (window.showToast) {
+                        window.showToast(window.KZY?.i18n?.addedToCompare || 'Araç karşılaştırma listesine eklendi.', 'success');
+                    }
                 }
+            } else {
+                // Listeden çıkar
+                compareList = compareList.filter(item => item !== id);
                 saveCompareList(compareList);
+                if (window.showToast) {
+                    window.showToast(window.KZY?.i18n?.removedFromCompare || 'Araç karşılaştırmadan çıkarıldı.', 'primary');
+                }
             }
-
-            // Doğrudan Araç Karşılaştırma Sayfasına Git
-            const baseUrl = window.KZY?.baseUrl || '/';
-            window.location.href = baseUrl + 'arac-karsilastir.php';
         });
+
+        // Çekmeceden Araç Kaldırma Tıklaması
+        document.body.addEventListener('click', function (e) {
+            const removeBtn = e.target.closest('[data-remove-compare]');
+            if (!removeBtn) return;
+
+            const id = parseInt(removeBtn.getAttribute('data-remove-compare'), 10);
+            if (!id) return;
+
+            let compareList = getCompareList().filter(item => item !== id);
+            saveCompareList(compareList);
+            if (window.showToast) {
+                window.showToast(window.KZY?.i18n?.removedFromCompare || 'Araç karşılaştırmadan çıkarıldı.', 'primary');
+            }
+        });
+
+        // Çekmeceyi Temizle Butonu
+        const clearTrayBtn = document.getElementById('compare-tray-clear');
+        if (clearTrayBtn) {
+            clearTrayBtn.addEventListener('click', function () {
+                saveCompareList([]);
+                if (window.showToast) {
+                    window.showToast('Karşılaştırma listesi temizlendi.', 'primary');
+                }
+            });
+        }
     });
 
     // ─── Public API ─────────────────────────────────────────────────
@@ -133,7 +227,8 @@
         getCompareList: getCompareList,
         saveCompareList: saveCompareList,
         updateBadge: updateListBadge,
-        updateButtons: updateFavoriteButtons
+        updateButtons: updateFavoriteButtons,
+        updateCompareTray: updateCompareTray
     };
 
 })();

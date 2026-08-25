@@ -83,7 +83,12 @@ if (!defined('ROOT_DIR')) {
         <?php $isHome = (basename($_SERVER['SCRIPT_NAME']) === 'index.php'); ?>
         <header class="site-header<?php echo $isHome ? ' is-transparent' : ''; ?>" id="site-header">
             <div class="container">
-                <!-- Desktop Navigation (Left) -->
+                <!-- Logo (Left) -->
+                <a href="<?php echo url('index.php'); ?>" class="site-logo" aria-label="kzyfilo Ana Sayfa">
+                    <img src="<?php echo asset('images/logo/kzy-filo-logo.svg'); ?>" alt="kzyfilo" width="195" height="42">
+                </a>
+
+                <!-- Desktop Navigation (Center) -->
                 <nav class="main-nav" aria-label="Ana Menü">
                     <a href="<?php echo url('araclar.php'); ?>" class="nav-link<?php echo activeClass('araclar.php'); ?>">
                         <?php e('header.vehicles'); ?>
@@ -105,7 +110,7 @@ if (!defined('ROOT_DIR')) {
                                     <a href="<?php echo url('uzun-donem-arac-kiralama.php'); ?>" class="mega-menu-link">
                                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                             <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                             <line x1="16" y1="2" x2="16" y2="6"></line>
+                                            <line x1="16" y1="2" x2="16" y2="6"></line>
                                             <line x1="8" y1="2" x2="8" y2="6"></line>
                                             <line x1="3" y1="10" x2="21" y2="10"></line>
                                         </svg>
@@ -243,11 +248,6 @@ if (!defined('ROOT_DIR')) {
                         <?php e('header.contact'); ?>
                     </a>
                 </nav>
-
-                <!-- Logo (Center) -->
-                <a href="<?php echo url('index.php'); ?>" class="site-logo" aria-label="kzyfilo Ana Sayfa">
-                    <img src="<?php echo asset('images/logo/kzy-filo-logo.svg'); ?>" alt="kzyfilo" width="195" height="48">
-                </a>
 
                 <!-- Header Actions (Right) -->
                 <div class="header-actions">

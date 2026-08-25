@@ -150,6 +150,7 @@ if (!defined('ROOT_DIR')) {
     </div><!-- /.page-wrapper -->
 
     <!-- ─── Reusable Modals & Widgets ───────────────────────────────── -->
+    <?php include includePath('compare-tray.php'); ?>
     <?php include includePath('floating-contact.php'); ?>
     <?php include includePath('callback-modal.php'); ?>
     <?php include includePath('cookie-banner.php'); ?>

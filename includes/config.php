@@ -191,13 +191,10 @@ function url(string $page = '', array $params = []): string {
 }
 
 /**
- * Asset URL'i oluştur (otomatik versiyonlama / önbellek temizleme ile)
+ * Asset URL'i oluştur
  */
 function asset(string $path): string {
-    $cleanPath = ltrim($path, '/');
-    $filePath = ROOT_DIR . 'assets/' . $cleanPath;
-    $v = file_exists($filePath) ? filemtime($filePath) : time();
-    return BASE_URL . 'assets/' . $cleanPath . '?v=' . $v;
+    return BASE_URL . 'assets/' . ltrim($path, '/');
 }
 
 /**

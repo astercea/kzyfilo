@@ -1,94 +1,69 @@
 /* ═══════════════════════════════════════════════════════════════════
    kzyfilo — CSS Variables (Design Tokens)
-   KZY Luminous Midnight Navy — Premium Fleet Experience
+   KZY Executive Motion — Premium Fleet Architecture
    ═══════════════════════════════════════════════════════════════════ */
 
 :root {
-    /* ─── Luminous Midnight Navy Palette ─────────────────────────── */
-    --night-1000: #06111e;
-    --night-950: #091829;
-    --night-900: #0c2037;
-    --night-850: #102947;
-    --night-800: #153459;
+    /* ─── KZY Executive Motion Central Color System ──────────────── */
+    --color-ink: #080d12;
+    --color-navy-950: #07101a;
+    --color-navy-900: #0b1928;
+    --color-navy-800: #142a40;
+    --color-navy-700: #1c3854;
+    --color-ivory: #f4f1e9;
+    --color-paper: #faf8f3;
+    --color-sand: #d2b58d;
+    --color-sand-light: #e8d9c5;
+    --color-stone: #c7c1b7;
+    --color-text-dark: #151a1f;
+    --color-text-light: #f8f7f3;
+    --color-text-muted: #74736f;
+    --color-text-muted-dark: #8e9ca8;
+    --color-orange: #f15a24;
+    --color-orange-dark: #ce4613;
+    --color-orange-hover: #ff6833;
+    --color-border-light: rgba(20, 30, 40, 0.10);
+    --color-border-subtle: rgba(20, 30, 40, 0.06);
+    --color-border-dark: rgba(255, 255, 255, 0.12);
+    --color-border-dark-subtle: rgba(255, 255, 255, 0.06);
 
-    /* ─── Navy, Cobalt & Indigo Flare Reflections ────────────────── */
-    --navy-950: #081627;
-    --navy-900: #0d233d;
-    --navy-850: #123053;
-    --navy-800: #183e6b;
-    --navy-700: #1f5088;
-    --navy-600: #2968ad;
-    --navy-500: #3580d4;
-
-    /* ─── Luminous Glow & Spark Tokens ────────────────────────────── */
-    --blue-flare: #2979d4;
-    --blue-flare-bright: #3ea0ff;
-    --blue-flare-glow: rgba(41, 121, 212, 0.35);
-    --blue-flare-soft: rgba(30, 95, 175, 0.25);
-    --cyan-spark: #00d2ff;
-    --cyan-spark-soft: rgba(0, 210, 255, 0.18);
-    --indigo-aura: #4361ee;
-    --indigo-aura-soft: rgba(67, 97, 238, 0.22);
-
-    /* ─── Brand Orange Accent (KZY Filo Identity) ────────────────── */
-    --brand-orange: #f15a24;
-    --brand-orange-dark: #cf4210;
-    --brand-orange-light: #ff7847;
-    --brand-orange-glow: rgba(241, 90, 36, 0.4);
-    --brand-orange-subtle: rgba(241, 90, 36, 0.15);
-    --color-primary: var(--brand-orange);
-    --color-primary-dark: var(--brand-orange-dark);
-    --color-primary-light: rgba(241, 90, 36, 0.18);
-    --color-primary-hover: #ff6833;
+    /* Semantic Primary and Secondary Aliases */
+    --color-primary: var(--color-orange);
+    --color-primary-dark: var(--color-orange-dark);
+    --color-primary-light: rgba(241, 90, 36, 0.12);
+    --color-primary-hover: var(--color-orange-hover);
     --color-primary-rgb: 241, 90, 36;
+    --color-secondary: var(--color-navy-900);
 
-    /* ─── Surface & Luminous Glass Tokens ────────────────────────── */
-    --surface-dark: #0b1a2d;
-    --surface-dark-soft: #0f243d;
-    --surface-glass: rgba(14, 34, 58, 0.65);
-    --surface-glass-card: rgba(12, 30, 52, 0.72);
-    --surface-glass-elevated: rgba(18, 44, 76, 0.78);
-    --surface-white: #ffffff;
+    /* Background and Surface Defaults */
+    --color-background: var(--color-navy-950);
+    --color-surface: var(--color-paper);
+    --color-surface-soft: var(--color-ivory);
+    --color-surface-dark: var(--color-navy-900);
+    --color-surface-card: #ffffff;
+    --color-surface-card-dark: var(--color-navy-900);
 
-    /* Semantic Aliases */
-    --color-background: var(--night-1000);
-    --color-surface: var(--surface-dark-soft);
-    --color-surface-soft: var(--surface-dark);
-
-    /* ─── Borders & Glowing Rims ─────────────────────────────────── */
-    --border-dark: rgba(255, 255, 255, 0.12);
-    --border-dark-subtle: rgba(255, 255, 255, 0.07);
-    --border-light: rgba(62, 160, 255, 0.35);
-    --border-glow: rgba(62, 160, 255, 0.5);
-    --border-orange: rgba(241, 90, 36, 0.5);
-    --color-border: var(--border-dark);
-    --color-border-light: var(--border-dark-subtle);
-
-    /* ─── Typography & Contrast Text ─────────────────────────────── */
-    --text-white: #f6f8fa;
-    --text-light: #cbd4de;
-    --text-muted: #7f8b99;
-    --text-dim: #556272;
-
-    --color-dark: var(--text-white);
-    --color-charcoal: #e2e8f0;
-    --color-text: var(--text-light);
-    --color-light-text: var(--text-muted);
-
-    /* ─── Semantic Colors ────────────────────────────────────────── */
+    /* Semantic Helpers */
     --color-success: #10b981;
-    --color-success-light: rgba(16, 185, 129, 0.14);
+    --color-success-light: rgba(16, 185, 129, 0.12);
     --color-warning: #f59e0b;
-    --color-warning-light: rgba(245, 158, 11, 0.14);
+    --color-warning-light: rgba(245, 158, 11, 0.12);
     --color-error: #ef4444;
-    --color-error-light: rgba(239, 68, 68, 0.14);
+    --color-error-light: rgba(239, 68, 68, 0.12);
     --color-info: #3b82f6;
-    --color-info-light: rgba(59, 130, 246, 0.14);
+    --color-info-light: rgba(59, 130, 246, 0.12);
 
-    /* ─── Typography Tokens ──────────────────────────────────────── */
+    /* ─── Typography Stack & Tokens ──────────────────────────────── */
     --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     --font-family-heading: 'Outfit', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     --font-family-mono: "SF Mono", "Fira Code", monospace;
+
+    /* Clamp-based Editorial Headings */
+    --font-size-hero: clamp(2.5rem, 5.5vw + 1rem, 5.25rem);       /* 40px - 84px */
+    --font-size-section: clamp(2rem, 3.8vw + 0.8rem, 3.75rem);     /* 32px - 60px */
+    --font-size-subheading: clamp(1.35rem, 2vw + 0.5rem, 2.25rem); /* 22px - 36px */
+    --font-size-card-title: 1.25rem;                               /* 20px */
+    --font-size-tag: 0.6875rem;                                    /* 11px */
 
     --font-size-xs: 0.75rem;     /* 12px */
     --font-size-sm: 0.8125rem;   /* 13px */
@@ -101,20 +76,20 @@
     --font-size-4xl: 2.25rem;    /* 36px */
     --font-size-5xl: 3rem;       /* 48px */
     --font-size-6xl: 3.75rem;    /* 60px */
-    --font-size-7xl: 4.5rem;     /* 72px */
 
+    --font-weight-light: 300;
     --font-weight-normal: 400;
     --font-weight-medium: 500;
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
     --font-weight-extrabold: 800;
-    --font-weight-black: 900;
 
-    --line-height-tight: 1.2;
+    --line-height-tight: 1.15;
+    --line-height-snug: 1.35;
     --line-height-normal: 1.6;
     --line-height-relaxed: 1.8;
 
-    /* ─── Spacing ────────────────────────────────────────────────── */
+    /* ─── Spacing Tokens ─────────────────────────────────────────── */
     --space-1: 0.25rem;   /* 4px */
     --space-2: 0.5rem;    /* 8px */
     --space-3: 0.75rem;   /* 12px */
@@ -128,65 +103,50 @@
     --space-20: 5rem;     /* 80px */
     --space-24: 6rem;     /* 96px */
     --space-32: 8rem;     /* 128px */
+    --space-40: 10rem;    /* 160px */
 
-    /* ─── Border Radius ──────────────────────────────────────────── */
-    --radius-sm: 6px;
-    --radius-md: 10px;
-    --radius-lg: 14px;
-    --radius-xl: 18px;
-    --radius-2xl: 24px;
-    --radius-3xl: 32px;
-    --radius-full: 9999px;
+    /* ─── Controlled Border Radius (0–8px) ───────────────────────── */
+    --radius-none: 0px;
+    --radius-xs: 2px;
+    --radius-sm: 4px;
+    --radius-md: 6px;
+    --radius-lg: 8px;
+    --radius-pill: 9999px;
+    --radius-card: 6px;
 
-    /* ─── Shadows & Glows ────────────────────────────────────────── */
-    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.4);
-    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.5);
-    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.6);
-    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.7);
-    --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.8);
-    --shadow-2xl: 0 30px 60px rgba(0, 0, 0, 0.9);
-    --shadow-card: 0 4px 20px rgba(3, 7, 13, 0.7);
-    --shadow-card-hover: 0 16px 40px rgba(0, 0, 0, 0.8), 0 0 24px rgba(40, 105, 178, 0.18);
-    --shadow-sticky: 0 4px 20px rgba(3, 7, 13, 0.85);
-
-    /* Cinematic Glows */
-    --shadow-navy: 0 12px 36px rgba(3, 7, 13, 0.7);
-    --shadow-navy-lg: 0 20px 60px rgba(3, 7, 13, 0.9);
-    --shadow-glow-blue: 0 0 30px rgba(40, 105, 178, 0.25);
-    --shadow-glow-orange: 0 4px 24px rgba(241, 90, 36, 0.35);
-    --shadow-glow-orange-lg: 0 8px 40px rgba(241, 90, 36, 0.45);
-    --shadow-float: 0 24px 48px rgba(0, 0, 0, 0.7), 0 0 30px rgba(23, 67, 111, 0.2);
+    /* ─── Subtle & Refined Shadows ───────────────────────────────── */
+    --shadow-subtle: 0 2px 8px rgba(0, 0, 0, 0.04);
+    --shadow-card: 0 4px 16px rgba(12, 20, 30, 0.06);
+    --shadow-card-hover: 0 12px 32px rgba(12, 20, 30, 0.10);
+    --shadow-dark-card: 0 10px 30px rgba(2, 6, 12, 0.6);
+    --shadow-glow-orange: 0 4px 20px rgba(241, 90, 36, 0.35);
 
     /* ─── Transitions ────────────────────────────────────────────── */
     --transition-fast: 150ms ease;
     --transition-base: 250ms ease;
-    --transition-slow: 400ms ease;
-    --transition-slider: 600ms cubic-bezier(0.16, 1, 0.3, 1);
-    --transition-reveal: 650ms cubic-bezier(0.16, 1, 0.3, 1);
     --transition-smooth: 350ms cubic-bezier(0.16, 1, 0.3, 1);
-    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-    --ease-in-out-cubic: cubic-bezier(0.65, 0, 0.35, 1);
+    --transition-editorial: 500ms cubic-bezier(0.16, 1, 0.3, 1);
 
     /* ─── Z-Index Scale ──────────────────────────────────────────── */
     --z-behind: -1;
     --z-base: 1;
     --z-dropdown: 100;
     --z-sticky: 200;
+    --z-tray: 250;
     --z-fixed: 300;
     --z-drawer: 400;
     --z-modal-backdrop: 500;
     --z-modal: 600;
     --z-toast: 700;
-    --z-tooltip: 800;
-    --z-scroll-progress: 900;
 
-    /* ─── Layout ─────────────────────────────────────────────────── */
-    --container-max: 1320px;
+    /* ─── Layout Widths & Heights ────────────────────────────────── */
+    --container-max: 1440px;
+    --container-narrow: 1080px;
     --container-padding: var(--space-6);
     --header-height: 88px;
     --header-height-scrolled: 72px;
     --topbar-height: 40px;
-    --footer-bg: var(--night-1000);
+    --footer-bg: var(--color-navy-950);
 }
 
 
