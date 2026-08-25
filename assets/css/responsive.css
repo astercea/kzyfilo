@@ -119,6 +119,11 @@
         padding-top: 76px;
     }
 
+    .header-actions {
+        padding-left: 0;
+        border-left: none;
+    }
+
     .header-actions .header-cta-btn {
         display: none;
     }

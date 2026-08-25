@@ -158,46 +158,74 @@
     filter: brightness(0) invert(1);
 }
 
-/* ─── Main Navigation (Center) ────────────────────────────────────── */
+/* ─── Header Right Wing (Right-Aligned Nav & Actions) ────────────── */
+.header-right-group {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+    margin-left: auto;
+    z-index: 2;
+}
+
+/* ─── Main Navigation (Right-Aligned) ────────────────────────────── */
 .main-nav {
     display: flex;
     align-items: center;
-    gap: var(--space-2);
+    gap: var(--space-1);
     z-index: 1;
 }
 
 .nav-link {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 10px 22px;
+    padding: 8px 16px;
     font-family: var(--font-family-heading);
     font-size: 13.5px;
-    font-weight: 500;
-    letter-spacing: 0.12em;
+    font-weight: 600;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: #ffffff;
-    border-radius: 4px;
-    transition: all var(--transition-fast);
+    color: rgba(255, 255, 255, 0.9);
+    border-radius: 0px;
+    transition: color var(--transition-fast);
     white-space: nowrap;
     position: relative;
+    background: transparent;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 16px;
+    right: 16px;
+    height: 2px;
+    background-color: var(--color-orange);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.25s ease;
 }
 
 .nav-link:hover {
-    color: var(--color-orange);
-    background-color: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    background-color: transparent;
 }
 
-/* Active Nav Link (Brand Orange Pill) */
+.nav-link:hover::after,
+.nav-link.active::after {
+    transform: scaleX(1);
+}
+
+/* Active Nav Link (Subtle Elegant Orange Accent) */
 .nav-link.active {
-    color: #ffffff;
-    font-weight: 600;
-    background-color: var(--color-orange);
-    box-shadow: 0 4px 16px rgba(245, 130, 32, 0.35);
+    color: var(--color-orange);
+    font-weight: 700;
+    background-color: transparent;
+    box-shadow: none;
 }
 
 .nav-link.active svg {
-    color: #ffffff;
+    color: var(--color-orange);
 }
 
 .nav-link svg {
@@ -216,18 +244,20 @@
     display: flex;
     align-items: center;
     gap: var(--space-3);
+    padding-left: var(--space-5);
+    border-left: 1px solid rgba(255, 255, 255, 0.16);
     z-index: 2;
 }
 
 .header-action-icon {
     position: relative;
-    width: 46px;
-    height: 46px;
+    width: 42px;
+    height: 42px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #ffffff;
-    border-radius: var(--radius-full);
+    border-radius: 50%;
     border: 1px solid rgba(255, 255, 255, 0.18);
     background-color: rgba(255, 255, 255, 0.04);
     transition: all var(--transition-fast);
@@ -241,16 +271,16 @@
 }
 
 .header-action-icon svg {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
 }
 
 .list-count {
     position: absolute;
     top: -2px;
     right: -2px;
-    min-width: 19px;
-    height: 19px;
+    min-width: 18px;
+    height: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -270,12 +300,24 @@
 
 .header-cta-btn {
     font-family: var(--font-family-heading);
-    font-size: 13px;
-    font-weight: 600;
+    font-size: 12.5px;
+    font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    padding: 12px 24px;
-    border-radius: 4px;
+    padding: 11px 22px;
+    border-radius: 0px !important;
+    background-color: var(--color-orange);
+    border-color: var(--color-orange);
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(245, 130, 32, 0.3);
+    transition: all 0.3s ease;
+}
+
+.header-cta-btn:hover {
+    background-color: #e06f14;
+    border-color: #e06f14;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(245, 130, 32, 0.45);
 }
 
 /* ─── Hamburger Button ───────────────────────────────────────────── */
@@ -513,14 +555,14 @@
     top: 100%;
     left: 0;
     right: 0;
-    background-color: var(--color-navy-950);
-    border-top: 1px solid var(--color-border-dark);
-    border-bottom: 1px solid var(--color-border-dark);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    background-color: #53575c;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 24px 52px rgba(0, 0, 0, 0.45);
     padding: var(--space-8) 0;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-8px);
+    transform: translateY(-6px);
     transition: opacity var(--transition-base), visibility var(--transition-base), transform var(--transition-base);
     z-index: var(--z-dropdown);
 }
@@ -531,50 +573,152 @@
     transform: translateY(0);
 }
 
-.mega-menu-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+/* Çözümlerimiz 4-Sütunlu Dikey Ayraçlı Tipografi Mimarisi */
+.mega-menu-solutions-grid {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
     gap: var(--space-4);
+}
+
+.mega-menu-col {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    flex: 1;
+    padding: 0 var(--space-2);
+}
+
+.mega-menu-col:first-child {
+    flex: 1.15;
+    padding-left: 0;
+}
+
+.mega-menu-col:last-child {
+    padding-right: 0;
+}
+
+.mega-menu-v-divider {
+    width: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+    align-self: stretch;
+    margin-left: var(--space-2);
+    margin-right: var(--space-6);
 }
 
 .mega-menu-link {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: var(--space-3);
-    padding: var(--space-3) var(--space-4);
-    border-radius: var(--radius-sm);
-    color: var(--color-text-light);
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-medium);
-    transition: all var(--transition-fast);
-    border: 1px solid transparent;
+    padding: 0;
+    background: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    color: #ffffff;
+    text-decoration: none;
+    transition: transform var(--transition-fast);
 }
 
 .mega-menu-link:hover {
-    background-color: rgba(255, 255, 255, 0.06);
-    border-color: var(--color-border-dark);
-    color: #ffffff;
+    background: none !important;
+    transform: translateX(4px);
 }
 
 .mega-menu-link svg {
     width: 20px;
     height: 20px;
     flex-shrink: 0;
+    margin-top: 2px;
     color: var(--color-orange);
+    transition: transform var(--transition-fast);
+}
+
+.mega-menu-link:hover svg {
+    transform: scale(1.12);
 }
 
 .mega-menu-link span {
     display: flex;
     flex-direction: column;
+    gap: 3px;
 }
 
 .mega-menu-link .menu-label {
-    font-weight: var(--font-weight-semibold);
+    font-family: var(--font-family-heading);
+    font-size: 14px;
+    font-weight: 600;
     color: #ffffff;
+    letter-spacing: 0.02em;
+    transition: color var(--transition-fast);
 }
 
 .mega-menu-link:hover .menu-label {
     color: var(--color-orange);
+}
+
+.mega-menu-link small {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.72);
+    line-height: 1.45;
+}
+
+/* ─── Kaynaklar Menüsü (Yatayda Ortalanmış Temiz Düzen) ─────────────── */
+.mega-menu-resources-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-12);
+}
+
+.mega-menu-clean-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: 0;
+    background: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    color: #ffffff;
+    text-decoration: none;
+    transition: transform var(--transition-fast);
+}
+
+.mega-menu-clean-link:hover {
+    background: none !important;
+    transform: translateY(-2px);
+}
+
+.mega-menu-clean-link svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    color: var(--color-orange);
+    transition: transform var(--transition-fast);
+}
+
+.mega-menu-clean-link:hover svg {
+    transform: scale(1.15);
+}
+
+.mega-menu-clean-link .menu-label {
+    font-family: var(--font-family-heading);
+    font-size: 14.5px;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: 0.04em;
+    transition: color var(--transition-fast);
+}
+
+.mega-menu-clean-link:hover .menu-label {
+    color: var(--color-orange);
+}
+
+.mega-menu-resources-divider {
+    width: 1px;
+    height: 24px;
+    background-color: rgba(255, 255, 255, 0.25);
 }
 
 /* ─── Inner Page Header ──────────────────────────────────────────── */
