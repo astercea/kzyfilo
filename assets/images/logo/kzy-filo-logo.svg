@@ -1,6 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 90" width="340" height="90" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 90" width="360" height="90" fill="none">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&amp;display=swap');
+      .logo-kzyf, .logo-stem, .logo-lo {
+        font-family: 'Syne', 'Outfit', -apple-system, sans-serif;
+        font-size: 47px;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+      }
+    </style>
+  </defs>
+
   <!-- ─── STAR EMBLEM ─────────────────────────────────────────────── -->
-  <g transform="translate(10, 10)">
+  <g transform="translate(8, 10)">
     <!-- Speed Trail Shooting Left -->
     <path d="M 0 38 L 48 38" stroke="#F58220" stroke-width="3.5" stroke-linecap="round"/>
     <path d="M 2 34 L 20 34" stroke="#F58220" stroke-width="1.5" opacity="0.6"/>
@@ -14,17 +26,17 @@
     <path d="M 64 2 L 48 42" stroke="#F58220" stroke-width="3" stroke-linecap="round"/>
   </g>
 
-  <!-- ─── TYPOGRAPHY: kzyfilo (lowercase, joined, custom triangle dot) ── -->
-  <g transform="translate(105, 54)">
+  <!-- ─── TYPOGRAPHY: kzyfilo (Syne Luxury Automotive Font) ───────── -->
+  <g transform="translate(108, 57)">
     <!-- kzyf -->
-    <text x="0" y="0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="44" font-weight="600" fill="#2C343F" letter-spacing="-1.5">kzyf</text>
+    <text x="0" y="0" class="logo-kzyf" fill="#121822">kzyf</text>
     
-    <!-- i without standard dot (stem only) -->
-    <text x="83" y="0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="44" font-weight="600" fill="#2C343F" letter-spacing="-1.5">ı</text>
+    <!-- i stem -->
+    <text x="96" y="0" class="logo-stem" fill="#121822">ı</text>
     <!-- Inverted Orange Triangle Dot for "i" -->
-    <polygon points="86,-36 96,-36 91,-26" fill="#F58220"/>
+    <polygon points="98,-38 110,-38 104,-26" fill="#F58220"/>
     
     <!-- lo -->
-    <text x="96" y="0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="44" font-weight="600" fill="#2C343F" letter-spacing="-1.5">lo</text>
+    <text x="111" y="0" class="logo-lo" fill="#121822">lo</text>
   </g>
 </svg>

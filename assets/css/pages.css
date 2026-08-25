@@ -389,166 +389,183 @@
     display: block;
 }
 
-/* ─── Asymmetrical Services Section ──────────────────────────────── */
-.services-asymmetric {
+/* ─── Architectural Executive Mosaic Matrix (KZY ile Filo Yönetimi) ─── */
+.services-mosaic-matrix {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 330px);
+    background-color: rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.09);
+    gap: 1px;
+    margin-top: var(--space-8);
+    overflow: hidden;
+}
+
+.mosaic-cell {
+    position: relative;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+.mosaic-cell-text {
+    padding: var(--space-10) var(--space-8);
     display: flex;
     flex-direction: column;
-    gap: var(--space-20);
-    margin-top: var(--space-16);
-}
-
-.service-item {
-    display: grid;
-    grid-template-columns: 1.15fr 1fr;
-    gap: var(--space-16);
     align-items: center;
+    text-align: center;
+    justify-content: center;
+    transition: background-color 0.35s ease;
 }
 
-.service-item.reverse {
-    grid-template-columns: 1fr 1.15fr;
+.mosaic-cell-text:hover {
+    background-color: #faf9f6;
 }
 
-.service-item.reverse .service-media {
-    order: 2;
+.mosaic-icon-circle {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 1px solid rgba(197, 160, 89, 0.35);
+    background-color: rgba(197, 160, 89, 0.08);
+    color: var(--color-sand);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-4);
+    transition: all 0.35s ease;
 }
 
-.service-item.reverse .service-content {
-    order: 1;
+.mosaic-cell-text:hover .mosaic-icon-circle {
+    background-color: #53575c;
+    border-color: #53575c;
+    color: #ffffff;
+    transform: scale(1.06);
 }
 
-.service-media {
+.mosaic-title {
+    font-family: var(--font-family-heading);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    margin-bottom: var(--space-3);
+    line-height: 1.3;
+}
+
+.mosaic-desc {
+    font-size: 0.92rem;
+    color: rgba(18, 24, 34, 0.68);
+    line-height: 1.6;
+    margin-bottom: var(--space-5);
+    max-width: 320px;
+}
+
+.mosaic-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--color-orange);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+
+.mosaic-link svg {
+    transition: transform 0.25s ease;
+}
+
+.mosaic-cell-text:hover .mosaic-link {
+    color: #53575c;
+}
+
+.mosaic-cell-text:hover .mosaic-link svg {
+    transform: translateX(4px);
+}
+
+.mosaic-cell-media {
     position: relative;
-    border-radius: 0px;
-    overflow: hidden;
-    aspect-ratio: 16/10;
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.06);
-    background-color: var(--color-navy-900);
+    width: 100%;
+    height: 100%;
+    background-color: #121822;
 }
 
-.service-media img {
+.mosaic-cell-media img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-    transform: none !important;
-    transition: none !important;
+    transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.service-item:hover .service-media img {
-    transform: none !important;
+.mosaic-cell-media:hover img {
+    transform: scale(1.06);
 }
 
-.service-content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.service-num {
-    font-family: var(--font-family-heading);
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--color-orange);
-    letter-spacing: 0.16em;
-    margin-bottom: var(--space-3);
-    display: block;
-    text-transform: uppercase;
-}
-
-.service-title {
-    font-size: clamp(1.9rem, 2.8vw, 2.5rem);
-    font-weight: 600;
-    color: var(--color-text-dark);
-    margin-bottom: var(--space-4);
-    line-height: 1.22;
-    letter-spacing: -0.01em;
-}
-
-.service-desc {
-    font-size: 1.15rem;
-    color: rgba(18, 24, 34, 0.76);
-    line-height: 1.72;
-    margin-bottom: var(--space-6);
-}
-
-.service-features {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    margin-bottom: var(--space-8);
-    width: 100%;
-}
-
-.service-feature {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-    font-size: 1.05rem;
-    font-weight: 500;
-    color: var(--color-text-dark);
-}
-
-.service-feature svg {
-    width: 20px;
-    height: 20px;
-    color: var(--color-orange);
-    flex-shrink: 0;
-}
-
-.service-content .btn-outline {
-    border-radius: 0px !important;
-    min-height: 48px;
-    padding: 13px 28px;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    background-color: #ffffff;
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    color: var(--color-text-dark);
-    transition: background-color 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-                border-color 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-                color 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-                box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.service-content .btn-outline:hover {
-    background-color: #53575c;
-    border-color: #53575c;
+.mosaic-media-badge {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    background-color: rgba(18, 24, 34, 0.82);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     color: #ffffff;
-    box-shadow: 0 6px 20px rgba(83, 87, 92, 0.35);
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    padding: 6px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 0px;
 }
 
-/* ─── Closing Dark CTA Section ───────────────────────────────────── */
+/* ─── Closing Grey CTA Section (Filonuzu Birlikte Planlayalım) ────── */
 .closing-cta {
-    background-color: var(--color-navy-950);
+    background-color: #53575c;
+    background-image: url('../images/banners/cta-fleet-plan-bg.jpg');
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-size: cover;
     padding: var(--space-24) 0;
     position: relative;
     overflow: hidden;
-    border-top: 1px solid var(--color-border-dark);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .closing-cta-card {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: var(--space-12);
-    align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 680px;
+    position: relative;
+    z-index: 1;
+}
+
+.closing-cta-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    width: 100%;
 }
 
 .closing-cta-content h2 {
-    font-size: var(--font-size-section);
-    font-weight: var(--font-weight-light);
-    color: var(--color-text-light);
+    font-size: clamp(2.4rem, 4vw, 3.4rem);
+    font-weight: var(--font-weight-normal);
+    color: #ffffff;
+    margin-top: var(--space-2);
     margin-bottom: var(--space-4);
-    line-height: 1.15;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
 }
 
 .closing-cta-content p {
-    font-size: var(--font-size-lg);
-    color: var(--color-text-muted-dark);
-    line-height: var(--line-height-relaxed);
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.7;
     margin-bottom: var(--space-8);
+    max-width: 600px;
 }
 
 .closing-cta-actions {
@@ -558,33 +575,40 @@
     flex-wrap: wrap;
 }
 
-.closing-cta-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-4);
+.closing-cta-actions .btn {
+    border-radius: 0px !important;
 }
 
-.closing-stat-box {
-    background-color: rgba(255, 255, 255, 0.04);
-    border: 1px solid var(--color-border-dark);
-    border-radius: var(--radius-card);
-    padding: var(--space-6);
-    text-align: center;
-}
-
-.closing-stat-val {
-    font-family: var(--font-family-heading);
-    font-size: 2.5rem;
-    font-weight: var(--font-weight-light);
-    color: var(--color-sand);
-    margin-bottom: var(--space-1);
-}
-
-.closing-stat-label {
-    font-size: var(--font-size-xs);
-    color: var(--color-text-muted-dark);
-    text-transform: uppercase;
+.closing-cta-actions .btn-primary {
+    background-color: var(--color-orange);
+    border-color: var(--color-orange);
+    color: #ffffff;
+    min-height: 52px;
+    padding: 14px 34px;
+    font-size: 13.5px;
+    font-weight: 700;
     letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.closing-cta-actions .btn-outline {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #ffffff;
+    min-height: 52px;
+    padding: 14px 34px;
+    font-size: 13.5px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.closing-cta-actions .btn-outline:hover {
+    background-color: #121822;
+    border-color: #121822;
+    color: #ffffff;
+    box-shadow: 0 6px 20px rgba(18, 24, 34, 0.4);
 }
 
 /* ─── Vehicle Catalog Page (araclar.php) ─────────────────────────── */

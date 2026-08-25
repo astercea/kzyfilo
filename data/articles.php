@@ -13,7 +13,7 @@ return [
             'summary' => 'Doğru araç seçimi, periyodik bakım takibi ve telematik çözümleri ile filo operasyon maliyetlerinizi %30\'a varan oranda nasıl düşürebileceğinizi inceleyin.',
             'date' => '2026-08-15',
             'read_time' => '5',
-            'image' => asset('images/blog/blog-1.svg'),
+            'image' => asset('images/blog/blog-1.jpg'),
             'content' => 'Şirketlerin en büyük operasyonel gider kalemlerinden biri olan araç filoları, doğru planlama ile ciddi bir tasarruf ve verimlilik merkezine dönüştürülebilir...',
             'tags' => ['Filo Yönetimi', 'Maliyet Optimizasyonu', 'Finans']
         ],
@@ -25,7 +25,7 @@ return [
             'summary' => 'Sürdürülebilirlik hedefleri ve karbon ayak izi azaltımı doğrultusunda elektrikli araçların şirket filolarındaki yükselişi ve entegrasyon süreçleri.',
             'date' => '2026-08-02',
             'read_time' => '6',
-            'image' => asset('images/blog/blog-2.svg'),
+            'image' => asset('images/blog/blog-2.jpg'),
             'content' => 'Avrupa Yeşil Mutabakatı ve artan kurumsal sürdürülebilirlik standartları, Türkiye\'deki şirketleri de elektrikli araç dönüşümüne yönlendiriyor...',
             'tags' => ['Elektrikli Araç', 'Sürdürülebilirlik', 'Yeşil Filo']
         ],
@@ -37,7 +37,7 @@ return [
             'summary' => 'Gelir ve Kurumlar Vergisi mevzuatında binek araç gider kısıtlamaları, KDV indirimi ve operasyonel kiralamanın mali avantajları.',
             'date' => '2026-07-20',
             'read_time' => '4',
-            'image' => asset('images/blog/blog-3.svg'),
+            'image' => asset('images/blog/blog-3.jpg'),
             'content' => 'Her yeni mali yılda güncellenen binek araç gider kısıtlaması tutarları, şirketlerin araç satın alma yerine operasyonel kiralamayı tercih etmesinde en önemli etken...',
             'tags' => ['Vergi Avantajı', 'Mevzuat', 'Finans']
         ],

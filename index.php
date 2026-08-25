@@ -156,95 +156,87 @@ include includePath('header.php');
     </div>
 </section>
 
-<!-- ─── 5. AYDINLIK ASİMETRİK HİZMETLER BÖLÜMÜ ─────────────────────── -->
+<!-- ─── 5. AYDINLIK KURUMSAL HİZMETLER BÖLÜMÜ (ARCHITECTURAL MOSAIC) ─── -->
 <section class="section section-paper" aria-labelledby="services-title" data-reveal="fade-up">
     <div class="container">
-        <div class="section-header">
+        <div class="section-header text-center" style="max-width: 760px; margin: 0 auto var(--space-12);">
             <span class="editorial-tag">Hizmetlerimiz</span>
-            <h2 id="services-title">KZY ile Filo Yönetimi</h2>
-            <p>Şirketinizin büyüklüğü ve operasyon ölçeği ne olursa olsun, filo maliyetlerinizi öngörülebilir kılan kurumsal hizmetler.</p>
+            <h2 id="services-title" style="font-size: clamp(2.2rem, 3.5vw, 3rem); font-weight: var(--font-weight-normal); margin-top: var(--space-2); margin-bottom: var(--space-3);">
+                KZY ile Filo Yönetimi
+            </h2>
+            <p style="font-size: 1.1rem; color: rgba(18, 24, 34, 0.72); line-height: 1.65;">
+                Şirketinizin büyüklüğü ve operasyon ölçeği ne olursa olsun, filo maliyetlerinizi öngörülebilir kılan kurumsal hizmetler.
+            </p>
         </div>
 
-        <div class="services-asymmetric">
-            <!-- 01: Uzun Dönem Araç Kiralama -->
-            <div class="service-item" data-reveal="fade-up">
-                <div class="service-media">
-                    <img src="<?php echo asset('images/services/service-fleet-rental.jpg'); ?>" alt="Uzun Dönem Araç Kiralama" loading="lazy">
+        <div class="services-mosaic-matrix">
+            <!-- Row 1 - Cell 1: Text (Filo Kiralama) -->
+            <div class="mosaic-cell mosaic-cell-text" data-reveal="fade-up" data-reveal-delay="50">
+                <div class="mosaic-icon-circle">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"></path>
+                        <circle cx="7" cy="17" r="2"></circle>
+                        <path d="M9 17h6"></path>
+                        <circle cx="17" cy="17" r="2"></circle>
+                    </svg>
                 </div>
-                <div class="service-content">
-                    <span class="service-num">01 / HİZMET</span>
-                    <h3 class="service-title">Uzun Dönem Araç Kiralama</h3>
-                    <p class="service-desc">
-                        12 aydan 48 aya kadar sabit aylık kiralama bedelleriyle sıfır kilometre binek, SUV ve ticari araçları filonuza dahil edin; sermayenizi ana işinizde değerlendirin.
-                    </p>
-                    <div class="service-features">
-                        <div class="service-feature">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            <span>Sabit aylık ödeme güvencesi & KDV avantajı</span>
-                        </div>
-                        <div class="service-feature">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            <span>İkinci el değer kaybı riski olmadan yenileme</span>
-                        </div>
-                    </div>
-                    <a href="<?php echo url('uzun-donem-arac-kiralama.php'); ?>" class="btn btn-outline btn-sm">
-                        <span>Hizmeti İncele</span>
-                    </a>
-                </div>
+                <h3 class="mosaic-title">Uzun Dönem Filo Kiralama</h3>
+                <p class="mosaic-desc">
+                    12 aydan 48 aya kadar sabit maliyet ve KDV avantajıyla sıfır kilometre binek, SUV ve ticari araçları filonuza dahil edin.
+                </p>
+                <a href="<?php echo url('uzun-donem-arac-kiralama.php'); ?>" class="mosaic-link">
+                    <span>Hizmeti İncele</span>
+                    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
             </div>
 
-            <!-- 02: Operasyon & Bakım Desteği -->
-            <div class="service-item reverse" data-reveal="fade-up">
-                <div class="service-media">
-                    <img src="<?php echo asset('images/services/service-maintenance.jpg'); ?>" alt="Bakım ve Hasar Yönetimi" loading="lazy">
-                </div>
-                <div class="service-content">
-                    <span class="service-num">02 / HİZMET</span>
-                    <h3 class="service-title">Periyodik Bakım & Hasar Yönetimi</h3>
-                    <p class="service-desc">
-                        Türkiye genelinde yetkili servis ağı üzerinden üretici standartlarında periyodik bakım, orijinal yedek parça ve hasar durumunda tam kapsamlı süreç takibi.
-                    </p>
-                    <div class="service-features">
-                        <div class="service-feature">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            <span>Randevulu periyodik bakım ve onarım desteği</span>
-                        </div>
-                        <div class="service-feature">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            <span>Kusursuz hasar dosya takibi & hızlı onarım</span>
-                        </div>
-                    </div>
-                    <a href="<?php echo url('filo-yonetimi.php'); ?>" class="btn btn-outline btn-sm">
-                        <span>Hizmeti İncele</span>
-                    </a>
-                </div>
+            <!-- Row 1 - Cell 2: Image 1 -->
+            <div class="mosaic-cell mosaic-cell-media" data-reveal="fade-up" data-reveal-delay="100">
+                <img src="<?php echo asset('images/services/service-fleet-rental.jpg'); ?>" alt="Uzun Dönem Araç Kiralama" loading="lazy">
             </div>
 
-            <!-- 03: Lastik & 7/24 Kesintisiz Mobilite -->
-            <div class="service-item" data-reveal="fade-up">
-                <div class="service-media">
-                    <img src="<?php echo asset('images/services/service-tires.jpg'); ?>" alt="Lastik ve Yol Yardım" loading="lazy">
+            <!-- Row 1 - Cell 3: Text (Öngörülebilir Bütçe) -->
+            <div class="mosaic-cell mosaic-cell-text" data-reveal="fade-up" data-reveal-delay="150">
+                <div class="mosaic-icon-circle">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
                 </div>
-                <div class="service-content">
-                    <span class="service-num">03 / HİZMET</span>
-                    <h3 class="service-title">Lastik Yönetimi & 7/24 İkame Araç</h3>
-                    <p class="service-desc">
-                        Mevsimsel lastik değişimi, lastik oteli depolama hizmeti ve 24 saat içinde teslim edilen muadil ikame araç garantisiyle filonuz hiçbir zaman durmaz.
-                    </p>
-                    <div class="service-features">
-                        <div class="service-feature">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            <span>Premium marka mevsimlik lastikler & saklama</span>
-                        </div>
-                        <div class="service-feature">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            <span>Kesintisiz yol yardımı ve anında ikame araç</span>
-                        </div>
-                    </div>
-                    <a href="<?php echo url('ek-urun-ve-hizmetler.php'); ?>" class="btn btn-outline btn-sm">
-                        <span>Hizmeti İncele</span>
-                    </a>
+                <h3 class="mosaic-title">Öngörülebilir Filo Bütçesi</h3>
+                <p class="mosaic-desc">
+                    Sürpriz bakım, kasko veya amortisman gideri olmadan her ay net ve şeffaf operasyonel bütçe kontrolü sağlayın.
+                </p>
+                <a href="<?php echo url('hizli-teklif.php'); ?>" class="mosaic-link">
+                    <span>Teklif Oluştur</span>
+                    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+            </div>
+
+            <!-- Row 2 - Cell 4: Image 2 -->
+            <div class="mosaic-cell mosaic-cell-media" data-reveal="fade-up" data-reveal-delay="200">
+                <img src="<?php echo asset('images/services/service-maintenance.jpg'); ?>" alt="Periyodik Bakım ve Onarım" loading="lazy">
+            </div>
+
+            <!-- Row 2 - Cell 5: Text (7/24 Destek) -->
+            <div class="mosaic-cell mosaic-cell-text" data-reveal="fade-up" data-reveal-delay="250">
+                <div class="mosaic-icon-circle">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
                 </div>
+                <h3 class="mosaic-title">7/24 Kesintisiz Mobilite</h3>
+                <p class="mosaic-desc">
+                    Bakım ve hasar anında 24 saat içinde adresinize teslim edilen muadil ikame araç garantisiyle işleriniz asla durmaz.
+                </p>
+                <a href="<?php echo url('ek-urun-ve-hizmetler.php'); ?>" class="mosaic-link">
+                    <span>Hizmeti İncele</span>
+                    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+            </div>
+
+            <!-- Row 2 - Cell 6: Image 3 -->
+            <div class="mosaic-cell mosaic-cell-media" data-reveal="fade-up" data-reveal-delay="300">
+                <img src="<?php echo asset('images/services/service-tires.jpg'); ?>" alt="Lastik Yönetimi ve Mobilite" loading="lazy">
             </div>
         </div>
     </div>
@@ -327,43 +319,55 @@ include includePath('header.php');
     </div>
 </section>
 
-<!-- ─── 8. SSS (ÖZEL EDİTORYAL DÜZEN) ─────────────────────────────── -->
+<!-- ─── 8. GÜÇLÜ KOYU KAPANIŞ CTA ALANI (TEK ARKA PLAN BANNER) ─────── -->
+<section class="closing-cta" aria-labelledby="cta-title" data-reveal="fade-up">
+    <div class="container">
+        <div class="closing-cta-card">
+            <div class="closing-cta-content">
+                <span class="editorial-tag" style="color: var(--color-sand);">Kurumsal Filo Teklifi</span>
+                <h2 id="cta-title">Filonuzu Birlikte Planlayalım.</h2>
+                <p>
+                    Şirketinizin büyüme hedeflerine ve operasyon ihtiyaçlarına özel filo teklifinizi hemen hazırlayalım. Uzman filo danışmanlarımız en geç 2 saat içinde size dönüş yapsın.
+                </p>
+                <div class="closing-cta-actions">
+                    <a href="<?php echo url('hizli-teklif.php'); ?>" class="btn btn-primary btn-lg">
+                        <span>Hızlı Teklif Al</span>
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                    <a href="<?php echo url('iletisim.php'); ?>" class="btn btn-outline btn-lg" style="color: #fff; border-color: rgba(255,255,255,0.35);">
+                        <span>Bizimle İletişime Geç</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── 9. SSS (ÖZEL EDİTORYAL DÜZEN) ─────────────────────────────── -->
 <section class="section section-ivory" aria-labelledby="faq-title" data-reveal="fade-up">
     <div class="container">
         <div class="faq-split-layout">
-            <!-- Left: Sticky Intro & Callout Card -->
+            <!-- Left: Intro (Vertically Centered) -->
             <div class="faq-sticky-intro">
                 <span class="editorial-tag">Merak Edilenler</span>
-                <h2 id="faq-title" style="font-size: var(--font-size-section); font-weight: var(--font-weight-light); margin-top: var(--space-2); margin-bottom: var(--space-4);">
+                <h2 id="faq-title" class="faq-main-title">
                     Sıkça Sorulan Sorular
                 </h2>
-                <p style="color: var(--color-text-muted); font-size: var(--font-size-base); line-height: var(--line-height-relaxed);">
-                    Uzun dönem araç kiralama, filo yönetimi, vergi ve bakım süreçleri hakkında merak edilen tüm detaylar.
+                <p class="faq-main-desc">
+                    Uzun dönem araç kiralama, filo yönetimi, vergisel avantajlar ve operasyonel süreçler hakkında merak ettiğiniz tüm yanıtlar.
                 </p>
-
-                <div class="faq-contact-card">
-                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-                        <span style="color: var(--color-orange); font-size: 1.2rem;">✦</span>
-                        <h4 style="margin: 0; font-size: 1.1rem; color: #ffffff;">Özel Bir Sorunuz mu Var?</h4>
-                    </div>
-                    <p>
-                        Filo danışmanlarımız şirketinizin operasyonel ihtiyaçlarına özel kiralama senaryolarını yanıtlasın.
-                    </p>
-                    <div class="faq-contact-card-actions">
-                        <a href="<?php echo url('hizli-teklif.php'); ?>" class="btn btn-primary btn-sm">
-                            <span>Teklif Talebi Oluştur</span>
-                        </a>
-                        <a href="<?php echo url('sss.php'); ?>" class="btn btn-outline btn-sm" style="color: #fff; border-color: rgba(255,255,255,0.25);">
-                            <span>Tüm Sorular</span>
-                        </a>
-                    </div>
-                </div>
+                <a href="<?php echo url('sss.php'); ?>" class="btn btn-outline btn-read-articles">
+                    <span>Tüm Soruları İncele</span>
+                </a>
             </div>
 
             <!-- Right: Numbered Accordion List -->
             <div class="accordion">
-                <div class="accordion-item is-open">
-                    <button type="button" class="accordion-trigger" aria-expanded="true">
+                <div class="accordion-item">
+                    <button type="button" class="accordion-trigger" aria-expanded="false">
                         <div class="accordion-title-wrap">
                             <span class="accordion-num">01</span>
                             <span>Uzun dönem araç kiralama şirketimize hangi vergisel avantajları sağlar?</span>
@@ -372,7 +376,7 @@ include includePath('header.php');
                             <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
                         </div>
                     </button>
-                    <div class="accordion-panel" style="max-height: 250px; opacity: 1;">
+                    <div class="accordion-panel">
                         <div class="accordion-panel-content">
                             Aylık kira bedelleri doğrudan gider olarak kaydedilebilir, KDV indirim konusu yapılabilir ve MTV, kasko, periyodik bakım gibi operasyonel masraflar şirket bilançosunda borç olarak görünmez. Böylece şirketinizin banka kredi limitleri korunur ve sermaye ana işinizde kalır.
                         </div>
@@ -451,18 +455,18 @@ include includePath('header.php');
     </div>
 </section>
 
-<!-- ─── 9. FİLO REHBERİ & GÜNCEL İÇERİKLER ──────────────────────────── -->
+<!-- ─── 10. FİLO REHBERİ & GÜNCEL İÇERİKLER ──────────────────────────── -->
 <?php if (!empty($articles)): ?>
 <section class="section section-paper" aria-labelledby="articles-title" data-reveal="fade-up">
     <div class="container">
-        <div class="flex flex-between mb-8 flex-wrap gap-4">
+        <div class="flex flex-between mb-8 flex-wrap gap-4" style="align-items: flex-end;">
             <div>
                 <span class="editorial-tag">Rehber & Haberler</span>
-                <h2 id="articles-title" style="font-size: var(--font-size-section); font-weight: var(--font-weight-light); margin-top: var(--space-2);">
+                <h2 id="articles-title" style="font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: var(--font-weight-normal); margin-top: var(--space-2); margin-bottom: 0;">
                     Filo Yönetimi Rehberi
                 </h2>
             </div>
-            <a href="<?php echo url('blog.php'); ?>" class="btn btn-outline btn-sm">
+            <a href="<?php echo url('blog.php'); ?>" class="btn btn-outline btn-read-articles">
                 <span>Tüm Makaleleri Oku</span>
             </a>
         </div>
@@ -471,20 +475,14 @@ include includePath('header.php');
             <?php foreach (array_slice($articles, 0, 3) as $art): ?>
             <div class="content-card" data-reveal="fade-up">
                 <div class="content-card-image">
-                    <img src="<?php echo asset('images/banners/hero-banner-1.jpg'); ?>" alt="<?php echo htmlspecialchars($art['title'] ?? '', ENT_QUOTES); ?>" loading="lazy">
+                    <img src="<?php echo !empty($art['image']) ? $art['image'] : asset('images/blog/blog-1.jpg'); ?>" alt="<?php echo htmlspecialchars($art['title'] ?? '', ENT_QUOTES); ?>" loading="lazy">
                 </div>
                 <div class="content-card-body">
-                    <div class="content-card-meta">
-                        <span class="content-card-type"><?php echo htmlspecialchars($art['category'] ?? 'Filo Rehberi', ENT_QUOTES); ?></span>
-                        <span>•</span>
-                        <span><?php echo htmlspecialchars($art['date'] ?? '', ENT_QUOTES); ?></span>
-                    </div>
                     <h4>
                         <a href="<?php echo url('blog-detay.php', ['slug' => $art['slug'] ?? '']); ?>">
                             <?php echo htmlspecialchars($art['title'] ?? '', ENT_QUOTES); ?>
                         </a>
                     </h4>
-                    <p><?php echo htmlspecialchars(mb_substr($art['summary'] ?? '', 0, 110) . '...', ENT_QUOTES); ?></p>
                     <a href="<?php echo url('blog-detay.php', ['slug' => $art['slug'] ?? '']); ?>" class="content-card-link">
                         <span>Devamını Oku</span>
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
@@ -496,43 +494,5 @@ include includePath('header.php');
     </div>
 </section>
 <?php endif; ?>
-
-<!-- ─── 10. GÜÇLÜ KOYU KAPANIŞ CTA ALANI ───────────────────────────── -->
-<section class="closing-cta" aria-labelledby="cta-title" data-reveal="fade-up">
-    <div class="container">
-        <div class="closing-cta-card">
-            <div class="closing-cta-content">
-                <span class="editorial-tag" style="color: var(--color-sand);">Kurumsal Filo Teklifi</span>
-                <h2 id="cta-title">Filonuzu Birlikte Planlayalım.</h2>
-                <p>
-                    Şirketinizin büyüme hedeflerine ve operasyon ihtiyaçlarına özel filo teklifinizi hemen hazırlayalım. Uzman filo danışmanlarımız en geç 2 saat içinde size dönüş yapsın.
-                </p>
-                <div class="closing-cta-actions">
-                    <a href="<?php echo url('hizli-teklif.php'); ?>" class="btn btn-primary btn-lg">
-                        <span>Hızlı Teklif Al</span>
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                            <polyline points="12 5 19 12 12 19"></polyline>
-                        </svg>
-                    </a>
-                    <a href="<?php echo url('iletisim.php'); ?>" class="btn btn-outline btn-lg" style="color: #fff; border-color: rgba(255,255,255,0.25);">
-                        <span>Bizimle İletişime Geç</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="closing-cta-stats">
-                <div class="closing-stat-box">
-                    <div class="closing-stat-val">2 Saat</div>
-                    <div class="closing-stat-label">Hızlı Teklif Dönüşü</div>
-                </div>
-                <div class="closing-stat-box">
-                    <div class="closing-stat-val">0 ₺</div>
-                    <div class="closing-stat-label">Sürpriz Maliyet</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 <?php include includePath('footer.php'); ?>
