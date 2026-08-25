@@ -121,6 +121,16 @@ if (!defined('ROOT_DIR')) {
                                 <a href="mailto:<?php e('topbar.email'); ?>"><?php e('topbar.email'); ?></a>
                             </div>
                         </div>
+
+                        <!-- Newsletter -->
+                        <div class="footer-newsletter">
+                            <h4 class="footer-title" style="margin-top: var(--space-5); margin-bottom: var(--space-2);"><?php echo (CURRENT_LANG === 'tr') ? 'E-Bülten' : 'Newsletter'; ?></h4>
+                            <p style="font-size: var(--font-size-xs); color: rgba(255,255,255,0.5); margin-bottom: var(--space-2);"><?php echo (CURRENT_LANG === 'tr') ? 'Kampanya ve yeniliklerden haberdar olun.' : 'Stay updated with campaigns & news.'; ?></p>
+                            <form class="footer-newsletter-form" onsubmit="event.preventDefault(); window.showToast('<?php echo (CURRENT_LANG === 'tr') ? 'Bülten kaydınız başarıyla alındı.' : 'Subscribed successfully.'; ?>', 'success'); this.reset();">
+                                <input type="email" class="footer-newsletter-input" placeholder="<?php echo (CURRENT_LANG === 'tr') ? 'E-posta adresiniz' : 'Your email'; ?>" required aria-label="E-posta">
+                                <button type="submit" class="footer-newsletter-btn"><?php echo (CURRENT_LANG === 'tr') ? 'Kayıt' : 'Join'; ?></button>
+                            </form>
+                        </div>
                     </div>
                 </div>
 
@@ -165,6 +175,7 @@ if (!defined('ROOT_DIR')) {
         };
     </script>
     <script src="<?php echo asset('js/app.js'); ?>"></script>
+    <script src="<?php echo asset('js/scroll-reveal.js'); ?>"></script>
     <script src="<?php echo asset('js/custom-select.js'); ?>"></script>
     <script src="<?php echo asset('js/favorites.js'); ?>"></script>
 </body>

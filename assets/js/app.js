@@ -54,7 +54,26 @@
 
     // ─── Sticky Header ──────────────────────────────────────────────
     function initStickyHeader() {
-        // Header stays completely fixed and uniform
+        const header = document.getElementById('site-header');
+        if (!header) return;
+
+        const SCROLL_THRESHOLD = 80;
+        let isScrolled = false;
+
+        function updateHeader() {
+            const scrollY = window.scrollY;
+
+            if (scrollY > SCROLL_THRESHOLD && !isScrolled) {
+                isScrolled = true;
+                header.classList.add('is-scrolled');
+            } else if (scrollY <= SCROLL_THRESHOLD && isScrolled) {
+                isScrolled = false;
+                header.classList.remove('is-scrolled');
+            }
+        }
+
+        window.addEventListener('scroll', updateHeader, { passive: true });
+        updateHeader();
     }
 
     // ─── Desktop Mega Menus & Dropdowns ─────────────────────────────

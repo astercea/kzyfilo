@@ -57,6 +57,17 @@
     }
 
     /* Header */
+    .site-header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .site-logo {
+        position: static;
+        transform: none;
+    }
+
     .topbar-left .topbar-item:nth-child(n+3) {
         display: none;
     }
@@ -83,7 +94,7 @@
     }
 
     .hero-bg::after {
-        background: linear-gradient(90deg, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.85) 60%, rgba(255,255,255,0.3) 100%);
+        background: linear-gradient(90deg, rgba(7, 21, 34, 0.94) 0%, rgba(7, 21, 34, 0.85) 60%, rgba(7, 21, 34, 0.4) 100%);
     }
 
     /* Quick Search */
@@ -188,6 +199,50 @@
     .progress-step-connector {
         width: 24px;
     }
+
+    /* Horizontal Scroll Section Tablet/Mobile Snap */
+    .horizontal-scroll-wrapper {
+        height: auto;
+        margin: var(--space-8) 0;
+    }
+
+    .horizontal-scroll-sticky {
+        position: static;
+        height: auto;
+        overflow: visible;
+    }
+
+    .horizontal-center-aura {
+        display: none;
+    }
+
+    .horizontal-scroll-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        -webkit-mask-image: none;
+        mask-image: none;
+        padding: var(--space-4) 0;
+    }
+
+    .horizontal-scroll-track {
+        transform: none !important;
+        width: auto;
+        gap: var(--space-4);
+        padding: var(--space-4) calc(50vw - 140px);
+    }
+
+    .night-card {
+        flex: 0 0 280px;
+        height: 380px;
+        scroll-snap-align: center;
+        transform: scale(var(--card-scale, 0.94));
+        opacity: 1;
+    }
+
+    .horizontal-progress-wrapper {
+        display: none;
+    }
 }
 
 /* ═══════════════════════════════════════════════════════════════════
@@ -233,7 +288,7 @@
     }
 
     .hero-bg::after {
-        background: linear-gradient(180deg, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.85) 70%, rgba(255,255,255,0.4) 100%);
+        background: linear-gradient(180deg, rgba(7, 21, 34, 0.94) 0%, rgba(7, 21, 34, 0.82) 70%, rgba(7, 21, 34, 0.5) 100%);
     }
 
     .hero-content {

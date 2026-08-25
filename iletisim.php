@@ -25,7 +25,7 @@ include includePath('header.php');?>
 
 <section class="section">
     <div class="container">
-        <div class="layout-sidebar-right">
+        <div class="layout-sidebar-right" data-reveal="fade-up">
             
             <!-- ─── Sol: İletişim Formu ────────────────────────────────── -->
             <div>

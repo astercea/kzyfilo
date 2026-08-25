@@ -30,6 +30,7 @@ $vIsFastDelivery = !empty($vehicle['is_fast_delivery']);
 $detailUrl = url('arac-detay.php', ['slug' => $vSlug]);
 ?>
 <div class="vehicle-card" 
+     data-spotlight
      data-id="<?php echo esc($vId); ?>" 
      data-slug="<?php echo esc($vSlug); ?>"
      data-brand="<?php echo esc($vBrand); ?>"
