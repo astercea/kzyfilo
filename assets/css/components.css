@@ -538,8 +538,9 @@
 .process-steps {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: var(--space-6);
+    gap: var(--space-8);
     position: relative;
+    margin-top: var(--space-8);
 }
 
 .process-step {
@@ -549,34 +550,32 @@
     position: relative;
 }
 
+.process-step[data-reveal] {
+    transition-duration: 0.95s;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 .process-step-number {
-    width: 44px;
-    height: 44px;
+    width: 48px;
+    height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: var(--radius-xs);
+    border-radius: 0px;
     background-color: var(--color-paper);
     border: 1px solid var(--color-border-light);
     font-family: var(--font-family-heading);
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-bold);
+    font-size: 1.15rem;
+    font-weight: 700;
     color: var(--color-text-dark);
-    margin-bottom: var(--space-4);
-    transition: all var(--transition-base);
-}
-
-.process-step:hover .process-step-number {
-    background-color: var(--color-orange);
-    border-color: var(--color-orange);
-    color: #ffffff;
+    margin-bottom: var(--space-5);
 }
 
 .process-step-connector {
     position: absolute;
-    top: 22px;
-    left: 44px;
-    right: -24px;
+    top: 24px;
+    left: 48px;
+    right: -32px;
     height: 1px;
     background-color: var(--color-border-light);
     z-index: 0;
@@ -587,15 +586,18 @@
 }
 
 .process-step h4 {
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-semibold);
-    margin-bottom: var(--space-2);
+    font-size: 1.22rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    margin-bottom: var(--space-3);
+    line-height: 1.3;
+    letter-spacing: -0.01em;
 }
 
 .process-step p {
-    font-size: var(--font-size-sm);
-    color: var(--color-text-muted);
-    line-height: var(--line-height-normal);
+    font-size: 1rem;
+    color: rgba(18, 24, 34, 0.72);
+    line-height: 1.65;
 }
 
 /* ─── Accordion & FAQ System (KZY Executive Motion) ─────────────── */

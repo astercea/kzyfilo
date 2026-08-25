@@ -147,24 +147,12 @@ include includePath('header.php');
     </div>
 </section>
 
-<!-- ─── 4. SİNEMATİK TAM GENİŞLİKTE MEDYA ALANI ────────────────────── -->
-<section class="cinematic-media" aria-label="KZY Filo Deneyimi" data-reveal="fade-up">
-    <div class="container">
-        <div class="cinematic-media-container">
-            <img src="<?php echo asset('images/banners/hero-banner-2.jpg'); ?>" alt="KZY Filo Operasyonel Mükemmellik" loading="lazy">
-            <div class="cinematic-overlay">
-                <button type="button" class="cinematic-play-btn" onclick="window.showToast('<?php echo (CURRENT_LANG === 'tr') ? 'Tanıtım videosu yükleniyor...' : 'Loading video...'; ?>', 'primary');" aria-label="Tanıtım Videosunu Oynat">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                    </svg>
-                </button>
-                <div class="cinematic-caption">
-                    <span class="badge badge-primary mb-2" style="background-color: var(--color-orange); color: #fff;">KZY Filo'yu Tanıyın</span>
-                    <h3>Uçtan Uca Operasyonel Filo Yönetimi</h3>
-                    <p>81 ilde anlaşmalı servis ağı, 7/24 kesintisiz yol yardımı ve anında ikame araç desteğiyle işinizin temposunu koruyoruz.</p>
-                </div>
-            </div>
-        </div>
+<!-- ─── 4. SİNEMATİK TAM GENİŞLİKTE MEDYA ALANI (FULL-WIDTH SEAMLESS VIDEO) ─── -->
+<section class="cinematic-media-section" aria-label="KZY Filo Deneyimi">
+    <div class="cinematic-video-wrap">
+        <video class="cinematic-video" autoplay muted loop playsinline poster="<?php echo asset('images/banners/hero-banner-2.jpg'); ?>">
+            <source src="<?php echo asset('videos/fleet-driving.mp4'); ?>" type="video/mp4">
+        </video>
     </div>
 </section>
 
@@ -181,7 +169,7 @@ include includePath('header.php');
             <!-- 01: Uzun Dönem Araç Kiralama -->
             <div class="service-item" data-reveal="fade-up">
                 <div class="service-media">
-                    <img src="<?php echo asset('images/banners/hero-banner-1.jpg'); ?>" alt="Uzun Dönem Araç Kiralama" loading="lazy">
+                    <img src="<?php echo asset('images/services/service-fleet-rental.jpg'); ?>" alt="Uzun Dönem Araç Kiralama" loading="lazy">
                 </div>
                 <div class="service-content">
                     <span class="service-num">01 / HİZMET</span>
@@ -208,7 +196,7 @@ include includePath('header.php');
             <!-- 02: Operasyon & Bakım Desteği -->
             <div class="service-item reverse" data-reveal="fade-up">
                 <div class="service-media">
-                    <img src="<?php echo asset('images/banners/hero-banner-3.jpg'); ?>" alt="Bakım ve Hasar Yönetimi" loading="lazy">
+                    <img src="<?php echo asset('images/services/service-maintenance.jpg'); ?>" alt="Bakım ve Hasar Yönetimi" loading="lazy">
                 </div>
                 <div class="service-content">
                     <span class="service-num">02 / HİZMET</span>
@@ -235,7 +223,7 @@ include includePath('header.php');
             <!-- 03: Lastik & 7/24 Kesintisiz Mobilite -->
             <div class="service-item" data-reveal="fade-up">
                 <div class="service-media">
-                    <img src="<?php echo asset('images/banners/hero-banner-2.jpg'); ?>" alt="Lastik ve Yol Yardım" loading="lazy">
+                    <img src="<?php echo asset('images/services/service-tires.jpg'); ?>" alt="Lastik ve Yol Yardım" loading="lazy">
                 </div>
                 <div class="service-content">
                     <span class="service-num">03 / HİZMET</span>
@@ -306,31 +294,31 @@ include includePath('header.php');
         </div>
 
         <div class="process-steps">
-            <div class="process-step" data-reveal="fade-up" data-reveal-delay="50">
+            <div class="process-step" data-reveal="fade-up" data-reveal-delay="100">
                 <span class="process-step-connector"></span>
                 <div class="process-step-number">01</div>
                 <h4>İhtiyacını Belirle</h4>
                 <p>Şirketinizin kilometre, yakıt ve kasa tipi beklentilerine göre araç gereksinimini netleştirin.</p>
             </div>
-            <div class="process-step" data-reveal="fade-up" data-reveal-delay="100">
+            <div class="process-step" data-reveal="fade-up" data-reveal-delay="300">
                 <span class="process-step-connector"></span>
                 <div class="process-step-number">02</div>
                 <h4>Araç ve Paketi Seç</h4>
                 <p>Kataloğumuzdan bütçenize en uygun araç modelini ve güvence paketini belirleyin.</p>
             </div>
-            <div class="process-step" data-reveal="fade-up" data-reveal-delay="150">
+            <div class="process-step" data-reveal="fade-up" data-reveal-delay="500">
                 <span class="process-step-connector"></span>
                 <div class="process-step-number">03</div>
                 <h4>Teklifini Al</h4>
                 <p>Online form üzerinden veya müşteri temsilciniz aracılığıyla size özel resmi teklifi inceleyin.</p>
             </div>
-            <div class="process-step" data-reveal="fade-up" data-reveal-delay="200">
+            <div class="process-step" data-reveal="fade-up" data-reveal-delay="700">
                 <span class="process-step-connector"></span>
                 <div class="process-step-number">04</div>
                 <h4>Sözleşmeni Tamamla</h4>
                 <p>Gerekli kurumsal evrakları dijital ortamda hızla tamamlayarak sözleşmeyi onaylayın.</p>
             </div>
-            <div class="process-step" data-reveal="fade-up" data-reveal-delay="250">
+            <div class="process-step" data-reveal="fade-up" data-reveal-delay="900">
                 <div class="process-step-number">05</div>
                 <h4>Aracını Teslim Al</h4>
                 <p>Plakalandırılmış ve kontrolleri yapılmış sıfır kilometre aracınızı hemen teslim alın.</p>
