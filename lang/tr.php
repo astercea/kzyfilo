@@ -40,7 +40,7 @@ return [
         'resources' => 'Kaynaklar',
         'contact' => 'İletişim',
         'my_list' => 'Listem',
-        'get_quote' => 'Hemen Teklif Al',
+        'get_quote' => 'Teklif Al',
         'skip_to_content' => 'İçeriğe geç',
     ],
 

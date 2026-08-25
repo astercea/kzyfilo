@@ -1,6 +1,7 @@
 <?php
 /**
  * kzyfilo — Ana Sayfa (index.php)
+ * KZY Executive Motion — Editorial Long-Term Fleet Leasing Experience
  */
 require_once __DIR__ . '/includes/config.php';
 
@@ -19,162 +20,75 @@ setPageMeta([
 include includePath('header.php');
 ?>
 
-<!-- ─── 1. HERO SLIDER ────────────────────────────────────────────── -->
-<section class="hero" aria-label="Öne Çıkan Kampanyalar ve Araçlar">
-    <div class="slider" id="hero-slider" tabindex="0" aria-roledescription="carousel" aria-label="Hero Carousel">
-        <div class="slider-track">
-            <!-- Slide 1: Kurumsal Filo Çözümleri -->
-            <div class="slider-slide hero-slide is-active" role="group" aria-roledescription="slide" aria-label="1 / 3">
-                <span class="hero-slide-number">01</span>
-                <div class="hero-bg">
-                    <img src="<?php echo asset('images/banners/hero-banner-1.jpg'); ?>" alt="kzyfilo Kurumsal Filo Kiralama" width="1920" height="640">
-                </div>
-                <div class="container">
-                    <div class="hero-content" data-reveal="fade-right">
-                        <span class="hero-subtitle">KZY Filo — Gece Yolculuğu Ayrıcalığı</span>
-                        <h1 class="hero-title">Filonuzu Geleceğin Yoluna Taşıyın</h1>
-                        <p class="hero-desc"><?php e('home.hero_desc_1'); ?></p>
-
-                        <div class="hero-price">
-                            <span class="demo-notice" style="color: var(--text-muted);"><?php e('demo_price'); ?></span>
-                            <span class="hero-price-value">14.850 <?php e('currency'); ?></span>
-                            <span class="hero-price-suffix"><?php e('per_month'); ?> <?php e('vat_excluded'); ?></span>
-                        </div>
-
-                        <div class="hero-actions">
-                            <a href="<?php echo url('araclar.php'); ?>" class="btn btn-primary btn-lg">
-                                <?php e('home.hero_cta_vehicles'); ?>
-                            </a>
-                            <a href="<?php echo url('hizli-teklif.php'); ?>" class="btn btn-outline btn-lg" style="color: #fff; border-color: rgba(255,255,255,0.25);">
-                                <?php e('home.hero_cta_quote'); ?>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+<!-- ─── 1. HERO: SINEMATİK AÇILIŞ & HIZLI ARAÇ BULUCU ──────────────── -->
+<section class="hero" aria-label="KZY Filo Kurumsal Mobilite">
+    <div class="hero-slider" id="hero-slider">
+        <div class="hero-slide is-active">
+            <div class="hero-bg">
+                <img src="<?php echo asset('images/banners/hero-banner-1.jpg'); ?>" alt="kzyfilo Kurumsal Filo Yönetimi" width="1920" height="1080">
             </div>
-
-            <!-- Slide 2: Elektrikli Filo Dönüşümü -->
-            <div class="slider-slide hero-slide" role="group" aria-roledescription="slide" aria-label="2 / 3">
-                <span class="hero-slide-number">02</span>
-                <div class="hero-bg">
-                    <img src="<?php echo asset('images/banners/hero-banner-2.jpg'); ?>" alt="kzyfilo Elektrikli Filo Dönüşümü" width="1920" height="640">
-                </div>
-                <div class="container">
-                    <div class="hero-content">
-                        <span class="hero-subtitle"><?php echo (CURRENT_LANG === 'tr') ? 'Sürdürülebilir Mobilite' : 'Sustainable Mobility'; ?></span>
-                        <h2 class="hero-title"><?php echo (CURRENT_LANG === 'tr') ? '%100 Elektrikli Filo Dönüşümü' : '100% Electric Fleet Transformation'; ?></h2>
-                        <p class="hero-desc"><?php echo (CURRENT_LANG === 'tr') ? 'Sıfır emisyon ve düşük yakıt maliyetiyle geleceğin kurumsal filosunu bugün kurun.' : 'Build the corporate fleet of the future today with zero emissions and low fuel costs.'; ?></p>
-
-                        <div class="hero-price">
-                            <span class="demo-notice" style="color: var(--text-muted);"><?php e('demo_price'); ?></span>
-                            <span class="hero-price-value">26.200 <?php e('currency'); ?></span>
-                            <span class="hero-price-suffix"><?php e('per_month'); ?> <?php e('vat_excluded'); ?></span>
-                        </div>
-
-                        <div class="hero-actions">
-                            <a href="<?php echo url('elektrikli-arac-kiralama.php'); ?>" class="btn btn-primary btn-lg">
-                                <?php echo (CURRENT_LANG === 'tr') ? 'Elektrikli Modelleri İncele' : 'Explore Electric Models'; ?>
-                            </a>
-                            <a href="<?php echo url('filo-teklif.php'); ?>" class="btn btn-outline btn-lg" style="color: #fff; border-color: rgba(255,255,255,0.25);">
-                                <?php e('home.hero_cta_quote'); ?>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 3: Premium ve Yönetici Filosu -->
-            <div class="slider-slide hero-slide" role="group" aria-roledescription="slide" aria-label="3 / 3">
-                <span class="hero-slide-number">03</span>
-                <div class="hero-bg">
-                    <img src="<?php echo asset('images/banners/hero-banner-3.jpg'); ?>" alt="kzyfilo Yönetici ve Premium Filo" width="1920" height="640">
-                </div>
-                <div class="container">
-                    <div class="hero-content">
-                        <span class="hero-subtitle"><?php echo (CURRENT_LANG === 'tr') ? 'Yönetici & Premium Filo' : 'Executive & Premium Fleet'; ?></span>
-                        <h2 class="hero-title"><?php echo (CURRENT_LANG === 'tr') ? 'Kurumsal Prestij ve Üst Düzey Konfor' : 'Corporate Prestige & Executive Comfort'; ?></h2>
-                        <p class="hero-desc"><?php echo (CURRENT_LANG === 'tr') ? 'Üst segment sedan ve SUV modelleriyle yöneticilerinize kusursuz sürüş ayrıcalığı yaşatın.' : 'Provide your executives with premium driving privilege with luxury sedans and SUVs.'; ?></p>
-
-                        <div class="hero-price">
-                            <span class="demo-notice" style="color: var(--text-muted);"><?php e('demo_price'); ?></span>
-                            <span class="hero-price-value">46.500 <?php e('currency'); ?></span>
-                            <span class="hero-price-suffix"><?php e('per_month'); ?> <?php e('vat_excluded'); ?></span>
-                        </div>
-
-                        <div class="hero-actions">
-                            <a href="<?php echo url('araclar.php', ['kategori' => 'premium']); ?>" class="btn btn-primary btn-lg">
-                                <?php echo (CURRENT_LANG === 'tr') ? 'Premium Filoyu Keşfet' : 'Discover Premium Fleet'; ?>
-                            </a>
-                            <a href="<?php echo url('hizli-teklif.php'); ?>" class="btn btn-outline btn-lg" style="color: #fff; border-color: rgba(255,255,255,0.25);">
-                                <?php e('home.hero_cta_quote'); ?>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slider Controls -->
-        <button type="button" class="slider-btn slider-prev" aria-label="<?php e('pagination.previous'); ?>">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polyline points="15 18 9 12 15 6"></polyline>
-            </svg>
-        </button>
-        <button type="button" class="slider-btn slider-next" aria-label="<?php e('pagination.next'); ?>">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-        </button>
-
-        <!-- Dots -->
-        <div class="slider-dots" role="tablist" aria-label="Slayt Seçimi">
-            <button type="button" class="slider-dot is-active" data-index="0" role="tab" aria-selected="true" aria-label="Slayt 1"></button>
-            <button type="button" class="slider-dot" data-index="1" role="tab" aria-selected="false" aria-label="Slayt 2"></button>
-            <button type="button" class="slider-dot" data-index="2" role="tab" aria-selected="false" aria-label="Slayt 3"></button>
+            <div class="hero-overlay"></div>
         </div>
     </div>
-</section>
 
-<!-- ─── 2. QUICK SEARCH PANEL ────────────────────────────────────── -->
-<section class="quick-search" data-reveal="fade-up">
-    <div class="container">
-        <form action="<?php echo url('araclar.php'); ?>" method="GET" class="quick-search-panel" role="search" aria-label="Hızlı Araç Bulma" data-spotlight>
-            <h3><?php e('home.search_title'); ?></h3>
-            <div class="quick-search-grid">
+    <div class="container hero-container">
+        <div class="hero-content" data-reveal="fade-up">
+            <span class="hero-tag">Kurumsal Mobilite Çözümleri</span>
+            <h1 class="hero-title">
+                Yolunuz Açık,<br>
+                <strong>Filonuz Hazır.</strong>
+            </h1>
+            <p class="hero-lead">
+                Türkiye genelinde operasyonel güvence, sıfır kilometre araç filosu ve şirketinizin sermayesini koruyan esnek uzun dönem kiralama modelleri.
+            </p>
+            <div class="hero-actions">
+                <a href="<?php echo url('hizli-teklif.php'); ?>" class="btn btn-primary btn-lg">
+                    <span><?php e('header.get_quote'); ?></span>
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+                <a href="<?php echo url('araclar.php'); ?>" class="btn btn-outline btn-lg" style="color: #fff; border-color: rgba(255,255,255,0.3);">
+                    <span><?php e('header.vehicles'); ?></span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Hızlı Araç Arama Formu (Luxecar Stili Çerçevesiz Doğrudan Zemin Üzeri) -->
+        <form action="<?php echo url('araclar.php'); ?>" method="GET" class="hero-search-bar" role="search" aria-label="Hızlı Araç Bulucu" data-reveal="fade-up">
+            <div class="hero-search-grid">
                 <!-- Marka -->
-                <div class="quick-search-field">
-                    <label for="search-brand"><?php e('catalog.brand'); ?></label>
-                    <select id="search-brand" name="marka" class="form-select">
-                        <option value=""><?php e('catalog.all'); ?></option>
+                <div class="hero-search-item">
+                    <select id="search-brand" name="marka" class="hero-select" aria-label="Marka Seçin">
+                        <option value=""><?php echo (CURRENT_LANG === 'tr') ? 'Marka Seçin' : 'Select Brand'; ?></option>
                         <option value="Renault">Renault</option>
                         <option value="Fiat">Fiat</option>
                         <option value="Toyota">Toyota</option>
-                        <option value="Hyundai">Hyundai</option>
                         <option value="BMW">BMW</option>
+                        <option value="Mercedes-Benz">Mercedes-Benz</option>
                         <option value="MG">MG</option>
                         <option value="Ford">Ford</option>
-                        <option value="Volkswagen">Volkswagen</option>
+                        <option value="Peugeot">Peugeot</option>
                     </select>
                 </div>
 
-                <!-- Kasa Tipi -->
-                <div class="quick-search-field">
-                    <label for="search-body"><?php e('catalog.body_type'); ?></label>
-                    <select id="search-body" name="kasa" class="form-select">
-                        <option value=""><?php e('catalog.all'); ?></option>
-                        <option value="sedan"><?php e('body_types.sedan'); ?></option>
-                        <option value="hatchback"><?php e('body_types.hatchback'); ?></option>
-                        <option value="suv"><?php e('body_types.suv'); ?></option>
-                        <option value="minivan"><?php e('body_types.minivan'); ?></option>
-                        <option value="panelvan"><?php e('body_types.panelvan'); ?></option>
+                <!-- Kasa / Model Tipi -->
+                <div class="hero-search-item">
+                    <select id="search-cat" name="kategori" class="hero-select" aria-label="Kasa / Model Tipi">
+                        <option value=""><?php echo (CURRENT_LANG === 'tr') ? 'Kasa / Model Tipi' : 'Body / Model'; ?></option>
+                        <option value="binek">Sedan & Hatchback</option>
+                        <option value="suv">SUV & Crossover</option>
+                        <option value="ticari">Ticari & Panelvan</option>
+                        <option value="premium">Executive & Premium</option>
+                        <option value="elektrikli">Elektrikli & Hibrit</option>
                     </select>
                 </div>
 
-                <!-- Yakıt -->
-                <div class="quick-search-field">
-                    <label for="search-fuel"><?php e('catalog.fuel'); ?></label>
-                    <select id="search-fuel" name="yakit" class="form-select">
-                        <option value=""><?php e('catalog.all'); ?></option>
+                <!-- Yakıt Türü -->
+                <div class="hero-search-item">
+                    <select id="search-fuel" name="yakit" class="hero-select" aria-label="Yakıt Türü">
+                        <option value=""><?php echo (CURRENT_LANG === 'tr') ? 'Yakıt Türü' : 'Fuel Type'; ?></option>
                         <option value="benzin"><?php e('fuel_types.benzin'); ?></option>
                         <option value="dizel"><?php e('fuel_types.dizel'); ?></option>
                         <option value="hibrit"><?php e('fuel_types.hibrit'); ?></option>
@@ -182,48 +96,10 @@ include includePath('header.php');
                     </select>
                 </div>
 
-                <!-- Vites -->
-                <div class="quick-search-field">
-                    <label for="search-trans"><?php e('catalog.transmission'); ?></label>
-                    <select id="search-trans" name="vites" class="form-select">
-                        <option value=""><?php e('catalog.all'); ?></option>
-                        <option value="otomatik"><?php e('transmission_types.otomatik'); ?></option>
-                        <option value="manuel"><?php e('transmission_types.manuel'); ?></option>
-                    </select>
-                </div>
-
-                <!-- Kategori -->
-                <div class="quick-search-field">
-                    <label for="search-cat"><?php e('catalog.category'); ?></label>
-                    <select id="search-cat" name="kategori" class="form-select">
-                        <option value=""><?php e('catalog.all'); ?></option>
-                        <option value="binek"><?php e('categories.binek'); ?></option>
-                        <option value="ticari"><?php e('categories.ticari'); ?></option>
-                        <option value="elektrikli"><?php e('categories.elektrikli'); ?></option>
-                        <option value="kampanyali"><?php e('categories.kampanyali'); ?></option>
-                    </select>
-                </div>
-
-                <!-- Fiyat -->
-                <div class="quick-search-field">
-                    <label for="search-price"><?php e('catalog.max_price'); ?></label>
-                    <select id="search-price" name="maks_fiyat" class="form-select">
-                        <option value=""><?php e('catalog.all'); ?></option>
-                        <option value="20000">20.000 <?php e('currency'); ?> altı</option>
-                        <option value="30000">30.000 <?php e('currency'); ?> altı</option>
-                        <option value="40000">40.000 <?php e('currency'); ?> altı</option>
-                        <option value="50000">50.000 <?php e('currency'); ?> altı</option>
-                    </select>
-                </div>
-
-                <!-- Submit Button -->
-                <div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%; min-height: 44px;">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        </svg>
-                        <span><?php e('home.search_btn'); ?></span>
+                <!-- Gönder Butonu (ARAÇ BUL) -->
+                <div class="hero-search-item hero-search-btn-wrap">
+                    <button type="submit" class="hero-search-btn">
+                        <span><?php echo (CURRENT_LANG === 'tr') ? 'ARAÇ BUL' : 'SEARCH'; ?></span>
                     </button>
                 </div>
             </div>
@@ -231,490 +107,392 @@ include includePath('header.php');
     </div>
 </section>
 
-<!-- ─── 3. HORIZONTAL SCROLL SECTION: "Filonuz İçin Akıllı Seçenekler" ─ -->
-<section class="horizontal-scroll-wrapper" aria-label="Filonuz İçin Akıllı Seçenekler">
-    <div class="horizontal-scroll-sticky">
-        <div class="horizontal-center-aura" id="horizontal-center-aura" aria-hidden="true"></div>
-
-        <div class="container horizontal-scroll-header" data-reveal="fade-down">
-            <span class="horizontal-scroll-header-badge">KZY FİLO ÇÖZÜMLERİ</span>
-            <h2 class="text-3xl" style="color: var(--text-white); margin-bottom: 4px;">Filonuz İçin Akıllı Seçenekler</h2>
-            <p style="color: var(--text-muted); margin-bottom: 0;">Şirketinizin dinamiklerine özel uzun dönem kiralama ve filo mobilite paketleri.</p>
-        </div>
-
-        <div class="horizontal-scroll-container">
-            <div class="horizontal-scroll-track">
-                <!-- 1. Binek Araçlar -->
-                <a href="<?php echo url('binek-arac-kiralama.php'); ?>" class="night-card" data-spotlight>
-                    <div class="night-card-header">
-                        <div class="night-card-tag"><span class="night-card-icon">🚗</span> Konfor & Tasarruf</div>
-                        <h3 class="night-card-title">Binek Araçlar</h3>
-                        <p class="night-card-desc">Şirketinize özel ekonomik sedan, hatchback ve SUV filo modelleri.</p>
-                    </div>
-                    <div class="night-card-image-wrap">
-                        <img src="<?php echo asset('images/vehicles/renault-megane.svg'); ?>" alt="Binek Araçlar" class="night-card-img" onerror="this.src='<?php echo asset('images/vehicles/placeholder.svg'); ?>'">
-                    </div>
-                    <div class="night-card-footer">
-                        <span class="night-card-action">Modelleri İncele</span>
-                        <div class="night-card-arrow">→</div>
-                    </div>
-                </a>
-
-                <!-- 2. Ticari Araçlar -->
-                <a href="<?php echo url('ticari-arac-kiralama.php'); ?>" class="night-card" data-spotlight>
-                    <div class="night-card-header">
-                        <div class="night-card-tag"><span class="night-card-icon">🚚</span> Yüksek Kapasite</div>
-                        <h3 class="night-card-title">Ticari Araçlar</h3>
-                        <p class="night-card-desc">Taşıma ve lojistik filonuz için geniş yük hacimli hafif ticari çözümler.</p>
-                    </div>
-                    <div class="night-card-image-wrap">
-                        <img src="<?php echo asset('images/vehicles/ford-transit-custom.svg'); ?>" alt="Ticari Araçlar" class="night-card-img" onerror="this.src='<?php echo asset('images/vehicles/placeholder.svg'); ?>'">
-                    </div>
-                    <div class="night-card-footer">
-                        <span class="night-card-action">Modelleri İncele</span>
-                        <div class="night-card-arrow">→</div>
-                    </div>
-                </a>
-
-                <!-- 3. Elektrikli Araçlar -->
-                <a href="<?php echo url('elektrikli-arac-kiralama.php'); ?>" class="night-card" data-spotlight>
-                    <div class="night-card-header">
-                        <div class="night-card-tag"><span class="night-card-icon">⚡</span> Sıfır Emisyon</div>
-                        <h3 class="night-card-title">Elektrikli Araçlar</h3>
-                        <p class="night-card-desc">Düşük tüketim maliyetli ve çevre dostu yeni nesil elektrikli filo.</p>
-                    </div>
-                    <div class="night-card-image-wrap">
-                        <img src="<?php echo asset('images/vehicles/mg-mg4-electric.svg'); ?>" alt="Elektrikli Araçlar" class="night-card-img" onerror="this.src='<?php echo asset('images/vehicles/placeholder.svg'); ?>'">
-                    </div>
-                    <div class="night-card-footer">
-                        <span class="night-card-action">Modelleri İncele</span>
-                        <div class="night-card-arrow">→</div>
-                    </div>
-                </a>
-
-                <!-- 4. Premium Filo -->
-                <a href="<?php echo url('araclar.php', ['kategori' => 'premium']); ?>" class="night-card" data-spotlight>
-                    <div class="night-card-header">
-                        <div class="night-card-tag"><span class="night-card-icon">💎</span> Üst Düzey Prestij</div>
-                        <h3 class="night-card-title">Premium Filo</h3>
-                        <p class="night-card-desc">Üst düzey yöneticiler için lüks D segment sedan ve SUV ayrıcalığı.</p>
-                    </div>
-                    <div class="night-card-image-wrap">
-                        <img src="<?php echo asset('images/vehicles/bmw-320i-sedan.svg'); ?>" alt="Premium Filo" class="night-card-img" onerror="this.src='<?php echo asset('images/vehicles/placeholder.svg'); ?>'">
-                    </div>
-                    <div class="night-card-footer">
-                        <span class="night-card-action">Modelleri İncele</span>
-                        <div class="night-card-arrow">→</div>
-                    </div>
-                </a>
-
-                <!-- 5. Hızlı Teslim -->
-                <a href="<?php echo url('araclar.php', ['hizli_teslim' => '1']); ?>" class="night-card" data-spotlight>
-                    <div class="night-card-header">
-                        <div class="night-card-tag"><span class="night-card-icon">⏱️</span> Hazır Stok</div>
-                        <h3 class="night-card-title">Hızlı Teslim Filo</h3>
-                        <p class="night-card-desc">Sözleşme onayı sonrası derhal teslim edilen sıfır kilometre araçlar.</p>
-                    </div>
-                    <div class="night-card-image-wrap">
-                        <img src="<?php echo asset('images/vehicles/fiat-egea-sedan.svg'); ?>" alt="Hızlı Teslim Filo" class="night-card-img" onerror="this.src='<?php echo asset('images/vehicles/placeholder.svg'); ?>'">
-                    </div>
-                    <div class="night-card-footer">
-                        <span class="night-card-action">Modelleri İncele</span>
-                        <div class="night-card-arrow">→</div>
-                    </div>
-                </a>
-            </div>
-        </div>
-
-        <!-- Custom Progress Line -->
-        <div class="horizontal-progress-wrapper" data-reveal="fade-up">
-            <div class="horizontal-progress-bar">
-                <div class="horizontal-progress-fill" id="horizontal-progress-fill"></div>
-                <div class="horizontal-progress-dot" id="horizontal-progress-dot"></div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ─── 4. ÖNE ÇIKAN ARAÇLAR CAROUSEL ─────────────────────────────── -->
-<section class="section section-bg-soft" aria-labelledby="featured-title" data-reveal="fade-up">
+<!-- ─── 2. ÖNE ÇIKAN ARAÇ KATALOĞU (AYDINLIK FİLDİŞİ) ───────────────── -->
+<section class="section section-ivory" aria-labelledby="featured-title" data-reveal="fade-up">
     <div class="container">
-        <div class="flex flex-between mb-8 flex-wrap gap-4">
+        <div class="flex flex-between mb-10 flex-wrap gap-4">
             <div>
-                <h2 id="featured-title"><?php e('home.featured_title'); ?></h2>
-                <p class="text-muted"><?php e('home.featured_subtitle'); ?></p>
+                <span class="editorial-tag"><?php echo (CURRENT_LANG === 'tr') ? 'Seçkin Filo Portföyü' : 'Curated Fleet Portfolio'; ?></span>
+                <h2 id="featured-title" style="font-size: var(--font-size-section); font-weight: var(--font-weight-light); margin-top: var(--space-2);">
+                    Öne Çıkan Filo Modelleri
+                </h2>
             </div>
             <div class="flex items-center gap-3">
-                <a href="<?php echo url('araclar.php'); ?>" class="btn btn-outline btn-sm">
-                    <?php e('btn.view_all'); ?>
+                <a href="<?php echo url('araclar.php'); ?>" class="btn btn-dark btn-sm">
+                    <span><?php e('btn.view_all'); ?></span>
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
                 </a>
             </div>
         </div>
 
-        <div class="carousel" id="featured-carousel">
-            <div class="carousel-track">
-                <?php foreach (array_slice($vehicles, 0, 6) as $vehicle): ?>
-                    <?php include includePath('vehicle-card.php'); ?>
-                <?php endforeach; ?>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ─── 4. ARAÇ KATEGORİLERİ ──────────────────────────────────────── -->
-<section class="section" aria-labelledby="categories-title" data-reveal="fade-up">
-    <div class="container">
-        <div class="section-header">
-            <h2 id="categories-title"><?php e('home.categories_title'); ?></h2>
-            <p><?php e('home.categories_subtitle'); ?></p>
-        </div>
-
-        <div class="grid grid-6">
-            <!-- Binek -->
-            <a href="<?php echo url('araclar.php', ['kategori' => 'binek']); ?>" class="category-card" data-spotlight data-reveal="fade-up" data-reveal-delay="50">
-                <div class="category-card-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 2.8C2.1 11 2 11.5 2 12v4c0 .6.4 1 1 1h2"></path>
-                        <circle cx="7" cy="17" r="2"></circle>
-                        <circle cx="17" cy="17" r="2"></circle>
-                    </svg>
-                </div>
-                <h4><?php e('categories.binek'); ?></h4>
-                <p><?php echo (CURRENT_LANG === 'tr') ? 'Sedan, HB, SUV' : 'Sedan, HB, SUV'; ?></p>
-            </a>
-
-            <!-- Ticari -->
-            <a href="<?php echo url('araclar.php', ['kategori' => 'ticari']); ?>" class="category-card" data-spotlight data-reveal="fade-up" data-reveal-delay="100">
-                <div class="category-card-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="1" y="3" width="15" height="13"></rect>
-                        <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
-                        <circle cx="5.5" cy="18.5" r="2.5"></circle>
-                        <circle cx="18.5" cy="18.5" r="2.5"></circle>
-                    </svg>
-                </div>
-                <h4><?php e('categories.ticari'); ?></h4>
-                <p><?php echo (CURRENT_LANG === 'tr') ? 'Panelvan & Kamyonet' : 'Van & Pickup'; ?></p>
-            </a>
-
-            <!-- Elektrikli -->
-            <a href="<?php echo url('araclar.php', ['kategori' => 'elektrikli']); ?>" class="category-card" data-spotlight data-reveal="fade-up" data-reveal-delay="150">
-                <div class="category-card-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-                    </svg>
-                </div>
-                <h4><?php e('categories.elektrikli'); ?></h4>
-                <p><?php echo (CURRENT_LANG === 'tr') ? '%100 Elektrik & Hibrit' : '100% Electric & Hybrid'; ?></p>
-            </a>
-
-            <!-- Kampanyalı -->
-            <a href="<?php echo url('araclar.php', ['kampanya' => '1']); ?>" class="category-card" data-spotlight data-reveal="fade-up" data-reveal-delay="200">
-                <div class="category-card-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
-                        <line x1="7" y1="7" x2="7.01" y2="7"></line>
-                    </svg>
-                </div>
-                <h4><?php e('categories.kampanyali'); ?></h4>
-                <p><?php echo (CURRENT_LANG === 'tr') ? 'Özel İndirimli Fiyatlar' : 'Special Discounted Rates'; ?></p>
-            </a>
-
-            <!-- Premium -->
-            <a href="<?php echo url('araclar.php', ['premium' => '1']); ?>" class="category-card" data-spotlight data-reveal="fade-up" data-reveal-delay="250">
-                <div class="category-card-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                    </svg>
-                </div>
-                <h4><?php e('categories.premium'); ?></h4>
-                <p><?php echo (CURRENT_LANG === 'tr') ? 'Üst Segment & Prestij' : 'Executive & Luxury'; ?></p>
-            </a>
-
-            <!-- Hızlı Teslim -->
-            <a href="<?php echo url('araclar.php', ['hizli_teslim' => '1']); ?>" class="category-card" data-spotlight data-reveal="fade-up" data-reveal-delay="300">
-                <div class="category-card-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <polyline points="12 6 12 12 16 14"></polyline>
-                    </svg>
-                </div>
-                <h4><?php e('categories.hizli-teslim'); ?></h4>
-                <p><?php echo (CURRENT_LANG === 'tr') ? 'Hemen Teslim Araçlar' : 'Immediate Stock Delivery'; ?></p>
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- ─── 5. İSTATİSTİKLER (DEMO) ───────────────────────────────────── -->
-<section class="section section-dark" aria-labelledby="stats-title" data-reveal="fade-up">
-    <div class="container">
-        <div class="section-header">
-            <h2 id="stats-title"><?php e('home.stats_title'); ?></h2>
-            <p><span class="demo-notice" style="color: rgba(255,255,255,0.6);"><?php e('home.stats_subtitle'); ?></span></p>
-        </div>
-
-        <div class="stats-grid">
-            <div class="stat-item" data-spotlight data-reveal="fade-up" data-reveal-delay="50">
-                <div class="stat-number" data-counter="10000" data-counter-suffix="+">10.000+</div>
-                <div class="stat-label"><?php echo (CURRENT_LANG === 'tr') ? 'Aktif Filo Aracı (Demo)' : 'Active Fleet Vehicles (Demo)'; ?></div>
-            </div>
-            <div class="stat-item" data-spotlight data-reveal="fade-up" data-reveal-delay="100">
-                <div class="stat-number" data-counter="1250" data-counter-suffix="+">1.250+</div>
-                <div class="stat-label"><?php echo (CURRENT_LANG === 'tr') ? 'Kurumsal Müşteri (Demo)' : 'Corporate Clients (Demo)'; ?></div>
-            </div>
-            <div class="stat-item" data-spotlight data-reveal="fade-up" data-reveal-delay="150">
-                <div class="stat-number" data-counter="81" data-counter-suffix="">81</div>
-                <div class="stat-label"><?php echo (CURRENT_LANG === 'tr') ? 'İlde Yetkili Servis Ağı' : 'Provinces Authorized Service'; ?></div>
-            </div>
-            <div class="stat-item" data-spotlight data-reveal="fade-up" data-reveal-delay="200">
-                <div class="stat-number" data-counter="98" data-counter-prefix="%" data-counter-suffix="">%98</div>
-                <div class="stat-label"><?php echo (CURRENT_LANG === 'tr') ? 'Müşteri Memnuniyeti (Demo)' : 'Customer Satisfaction (Demo)'; ?></div>
-            </div>
-            <div class="stat-item" data-spotlight data-reveal="fade-up" data-reveal-delay="250">
-                <div class="stat-number" data-counter="24" data-counter-suffix="/7" data-counter-separator="false">7/24</div>
-                <div class="stat-label"><?php echo (CURRENT_LANG === 'tr') ? 'Kesintisiz Yol Yardım' : 'Continuous Roadside Assist'; ?></div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ─── 6. 5 ADIMLI KİRALAMA SÜRECİ ───────────────────────────────── -->
-<section class="section section-bg-soft" aria-labelledby="process-title" data-reveal="fade-up">
-    <div class="container">
-        <div class="section-header">
-            <h2 id="process-title"><?php e('home.process_title'); ?></h2>
-            <p><?php e('home.process_subtitle'); ?></p>
-        </div>
-
-        <div class="process-steps">
-            <!-- Adım 1 -->
-            <div class="process-step" data-reveal="fade-up" data-reveal-delay="50">
-                <div class="process-step-number">1</div>
-                <div class="process-step-connector" aria-hidden="true"></div>
-                <h4><?php e('home.process_step1_title'); ?></h4>
-                <p><?php e('home.process_step1_desc'); ?></p>
-            </div>
-
-            <!-- Adım 2 -->
-            <div class="process-step" data-reveal="fade-up" data-reveal-delay="100">
-                <div class="process-step-number">2</div>
-                <div class="process-step-connector" aria-hidden="true"></div>
-                <h4><?php e('home.process_step2_title'); ?></h4>
-                <p><?php e('home.process_step2_desc'); ?></p>
-            </div>
-
-            <!-- Adım 3 -->
-            <div class="process-step" data-reveal="fade-up" data-reveal-delay="150">
-                <div class="process-step-number">3</div>
-                <div class="process-step-connector" aria-hidden="true"></div>
-                <h4><?php e('home.process_step3_title'); ?></h4>
-                <p><?php e('home.process_step3_desc'); ?></p>
-            </div>
-
-            <!-- Adım 4 -->
-            <div class="process-step" data-reveal="fade-up" data-reveal-delay="200">
-                <div class="process-step-number">4</div>
-                <div class="process-step-connector" aria-hidden="true"></div>
-                <h4><?php e('home.process_step4_title'); ?></h4>
-                <p><?php e('home.process_step4_desc'); ?></p>
-            </div>
-
-            <!-- Adım 5 -->
-            <div class="process-step" data-reveal="fade-up" data-reveal-delay="250">
-                <div class="process-step-number">5</div>
-                <h4><?php e('home.process_step5_title'); ?></h4>
-                <p><?php e('home.process_step5_desc'); ?></p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ─── 7. FİLO ÇÖZÜMLERİMİZ (ACCORDION) ──────────────────────────── -->
-<section class="section" aria-labelledby="solutions-title" data-reveal="fade-up">
-    <div class="container">
-        <div class="section-header">
-            <h2 id="solutions-title"><?php e('home.solutions_title'); ?></h2>
-            <p><?php e('home.solutions_subtitle'); ?></p>
-        </div>
-
-        <div class="accordion container-narrow" id="solutions-accordion">
-            <!-- 1. Esnek Finans -->
-            <div class="accordion-item is-open" data-reveal="fade-up" data-reveal-delay="50">
-                <button type="button" class="accordion-trigger" aria-expanded="true">
-                    <span><?php e('home.sol_finance'); ?></span>
-                    <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <polyline points="6 9 12 15 18 9"></polyline>
-                    </svg>
-                </button>
-                <div class="accordion-panel" style="max-height: 200px;">
-                    <div class="accordion-panel-content">
-                        <?php e('home.sol_finance_desc'); ?>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 2. Sürprizsiz Fatura -->
-            <div class="accordion-item" data-reveal="fade-up" data-reveal-delay="100">
-                <button type="button" class="accordion-trigger" aria-expanded="false">
-                    <span><?php e('home.sol_invoice'); ?></span>
-                    <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <polyline points="6 9 12 15 18 9"></polyline>
-                    </svg>
-                </button>
-                <div class="accordion-panel">
-                    <div class="accordion-panel-content">
-                        <?php e('home.sol_invoice_desc'); ?>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 3. Zamandan Tasarruf -->
-            <div class="accordion-item" data-reveal="fade-up" data-reveal-delay="150">
-                <button type="button" class="accordion-trigger" aria-expanded="false">
-                    <span><?php e('home.sol_time'); ?></span>
-                    <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <polyline points="6 9 12 15 18 9"></polyline>
-                    </svg>
-                </button>
-                <div class="accordion-panel">
-                    <div class="accordion-panel-content">
-                        <?php e('home.sol_time_desc'); ?>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 4. Operasyonel Kolaylık -->
-            <div class="accordion-item" data-reveal="fade-up" data-reveal-delay="200">
-                <button type="button" class="accordion-trigger" aria-expanded="false">
-                    <span><?php e('home.sol_operations'); ?></span>
-                    <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <polyline points="6 9 12 15 18 9"></polyline>
-                    </svg>
-                </button>
-                <div class="accordion-panel">
-                    <div class="accordion-panel-content">
-                        <?php e('home.sol_operations_desc'); ?>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 5. Bakım ve Hasar -->
-            <div class="accordion-item" data-reveal="fade-up" data-reveal-delay="250">
-                <button type="button" class="accordion-trigger" aria-expanded="false">
-                    <span><?php e('home.sol_maintenance'); ?></span>
-                    <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <polyline points="6 9 12 15 18 9"></polyline>
-                    </svg>
-                </button>
-                <div class="accordion-panel">
-                    <div class="accordion-panel-content">
-                        <?php e('home.sol_maintenance_desc'); ?>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 6. Yol Yardım -->
-            <div class="accordion-item" data-reveal="fade-up" data-reveal-delay="300">
-                <button type="button" class="accordion-trigger" aria-expanded="false">
-                    <span><?php e('home.sol_roadside'); ?></span>
-                    <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <polyline points="6 9 12 15 18 9"></polyline>
-                    </svg>
-                </button>
-                <div class="accordion-panel">
-                    <div class="accordion-panel-content">
-                        <?php e('home.sol_roadside_desc'); ?>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ─── 8. REFERANSLAR (NÖTR LOGOLAR) ─────────────────────────────── -->
-<section class="section section-bg-soft" aria-labelledby="references-title" data-reveal="fade-up">
-    <div class="container">
-        <div class="section-header">
-            <h2 id="references-title"><?php e('home.references_title'); ?></h2>
-            <p><?php e('home.references_subtitle'); ?></p>
-        </div>
-
-        <div class="references-grid">
-            <?php for ($i = 1; $i <= 6; $i++): ?>
-                <div class="reference-logo" data-reveal="fade-up" data-reveal-delay="<?php echo $i * 50; ?>">
-                    <span class="text-sm fw-semibold text-muted">KURUMSAL REFERANS <?php echo $i; ?> (DEMO)</span>
-                </div>
-            <?php endfor; ?>
-        </div>
-    </div>
-</section>
-
-<!-- ─── 9. KAYNAKLAR (BLOG / HABERLER) ────────────────────────────── -->
-<section class="section" aria-labelledby="resources-title" data-reveal="fade-up">
-    <div class="container">
-        <div class="flex flex-between mb-8 flex-wrap gap-4">
-            <div>
-                <h2 id="resources-title"><?php e('home.resources_title'); ?></h2>
-                <p class="text-muted"><?php e('home.resources_subtitle'); ?></p>
-            </div>
-            <div>
-                <a href="<?php echo url('blog.php'); ?>" class="btn btn-outline btn-sm">
-                    <?php e('btn.view_all'); ?>
-                </a>
-            </div>
-        </div>
-
-        <div class="grid grid-3">
-            <?php $aIndex = 0; foreach (array_slice($articles, 0, 3) as $article): $aIndex++; ?>
-                <article class="content-card" data-reveal="fade-up" data-reveal-delay="<?php echo $aIndex * 100; ?>">
-                    <div class="content-card-image">
-                        <img src="<?php echo esc($article['image']); ?>" alt="<?php echo esc($article['title']); ?>" loading="lazy" width="400" height="225">
-                    </div>
-                    <div class="content-card-body">
-                        <div class="content-card-meta">
-                            <span class="content-card-type"><?php echo strtoupper($article['type']); ?></span>
-                            <span><?php echo date('d.m.Y', strtotime($article['date'])); ?></span>
-                            <span>• <?php echo esc($article['read_time']); ?> <?php e('content.min_read'); ?></span>
-                        </div>
-                        <h4>
-                            <a href="<?php echo url('blog-detay.php', ['slug' => $article['slug']]); ?>">
-                                <?php echo esc($article['title']); ?>
-                            </a>
-                        </h4>
-                        <p><?php echo esc($article['summary']); ?></p>
-                        <a href="<?php echo url('blog-detay.php', ['slug' => $article['slug']]); ?>" class="content-card-link">
-                            <span><?php e('content.read_more'); ?></span>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <polyline points="9 18 15 12 9 6"></polyline>
-                            </svg>
-                        </a>
-                    </div>
-                </article>
+        <div class="catalog-grid">
+            <?php foreach (array_slice($vehicles, 0, 6) as $vehicle): ?>
+                <?php include includePath('vehicle-card.php'); ?>
             <?php endforeach; ?>
         </div>
     </div>
 </section>
 
-<!-- ─── 10. ALT CTA BÖLÜMÜ ───────────────────────────────────────── -->
-<section class="cta-section" aria-labelledby="cta-title" data-reveal="fade-up">
+<!-- ─── 3. BÜYÜK EDİTORYAL MARKA BÖLÜMÜ ───────────────────────────── -->
+<section class="editorial-statement" aria-label="KZY Filo Vizyonu">
     <div class="container">
-        <h2 id="cta-title"><?php e('home.cta_title'); ?></h2>
-        <p><?php e('home.cta_desc'); ?></p>
-        <div class="cta-actions">
-            <a href="<?php echo url('araclar.php'); ?>" class="btn btn-primary btn-lg">
-                <?php e('home.cta_vehicles'); ?>
-            </a>
-            <a href="<?php echo url('hizli-teklif.php'); ?>" class="btn btn-secondary btn-lg">
-                <?php e('home.cta_quote'); ?>
-            </a>
-            <button type="button" class="btn btn-outline btn-lg" style="color: #ffffff; border-color: #ffffff;" data-open-modal="callback">
-                <?php e('home.cta_call'); ?>
-            </button>
+        <div class="editorial-quote-wrap">
+            <h2 class="editorial-headline-scroll">
+                Şirketiniz için esnek, operasyonel olarak güvenli ve sürdürülebilir uzun dönem mobilite çözümleri sunuyoruz.
+            </h2>
         </div>
     </div>
 </section>
 
-<script src="<?php echo asset('js/slider.js'); ?>"></script>
+<!-- ─── 4. SİNEMATİK TAM GENİŞLİKTE MEDYA ALANI (FULL-WIDTH SEAMLESS VIDEO) ─── -->
+<section class="cinematic-media-section" aria-label="KZY Filo Deneyimi">
+    <div class="cinematic-video-wrap">
+        <video class="cinematic-video" autoplay muted loop playsinline poster="<?php echo asset('images/banners/hero-banner-2.jpg'); ?>">
+            <source src="<?php echo asset('videos/fleet-driving.mp4'); ?>" type="video/mp4">
+        </video>
+    </div>
+</section>
+
+<!-- ─── 5. AYDINLIK KURUMSAL HİZMETLER BÖLÜMÜ (ARCHITECTURAL MOSAIC) ─── -->
+<section class="section section-paper" aria-labelledby="services-title" data-reveal="fade-up">
+    <div class="container">
+        <div class="section-header text-center" style="max-width: 760px; margin: 0 auto var(--space-12);">
+            <span class="editorial-tag">Hizmetlerimiz</span>
+            <h2 id="services-title" style="font-size: clamp(2.2rem, 3.5vw, 3rem); font-weight: var(--font-weight-normal); margin-top: var(--space-2); margin-bottom: var(--space-3);">
+                KZY ile Filo Yönetimi
+            </h2>
+            <p style="font-size: 1.1rem; color: rgba(18, 24, 34, 0.72); line-height: 1.65;">
+                Şirketinizin büyüklüğü ve operasyon ölçeği ne olursa olsun, filo maliyetlerinizi öngörülebilir kılan kurumsal hizmetler.
+            </p>
+        </div>
+
+        <div class="services-mosaic-matrix">
+            <!-- Row 1 - Cell 1: Text (Filo Kiralama) -->
+            <div class="mosaic-cell mosaic-cell-text" data-reveal="fade-up" data-reveal-delay="50">
+                <div class="mosaic-icon-circle">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"></path>
+                        <circle cx="7" cy="17" r="2"></circle>
+                        <path d="M9 17h6"></path>
+                        <circle cx="17" cy="17" r="2"></circle>
+                    </svg>
+                </div>
+                <h3 class="mosaic-title">Uzun Dönem Filo Kiralama</h3>
+                <p class="mosaic-desc">
+                    12 aydan 48 aya kadar sabit maliyet ve KDV avantajıyla sıfır kilometre binek, SUV ve ticari araçları filonuza dahil edin.
+                </p>
+                <a href="<?php echo url('uzun-donem-arac-kiralama.php'); ?>" class="mosaic-link">
+                    <span>Hizmeti İncele</span>
+                    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+            </div>
+
+            <!-- Row 1 - Cell 2: Image 1 -->
+            <div class="mosaic-cell mosaic-cell-media" data-reveal="fade-up" data-reveal-delay="100">
+                <img src="<?php echo asset('images/services/service-fleet-rental.jpg'); ?>" alt="Uzun Dönem Araç Kiralama" loading="lazy">
+            </div>
+
+            <!-- Row 1 - Cell 3: Text (Öngörülebilir Bütçe) -->
+            <div class="mosaic-cell mosaic-cell-text" data-reveal="fade-up" data-reveal-delay="150">
+                <div class="mosaic-icon-circle">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                </div>
+                <h3 class="mosaic-title">Öngörülebilir Filo Bütçesi</h3>
+                <p class="mosaic-desc">
+                    Sürpriz bakım, kasko veya amortisman gideri olmadan her ay net ve şeffaf operasyonel bütçe kontrolü sağlayın.
+                </p>
+                <a href="<?php echo url('hizli-teklif.php'); ?>" class="mosaic-link">
+                    <span>Teklif Oluştur</span>
+                    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+            </div>
+
+            <!-- Row 2 - Cell 4: Image 2 -->
+            <div class="mosaic-cell mosaic-cell-media" data-reveal="fade-up" data-reveal-delay="200">
+                <img src="<?php echo asset('images/services/service-maintenance.jpg'); ?>" alt="Periyodik Bakım ve Onarım" loading="lazy">
+            </div>
+
+            <!-- Row 2 - Cell 5: Text (7/24 Destek) -->
+            <div class="mosaic-cell mosaic-cell-text" data-reveal="fade-up" data-reveal-delay="250">
+                <div class="mosaic-icon-circle">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                </div>
+                <h3 class="mosaic-title">7/24 Kesintisiz Mobilite</h3>
+                <p class="mosaic-desc">
+                    Bakım ve hasar anında 24 saat içinde adresinize teslim edilen muadil ikame araç garantisiyle işleriniz asla durmaz.
+                </p>
+                <a href="<?php echo url('ek-urun-ve-hizmetler.php'); ?>" class="mosaic-link">
+                    <span>Hizmeti İncele</span>
+                    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+            </div>
+
+            <!-- Row 2 - Cell 6: Image 3 -->
+            <div class="mosaic-cell mosaic-cell-media" data-reveal="fade-up" data-reveal-delay="300">
+                <img src="<?php echo asset('images/services/service-tires.jpg'); ?>" alt="Lastik Yönetimi ve Mobilite" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── 6. KOYU KURUMSAL GÜVEN & RAKAMLAR ───────────────────────────── -->
+<section class="section section-navy" aria-labelledby="stats-title" data-reveal="fade-up">
+    <div class="container">
+        <div class="section-header">
+            <span class="editorial-tag">Rakamlarla KZY Filo</span>
+            <h2 id="stats-title" style="color: var(--color-text-light);">Güvenilir Filo Gücü</h2>
+            <p style="color: var(--color-text-muted-dark);">Türkiye'nin önde gelen kurumlarına sağladığımız operasyonel filo standartları.</p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-item" data-reveal="fade-up" data-reveal-delay="50">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Yıllık Sektör Deneyimi</div>
+            </div>
+            <div class="stat-item" data-reveal="fade-up" data-reveal-delay="100">
+                <div class="stat-number">2.500+</div>
+                <div class="stat-label">Aktif Filo Aracı</div>
+            </div>
+            <div class="stat-item" data-reveal="fade-up" data-reveal-delay="150">
+                <div class="stat-number">81</div>
+                <div class="stat-label">İlde Servis Ağı</div>
+            </div>
+            <div class="stat-item" data-reveal="fade-up" data-reveal-delay="200">
+                <div class="stat-number">%98.4</div>
+                <div class="stat-label">Müşteri Memnuniyeti</div>
+            </div>
+            <div class="stat-item" data-reveal="fade-up" data-reveal-delay="250">
+                <div class="stat-number">7/24</div>
+                <div class="stat-label">Operasyonel Destek</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── 7. 5 ADIMDA KİRALAMA SÜRECİ ─────────────────────────────────── -->
+<section class="section section-paper" aria-labelledby="process-title" data-reveal="fade-up">
+    <div class="container">
+        <div class="section-header">
+            <span class="editorial-tag">Kolay & Hızlı</span>
+            <h2 id="process-title">5 Adımda Uzun Dönem Kiralama</h2>
+            <p>İhtiyacınızı belirlemekten aracınızı teslim almaya kadar şeffaf ve yalın kiralama süreci.</p>
+        </div>
+
+        <div class="process-steps">
+            <div class="process-step" data-reveal="fade-up" data-reveal-delay="100">
+                <span class="process-step-connector"></span>
+                <div class="process-step-number">01</div>
+                <h4>İhtiyacını Belirle</h4>
+                <p>Şirketinizin kilometre, yakıt ve kasa tipi beklentilerine göre araç gereksinimini netleştirin.</p>
+            </div>
+            <div class="process-step" data-reveal="fade-up" data-reveal-delay="300">
+                <span class="process-step-connector"></span>
+                <div class="process-step-number">02</div>
+                <h4>Araç ve Paketi Seç</h4>
+                <p>Kataloğumuzdan bütçenize en uygun araç modelini ve güvence paketini belirleyin.</p>
+            </div>
+            <div class="process-step" data-reveal="fade-up" data-reveal-delay="500">
+                <span class="process-step-connector"></span>
+                <div class="process-step-number">03</div>
+                <h4>Teklifini Al</h4>
+                <p>Online form üzerinden veya müşteri temsilciniz aracılığıyla size özel resmi teklifi inceleyin.</p>
+            </div>
+            <div class="process-step" data-reveal="fade-up" data-reveal-delay="700">
+                <span class="process-step-connector"></span>
+                <div class="process-step-number">04</div>
+                <h4>Sözleşmeni Tamamla</h4>
+                <p>Gerekli kurumsal evrakları dijital ortamda hızla tamamlayarak sözleşmeyi onaylayın.</p>
+            </div>
+            <div class="process-step" data-reveal="fade-up" data-reveal-delay="900">
+                <div class="process-step-number">05</div>
+                <h4>Aracını Teslim Al</h4>
+                <p>Plakalandırılmış ve kontrolleri yapılmış sıfır kilometre aracınızı hemen teslim alın.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── 8. GÜÇLÜ KOYU KAPANIŞ CTA ALANI (TEK ARKA PLAN BANNER) ─────── -->
+<section class="closing-cta" aria-labelledby="cta-title" data-reveal="fade-up">
+    <div class="container">
+        <div class="closing-cta-card">
+            <div class="closing-cta-content">
+                <span class="editorial-tag" style="color: var(--color-sand);">Kurumsal Filo Teklifi</span>
+                <h2 id="cta-title">Filonuzu Birlikte Planlayalım.</h2>
+                <p>
+                    Şirketinizin büyüme hedeflerine ve operasyon ihtiyaçlarına özel filo teklifinizi hemen hazırlayalım. Uzman filo danışmanlarımız en geç 2 saat içinde size dönüş yapsın.
+                </p>
+                <div class="closing-cta-actions">
+                    <a href="<?php echo url('hizli-teklif.php'); ?>" class="btn btn-primary btn-lg">
+                        <span>Hızlı Teklif Al</span>
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                    <a href="<?php echo url('iletisim.php'); ?>" class="btn btn-outline btn-lg" style="color: #fff; border-color: rgba(255,255,255,0.35);">
+                        <span>Bizimle İletişime Geç</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── 9. SSS (ÖZEL EDİTORYAL DÜZEN) ─────────────────────────────── -->
+<section class="section section-ivory" aria-labelledby="faq-title" data-reveal="fade-up">
+    <div class="container">
+        <div class="faq-split-layout">
+            <!-- Left: Intro (Vertically Centered) -->
+            <div class="faq-sticky-intro">
+                <span class="editorial-tag">Merak Edilenler</span>
+                <h2 id="faq-title" class="faq-main-title">
+                    Sıkça Sorulan Sorular
+                </h2>
+                <p class="faq-main-desc">
+                    Uzun dönem araç kiralama, filo yönetimi, vergisel avantajlar ve operasyonel süreçler hakkında merak ettiğiniz tüm yanıtlar.
+                </p>
+                <a href="<?php echo url('sss.php'); ?>" class="btn btn-outline btn-read-articles">
+                    <span>Tüm Soruları İncele</span>
+                </a>
+            </div>
+
+            <!-- Right: Numbered Accordion List -->
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button type="button" class="accordion-trigger" aria-expanded="false">
+                        <div class="accordion-title-wrap">
+                            <span class="accordion-num">01</span>
+                            <span>Uzun dönem araç kiralama şirketimize hangi vergisel avantajları sağlar?</span>
+                        </div>
+                        <div class="accordion-icon-btn">
+                            <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </div>
+                    </button>
+                    <div class="accordion-panel">
+                        <div class="accordion-panel-content">
+                            Aylık kira bedelleri doğrudan gider olarak kaydedilebilir, KDV indirim konusu yapılabilir ve MTV, kasko, periyodik bakım gibi operasyonel masraflar şirket bilançosunda borç olarak görünmez. Böylece şirketinizin banka kredi limitleri korunur ve sermaye ana işinizde kalır.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button type="button" class="accordion-trigger" aria-expanded="false">
+                        <div class="accordion-title-wrap">
+                            <span class="accordion-num">02</span>
+                            <span>Hasar veya kaza durumunda ikame araç süreci nasıl işler?</span>
+                        </div>
+                        <div class="accordion-icon-btn">
+                            <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </div>
+                    </button>
+                    <div class="accordion-panel">
+                        <div class="accordion-panel-content">
+                            Aracınızın 24 saatten uzun sürecek bakım ve hasar onarımlarında, seçtiğiniz hizmet paketi doğrultusunda aynı veya üst segment muadil ikame araç 24 saat içinde şirket adresinize teslim edilir. İş akışınız kesintiye uğramaz.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button type="button" class="accordion-trigger" aria-expanded="false">
+                        <div class="accordion-title-wrap">
+                            <span class="accordion-num">03</span>
+                            <span>Mevsimlik lastik değişimi ve saklama hizmeti pakete dahil midir?</span>
+                        </div>
+                        <div class="accordion-icon-btn">
+                            <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </div>
+                    </button>
+                    <div class="accordion-panel">
+                        <div class="accordion-panel-content">
+                            Evet, sözleşme kapsamına göre kış ve yaz lastiği montajı, balans ayarları ve lastik oteli depolama hizmetleri Türkiye genelindeki anlaşmalı servis noktalarımızda ücretsiz sağlanır.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button type="button" class="accordion-trigger" aria-expanded="false">
+                        <div class="accordion-title-wrap">
+                            <span class="accordion-num">04</span>
+                            <span>Minimum kiralama süresi ve araç adedi sınırı nedir?</span>
+                        </div>
+                        <div class="accordion-icon-btn">
+                            <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </div>
+                    </button>
+                    <div class="accordion-panel">
+                        <div class="accordion-panel-content">
+                            KZY Filo'da uzun dönem kiralama süresi 12 aydan başlayıp 48 aya kadar uzanmaktadır. 1 adet araçtan başlayarak yüzlerce araçlık filo ölçeğine kadar tüm kurumsal taleplerinizi karşılıyoruz.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button type="button" class="accordion-trigger" aria-expanded="false">
+                        <div class="accordion-title-wrap">
+                            <span class="accordion-num">05</span>
+                            <span>Periyodik bakım ve onarımlar nerede gerçekleştirilir?</span>
+                        </div>
+                        <div class="accordion-icon-btn">
+                            <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </div>
+                    </button>
+                    <div class="accordion-panel">
+                        <div class="accordion-panel-content">
+                            Tüm periyodik bakımlar, 81 ildeki marka yetkili servislerinde üretici onaylı standartlarla ve orijinal yedek parçalarla yapılır. Randevu ve onay süreçleri KZY Filo operasyon ekibi tarafından yönetilir.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── 10. FİLO REHBERİ & GÜNCEL İÇERİKLER ──────────────────────────── -->
+<?php if (!empty($articles)): ?>
+<section class="section section-paper" aria-labelledby="articles-title" data-reveal="fade-up">
+    <div class="container">
+        <div class="flex flex-between mb-8 flex-wrap gap-4" style="align-items: flex-end;">
+            <div>
+                <span class="editorial-tag">Rehber & Haberler</span>
+                <h2 id="articles-title" style="font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: var(--font-weight-normal); margin-top: var(--space-2); margin-bottom: 0;">
+                    Filo Yönetimi Rehberi
+                </h2>
+            </div>
+            <a href="<?php echo url('blog.php'); ?>" class="btn btn-outline btn-read-articles">
+                <span>Tüm Makaleleri Oku</span>
+            </a>
+        </div>
+
+        <div class="grid grid-3">
+            <?php foreach (array_slice($articles, 0, 3) as $art): ?>
+            <div class="content-card" data-reveal="fade-up">
+                <div class="content-card-image">
+                    <img src="<?php echo !empty($art['image']) ? $art['image'] : asset('images/blog/blog-1.jpg'); ?>" alt="<?php echo htmlspecialchars($art['title'] ?? '', ENT_QUOTES); ?>" loading="lazy">
+                </div>
+                <div class="content-card-body">
+                    <h4>
+                        <a href="<?php echo url('blog-detay.php', ['slug' => $art['slug'] ?? '']); ?>">
+                            <?php echo htmlspecialchars($art['title'] ?? '', ENT_QUOTES); ?>
+                        </a>
+                    </h4>
+                    <a href="<?php echo url('blog-detay.php', ['slug' => $art['slug'] ?? '']); ?>" class="content-card-link">
+                        <span>Devamını Oku</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </a>
+                </div>
+            </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
+<?php endif; ?>
 
 <?php include includePath('footer.php'); ?>
