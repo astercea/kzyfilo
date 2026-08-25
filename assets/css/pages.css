@@ -612,80 +612,638 @@
 }
 
 /* ─── Vehicle Catalog Page (araclar.php) ─────────────────────────── */
-.catalog-header {
+.catalog-page-header {
+    background-color: #53575c;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    padding: var(--space-16) 0 var(--space-12);
+}
+
+.catalog-header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+    margin-bottom: 0;
+}
+
+.catalog-header-text h1 {
+    font-size: clamp(2.2rem, 3.5vw, 3rem);
+    font-weight: var(--font-weight-normal);
+    color: #ffffff;
+    margin: var(--space-2) 0 var(--space-3);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
+
+.catalog-header-subtitle {
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 680px;
+    line-height: 1.65;
+    margin-bottom: 0;
+}
+
+.catalog-header-breadcrumbs {
+    margin-top: var(--space-2);
+}
+
+/* Fast Category Navigation Pills */
+.catalog-category-pills {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-bottom: var(--space-8);
-    padding-bottom: var(--space-4);
-    border-bottom: 1px solid var(--color-border-light);
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: none;
 }
 
-.catalog-count {
-    font-size: var(--font-size-sm);
-    color: var(--color-text-muted);
+.catalog-category-pills::-webkit-scrollbar {
+    display: none;
 }
 
-.catalog-count strong {
-    color: var(--color-text-dark);
+.cat-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0px;
+    padding: 10px 20px;
+    font-family: var(--font-family-heading);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: #ffffff;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.25s ease;
+}
+
+.cat-pill:hover {
+    background-color: rgba(255, 255, 255, 0.16);
+    border-color: rgba(255, 255, 255, 0.35);
+    transform: translateY(-1px);
+}
+
+.cat-pill.is-active {
+    background-color: var(--color-orange);
+    border-color: var(--color-orange);
+    color: #ffffff;
+    box-shadow: 0 4px 16px rgba(245, 130, 32, 0.4);
+}
+
+.cat-pill-count {
+    background-color: rgba(0, 0, 0, 0.25);
+    padding: 2px 7px;
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 0px;
+}
+
+/* ─── Catalog Layout & Sidebar ───────────────────────────────────── */
+.catalog-section {
+    background-color: #f6f7f9;
+    padding: var(--space-12) 0 var(--space-20);
+}
+
+.catalog-layout {
+    display: grid;
+    grid-template-columns: 290px 1fr;
+    gap: var(--space-8);
+    align-items: start;
 }
 
 .catalog-filter-card {
     background-color: #ffffff;
     border: 1px solid var(--color-border-light);
-    border-radius: var(--radius-card);
+    border-radius: 0px;
     padding: var(--space-6);
     position: sticky;
     top: calc(var(--header-height) + var(--space-4));
+    box-shadow: var(--shadow-sm);
 }
 
 .catalog-filter-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: var(--space-6);
-    padding-bottom: var(--space-3);
+    margin-bottom: var(--space-5);
+    padding-bottom: var(--space-4);
     border-bottom: 1px solid var(--color-border-light);
 }
 
-.catalog-filter-title {
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-semibold);
+.catalog-filter-header-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-text-dark);
+}
+
+.catalog-filter-header-left h3 {
+    font-family: var(--font-family-heading);
+    font-size: 14px;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.08em;
+    margin-bottom: 0;
 }
 
 .catalog-filter-clear {
-    font-size: var(--font-size-xs);
+    font-size: 12px;
+    font-weight: 600;
     color: var(--color-orange);
     background: none;
     border: none;
     cursor: pointer;
-    font-weight: var(--font-weight-medium);
+    padding: 0;
+    transition: opacity var(--transition-fast);
 }
 
-.catalog-filter-group {
+.catalog-filter-clear:hover {
+    opacity: 0.75;
+    text-decoration: underline;
+}
+
+/* Filter Search Box */
+.filter-search-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #fbfbfb;
+    border: 1px solid var(--color-border-light);
+    padding: 9px 12px;
     margin-bottom: var(--space-5);
+    transition: border-color var(--transition-fast);
 }
 
-.catalog-filter-group:last-child {
-    margin-bottom: 0;
+.filter-search-box:focus-within {
+    border-color: var(--color-orange);
+    background-color: #ffffff;
 }
 
-.catalog-filter-label {
-    font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-semibold);
+.filter-search-box svg {
+    color: var(--color-text-muted);
+    flex-shrink: 0;
+}
+
+.filter-search-input {
+    border: none;
+    background: none;
+    outline: none;
+    width: 100%;
+    font-size: 13px;
+    color: var(--color-text-dark);
+}
+
+.filter-search-input::placeholder {
+    color: var(--color-text-muted);
+}
+
+/* Filter Group & Checkboxes */
+.filter-group-title {
+    font-family: var(--font-family-heading);
+    font-size: 12.5px;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    color: var(--color-text-muted);
-    margin-bottom: var(--space-2);
-    display: block;
+    color: var(--color-text-dark);
+    margin-bottom: var(--space-3);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.catalog-grid {
+.filter-checkbox-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.filter-checkbox-list {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.filter-checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    cursor: pointer;
+    user-select: none;
+    font-size: 13px;
+    color: var(--color-text-dark);
+    margin: 0;
+}
+
+.filter-checkbox-item input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.checkbox-box {
+    width: 17px;
+    height: 17px;
+    border: 1.5px solid #c2c8d0;
+    border-radius: 0px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all var(--transition-fast);
+}
+
+.filter-checkbox-item:hover .checkbox-box {
+    border-color: var(--color-orange);
+}
+
+.filter-checkbox-item input:checked ~ .checkbox-box {
+    background-color: var(--color-orange);
+    border-color: var(--color-orange);
+}
+
+.filter-checkbox-item input:checked ~ .checkbox-box::after {
+    content: '';
+    width: 4px;
+    height: 8px;
+    border: solid #ffffff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg) translate(-1px, -1px);
+}
+
+.filter-checkbox-item input:checked ~ .checkbox-label {
+    font-weight: 600;
+    color: var(--color-text-dark);
+}
+
+.checkbox-label {
+    transition: color var(--transition-fast);
+}
+
+.filter-divider {
+    height: 1px;
+    background-color: var(--color-border-light);
+    margin: var(--space-4) 0;
+}
+
+/* Price Range Inputs */
+.filter-price-inputs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.price-input-wrap {
+    display: flex;
+    align-items: center;
+    background-color: #fbfbfb;
+    border: 1px solid var(--color-border-light);
+    padding: 6px 10px;
+    flex: 1;
+    transition: border-color var(--transition-fast);
+}
+
+.price-input-wrap:focus-within {
+    border-color: var(--color-orange);
+    background-color: #ffffff;
+}
+
+.price-currency {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    margin-right: 4px;
+}
+
+.filter-price-field {
+    width: 100%;
+    border: none;
+    background: none;
+    outline: none;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-text-dark);
+}
+
+.price-separator {
+    color: var(--color-text-muted);
+    font-weight: 600;
+}
+
+/* ─── Catalog Main Results & Toolbar ─────────────────────────────── */
+.catalog-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    background-color: #ffffff;
+    border: 1px solid var(--color-border-light);
+    border-radius: 0px;
+    padding: 14px 20px;
+    margin-bottom: var(--space-6);
+}
+
+.catalog-count-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13.5px;
+    color: var(--color-text-dark);
+}
+
+.count-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--color-orange);
+}
+
+#catalog-count-number {
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.count-text {
+    color: var(--color-text-muted);
+}
+
+.catalog-toolbar-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+}
+
+.mobile-filter-trigger {
+    display: none;
+    align-items: center;
+    gap: 6px;
+    border-radius: 0px !important;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* Sort Select */
+.catalog-sort {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.catalog-sort-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    margin: 0;
+    white-space: nowrap;
+}
+
+.catalog-select-wrap {
+    position: relative;
+}
+
+.catalog-sort-select {
+    padding: 9px 32px 9px 12px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    background-color: #fbfbfb;
+    border: 1px solid var(--color-border-light);
+    border-radius: 0px;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23121822' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    transition: border-color var(--transition-fast);
+}
+
+.catalog-sort-select:focus {
+    border-color: var(--color-orange);
+}
+
+/* Active Filters Bar */
+.active-filters-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: var(--space-6);
+}
+
+.active-filter-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    background-color: #ffffff;
+    border: 1px solid var(--color-border-light);
+    border-radius: 0px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-text-dark);
+}
+
+.active-filter-chip .chip-remove {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: var(--color-text-muted);
+    transition: color var(--transition-fast);
+}
+
+.active-filter-chip .chip-remove:hover {
+    color: var(--color-orange);
+}
+
+/* ─── Vehicle Grid (3-Columns Sharp Layout) ───────────────────────── */
+.catalog-vehicle-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-6);
+}
+
+/* Empty State */
+.catalog-empty-state {
+    background-color: #ffffff;
+    border: 1px solid var(--color-border-light);
+    border-radius: 0px;
+    padding: var(--space-16) var(--space-8);
+    text-align: center;
+}
+
+.catalog-empty-state.hidden {
+    display: none;
+}
+
+.catalog-empty-state .empty-state-icon {
+    width: 80px;
+    height: 80px;
+    background-color: #f6f7f9;
+    border: 1px solid var(--color-border-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--space-6);
+    color: var(--color-text-muted);
+}
+
+.catalog-empty-state h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    margin-bottom: var(--space-2);
+}
+
+.catalog-empty-state p {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    max-width: 480px;
+    margin: 0 auto var(--space-6);
+}
+
+.catalog-empty-state .btn {
+    border-radius: 0px !important;
+}
+
+/* ─── Bottom Fleet Consulting Banner ─────────────────────────────── */
+.catalog-bottom-consulting {
+    background-color: #121822;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0px;
+    padding: var(--space-10) var(--space-12);
+    margin-top: var(--space-12);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-8);
+}
+
+.consulting-content h3 {
+    font-size: 1.65rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: var(--space-2) 0 var(--space-2);
+    line-height: 1.3;
+}
+
+.consulting-content p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 650px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.consulting-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    flex-shrink: 0;
+}
+
+.consulting-actions .btn {
+    border-radius: 0px !important;
+    padding: 12px 24px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.consulting-actions .btn-outline {
+    background: transparent;
+    border-color: rgba(255, 255, 255, 0.35);
+    color: #ffffff;
+}
+
+.consulting-actions .btn-outline:hover {
+    background-color: #ffffff;
+    border-color: #ffffff;
+    color: #121822;
+}
+
+/* ─── Mobile Drawer (Drawer Styles) ───────────────────────────────── */
+.catalog-drawer-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(8, 13, 18, 0.75);
+    backdrop-filter: blur(4px);
+    z-index: var(--z-modal-backdrop);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-base), visibility var(--transition-base);
+}
+
+.catalog-drawer-backdrop.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.catalog-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 360px;
+    max-width: 90vw;
+    background-color: #ffffff;
+    z-index: var(--z-modal);
+    transform: translateX(100%);
+    transition: transform var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.3);
+}
+
+.catalog-drawer.is-open {
+    transform: translateX(0);
+}
+
+.catalog-drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-5);
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.catalog-drawer-close {
+    background: none;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+    color: var(--color-text-dark);
+}
+
+.catalog-drawer-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--space-5);
+}
+
+.catalog-drawer-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    padding: var(--space-4) var(--space-5);
+    border-top: 1px solid var(--color-border-light);
+    background-color: #fbfbfb;
+}
+
+.catalog-drawer-footer .btn {
+    border-radius: 0px !important;
 }
 
 /* ─── Vehicle Detail Page (arac-detay.php) ────────────────────────── */
