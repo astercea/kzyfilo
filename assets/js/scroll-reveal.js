@@ -21,10 +21,6 @@
         initRevealAnimations();
         initCounterAnimations();
         initEditorialInlineReveal();
-
-        if (!isTouch && !prefersReducedMotion) {
-            initHeroParallax();
-        }
     });
 
     // ─── Top Scroll Progress Bar ────────────────────────────────────
@@ -158,28 +154,5 @@
 
             requestAnimationFrame(tick);
         }
-    }
-
-    // ─── Hero Parallax (Desktop Only) ───────────────────────────────
-    function initHeroParallax() {
-        const heroBg = document.querySelector('.hero-bg img');
-        if (!heroBg) return;
-
-        let ticking = false;
-
-        function onScroll() {
-            if (!ticking) {
-                requestAnimationFrame(function () {
-                    const scrollY = window.scrollY;
-                    if (scrollY < window.innerHeight) {
-                        heroBg.style.transform = `translate3d(0, ${scrollY * 0.15}px, 0)`;
-                    }
-                    ticking = false;
-                });
-                ticking = true;
-            }
-        }
-
-        window.addEventListener('scroll', onScroll, { passive: true });
     }
 })();

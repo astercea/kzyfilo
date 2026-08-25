@@ -46,46 +46,13 @@ if (!defined('ROOT_DIR')) {
     <a href="#main-content" class="skip-link"><?php e('header.skip_to_content'); ?></a>
 
     <div class="page-wrapper">
-        <!-- ─── Topbar ─────────────────────────────────────────────── -->
-        <div class="topbar">
-            <div class="container">
-                <div class="topbar-left">
-                    <a href="tel:<?php e('topbar.phone_full'); ?>" class="topbar-item" title="<?php e('topbar.phone'); ?>">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                        </svg>
-                        <span><?php e('topbar.phone'); ?></span>
-                    </a>
-                    <span class="topbar-divider"></span>
-                    <a href="mailto:<?php e('topbar.email'); ?>" class="topbar-item" title="<?php e('topbar.email'); ?>">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                            <polyline points="22,6 12,13 2,6"></polyline>
-                        </svg>
-                        <span><?php e('topbar.email'); ?></span>
-                    </a>
-                    <span class="topbar-divider"></span>
-                    <div class="topbar-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <polyline points="12 6 12 12 16 14"></polyline>
-                        </svg>
-                        <span><?php e('topbar.working_hours'); ?></span>
-                    </div>
-                </div>
-                <div class="topbar-right">
-                    <?php include includePath('language-switcher.php'); ?>
-                </div>
-            </div>
-        </div>
-
-        <!-- ─── Site Header ────────────────────────────────────────── -->
+        <!-- ─── Site Header (Luxecar Style Direct Top Header) ─────── -->
         <?php $isHome = (basename($_SERVER['SCRIPT_NAME']) === 'index.php'); ?>
         <header class="site-header<?php echo $isHome ? ' is-transparent' : ''; ?>" id="site-header">
-            <div class="container">
+            <div class="header-container">
                 <!-- Logo (Left) -->
                 <a href="<?php echo url('index.php'); ?>" class="site-logo" aria-label="kzyfilo Ana Sayfa">
-                    <img src="<?php echo asset('images/logo/kzy-filo-logo.svg'); ?>" alt="kzyfilo" width="195" height="42">
+                    <img src="<?php echo asset('images/logo/kzy-filo-logo.svg'); ?>" alt="kzyfilo" width="210" height="52">
                 </a>
 
                 <!-- Desktop Navigation (Center) -->
@@ -251,22 +218,29 @@ if (!defined('ROOT_DIR')) {
 
                 <!-- Header Actions (Right) -->
                 <div class="header-actions">
+                    <!-- Search Icon Button -->
+                    <a href="<?php echo url('araclar.php'); ?>" class="header-action-icon" title="Araç Ara" aria-label="Araç Ara">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </a>
+
                     <!-- Listem Button -->
-                    <a href="<?php echo url('listem.php'); ?>" class="header-list-btn" id="header-list-btn" title="<?php e('header.my_list'); ?>" aria-label="<?php e('header.my_list'); ?>">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <a href="<?php echo url('listem.php'); ?>" class="header-action-icon header-list-btn" id="header-list-btn" title="<?php e('header.my_list'); ?>" aria-label="<?php e('header.my_list'); ?>">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
                         </svg>
                         <span class="list-count" id="header-list-count" data-count="0">0</span>
                     </a>
 
                     <!-- CTA Button -->
-                    <a href="<?php echo url('hizli-teklif.php'); ?>" class="btn btn-primary btn-sm">
+                    <a href="<?php echo url('hizli-teklif.php'); ?>" class="btn btn-primary header-cta-btn">
                         <?php e('header.get_quote'); ?>
                     </a>
 
-                    <!-- Hamburger for Mobile -->
+                    <!-- Minimalist 2-line Hamburger for Mobile & Drawer -->
                     <button type="button" class="hamburger-btn" id="hamburger-btn" aria-label="Menüyü Aç/Kapat" aria-expanded="false" aria-controls="mobile-menu">
-                        <span class="hamburger-line"></span>
                         <span class="hamburger-line"></span>
                         <span class="hamburger-line"></span>
                     </button>

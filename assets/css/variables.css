@@ -144,8 +144,8 @@
     --container-narrow: 1080px;
     --container-padding: var(--space-6);
     --header-height: 110px;
-    --header-height-scrolled: 80px;
-    --topbar-height: 38px;
+    --header-height-scrolled: 110px;
+    --topbar-height: 0px;
     --footer-bg: var(--color-navy-950);
 }
 

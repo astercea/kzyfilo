@@ -35,8 +35,8 @@ include includePath('header.php');
         <div class="hero-content" data-reveal="fade-up">
             <span class="hero-tag">Kurumsal Mobilite Çözümleri</span>
             <h1 class="hero-title">
-                İşiniz Yolda Kalsın Diye<br>
-                <strong>Filonuz Hep Hazır.</strong>
+                Yolunuz Açık,<br>
+                <strong>Filonuz Hazır.</strong>
             </h1>
             <p class="hero-lead">
                 Türkiye genelinde operasyonel güvence, sıfır kilometre araç filosu ve şirketinizin sermayesini koruyan esnek uzun dönem kiralama modelleri.
@@ -55,41 +55,40 @@ include includePath('header.php');
             </div>
         </div>
 
-        <!-- Hızlı Araç Arama Paneli -->
-        <form action="<?php echo url('araclar.php'); ?>" method="GET" class="quick-search-panel" role="search" aria-label="Hızlı Araç Bulucu" data-reveal="fade-up">
-            <h3>Filo Aracınızı Bulun</h3>
-            <div class="quick-search-grid">
-                <!-- Araç Tipi -->
-                <div class="quick-search-field">
-                    <label for="search-cat"><?php e('catalog.category'); ?></label>
-                    <select id="search-cat" name="kategori" class="form-select">
-                        <option value=""><?php e('catalog.all'); ?></option>
-                        <option value="binek"><?php e('categories.binek'); ?></option>
-                        <option value="ticari"><?php e('categories.ticari'); ?></option>
-                        <option value="elektrikli"><?php e('categories.elektrikli'); ?></option>
-                        <option value="premium"><?php e('categories.premium'); ?></option>
-                    </select>
-                </div>
-
+        <!-- Hızlı Araç Arama Formu (Luxecar Stili Çerçevesiz Doğrudan Zemin Üzeri) -->
+        <form action="<?php echo url('araclar.php'); ?>" method="GET" class="hero-search-bar" role="search" aria-label="Hızlı Araç Bulucu" data-reveal="fade-up">
+            <div class="hero-search-grid">
                 <!-- Marka -->
-                <div class="quick-search-field">
-                    <label for="search-brand"><?php e('catalog.brand'); ?></label>
-                    <select id="search-brand" name="marka" class="form-select">
-                        <option value=""><?php e('catalog.all'); ?></option>
+                <div class="hero-search-item">
+                    <select id="search-brand" name="marka" class="hero-select" aria-label="Marka Seçin">
+                        <option value=""><?php echo (CURRENT_LANG === 'tr') ? 'Marka Seçin' : 'Select Brand'; ?></option>
                         <option value="Renault">Renault</option>
                         <option value="Fiat">Fiat</option>
                         <option value="Toyota">Toyota</option>
                         <option value="BMW">BMW</option>
+                        <option value="Mercedes-Benz">Mercedes-Benz</option>
                         <option value="MG">MG</option>
                         <option value="Ford">Ford</option>
+                        <option value="Peugeot">Peugeot</option>
                     </select>
                 </div>
 
-                <!-- Yakıt Tipi -->
-                <div class="quick-search-field">
-                    <label for="search-fuel"><?php e('catalog.fuel'); ?></label>
-                    <select id="search-fuel" name="yakit" class="form-select">
-                        <option value=""><?php e('catalog.all'); ?></option>
+                <!-- Kasa / Model Tipi -->
+                <div class="hero-search-item">
+                    <select id="search-cat" name="kategori" class="hero-select" aria-label="Kasa / Model Tipi">
+                        <option value=""><?php echo (CURRENT_LANG === 'tr') ? 'Kasa / Model Tipi' : 'Body / Model'; ?></option>
+                        <option value="binek">Sedan & Hatchback</option>
+                        <option value="suv">SUV & Crossover</option>
+                        <option value="ticari">Ticari & Panelvan</option>
+                        <option value="premium">Executive & Premium</option>
+                        <option value="elektrikli">Elektrikli & Hibrit</option>
+                    </select>
+                </div>
+
+                <!-- Yakıt Türü -->
+                <div class="hero-search-item">
+                    <select id="search-fuel" name="yakit" class="hero-select" aria-label="Yakıt Türü">
+                        <option value=""><?php echo (CURRENT_LANG === 'tr') ? 'Yakıt Türü' : 'Fuel Type'; ?></option>
                         <option value="benzin"><?php e('fuel_types.benzin'); ?></option>
                         <option value="dizel"><?php e('fuel_types.dizel'); ?></option>
                         <option value="hibrit"><?php e('fuel_types.hibrit'); ?></option>
@@ -97,21 +96,10 @@ include includePath('header.php');
                     </select>
                 </div>
 
-                <!-- Kiralama Süresi -->
-                <div class="quick-search-field">
-                    <label for="search-term"><?php echo (CURRENT_LANG === 'tr') ? 'Kiralama Süresi' : 'Lease Term'; ?></label>
-                    <select id="search-term" name="sure" class="form-select">
-                        <option value="12">12 Ay</option>
-                        <option value="24">24 Ay</option>
-                        <option value="36" selected>36 Ay</option>
-                        <option value="48">48 Ay</option>
-                    </select>
-                </div>
-
-                <!-- Submit Button -->
-                <div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%; min-height: 44px;">
-                        <span><?php e('home.search_btn'); ?></span>
+                <!-- Gönder Butonu (ARAÇ BUL) -->
+                <div class="hero-search-item hero-search-btn-wrap">
+                    <button type="submit" class="hero-search-btn">
+                        <span><?php echo (CURRENT_LANG === 'tr') ? 'ARAÇ BUL' : 'SEARCH'; ?></span>
                     </button>
                 </div>
             </div>

@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initCustomSelects(root = document) {
-    const selects = root.querySelectorAll('select.form-select:not([data-custom-select-initialized])');
+    const selects = root.querySelectorAll('select.form-select:not([data-custom-select-initialized]), select.hero-select:not([data-custom-select-initialized])');
     
     selects.forEach(select => {
         // Skip multi-select or hidden selects
