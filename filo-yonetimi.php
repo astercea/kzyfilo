@@ -17,20 +17,10 @@ $breadcrumbs = [
 
 include includePath('header.php');?>
 
-<div class="service-hero">
+<div class="page-header">
     <div class="container">
-        <div class="max-w-xl">
-            <span class="hero-subtitle">Kurumsal Mobilite Çözümleri</span>
-            <h1 class="text-4xl mb-4"><?php e('solutions_menu.fleet_management'); ?></h1>
-            <p class="text-lg text-muted mb-6">
-                Araç takip, yakıt optimizasyonu, periyodik bakım planlama ve 7/24 operasyonel destek ile şirket filonuzu sıfır aksamayla yönetiyoruz.
-            </p>
-            <div class="flex gap-4">
-                <a href="<?php echo url('filo-teklif.php'); ?>" class="btn btn-primary btn-lg"><?php e('quote_form.fleet_title'); ?></a>
-                <button type="button" class="btn btn-outline btn-lg" data-open-modal="callback"><?php e('home.cta_call'); ?></button>
-                    <?php include includePath('breadcrumbs.php'); ?>
-    </div>
-        </div>
+        <h1><?php e('solutions_menu.fleet_management'); ?></h1>
+        <?php include includePath('breadcrumbs.php'); ?>
     </div>
 </div>
 

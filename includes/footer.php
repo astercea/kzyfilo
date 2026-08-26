@@ -117,6 +117,7 @@ if (!defined('ROOT_DIR')) {
     <!-- ─── Reusable Modals & Widgets ───────────────────────────────── -->
     <?php include includePath('compare-tray.php'); ?>
     <?php include includePath('cookie-banner.php'); ?>
+    <?php include includePath('floating-contact.php'); ?>
 
     <!-- Toast Notification Container (Accessible Live Region) -->
     <div class="toast-container" id="toast-container" aria-live="polite" aria-atomic="true"></div>

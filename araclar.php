@@ -34,22 +34,10 @@ include includePath('header.php');
 ?>
 
 <!-- ─── PAGE HEADER & FAST CATEGORY BAR ───────────────────────────── -->
-<div class="page-header catalog-page-header">
+<div class="page-header">
     <div class="container">
-        <div class="catalog-header-content">
-            <div class="catalog-header-text">
-                <span class="editorial-tag"><?php echo (CURRENT_LANG === 'tr') ? 'KURUMSAL FİLO PORTFÖYÜ' : 'CORPORATE FLEET PORTFOLIO'; ?></span>
-                <h1><?php e('catalog.title'); ?></h1>
-                <p class="catalog-header-subtitle">
-                    <?php echo (CURRENT_LANG === 'tr') 
-                        ? 'Şirketinizin operasyonel verimliliğini ve prestijini artıracak sıfır km binek, ticari ve elektrikli filo çözümleri.' 
-                        : 'Brand new passenger, commercial and electric fleet solutions tailored to maximize your corporate mobility.'; ?>
-                </p>
-            </div>
-            <div class="catalog-header-breadcrumbs">
-                <?php include includePath('breadcrumbs.php'); ?>
-            </div>
-        </div>
+        <h1><?php e('catalog.title'); ?></h1>
+        <?php include includePath('breadcrumbs.php'); ?>
     </div>
 </div>
 
@@ -247,15 +235,8 @@ include includePath('header.php');
 
             <!-- ─── VEHICLE RESULTS MAIN ───────────────────────────────── -->
             <main class="catalog-main">
-                <!-- Toolbar -->
-                <div class="catalog-toolbar">
-                    <div class="catalog-count-badge">
-                        <span class="count-dot"></span>
-                        <span id="catalog-count-number"><?php echo count($vehicles); ?></span>
-                        <span class="count-text"><?php echo (CURRENT_LANG === 'tr') ? 'araç listeleniyor' : 'vehicles listed'; ?></span>
-                    </div>
-
-                    <!-- Mobile Filter Drawer Trigger -->
+                <!-- Mobile Filter Trigger (Mobile Only) -->
+                <div class="catalog-mobile-trigger-bar">
                     <button type="button" class="btn btn-outline mobile-filter-trigger" id="catalog-drawer-trigger">
                         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                             <line x1="4" y1="21" x2="4" y2="14"></line>
@@ -267,22 +248,6 @@ include includePath('header.php');
                         </svg>
                         <span><?php e('catalog.filters'); ?></span>
                     </button>
-
-                    <div class="catalog-toolbar-actions">
-                        <!-- Sort Select -->
-                        <div class="catalog-sort">
-                            <label for="catalog-sort-select" class="catalog-sort-label"><?php e('catalog.sort_by'); ?>:</label>
-                            <div class="catalog-select-wrap">
-                                <select id="catalog-sort-select" class="catalog-sort-select">
-                                    <option value="recommended"><?php e('catalog.sort_recommended'); ?></option>
-                                    <option value="price_asc"><?php e('catalog.sort_price_asc'); ?></option>
-                                    <option value="price_desc"><?php e('catalog.sort_price_desc'); ?></option>
-                                    <option value="brand_az"><?php e('catalog.sort_brand_az'); ?></option>
-                                    <option value="newest"><?php e('catalog.sort_newest'); ?></option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
                 <!-- Active Filter Tags -->

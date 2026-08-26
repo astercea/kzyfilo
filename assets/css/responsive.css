@@ -75,8 +75,8 @@
         display: none;
     }
 
-    .mobile-filter-trigger {
-        display: inline-flex;
+    .catalog-mobile-trigger-bar {
+        display: flex;
     }
 
     .catalog-vehicle-grid {
@@ -264,17 +264,6 @@
 
     .catalog-vehicle-grid {
         grid-template-columns: 1fr;
-    }
-
-    .catalog-toolbar {
-        flex-direction: column;
-        align-items: stretch;
-        gap: var(--space-3);
-    }
-
-    .catalog-toolbar-actions {
-        justify-content: space-between;
-        width: 100%;
     }
 
     .catalog-bottom-consulting {

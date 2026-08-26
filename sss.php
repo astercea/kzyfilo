@@ -22,8 +22,7 @@ include includePath('header.php');
 
 <div class="page-header">
     <div class="container">
-        <span class="editorial-tag" style="color: var(--color-sand);">Bilgi Bankası</span>
-        <h1 style="margin-top: var(--space-2);"><?php e('faq.title'); ?></h1>
+        <h1><?php e('faq.title'); ?></h1>
         <?php include includePath('breadcrumbs.php'); ?>
     </div>
 </div>

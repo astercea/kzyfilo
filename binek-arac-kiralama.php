@@ -20,20 +20,10 @@ $breadcrumbs = [
 
 include includePath('header.php');?>
 
-<div class="service-hero">
+<div class="page-header">
     <div class="container">
-        <div class="max-w-xl">
-            <span class="hero-subtitle"><?php e('site_name'); ?> Binek Filo</span>
-            <h1 class="text-4xl mb-4"><?php e('solutions_menu.passenger_rental'); ?></h1>
-            <p class="text-lg text-muted mb-6">
-                Ekonomik hatchback modellerden üst segment yönetici sedan ve SUV araçlarına kadar zengin binek araç seçenekleri.
-            </p>
-            <div class="flex gap-4">
-                <a href="<?php echo url('araclar.php', ['kategori' => 'binek']); ?>" class="btn btn-primary btn-lg"><?php e('home.hero_cta_vehicles'); ?></a>
-                <a href="<?php echo url('hizli-teklif.php'); ?>" class="btn btn-outline btn-lg"><?php e('header.get_quote'); ?></a>
-                    <?php include includePath('breadcrumbs.php'); ?>
-    </div>
-        </div>
+        <h1><?php e('solutions_menu.passenger_rental'); ?></h1>
+        <?php include includePath('breadcrumbs.php'); ?>
     </div>
 </div>
 

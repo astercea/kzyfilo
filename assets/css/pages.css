@@ -614,23 +614,43 @@
 /* ─── Vehicle Catalog Page (araclar.php) ─────────────────────────── */
 .catalog-page-header {
     background-color: #53575c;
+    background-image: url('../images/banners/catalog-header-bg.jpg');
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-size: cover;
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-    padding: var(--space-16) 0 var(--space-12);
+    padding: var(--space-20) 0 var(--space-16);
+    position: relative;
+    overflow: hidden;
+}
+
+.catalog-page-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, rgba(20, 26, 34, 0.75) 0%, rgba(20, 26, 34, 0.4) 50%, rgba(20, 26, 34, 0.1) 100%);
+    pointer-events: none;
+    z-index: 1;
 }
 
 .catalog-header-content {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: var(--space-3);
+    gap: 0;
     margin-bottom: 0;
+    position: relative;
+    z-index: 2;
 }
 
 .catalog-header-text h1 {
     font-size: clamp(2.2rem, 3.5vw, 3rem);
     font-weight: var(--font-weight-normal);
     color: #ffffff;
-    margin: var(--space-2) 0 var(--space-3);
+    margin: 0 0 6px 0;
     line-height: 1.2;
     letter-spacing: -0.01em;
 }
@@ -644,7 +664,7 @@
 }
 
 .catalog-header-breadcrumbs {
-    margin-top: var(--space-2);
+    margin-top: 0;
 }
 
 /* Fast Category Navigation Pills */
@@ -933,97 +953,20 @@
     font-weight: 600;
 }
 
-/* ─── Catalog Main Results & Toolbar ─────────────────────────────── */
-.catalog-toolbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-4);
-    background-color: #ffffff;
-    border: 1px solid var(--color-border-light);
-    border-radius: 0px;
-    padding: 14px 20px;
-    margin-bottom: var(--space-6);
-}
-
-.catalog-count-badge {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 13.5px;
-    color: var(--color-text-dark);
-}
-
-.count-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: var(--color-orange);
-}
-
-#catalog-count-number {
-    font-weight: 700;
-    font-size: 15px;
-}
-
-.count-text {
-    color: var(--color-text-muted);
-}
-
-.catalog-toolbar-actions {
-    display: flex;
-    align-items: center;
-    gap: var(--space-4);
+/* ─── Catalog Mobile Filter Trigger Bar ──────────────────────────── */
+.catalog-mobile-trigger-bar {
+    display: none;
+    margin-bottom: var(--space-4);
 }
 
 .mobile-filter-trigger {
-    display: none;
-    align-items: center;
-    gap: 6px;
-    border-radius: 0px !important;
-    padding: 8px 16px;
-    font-size: 13px;
-    font-weight: 600;
-}
-
-/* Sort Select */
-.catalog-sort {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 8px;
-}
-
-.catalog-sort-label {
+    border-radius: var(--radius-sm) !important;
+    padding: 9px 18px;
     font-size: 13px;
     font-weight: 600;
-    color: var(--color-text-muted);
-    margin: 0;
-    white-space: nowrap;
-}
-
-.catalog-select-wrap {
-    position: relative;
-}
-
-.catalog-sort-select {
-    padding: 9px 32px 9px 12px;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--color-text-dark);
-    background-color: #fbfbfb;
-    border: 1px solid var(--color-border-light);
-    border-radius: 0px;
-    outline: none;
-    cursor: pointer;
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23121822' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    transition: border-color var(--transition-fast);
-}
-
-.catalog-sort-select:focus {
-    border-color: var(--color-orange);
 }
 
 /* Active Filters Bar */
@@ -1031,7 +974,16 @@
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    margin-bottom: var(--space-6);
+}
+
+.active-filters-bar:empty {
+    display: none;
+    margin: 0;
+    padding: 0;
+}
+
+.active-filters-bar:not(:empty) {
+    margin-bottom: var(--space-5);
 }
 
 .active-filter-chip {
@@ -1159,15 +1111,17 @@
 }
 
 .consulting-actions .btn-outline {
-    background: transparent;
-    border-color: rgba(255, 255, 255, 0.35);
-    color: #ffffff;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #ffffff !important;
+    transition: all var(--transition-fast);
 }
 
 .consulting-actions .btn-outline:hover {
     background-color: #ffffff;
     border-color: #ffffff;
-    color: #121822;
+    color: #121822 !important;
+    box-shadow: 0 4px 14px rgba(255, 255, 255, 0.2);
 }
 
 /* ─── Mobile Drawer (Drawer Styles) ───────────────────────────────── */

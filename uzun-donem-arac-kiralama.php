@@ -20,20 +20,10 @@ $breadcrumbs = [
 
 include includePath('header.php');?>
 
-<div class="service-hero">
+<div class="page-header">
     <div class="container">
-        <div class="max-w-xl">
-            <span class="hero-subtitle"><?php e('site_name'); ?> Filo Çözümleri</span>
-            <h1 class="text-4xl mb-4"><?php e('solutions_menu.long_term_rental'); ?></h1>
-            <p class="text-lg text-muted mb-6">
-                Şirket sermayenizi araç satın almaya bağlamadan, sabit aylık giderler, tam vergi avantajı ve sıfır operasyonel risk ile filonuzu yenileyin.
-            </p>
-            <div class="flex gap-4">
-                <a href="<?php echo url('hizli-teklif.php'); ?>" class="btn btn-primary btn-lg"><?php e('header.get_quote'); ?></a>
-                <a href="<?php echo url('araclar.php'); ?>" class="btn btn-outline btn-lg"><?php e('home.hero_cta_vehicles'); ?></a>
-                    <?php include includePath('breadcrumbs.php'); ?>
-    </div>
-        </div>
+        <h1><?php e('solutions_menu.long_term_rental'); ?></h1>
+        <?php include includePath('breadcrumbs.php'); ?>
     </div>
 </div>
 

@@ -17,13 +17,10 @@ $breadcrumbs = [
 
 include includePath('header.php');?>
 
-<div class="service-hero">
-    <div class="container text-center">
-        <span class="hero-subtitle">Şeffaf ve Güvenilir Süreçler</span>
-        <h1 class="text-4xl mb-4"><?php e('solutions_menu.delivery_return'); ?></h1>
-        <p class="text-lg text-muted max-w-xl mx-auto mb-6">
-            Aracınızı teslim alırken ve sözleşme sonunda iade ederken izlenecek pratik adımlar, gerekli evraklar ve teslim noktaları.
-        </p>
+<div class="page-header">
+    <div class="container">
+        <h1><?php e('solutions_menu.delivery_return'); ?></h1>
+        <?php include includePath('breadcrumbs.php'); ?>
     </div>
 </div>
 

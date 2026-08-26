@@ -35,7 +35,7 @@ $breadcrumbs = [
 include includePath('header.php');?>
 
 <div class="page-header">
-    <div class="container container-narrow">
+    <div class="container">
         <h1><?php echo esc($article['title']); ?></h1>
         <?php include includePath('breadcrumbs.php'); ?>
     </div>
