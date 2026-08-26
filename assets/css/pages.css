@@ -1457,3 +1457,567 @@
     color: var(--color-success);
     flex-shrink: 0;
 }
+
+/* ═══════════════════════════════════════════════════════════════════
+   KZY Executive Solutions — Comprehensive Architecture Styles
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ─── 1. Solution Benefit Grid & Cards ───────────────────────────── */
+.solution-benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+}
+
+.solution-benefit-card {
+    background-color: #ffffff;
+    border: 1px solid var(--color-border-light);
+    border-radius: 0;
+    padding: var(--space-8);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.solution-benefit-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(241, 90, 36, 0.45);
+    box-shadow: 0 16px 36px rgba(18, 24, 34, 0.08);
+}
+
+.solution-icon-wrap {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f7f6f2;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+    color: var(--color-orange);
+    margin-bottom: var(--space-5);
+}
+
+.solution-icon-wrap svg {
+    width: 26px;
+    height: 26px;
+    stroke-width: 1.8;
+}
+
+.solution-benefit-card h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: var(--space-3);
+    color: #121822;
+}
+
+.solution-benefit-card p {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    line-height: 1.65;
+    margin-bottom: 0;
+}
+
+/* ─── 2. Executive Comparison Matrix (Satın Alma vs. Kiralama) ─────── */
+.comparison-matrix-wrap {
+    background-color: #ffffff;
+    border: 1px solid var(--color-border-light);
+    overflow-x: auto;
+    box-shadow: var(--shadow-card);
+}
+
+.comparison-matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    min-width: 680px;
+}
+
+.comparison-matrix-table th,
+.comparison-matrix-table td {
+    padding: var(--space-5) var(--space-6);
+    border-bottom: 1px solid var(--color-border-light);
+    font-size: 0.95rem;
+}
+
+.comparison-matrix-table th {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    color: #121822;
+    background-color: #f7f6f2;
+}
+
+.comparison-matrix-table th.col-highlight {
+    background-color: #0c131c;
+    color: #ffffff;
+    border-bottom-color: #0c131c;
+}
+
+.comparison-matrix-table td.col-highlight {
+    background-color: rgba(241, 90, 36, 0.03);
+    font-weight: 600;
+    color: #121822;
+    border-left: 2px solid var(--color-orange);
+}
+
+.comparison-matrix-table tr:last-child td {
+    border-bottom: none;
+}
+
+.matrix-pro {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #0d7a46;
+    font-weight: 600;
+}
+
+.matrix-con {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #8c2020;
+    font-weight: 500;
+}
+
+/* ─── 3. Solution Process Pipeline (4-Step Timeline) ─────────────── */
+.solution-process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-6);
+    position: relative;
+}
+
+.solution-step-card {
+    background-color: #ffffff;
+    border: 1px solid var(--color-border-light);
+    padding: var(--space-8) var(--space-6);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.solution-step-num {
+    font-size: 2.5rem;
+    font-family: var(--font-family-heading);
+    font-weight: 800;
+    color: rgba(241, 90, 36, 0.25);
+    line-height: 1;
+    margin-bottom: var(--space-3);
+}
+
+.solution-step-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #121822;
+    margin-bottom: var(--space-2);
+}
+
+.solution-step-desc {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* ─── 4. Executive Metric Strip ──────────────────────────────────── */
+.solution-metric-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+    padding: var(--space-10) var(--space-8);
+    background-color: #0c131c;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+.solution-metric-item {
+    text-align: center;
+    padding: var(--space-4);
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.solution-metric-item:last-child {
+    border-right: none;
+}
+
+.solution-metric-val {
+    font-size: clamp(2.2rem, 3vw, 3rem);
+    font-weight: 800;
+    color: var(--color-orange);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: var(--space-2);
+}
+
+.solution-metric-label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: var(--space-1);
+}
+
+.solution-metric-sub {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0;
+}
+
+/* ─── 5. Interactive Solution Tabs (Teslim & İade) ─────────────────── */
+.solution-tab-wrap {
+    background-color: #ffffff;
+    border: 1px solid var(--color-border-light);
+    box-shadow: var(--shadow-card);
+}
+
+.solution-tab-nav {
+    display: flex;
+    border-bottom: 1px solid var(--color-border-light);
+    background-color: #f7f6f2;
+}
+
+.solution-tab-btn {
+    flex: 1;
+    padding: var(--space-5) var(--space-6);
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    font-family: inherit;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.solution-tab-btn:hover {
+    color: #121822;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.solution-tab-btn.is-active {
+    color: #121822;
+    background-color: #ffffff;
+    border-bottom-color: var(--color-orange);
+}
+
+.solution-tab-pane {
+    display: none;
+    padding: var(--space-8);
+}
+
+.solution-tab-pane.is-active {
+    display: block;
+}
+
+/* ─── 6. Solution Checklist Card ─────────────────────────────────── */
+.checklist-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+}
+
+.checklist-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    background-color: #f7f6f2;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.checklist-item svg {
+    width: 20px;
+    height: 20px;
+    color: #0d7a46;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.checklist-item strong {
+    display: block;
+    font-size: 0.95rem;
+    color: #121822;
+    margin-bottom: 2px;
+}
+
+.checklist-item p {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0;
+}
+
+/* ─── 7. Segment Showcase Cards (Binek / Ticari) ──────────────────── */
+.segment-tier-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+}
+
+.segment-tier-card {
+    background-color: #ffffff;
+    border: 1px solid var(--color-border-light);
+    padding: var(--space-8);
+    display: flex;
+    flex-direction: column;
+    transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.segment-tier-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(241, 90, 36, 0.4);
+    box-shadow: 0 14px 32px rgba(18, 24, 34, 0.08);
+}
+
+.segment-tier-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    background-color: #0c131c;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: var(--space-4);
+    align-self: flex-start;
+}
+
+/* ─── 8. Solution Addon Card ─────────────────────────────────────── */
+.addon-service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+}
+
+.addon-service-card {
+    background-color: #ffffff;
+    border: 1px solid var(--color-border-light);
+    padding: var(--space-8);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.addon-service-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(241, 90, 36, 0.4);
+    box-shadow: 0 14px 32px rgba(18, 24, 34, 0.08);
+}
+
+.addon-price-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    background-color: rgba(241, 90, 36, 0.1);
+    color: var(--color-orange);
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 4px;
+}
+
+.addon-features-list {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-4) 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.addon-features-list li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: var(--color-text-dark);
+}
+
+.addon-features-list li svg {
+    width: 16px;
+    height: 16px;
+    color: #0d7a46;
+    flex-shrink: 0;
+}
+
+/* ─── 9. Solution Dedicated CTA Box ──────────────────────────────── */
+.solution-cta-card {
+    background: linear-gradient(135deg, #0c131c 0%, #17212d 100%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: var(--space-12) var(--space-8);
+    text-align: center;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+.solution-cta-card h3 {
+    font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: var(--space-3);
+}
+
+.solution-cta-card p {
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.82);
+    max-width: 640px;
+    margin: 0 auto var(--space-8);
+    line-height: 1.65;
+}
+
+.solution-cta-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+}
+
+.solution-cta-actions .btn-outline {
+    background-color: transparent;
+    border-color: rgba(255, 255, 255, 0.6);
+    color: #ffffff;
+}
+
+.solution-cta-actions .btn-outline:hover {
+    background-color: #ffffff;
+    border-color: #ffffff;
+    color: #121822 !important;
+}
+
+@media (max-width: 991px) {
+    .solution-benefit-grid,
+    .solution-process-grid,
+    .segment-tier-grid,
+    .addon-service-grid,
+    .solution-metric-strip {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .solution-metric-item {
+        border-right: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .solution-benefit-grid,
+    .solution-process-grid,
+    .segment-tier-grid,
+    .addon-service-grid,
+    .checklist-grid,
+    .solution-metric-strip {
+        grid-template-columns: 1fr;
+    }
+}
+/* ─── 10. Compact Elegant File Upload Button ─────────────────────── */
+.compact-file-upload {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #f7f6f2;
+    border: 1px solid var(--color-border-light);
+    border-radius: 4px;
+    padding: 6px 14px 6px 6px;
+    max-width: 100%;
+    transition: all var(--transition-fast);
+}
+
+.compact-file-upload:hover {
+    border-color: rgba(18, 24, 34, 0.28);
+    background-color: #ffffff;
+}
+
+.compact-file-input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.btn-compact-upload {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background-color: #121822;
+    color: #ffffff;
+    border: none;
+    border-radius: 3px;
+    padding: 8px 16px;
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    pointer-events: none;
+    transition: background-color var(--transition-fast);
+}
+
+.btn-compact-upload svg {
+    width: 15px;
+    height: 15px;
+    color: var(--color-sand);
+    transition: color var(--transition-fast);
+}
+
+.compact-file-upload:hover .btn-compact-upload {
+    background-color: var(--color-orange);
+}
+
+.compact-file-upload:hover .btn-compact-upload svg {
+    color: #ffffff;
+}
+
+.compact-file-name {
+    font-size: 13px;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 240px;
+    pointer-events: none;
+}
+
+.compact-file-name.is-selected {
+    color: #121822;
+    font-weight: 600;
+}
+
+.compact-file-clear {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: #8c2020;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 50%;
+    position: relative;
+    z-index: 10;
+    transition: background-color var(--transition-fast);
+}
+
+.compact-file-clear:hover {
+    background-color: rgba(140, 32, 32, 0.12);
+}
+
+@media (max-width: 575px) {
+    .compact-file-upload {
+        width: 100%;
+        justify-content: space-between;
+    }
+    .compact-file-name {
+        max-width: 140px;
+    }
+}
+
