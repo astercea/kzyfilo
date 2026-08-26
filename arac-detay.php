@@ -1,6 +1,7 @@
 <?php
 /**
  * kzyfilo — Araç Detay Sayfası (arac-detay.php)
+ * High-End Interactive Vehicle Showroom & Live Configurator
  */
 require_once __DIR__ . '/includes/config.php';
 
@@ -63,221 +64,110 @@ $breadcrumbs = [
 
 include includePath('header.php');?>
 
-<div class="section">
+<!-- ─── 1. ANA SHOWROOM & KONFİGÜRATÖR DÜZENİ ──────────────────────── -->
+<section class="section section-ivory" style="padding-top: var(--space-8);">
     <div class="container">
         
-        <!-- ─── 1. TOP HERO STAGE: TITLE, ENLARGED PHOTO & FAST SPECS ─── -->
-        <div class="detail-hero-stage mb-12" data-reveal="fade-up">
-            <div class="detail-header mb-6">
-                <h1 class="text-3xl mb-1"><?php echo esc($vTitle); ?></h1>
-                <p class="text-base text-muted"><?php echo esc($vVersion); ?></p>
-            </div>
-
-            <!-- Centered & Enlarged Main Image Stage -->
-            <div class="detail-stage-card card mb-8" data-spotlight>
-                <img src="<?php echo esc($vehicle['image']); ?>" alt="<?php echo esc($vTitle); ?>" class="card-img" id="detail-main-image">
-            </div>
-
-            <!-- Fast Spec Badges Strip -->
-            <div class="detail-specs-grid grid grid-4 gap-4">
-                <div class="card p-3 text-center" data-spotlight>
-                    <span class="text-xs text-muted block mb-1"><?php e('catalog.fuel'); ?></span>
-                    <strong><?php e('fuel_types.' . $vehicle['fuel']); ?></strong>
-                </div>
-                <div class="card p-3 text-center" data-spotlight>
-                    <span class="text-xs text-muted block mb-1"><?php e('catalog.transmission'); ?></span>
-                    <strong><?php e('transmission_types.' . $vehicle['transmission']); ?></strong>
-                </div>
-                <div class="card p-3 text-center" data-spotlight>
-                    <span class="text-xs text-muted block mb-1"><?php e('catalog.body_type'); ?></span>
-                    <strong><?php e('body_types.' . $vehicle['body']); ?></strong>
-                </div>
-                <div class="card p-3 text-center" data-spotlight>
-                    <span class="text-xs text-muted block mb-1"><?php e('catalog.seats'); ?></span>
-                    <strong><?php echo esc($vehicle['seats']); ?> <?php e('vehicle_card.seats'); ?></strong>
-                </div>
-            </div>
+        <!-- Üst Başlık (Her iki sütunun üstünde yer alır) -->
+        <div class="mb-6">
+            <h1 class="text-3xl fw-bold text-dark m-0" style="letter-spacing: -0.01em;">
+                <?php echo esc($vTitle); ?>
+            </h1>
+            <p class="text-base text-muted mt-1 mb-0"><?php echo esc($vVersion); ?></p>
         </div>
 
-        <!-- ─── 2. TWO-COLUMN GRID: TECHNICAL TABS (LEFT) & QUOTE CALCULATOR (RIGHT) ─── -->
-        <div class="detail-content-grid" data-reveal="fade-up">
+        <div class="vehicle-hero-layout">
             
-            <!-- Left: Detailed Specs Tabs -->
-            <div class="detail-tabs-wrap">
-                <h2 class="detail-section-title mb-4">TEKNİK DETAYLAR VE HİZMETLER</h2>
-                <div class="tabs-container card p-6">
-                    <div class="tabs-nav mb-6" role="tablist">
-                        <button type="button" class="tab-btn is-active" role="tab" aria-selected="true" data-tab="specs"><?php e('vehicle_detail.tab_specs'); ?></button>
-                        <button type="button" class="tab-btn" role="tab" aria-selected="false" data-tab="services"><?php e('vehicle_detail.tab_services'); ?></button>
-                        <button type="button" class="tab-btn" role="tab" aria-selected="false" data-tab="terms"><?php e('vehicle_detail.tab_lease_terms'); ?></button>
-                        <button type="button" class="tab-btn" role="tab" aria-selected="false" data-tab="faq"><?php e('vehicle_detail.tab_faq'); ?></button>
+            <!-- ─── SOL SÜTUN: SHOWROOM VİTRİNİ & HIZLI ÖZELLİKLER ────── -->
+            <div class="vehicle-left-col">
+                <!-- Showroom Görsel Sahnesi -->
+                <div class="vehicle-showroom-stage" data-spotlight>
+                    <img src="<?php echo esc($vehicle['image']); ?>" 
+                         alt="<?php echo esc($vTitle); ?>" 
+                         class="vehicle-showroom-img" 
+                         id="detail-main-image">
+                </div>
+
+                <!-- Hızlı Özellikler Şeridi (Çerçevesiz & Büyük Metinli) -->
+                <div class="fast-specs-grid">
+                    <div class="fast-spec-pill">
+                        <span class="fast-spec-label"><?php e('catalog.fuel'); ?></span>
+                        <span class="fast-spec-val"><?php e('fuel_types.' . $vehicle['fuel']); ?></span>
                     </div>
-
-                    <!-- Tab 1: Technical Specs -->
-                    <div class="tab-panel is-active" id="tab-specs" role="tabpanel">
-                        <?php foreach ($vehicle['specs'] as $groupKey => $groupData): ?>
-                            <div class="mb-6">
-                                <h4 class="specs-group-title">
-                                    <?php echo esc($groupKey); ?>
-                                </h4>
-                                <div class="specs-table">
-                                    <?php foreach ($groupData as $label => $val): ?>
-                                        <div class="specs-row">
-                                            <span class="specs-label"><?php echo esc($label); ?></span>
-                                            <span class="specs-value"><?php echo esc($val); ?></span>
-                                        </div>
-                                    <?php endforeach; ?>
-                                </div>
-                            </div>
-                        <?php endforeach; ?>
+                    <div class="fast-spec-pill">
+                        <span class="fast-spec-label"><?php e('catalog.transmission'); ?></span>
+                        <span class="fast-spec-val"><?php e('transmission_types.' . $vehicle['transmission']); ?></span>
                     </div>
+                    <div class="fast-spec-pill">
+                        <span class="fast-spec-label"><?php e('catalog.body_type'); ?></span>
+                        <span class="fast-spec-val"><?php e('body_types.' . $vehicle['body']); ?></span>
+                    </div>
+                    <div class="fast-spec-pill">
+                        <span class="fast-spec-label"><?php e('catalog.seats'); ?></span>
+                        <span class="fast-spec-val"><?php echo esc($vehicle['seats']); ?> Kişi</span>
+                    </div>
+                </div>
 
-                    <!-- Tab 2: Included & Extra Services -->
-                    <div class="tab-panel hidden" id="tab-services" role="tabpanel">
-                        <div class="tab-section-intro mb-6">
-                            <h3 class="text-base fw-bold text-dark mb-1">Standart Kiralamaya Dahil Olan Hizmetler</h3>
-                            <p class="text-sm text-muted mb-0">Kzyfilo uzun dönem kiralamalarında operasyonel tüm süreçler güvencemiz altındadır.</p>
-                        </div>
-
-                        <div class="services-feature-grid grid grid-2 gap-4 mb-6">
-                            <div class="service-feature-card">
-                                <div class="service-feature-icon">✓</div>
-                                <div class="service-feature-text">
-                                    <strong>Periyodik Bakım & Onarım</strong>
-                                    <p>Üretici standartlarında yetkili servis güvencesiyle tüm periyodik bakımlar dahil.</p>
-                                </div>
-                            </div>
-                            <div class="service-feature-card">
-                                <div class="service-feature-icon">✓</div>
-                                <div class="service-feature-text">
-                                    <strong>Kasko & Trafik Sigortası</strong>
-                                    <p>Muafiyetsiz tam kapsamlı filo kaskosu ve zorunlu mali sorumluluk sigortası.</p>
-                                </div>
-                            </div>
-                            <div class="service-feature-card">
-                                <div class="service-feature-icon">✓</div>
-                                <div class="service-feature-text">
-                                    <strong>7/24 Kesintisiz Yol Yardımı</strong>
-                                    <p>Türkiye genelinde çekici, lastik yardımı ve acil destek hizmetleri.</p>
-                                </div>
-                            </div>
-                            <div class="service-feature-card">
-                                <div class="service-feature-icon">✓</div>
-                                <div class="service-feature-text">
-                                    <strong>İkame Araç Temini</strong>
-                                    <p>Bakım ve kaza süreçlerinde 24 saat içinde kesintisiz yedek araç temini.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Promo Upgrade Box -->
-                        <div class="package-promo-card">
-                            <div class="package-promo-content">
-                                <div class="package-promo-badge">GÜVENCE SEÇENEKLERİ</div>
-                                <h4 class="package-promo-title">Daha Fazla Güvence mi İstiyorsunuz?</h4>
-                                <p class="package-promo-desc">Kış lastiği, mini hasar muafiyeti ve esnek kilometre paketlerini inceleyin.</p>
-                            </div>
-                            <div class="package-promo-action">
-                                <a href="<?php echo url('paket-karsilastir.php', ['arac' => $vehicle['slug']]); ?>" class="btn btn-primary">
-                                    <?php e('vehicle_detail.compare_packages'); ?>
-                                </a>
-                            </div>
+                <!-- Kurumsal Avantajlar Şeridi (Çerçevesiz & Sade) -->
+                <div class="vehicle-guarantees-bar">
+                    <div class="vehicle-guarantee-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        <div>
+                            <div class="guarantee-title">7/24 Kesintisiz İkame</div>
+                            <div class="guarantee-sub">Anında muadil araç temini</div>
                         </div>
                     </div>
-
-                    <!-- Tab 3: Lease Terms -->
-                    <div class="tab-panel hidden" id="tab-terms" role="tabpanel">
-                        <div class="tab-section-intro mb-6">
-                            <h3 class="text-base fw-bold text-dark mb-1">Operasyonel Kiralama Koşulları ve Avantajları</h3>
-                            <p class="text-sm text-muted mb-0">Şirketinizin nakit akışını koruyan, vergi avantajı sağlayan kurumsal filo çözümleri.</p>
-                        </div>
-
-                        <div class="terms-cards-grid grid grid-2 gap-4">
-                            <div class="term-card">
-                                <div class="term-card-header">
-                                    <span class="term-icon">⏱️</span>
-                                    <h4 class="term-title">Süre ve Kilometre Seçenekleri</h4>
-                                </div>
-                                <p class="term-desc">24, 36 ve 48 aylık esnek sözleşme süreleri; yıllık 15.000 km, 20.000 km veya 30.000 km kullanım paketleriyle filonuza tam uyum.</p>
-                            </div>
-
-                            <div class="term-card">
-                                <div class="term-card-header">
-                                    <span class="term-icon">📊</span>
-                                    <h4 class="term-title">Vergi ve Muhasebe Avantajı</h4>
-                                </div>
-                                <p class="term-desc">Aylık faturalar doğrudan gider olarak kaydedilebilir. KDV mahsubu yapılabilir ve araç bedeli bilançoda borç olarak görünmez.</p>
-                            </div>
-
-                            <div class="term-card">
-                                <div class="term-card-header">
-                                    <span class="term-icon">🛠️</span>
-                                    <h4 class="term-title">Sıfır Operasyonel Yük</h4>
-                                </div>
-                                <p class="term-desc">MTV, periyodik muayene, hasar takibi ve lastik saklama/değişim gibi tüm zaman alıcı süreçler Kzyfilo tarafından yönetilir.</p>
-                            </div>
-
-                            <div class="term-card">
-                                <div class="term-card-header">
-                                    <span class="term-icon">🤝</span>
-                                    <h4 class="term-title">Hızlı Teslimat ve Esneklik</h4>
-                                </div>
-                                <p class="term-desc">Kredi değerlendirme süreci sonrası stoktaki araçlar hızla kapınıza teslim edilir; sözleşme sonunda model yenileme kolaylığı sunulur.</p>
-                            </div>
+                    <div class="vehicle-guarantee-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                        <div>
+                            <div class="guarantee-title">Tam Kapsamlı Kasko</div>
+                            <div class="guarantee-sub">Sıfır riskli kurumsal poliçe</div>
                         </div>
                     </div>
-
-                    <!-- Tab 4: FAQ -->
-                    <div class="tab-panel hidden" id="tab-faq" role="tabpanel">
-                        <div class="tab-section-intro mb-6">
-                            <h3 class="text-base fw-bold text-dark mb-1">Sıkça Sorulan Sorular</h3>
-                            <p class="text-sm text-muted mb-0">Araç kiralama süreci, faturalandırma ve servis hakkında en çok merak edilenler.</p>
-                        </div>
-
-                        <?php 
-                        $detailFaqs = [];
-                        if (!empty($faqsData) && is_array($faqsData)) {
-                            foreach ($faqsData as $catKey => $cat) {
-                                if (!empty($cat['items']) && is_array($cat['items'])) {
-                                    foreach ($cat['items'] as $item) {
-                                        $detailFaqs[] = $item;
-                                    }
-                                }
-                            }
-                        }
-                        $detailFaqs = array_slice($detailFaqs, 0, 6);
-                        ?>
-
-                        <div class="accordion">
-                            <?php foreach ($detailFaqs as $faq): ?>
-                                <div class="accordion-item">
-                                    <button type="button" class="accordion-trigger" aria-expanded="false">
-                                        <span><?php echo esc($faq['question']); ?></span>
-                                        <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                                    </button>
-                                    <div class="accordion-panel">
-                                        <div class="accordion-panel-content"><?php echo esc($faq['answer']); ?></div>
-                                    </div>
-                                </div>
-                            <?php endforeach; ?>
+                    <div class="vehicle-guarantee-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                        </svg>
+                        <div>
+                            <div class="guarantee-title">Yetkili Servis Bakımı</div>
+                            <div class="guarantee-sub">Tüm periyodik bakımlar</div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Right: Dynamic Quote Calculator Sticky Sidebar -->
-            <aside class="detail-sidebar">
-                <h2 class="detail-section-title mb-4">TEKLİFİNİZİ OLUŞTURUN</h2>
-                <div class="quote-sidebar-card card card-body sticky-panel" id="detail-quote-calculator">
-                    <div class="quote-sidebar-header">
-                        <h3 class="text-base fw-bold mb-0">Hızlı Fiyat Hesaplama</h3>
-                        <span class="badge badge-primary"><?php e('demo_price'); ?></span>
+            <!-- ─── SAĞ SÜTUN: CANLI FİYAT HESAPLAMA & TEKLİF KARTI ───── -->
+            <aside>
+                <div class="vehicle-configurator-box">
+                    <div class="mb-4">
+                        <span class="editorial-tag m-0">Kurumsal Filo Fiyatlandırması</span>
+                    </div>
+
+                    <!-- Canlı Hesaplanan Tutar Alanı -->
+                    <div class="configurator-price-display" id="calc-price-container">
+                        <div class="configurator-price-header">
+                            <span class="price-header-label"><?php e('quote_calc.estimated_monthly'); ?></span>
+                        </div>
+                        <div class="configurator-price-body">
+                            <div class="configurator-price-val">
+                                <span id="calc-monthly-price"><?php echo number_format($vehicle['starting_price'], 0, ',', '.'); ?></span><span class="currency">₺</span>
+                            </div>
+                            <div class="configurator-price-sub">
+                                <span class="tax-info">/ Ay + KDV</span>
+                                <span class="included-tag">Tam Bakım & Kasko Dahil</span>
+                            </div>
+                        </div>
                     </div>
 
                     <form id="vehicle-quote-calculator-form" novalidate>
-                        <!-- Kiralama Süresi -->
+                        <!-- Kiralama Süresi Segment Seçici -->
                         <div class="form-group mb-4">
-                            <label class="form-label"><?php e('quote_calc.duration'); ?> <span class="required">*</span></label>
+                            <label class="form-label"><?php e('quote_calc.duration'); ?></label>
                             <div class="btn-group-segmented">
                                 <label class="segmented-label">
                                     <input type="radio" name="duration" value="24">
@@ -296,7 +186,7 @@ include includePath('header.php');?>
 
                         <!-- Yıllık Kilometre -->
                         <div class="form-group mb-4">
-                            <label for="calc-km-select" class="form-label"><?php e('quote_calc.annual_km'); ?> <span class="required">*</span></label>
+                            <label for="calc-km-select" class="form-label"><?php e('quote_calc.annual_km'); ?></label>
                             <select id="calc-km-select" name="annual_km" class="form-select">
                                 <option value="15">15.000 km / Yıl</option>
                                 <option value="20">20.000 km / Yıl</option>
@@ -306,7 +196,7 @@ include includePath('header.php');?>
 
                         <!-- Hizmet Paketi -->
                         <div class="form-group mb-4">
-                            <label for="calc-package-select" class="form-label"><?php e('quote_calc.package'); ?> <span class="required">*</span></label>
+                            <label for="calc-package-select" class="form-label"><?php e('quote_calc.package'); ?></label>
                             <select id="calc-package-select" name="package" class="form-select">
                                 <option value="basic">Başlangıç Paketi</option>
                                 <option value="advantage" selected>Avantaj Paketi (Önerilen)</option>
@@ -314,58 +204,51 @@ include includePath('header.php');?>
                             </select>
                         </div>
 
-                        <!-- Peşinat Seçeneği -->
-                        <div class="form-group mb-4">
-                            <label for="calc-deposit-select" class="form-label"><?php e('quote_calc.deposit'); ?></label>
-                            <select id="calc-deposit-select" name="deposit" class="form-select">
-                                <option value="0">Peşinatsız (%0)</option>
-                                <option value="50000">50.000 ₺ Peşinat</option>
-                                <option value="100000">100.000 ₺ Peşinat</option>
-                                <option value="150000">150.000 ₺ Peşinat</option>
-                            </select>
-                        </div>
+                        <!-- Peşinat & Adet Satırı -->
+                        <div class="grid grid-2 gap-3 mb-6">
+                            <div class="form-group mb-0">
+                                <label for="calc-deposit-select" class="form-label"><?php e('quote_calc.deposit'); ?></label>
+                                <select id="calc-deposit-select" name="deposit" class="form-select">
+                                    <option value="0">Peşinatsız (%0)</option>
+                                    <option value="50000">50.000 ₺</option>
+                                    <option value="100000">100.000 ₺</option>
+                                    <option value="150000">150.000 ₺</option>
+                                </select>
+                            </div>
 
-                        <!-- Araç Adedi -->
-                        <div class="form-group mb-6">
-                            <label for="calc-count-select" class="form-label"><?php e('quote_calc.count'); ?></label>
-                            <select id="calc-count-select" name="vehicle_count" class="form-select">
-                                <option value="1">1 Adet</option>
-                                <option value="2">2 Adet</option>
-                                <option value="3">3 Adet</option>
-                                <option value="5">5 Adet</option>
-                                <option value="10">10+ Adet (Özel Filo Teklifi)</option>
-                            </select>
-                        </div>
-
-                        <!-- Live Price Display -->
-                        <div class="quote-price-box mb-6" id="calc-price-container">
-                            <span class="text-xs text-muted block mb-1"><?php e('quote_calc.estimated_monthly'); ?> (Araç Başı):</span>
-                            <div class="text-3xl fw-extrabold text-primary">
-                                <span id="calc-monthly-price"><?php echo number_format($vehicle['starting_price'], 0, ',', '.'); ?></span> ₺
-                                <span class="text-xs text-muted fw-normal">/ay + KDV</span>
+                            <div class="form-group mb-0">
+                                <label for="calc-count-select" class="form-label"><?php e('quote_calc.count'); ?></label>
+                                <select id="calc-count-select" name="vehicle_count" class="form-select">
+                                    <option value="1">1 Adet</option>
+                                    <option value="2">2 Adet</option>
+                                    <option value="3">3 Adet</option>
+                                    <option value="5">5 Adet</option>
+                                    <option value="10">10+ Adet (Filo)</option>
+                                </select>
                             </div>
                         </div>
 
-                        <div class="alert alert-info hidden mb-6" id="calc-custom-offer-notice">
+                        <div class="alert alert-info hidden mb-4" id="calc-custom-offer-notice">
                             <?php e('quote_calc.custom_offer_notice'); ?>
                         </div>
 
-                        <!-- CTAs -->
+                        <!-- Eylem Butonları -->
                         <div class="flex flex-col gap-3">
-                            <a href="<?php echo url('hizli-teklif.php', ['arac' => $vehicle['slug']]); ?>" class="btn btn-primary btn-lg" id="btn-goto-quote">
-                                <?php e('vehicle_detail.get_quick_quote'); ?>
+                            <a href="<?php echo url('hizli-teklif.php', ['arac' => $vehicle['slug']]); ?>" class="btn btn-primary btn-lg" id="btn-goto-quote" style="justify-content: center; padding: 14px 24px;">
+                                Hızlı Teklif Al
                             </a>
 
-                            <a href="<?php echo url('paket-karsilastir.php', ['arac' => $vehicle['slug']]); ?>" class="btn btn-outline" id="btn-goto-packages">
-                                <?php e('vehicle_detail.compare_packages'); ?>
-                            </a>
-
-                            <button type="button" class="btn btn-secondary" style="width: 100%;" data-open-modal="callback">
-                                <?php e('vehicle_detail.call_me'); ?>
-                            </button>
+                            <div class="grid grid-2 gap-2">
+                                <a href="<?php echo url('paket-karsilastir.php', ['arac' => $vehicle['slug']]); ?>" class="btn btn-outline" id="btn-goto-packages" style="justify-content: center; font-size: 13px;">
+                                    <?php e('vehicle_detail.compare_packages'); ?>
+                                </a>
+                                <button type="button" class="btn btn-secondary" style="width: 100%; justify-content: center; font-size: 13px;" data-open-modal="callback">
+                                    <?php e('vehicle_detail.call_me'); ?>
+                                </button>
+                            </div>
                         </div>
 
-                        <div class="quote-summary-disclaimer mt-4">
+                        <div class="quote-summary-disclaimer mt-4 text-center">
                             <?php e('quote_summary.price_disclaimer'); ?>
                         </div>
                     </form>
@@ -373,30 +256,83 @@ include includePath('header.php');?>
             </aside>
         </div>
 
-        <!-- ─── SIMILAR VEHICLES ───────────────────────────────────────── -->
-        <div class="similar-vehicles-section mt-16">
-            <div class="flex flex-between mb-8 flex-wrap gap-4 items-center">
-                <h2 class="similar-vehicles-title"><?php e('vehicle_detail.similar_vehicles'); ?></h2>
-                <a href="<?php echo url('araclar.php', ['kategori' => $mainVehicle['category']]); ?>" class="btn btn-outline btn-sm">
-                    <?php e('btn.view_all'); ?>
-                </a>
-            </div>
+    </div>
+</section>
 
-            <div class="grid grid-3 gap-6">
-                <?php 
-                $similarCount = 0;
-                foreach ($vehicles as $simV):
-                    if ($simV['id'] !== $mainVehicle['id'] && $similarCount < 3):
-                        $similarCount++;
-                        $vehicle = $simV;
-                        include includePath('vehicle-card.php');
-                    endif;
-                endforeach; 
-                ?>
+<!-- ─── 3. DETAYLI TEKNİK ÖZELLİKLER ─────────────────────────────── -->
+<section class="section section-paper" style="padding-top: var(--space-10);">
+    <div class="container">
+        
+        <div class="mb-6">
+            <h2 class="text-2xl fw-bold text-dark m-0">Teknik Özellikler ve Donanım</h2>
+        </div>
+
+        <div class="specs-modern-grid">
+            <?php foreach ($vehicle['specs'] as $groupKey => $groupData): 
+                $groupTitle = t('spec_categories.' . $groupKey);
+                if (empty($groupTitle)) {
+                    $groupTitle = ucfirst($groupKey);
+                }
+            ?>
+                <div class="specs-modern-group">
+                    <h3 class="specs-modern-title">
+                        <?php echo esc($groupTitle); ?>
+                    </h3>
+                    <div>
+                        <?php foreach ($groupData as $label => $val): ?>
+                            <div class="specs-modern-row">
+                                <span class="specs-modern-label"><?php echo esc($label); ?></span>
+                                <span class="specs-modern-value"><?php echo esc($val); ?></span>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+
+    </div>
+</section>
+
+<!-- ─── 4. BENZER ARAÇLAR BÖLÜMÜ ────────────────────────────────────── -->
+<section class="section" style="padding-top: var(--space-12);">
+    <div class="container">
+        <div class="flex flex-between mb-8 flex-wrap gap-4 items-center">
+            <div>
+                <h2 class="text-2xl fw-bold text-dark m-0"><?php e('vehicle_detail.similar_vehicles'); ?></h2>
+            </div>
+            <a href="<?php echo url('araclar.php', ['kategori' => $mainVehicle['category']]); ?>" class="btn btn-outline btn-sm">
+                <?php e('btn.view_all'); ?>
+            </a>
+        </div>
+
+        <div class="grid grid-3 gap-6">
+            <?php 
+            $similarCount = 0;
+            foreach ($vehicles as $simV):
+                if ($simV['id'] !== $mainVehicle['id'] && $similarCount < 3):
+                    $similarCount++;
+                    $vehicle = $simV;
+                    include includePath('vehicle-card.php');
+                endif;
+            endforeach; 
+            ?>
+        </div>
+    </div>
+</section>
+
+<!-- ─── 5. ALT KURUMSAL CTA BANNER ──────────────────────────────────── -->
+<section class="section-sm" style="padding-top: 0;">
+    <div class="container">
+        <div class="solution-cta-card" style="background-image: url('<?php echo asset('images/cta-catalog-bg.jpg'); ?>');">
+            <h3>Filonuz İçin Özel Teklif Alın</h3>
+            <p>Kuzey Otomotiv Grubu sermaye gücüyle avantajlı fiyat ve esnek operasyonel filo kiralama çözümlerinden yararlanın.</p>
+            <div class="solution-cta-actions">
+                <a href="<?php echo url('hizli-teklif.php', ['arac' => $mainVehicle['slug']]); ?>" class="btn btn-primary btn-lg"><?php e('header.get_quote'); ?></a>
+                <button type="button" class="btn btn-outline btn-lg" data-open-modal="callback"><?php e('home.cta_call'); ?></button>
             </div>
         </div>
     </div>
-</div>
+</section>
 
 <script>
     window.currentVehicle = {

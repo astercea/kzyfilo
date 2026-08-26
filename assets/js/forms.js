@@ -137,6 +137,16 @@
             });
         });
 
+        form.querySelectorAll('input, select, textarea').forEach(function (field) {
+            function clearError() {
+                field.classList.remove('is-error');
+                const errorEl = document.getElementById(field.id + '-error');
+                if (errorEl) errorEl.textContent = '';
+            }
+            field.addEventListener('input', clearError);
+            field.addEventListener('change', clearError);
+        });
+
         prevBtns.forEach(function (btn) {
             btn.addEventListener('click', function () {
                 currentStepIndex--;

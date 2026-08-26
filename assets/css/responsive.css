@@ -67,6 +67,34 @@
         grid-template-columns: 1fr;
     }
 
+    .catalog-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .catalog-sidebar {
+        display: none;
+    }
+
+    .catalog-mobile-trigger-bar {
+        display: flex;
+    }
+
+    .catalog-vehicle-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .catalog-header-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-4);
+    }
+
+    .catalog-bottom-consulting {
+        flex-direction: column;
+        text-align: center;
+        padding: var(--space-8);
+    }
+
     .catalog-filter-card {
         position: static;
         margin-bottom: var(--space-8);
@@ -232,6 +260,24 @@
 
     .catalog-grid {
         grid-template-columns: 1fr;
+    }
+
+    .catalog-vehicle-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .catalog-bottom-consulting {
+        padding: var(--space-8) var(--space-5);
+    }
+
+    .consulting-actions {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .consulting-actions .btn {
+        width: 100%;
+        text-align: center;
     }
 
     .services-mosaic-matrix {

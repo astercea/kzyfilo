@@ -162,6 +162,7 @@ return [
         'vehicle_count' => 'Araç Adedi',
         'custom_offer' => 'Bu seçenekler için size özel teklif hazırlayalım.',
         'quick_quote' => 'Hızlı Teklif Al',
+        'get_quick_quote' => 'Hızlı Teklif Al',
         'compare_packages' => 'Paketleri Karşılaştır',
         'add_to_list' => 'Listeme Ekle',
         'call_me' => 'Sizi Arayalım',
