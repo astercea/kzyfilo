@@ -54,6 +54,8 @@ define('BASE_URL', $basePath);
 // Canlı domain (yalnızca SEO alanları için)
 define('SITE_DOMAIN', 'https://kzyfilo.com.tr');
 define('SITE_NAME', 'kzyfilo');
+define('SITE_PHONE', '0850 300 59 99');
+define('SITE_EMAIL', 'info@kzyfilo.com.tr');
 
 // ─── Dil Sistemi ────────────────────────────────────────────────────
 

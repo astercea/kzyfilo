@@ -20,7 +20,7 @@ $breadcrumbs = [
 
 include includePath('header.php');?>
 
-<div class="page-header">
+<div class="page-header page-header-editorial">
     <div class="container">
         <h1><?php e('content.news_title'); ?></h1>
         <?php include includePath('breadcrumbs.php'); ?>

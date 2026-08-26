@@ -79,7 +79,7 @@ include includePath('header.php');?>
 <!-- ─── 3. KURUMSAL CTA BANNER ──────────────────────────────────────── -->
 <section class="section-sm" style="padding-top: 0;">
     <div class="container">
-        <div class="solution-cta-card">
+        <div class="solution-cta-card" style="background-image: url('<?php echo asset('images/cta-services-bg.jpg'); ?>');">
             <h3>Filonuza Özel Ek Hizmet Tanımlayın</h3>
             <p>Teklif sürecinde ihtiyacınız olan tüm ek ürün ve hizmetleri tek tıkla kiralama paketinize ekleyebilirsiniz.</p>
             <div class="solution-cta-actions">

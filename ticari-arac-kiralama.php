@@ -156,7 +156,7 @@ include includePath('header.php');?>
 <!-- ─── 5. KURUMSAL CTA BANNER ──────────────────────────────────────── -->
 <section class="section-sm" style="padding-top: 0;">
     <div class="container">
-        <div class="solution-cta-card">
+        <div class="solution-cta-card" style="background-image: url('<?php echo asset('images/cta-commercial-bg.jpg'); ?>');">
             <h3>Ticari Filonuzu Avantajlı Şartlarla Güçlendirin</h3>
             <p>Lojistik ve saha operasyonlarınız için bütçenize uygun hafif ticari filo teklifinizi bugün alın.</p>
             <div class="solution-cta-actions">

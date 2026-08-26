@@ -163,7 +163,7 @@ include includePath('header.php');?>
 <!-- ─── 5. KURUMSAL CTA BANNER ──────────────────────────────────────── -->
 <section class="section-sm" style="padding-top: 0;">
     <div class="container">
-        <div class="solution-cta-card">
+        <div class="solution-cta-card" style="background-image: url('<?php echo asset('images/cta-electric-bg.jpg'); ?>');">
             <h3>Yeşil Filo Dönüşümünüzü Bugün Başlatın</h3>
             <p>Şirketinizin karbon ayak izini düşürmek ve elektrikli araç avantajlarından yararlanmak için uzmanlarımızla görüşün.</p>
             <div class="solution-cta-actions">

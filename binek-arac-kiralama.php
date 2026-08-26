@@ -155,7 +155,7 @@ include includePath('header.php');?>
 <!-- ─── 5. KURUMSAL CTA BANNER ──────────────────────────────────────── -->
 <section class="section-sm" style="padding-top: 0;">
     <div class="container">
-        <div class="solution-cta-card">
+        <div class="solution-cta-card" style="background-image: url('<?php echo asset('images/cta-passenger-bg.jpg'); ?>');">
             <h3>Binek Filonuzu Hemen Yapılandıralım</h3>
             <p>12-48 ay vadeli sabit fiyatlı kurumsal binek araç teklifinizi almak için hemen başvurun.</p>
             <div class="solution-cta-actions">

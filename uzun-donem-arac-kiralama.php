@@ -203,7 +203,7 @@ include includePath('header.php');?>
 <!-- ─── 6. KURUMSAL CTA BANNER ──────────────────────────────────────── -->
 <section class="section-sm" style="padding-top: 0;">
     <div class="container">
-        <div class="solution-cta-card">
+        <div class="solution-cta-card" style="background-image: url('<?php echo asset('images/cta-longterm-bg.jpg'); ?>');">
             <h3>Filonuzu Uzun Dönem Kiralamayla Hemen Büyütün</h3>
             <p>Şirketinizin ihtiyaç duyduğu binek, ticari veya hibrit araçları en avantajlı kurumsal şartlarla hemen kiralayın.</p>
             <div class="solution-cta-actions">

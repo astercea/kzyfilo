@@ -749,6 +749,15 @@
     z-index: 1;
 }
 
+.page-header-editorial {
+    background-image: url('../images/banners/blog-header-bg.jpg') !important;
+    background-position: center right !important;
+}
+
+.page-header-editorial::before {
+    background: linear-gradient(90deg, rgba(12, 19, 28, 0.75) 0%, rgba(12, 19, 28, 0.42) 55%, rgba(12, 19, 28, 0.12) 100%) !important;
+}
+
 .page-header .container,
 .service-hero .container {
     display: flex;

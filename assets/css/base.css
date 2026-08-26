@@ -456,6 +456,37 @@ a:focus-visible {
     cursor: pointer;
 }
 
+/* ─── Form Validation & Error Styles ───────────────────────────────── */
+.form-error {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #dc2626 !important;
+    margin-top: 6px;
+    line-height: 1.4;
+    transition: opacity var(--transition-fast);
+}
+
+.form-error:empty {
+    display: none;
+}
+
+.form-input.is-error,
+.form-select.is-error,
+.form-textarea.is-error,
+.is-error {
+    border-color: #dc2626 !important;
+    background-color: #fff8f8 !important;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12) !important;
+}
+
+.form-input.is-error:focus,
+.form-select.is-error:focus,
+.form-textarea.is-error:focus {
+    border-color: #b91c1c !important;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2) !important;
+}
+
 /* ─── Badges ─────────────────────────────────────────────────────── */
 .badge {
     display: inline-flex;

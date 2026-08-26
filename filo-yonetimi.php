@@ -185,7 +185,7 @@ include includePath('header.php');?>
 <!-- ─── 5. KURUMSAL TEKLİF CTA BANNER ──────────────────────────────── -->
 <section class="section-sm" style="padding-top: 0;">
     <div class="container">
-        <div class="solution-cta-card">
+        <div class="solution-cta-card" style="background-image: url('<?php echo asset('images/cta-fleet-bg.jpg'); ?>');">
             <h3>Filonuz İçin Özel Yönetim Teklifi Alın</h3>
             <p>Mevcut araçlarınız veya sıfırdan kuracağınız kurumsal filo için bütçenize en uygun yönetim planını hazırlayalım.</p>
             <div class="solution-cta-actions">

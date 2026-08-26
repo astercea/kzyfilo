@@ -1,6 +1,7 @@
 <?php
 /**
- * kzyfilo — Blog Detay Sayfası (blog-detay.php)
+ * kzyfilo — Blog & Haber Detay Sayfası (blog-detay.php)
+ * High-End Luxury Editorial Reading Experience
  */
 require_once __DIR__ . '/includes/config.php';
 
@@ -17,9 +18,13 @@ foreach ($allArticles as $a) {
     }
 }
 
-if (!$article) {
-    $article = $allArticles[0] ?? null;
+if (!$article && !empty($allArticles)) {
+    $article = $allArticles[0];
 }
+
+$isNews = ($article['type'] ?? '') === 'news';
+$parentTitle = $isNews ? t('content.news_title') : t('content.blog_title');
+$parentUrl = $isNews ? url('haberler.php') : url('blog.php');
 
 setPageMeta([
     'title' => ($article['title'] ?? 'Blog') . ' | ' . SITE_NAME,
@@ -28,64 +33,101 @@ setPageMeta([
 ]);
 
 $breadcrumbs = [
-    ['title' => t('content.blog_title'), 'url' => url('blog.php')],
+    ['title' => $parentTitle, 'url' => $parentUrl],
     ['title' => $article['title'] ?? 'Detay']
 ];
 
 include includePath('header.php');?>
 
-<div class="page-header">
+<!-- ─── 1. PAGE HEADER ─────────────────────────────────────────────── -->
+<div class="page-header page-header-editorial">
     <div class="container">
         <h1><?php echo esc($article['title']); ?></h1>
         <?php include includePath('breadcrumbs.php'); ?>
     </div>
 </div>
 
-<article class="section">
-    <div class="container container-narrow">
-        <div class="mb-6">
-            <div class="flex items-center gap-3 text-xs text-muted mb-4">
-                <span class="badge badge-primary"><?php echo strtoupper($article['type']); ?></span>
-                <span><?php echo date('d F Y', strtotime($article['date'])); ?></span>
-                <span>• <?php echo esc($article['read_time']); ?> <?php e('content.min_read'); ?></span>
+<!-- ─── 2. HIGH-END EDITORIAL ARTICLE CONTENT ────────────────────────── -->
+<article class="section section-ivory" style="padding-top: var(--space-12); padding-bottom: var(--space-20);">
+    <div class="container" style="max-width: 860px; margin: 0 auto;">
+        
+        <!-- Üst Editoryal Meta Satırı -->
+        <div class="flex items-center justify-between flex-wrap gap-4 pb-6 mb-8" style="border-bottom: 1px solid rgba(0, 0, 0, 0.08);">
+            <div class="flex items-center gap-3 text-xs uppercase" style="letter-spacing: 0.1em; color: var(--color-text-muted);">
+                <span style="color: var(--color-orange); font-weight: 700;">
+                    <?php echo $isNews ? 'Haber & Duyuru' : 'Filo Yönetimi'; ?>
+                </span>
+                <span>•</span>
+                <span><?php echo date('d.m.Y', strtotime($article['date'])); ?></span>
+                <span>•</span>
+                <span><?php echo esc($article['read_time']); ?> Dakika Okuma</span>
             </div>
-            <p class="text-lg text-muted"><?php echo esc($article['summary']); ?></p>
+            <div class="text-xs text-muted" style="letter-spacing: 0.05em;">
+                Kzy Filo Kurumsal Danışmanlığı
+            </div>
         </div>
 
-        <div class="card overflow-hidden mb-8">
-            <img src="<?php echo esc($article['image']); ?>" alt="<?php echo esc($article['title']); ?>" class="card-img" style="aspect-ratio: 16/9; max-height: 440px;">
+        <!-- Öne Çıkan Ana Görsel (En Üstte Geniş & Şık Yerleşim) -->
+        <?php if (!empty($article['image'])): ?>
+        <figure style="margin: 0 0 var(--space-10) 0;">
+            <div style="border-radius: var(--radius-lg, 8px); overflow: hidden; box-shadow: 0 12px 36px rgba(0, 0, 0, 0.05); background-color: #f7f6f2;">
+                <img src="<?php echo esc($article['image']); ?>" alt="<?php echo esc($article['title']); ?>" style="width: 100%; height: auto; max-height: 480px; display: block; object-fit: cover;">
+            </div>
+        </figure>
+        <?php endif; ?>
+
+        <!-- Vurgulu Editoryal Giriş Paragrafı -->
+        <div class="mb-10" style="font-size: 1.3rem; font-weight: 500; line-height: 1.75; color: #121822; letter-spacing: -0.01em;">
+            <?php echo esc($article['summary']); ?>
         </div>
 
-        <div class="content-body text-base text-dark" style="line-height: 1.8;">
-            <p>
-                Şirketlerin operasyonel giderleri arasında en önemli paya sahip olan araç filoları, stratejik bir yönetim yaklaşımı ile yönetilmediğinde ciddi maliyet artışlarına yol açabilir. 
+        <!-- Akıcı Metin Gövdesi -->
+        <div class="article-pure-content" style="font-size: 1.15rem; line-height: 1.95; color: #283342;">
+            <p style="margin-bottom: var(--space-8);">
+                Şirketlerin operasyonel giderleri arasında en önemli paya sahip olan araç filoları, stratejik bir yönetim yaklaşımı ile kurgulanmadığında ciddi maliyet artışlarına ve sermaye kayıplarına yol açabilir. 
                 Gerek araç tedarik süreçlerinde doğru modellerin belirlenmesi, gerekse kullanım ömrü boyunca periyodik bakımların zamanında ve yetkili servislerde yapılması filo sağlığı açısından kritik rol oynamaktadır.
             </p>
-            <h3 class="text-xl my-6">1. Segment ve İhtiyaç Analizi</h3>
-            <p>
+
+            <!-- Zarif Alıntı / Vurgu Satırı -->
+            <div style="margin: var(--space-10) 0; padding: var(--space-6) var(--space-8); border-left: 3px solid var(--color-orange); background: linear-gradient(90deg, rgba(241, 90, 36, 0.03) 0%, transparent 100%);">
+                <p style="font-size: 1.25rem; font-style: italic; color: #121822; line-height: 1.65; margin: 0; font-weight: 500;">
+                    "Doğru segment tercihi ve profesyonel filo yönetimi, şirketlerin ana sermayelerini korurken operasyonel verimliliği %30'a varan oranda artırır."
+                </p>
+            </div>
+
+            <!-- Bölüm 1 -->
+            <h2 style="font-size: 1.55rem; font-weight: 700; color: #121822; margin-top: var(--space-12); margin-bottom: var(--space-4); font-family: var(--font-display, inherit); display: flex; align-items: baseline; gap: 10px;">
+                <span style="color: var(--color-orange); font-size: 1.1rem; font-weight: 800; font-family: var(--font-display);">01.</span>
+                <span>Segment ve İhtiyaç Analizi</span>
+            </h2>
+            <p style="margin-bottom: var(--space-8);">
                 Saha satış ekipleri, teknik servis çalışanları ve şirket yöneticileri için tahsis edilecek araçların kullanım amacı, yıllık katedilecek kilometre ve taşıma kapasitesi gereksinimleri detaylıca analiz edilmelidir. Doğru segment tercihi, yakıt ve kiralama maliyetlerinde doğrudan %20 tasarruf sağlar.
             </p>
-            <h3 class="text-xl my-6">2. Telematik ve Dijital Takip Sistemleri</h3>
-            <p>
-                Araç takip sistemleri yalnızca anlık konum belirlemekle kalmaz; rölanti süreleri, aşırı hız ve agresif sürüş parametrelerini izleyerek hem yakıt tasarrufu sağlar hem de kaza risklerini asgariye indirir.
+
+            <!-- Bölüm 2 -->
+            <h2 style="font-size: 1.55rem; font-weight: 700; color: #121822; margin-top: var(--space-12); margin-bottom: var(--space-4); font-family: var(--font-display, inherit); display: flex; align-items: baseline; gap: 10px;">
+                <span style="color: var(--color-orange); font-size: 1.1rem; font-weight: 800; font-family: var(--font-display);">02.</span>
+                <span>Telematik ve Dijital Takip Sistemleri</span>
+            </h2>
+            <p style="margin-bottom: var(--space-8);">
+                Araç takip sistemleri yalnızca anlık konum belirlemekle kalmaz; rölanti süreleri, aşırı hız ve agresif sürüş parametrelerini izleyerek hem yakıt tüketimini optimize eder hem de kaza risklerini asgariye indirir. Telematik verileri ışığında sürücü alışkanlıklarının iyileştirilmesi, filo işletme giderlerinde yıllık bazda büyük fark yaratır.
             </p>
-            <h3 class="text-xl my-6">3. Kapsamlı Hizmet Paketleri ile Risk Yönetimi</h3>
-            <p>
-                Kasko, kış lastiği, ikame araç ve muafiyetsiz mini hasar güvenceleri gibi ek hizmetlerin paket dahilinde temin edilmesi, öngörülemeyen bütçe sapmalarının önüne geçer. kzyfilo Avantaj ve Tam Güvence paketleri, şirketlerin kesintisiz iş akışını garanti altına alır.
+
+            <!-- Bölüm 3 -->
+            <h2 style="font-size: 1.55rem; font-weight: 700; color: #121822; margin-top: var(--space-12); margin-bottom: var(--space-4); font-family: var(--font-display, inherit); display: flex; align-items: baseline; gap: 10px;">
+                <span style="color: var(--color-orange); font-size: 1.1rem; font-weight: 800; font-family: var(--font-display);">03.</span>
+                <span>Kapsamlı Hizmet Paketleri ile Kesintisiz Mobilite</span>
+            </h2>
+            <p style="margin-bottom: var(--space-8);">
+                Kasko, kış lastiği, muadil ikame araç temini ve yetkili servis güvenceleri gibi ek hizmetlerin paket dahilinde temin edilmesi, öngörülemeyen bütçe sapmalarının önüne geçer. <strong>Kzy Filo Avantaj ve Tam Güvence</strong> paketleri, şirketinizin iş akışını 7/24 kesintisiz korur.
             </p>
         </div>
 
-        <div class="flex gap-2 flex-wrap my-8 pt-6" style="border-top: 1px solid var(--color-border-light);">
-            <strong class="text-sm mr-2"><?php echo (CURRENT_LANG === 'tr') ? 'Etiketler:' : 'Tags:'; ?></strong>
-            <?php foreach ($article['tags'] ?? [] as $tag): ?>
-                <span class="badge badge-light"><?php echo esc($tag); ?></span>
-            <?php endforeach; ?>
-        </div>
-
-        <div class="card card-body p-8 bg-surface-soft text-center mt-12">
-            <h3 class="text-xl mb-2">Filonuz İçin Profesyonel Danışmanlık Alın</h3>
-            <p class="text-muted text-sm mb-4">Şirketinize en uygun filo modellerini birlikte planlayalım.</p>
-            <a href="<?php echo url('hizli-teklif.php'); ?>" class="btn btn-primary"><?php e('header.get_quote'); ?></a>
+        <!-- Sayfa Sonu Dönüş Butonu -->
+        <div style="margin-top: var(--space-16); padding-top: var(--space-8); border-top: 1px solid rgba(0, 0, 0, 0.08); text-align: center;">
+            <a href="<?php echo esc($parentUrl); ?>" class="btn btn-outline" style="padding: 12px 32px; font-weight: 600;">
+                <?php echo esc($parentTitle); ?> Sayfasına Dön
+            </a>
         </div>
     </div>
 </article>

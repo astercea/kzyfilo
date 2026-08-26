@@ -276,7 +276,7 @@ include includePath('header.php');
                 </div>
 
                 <!-- Bottom Fleet Consulting Banner -->
-                <div class="catalog-bottom-consulting">
+                <div class="catalog-bottom-consulting" style="background-image: url('<?php echo asset('images/cta-catalog-bg.jpg'); ?>');">
                     <div class="consulting-content">
                         <span class="editorial-tag"><?php echo (CURRENT_LANG === 'tr') ? 'ÖZEL FİLO ÇÖZÜMLERİ' : 'CUSTOM FLEET SOLUTIONS'; ?></span>
                         <h3><?php echo (CURRENT_LANG === 'tr') ? 'Aradığınız Modeli Bulamadınız mı?' : "Can't Find the Vehicle You're Looking For?"; ?></h3>

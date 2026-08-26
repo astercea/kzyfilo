@@ -170,7 +170,7 @@ include includePath('header.php');?>
 <!-- ─── 4. KURUMSAL CTA BANNER ──────────────────────────────────────── -->
 <section class="section-sm" style="padding-top: 0;">
     <div class="container">
-        <div class="solution-cta-card">
+        <div class="solution-cta-card" style="background-image: url('<?php echo asset('images/cta-delivery-bg.jpg'); ?>');">
             <h3>Sözleşmenizi Yenileyin veya Yeni Araç Seçin</h3>
             <p>Mevcut kiralama döneminiz biterken filonuzu yeni model sıfır km araçlarla kesintisiz güncelleyin.</p>
             <div class="solution-cta-actions">
