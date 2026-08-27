@@ -86,36 +86,16 @@ include includePath('header.php');?>
     </div>
 </section>
 
-<!-- ─── 3. ÖNE ÇIKAN BİNEK ARAÇLAR ──────────────────────────────────── -->
+<!-- ─── 3. BİNEK FİLO AVANTAJLARI ───────────────────────────────────── -->
 <section class="section section-paper" data-reveal="fade-up">
     <div class="container">
-        <div class="flex flex-between mb-8 flex-wrap gap-4 items-center">
-            <div>
-                <span class="editorial-tag">Binek Filo Portföyü</span>
-                <h2 style="font-size: clamp(1.8rem, 2.5vw, 2.4rem); font-weight: var(--font-weight-normal); margin-top: var(--space-1);">
-                    Öne Çıkan Binek Araçlar
-                </h2>
-            </div>
-            <a href="<?php echo url('araclar.php', ['kategori' => 'binek']); ?>" class="btn btn-dark btn-sm">
-                <span>Tüm Binek Araçlar</span>
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-            </a>
+        <div class="section-header text-center" style="max-width: 760px; margin: 0 auto var(--space-12);">
+            <span class="editorial-tag">Neden KZY Binek Filo?</span>
+            <h2 style="font-size: clamp(2rem, 3vw, 2.6rem); font-weight: var(--font-weight-normal); margin-top: var(--space-2);">
+                Kurumsal Binek Filo Avantajları
+            </h2>
         </div>
 
-        <div class="catalog-grid mb-12">
-            <?php foreach (array_slice($binekVehicles, 0, 3) as $vehicle): ?>
-                <?php include includePath('vehicle-card.php'); ?>
-            <?php endforeach; ?>
-        </div>
-    </div>
-</section>
-
-<!-- ─── 4. BİNEK FİLO AVANTAJLARI ───────────────────────────────────── -->
-<section class="section section-ivory" data-reveal="fade-up">
-    <div class="container">
         <div class="solution-benefit-grid mb-16">
             <div class="solution-benefit-card" data-spotlight>
                 <div class="solution-icon-wrap">
@@ -148,6 +128,33 @@ include includePath('header.php');?>
                 <h3>Vergi & Gider Tasarrufu</h3>
                 <p>Aylık kira bedelini gider yazarak şirketinizin kurumlar vergisi matrahını optimize edin.</p>
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── 4. ÖNE ÇIKAN BİNEK ARAÇLAR ──────────────────────────────────── -->
+<section class="section section-ivory" data-reveal="fade-up">
+    <div class="container">
+        <div class="flex flex-between mb-8 flex-wrap gap-4 items-center">
+            <div>
+                <span class="editorial-tag">Binek Filo Portföyü</span>
+                <h2 style="font-size: clamp(1.8rem, 2.5vw, 2.4rem); font-weight: var(--font-weight-normal); margin-top: var(--space-1);">
+                    Öne Çıkan Binek Araçlar
+                </h2>
+            </div>
+            <a href="<?php echo url('araclar.php', ['kategori' => 'binek']); ?>" class="btn btn-dark btn-sm">
+                <span>Tüm Binek Araçlar</span>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </a>
+        </div>
+
+        <div class="catalog-grid mb-12">
+            <?php foreach (array_slice($binekVehicles, 0, 3) as $vehicle): ?>
+                <?php include includePath('vehicle-card.php'); ?>
+            <?php endforeach; ?>
         </div>
     </div>
 </section>

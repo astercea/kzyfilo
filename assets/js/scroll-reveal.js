@@ -102,7 +102,7 @@
 
     // ─── Counter Animation ──────────────────────────────────────────
     function initCounterAnimations() {
-        const stats = document.querySelectorAll('.stat-number, .stat-value, .stat-val');
+        const stats = document.querySelectorAll('.stat-number, .stat-value, .stat-val, .solution-metric-val, [data-counter]');
         if (!stats.length) return;
 
         if (prefersReducedMotion) return;
@@ -116,7 +116,8 @@
                 }
             });
         }, {
-            threshold: 0.4
+            threshold: 0.15,
+            rootMargin: '0px 0px -30px 0px'
         });
 
         stats.forEach(function (stat) {
@@ -125,31 +126,75 @@
 
         function animateCounter(el) {
             const raw = el.textContent.trim();
+            if (raw.includes('/')) return; // Ignore static fractions like 7/24
+
             const match = raw.match(/([\d\.,]+)/);
             if (!match) return;
 
-            const numStr = match[1].replace(/\./g, '').replace(',', '.');
-            const target = parseFloat(numStr);
+            const numText = match[1];
+            const prefix = raw.substring(0, raw.indexOf(numText));
+            const suffix = raw.substring(raw.indexOf(numText) + numText.length);
+
+            let isDecimal = false;
+            let decimalPlaces = 0;
+            let target = 0;
+
+            if (numText.includes('.')) {
+                const parts = numText.split('.');
+                // If 3 digits after single dot (e.g. 2.500), it's thousands separator
+                if (parts.length === 2 && parts[1].length === 3 && parseInt(parts[0], 10) < 1000) {
+                    target = parseFloat(numText.replace(/\./g, ''));
+                } else if (parts[parts.length - 1].length <= 2) {
+                    // e.g. 99.8 or 98.4
+                    isDecimal = true;
+                    decimalPlaces = parts[parts.length - 1].length;
+                    target = parseFloat(numText);
+                } else {
+                    target = parseFloat(numText.replace(/\./g, ''));
+                }
+            } else if (numText.includes(',')) {
+                const parts = numText.split(',');
+                if (parts[parts.length - 1].length <= 2) {
+                    isDecimal = true;
+                    decimalPlaces = parts[parts.length - 1].length;
+                    target = parseFloat(numText.replace(',', '.'));
+                } else {
+                    target = parseFloat(numText.replace(/,/g, ''));
+                }
+            } else {
+                target = parseFloat(numText);
+            }
+
             if (isNaN(target)) return;
 
-            const prefix = raw.substring(0, raw.indexOf(match[1]));
-            const suffix = raw.substring(raw.indexOf(match[1]) + match[1].length);
-
-            const duration = 1200;
+            const duration = 1400;
             const startTime = performance.now();
 
             function tick(now) {
                 const elapsed = now - startTime;
                 const progress = Math.min(elapsed / duration, 1);
-                // Ease out expo
+                // Ease out expo for sleek luxury motion
                 const ease = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
-                const current = Math.round(target * ease);
+                const currentVal = target * ease;
 
-                const formatted = current.toLocaleString('tr-TR');
+                let formatted = '';
+                if (isDecimal) {
+                    formatted = currentVal.toFixed(decimalPlaces);
+                } else if (target >= 1000) {
+                    formatted = Math.round(currentVal).toLocaleString('tr-TR');
+                } else {
+                    formatted = Math.round(currentVal).toString();
+                }
+
                 el.textContent = `${prefix}${formatted}${suffix}`;
 
                 if (progress < 1) {
                     requestAnimationFrame(tick);
+                } else {
+                    const finalFormatted = isDecimal 
+                        ? target.toFixed(decimalPlaces) 
+                        : (target >= 1000 ? target.toLocaleString('tr-TR') : target.toString());
+                    el.textContent = `${prefix}${finalFormatted}${suffix}`;
                 }
             }
 
