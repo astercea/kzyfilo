@@ -42,7 +42,7 @@ include includePath('header.php');?>
     </div>
 </div>
 
-<section class="section section-ivory">
+<section class="section section-ivory" style="position: relative; z-index: 10;">
     <div class="container">
         <div class="quote-layout-grid">
             
@@ -278,8 +278,50 @@ include includePath('header.php');?>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="step3-start-date" class="form-label">Talep Edilen Başlangıç Tarihi</label>
-                                    <input type="date" id="step3-start-date" name="start_date" class="form-input">
+                                    <label for="step3-start-date-display" class="form-label">Talep Edilen Başlangıç Tarihi</label>
+                                    <div class="custom-datepicker" id="kzy-start-datepicker">
+                                        <div class="custom-datepicker-input-group">
+                                            <input type="text" 
+                                                   id="step3-start-date-display" 
+                                                   class="form-input custom-datepicker-input" 
+                                                   placeholder="Tarih seçiniz (Örn: 15.09.2026)" 
+                                                   readonly 
+                                                   autocomplete="off">
+                                            <input type="hidden" id="step3-start-date" name="start_date" value="">
+                                            <button type="button" class="custom-datepicker-toggle-btn" aria-label="Takvimi Aç" tabindex="-1">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                                </svg>
+                                            </button>
+                                        </div>
+
+                                        <!-- Açılır Takvim Menüsü (Simgenin / Input'un Tam Altında) -->
+                                        <div class="custom-datepicker-dropdown" id="kzy-datepicker-popup" hidden>
+                                            <div class="datepicker-header">
+                                                <button type="button" class="datepicker-nav-btn datepicker-prev" aria-label="Önceki Ay">
+                                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                                                </button>
+                                                <div class="datepicker-month-year">
+                                                    <span class="datepicker-month-name">Ağustos</span>
+                                                    <span class="datepicker-year-name">2026</span>
+                                                </div>
+                                                <button type="button" class="datepicker-nav-btn datepicker-next" aria-label="Sonraki Ay">
+                                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                                                </button>
+                                            </div>
+
+                                            <!-- Hafta Günleri -->
+                                            <div class="datepicker-weekdays">
+                                                <span>Pt</span><span>Sa</span><span>Ça</span><span>Pe</span><span>Cu</span><span>Ct</span><span>Pz</span>
+                                            </div>
+
+                                            <!-- Gün Izgarası -->
+                                            <div class="datepicker-days-grid"></div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -302,29 +344,81 @@ include includePath('header.php');?>
                         <div class="form-step" id="quote-step-4" hidden>
                             <h2 class="form-step-title">Talep Özeti ve Başvuru Onayı</h2>
 
-                            <!-- Talep Özeti Kartı -->
-                            <div class="p-6 mb-6" style="background-color: #fbfaf7; border: 1px solid var(--color-border-light); border-radius: var(--radius-md, 6px);">
-                                <h3 class="text-sm fw-bold uppercase text-muted mb-4" style="letter-spacing: 0.06em;">Özet Bilgileriniz</h3>
-                                <div class="grid grid-2 gap-4 text-sm">
-                                    <div>
-                                        <span class="text-muted block text-xs">Seçilen Araç Modeli:</span>
-                                        <strong id="summary-step-vehicle" class="text-dark">—</strong>
+                            <!-- Şık ve Sade Talep Özeti Kartı -->
+                            <div class="quote-summary-card">
+                                <div class="quote-summary-card-header">
+                                    <div class="quote-summary-card-header-left">
+                                        <div class="quote-summary-header-icon">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                                <polyline points="14 2 14 8 20 8"></polyline>
+                                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                                <polyline points="10 9 9 9 8 9"></polyline>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h3 class="quote-summary-card-title">Özet Bilgileriniz</h3>
+                                            <p class="quote-summary-card-subtitle">Başvurunuzu onaylamadan önce iletişim ve şirket bilgilerinizi kontrol ediniz.</p>
+                                        </div>
                                     </div>
                                     <div>
-                                        <span class="text-muted block text-xs">Kiralama Süresi & Kilometre:</span>
-                                        <strong id="summary-step-duration" class="text-dark">—</strong>
+                                        <button type="button" class="quote-summary-edit-btn" data-goto-step="1" title="Bilgileri Düzenle">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                                            Düzenle
+                                        </button>
                                     </div>
-                                    <div>
-                                        <span class="text-muted block text-xs">Yetkili Adı Soyadı:</span>
-                                        <strong id="summary-step-name" class="text-dark">—</strong>
-                                    </div>
-                                    <div>
-                                        <span class="text-muted block text-xs">İletişim Telefonu:</span>
-                                        <strong id="summary-step-phone" class="text-dark">—</strong>
-                                    </div>
-                                    <div style="grid-column: span 2;">
-                                        <span class="text-muted block text-xs">Şirket Ticari Unvanı:</span>
-                                        <strong id="summary-step-company" class="text-dark">—</strong>
+                                </div>
+
+                                <div class="quote-summary-card-body">
+                                    <div class="quote-summary-fields-grid">
+                                        <div class="quote-summary-field-item">
+                                            <span class="quote-summary-field-label">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                                Yetkili Adı Soyadı
+                                            </span>
+                                            <strong class="quote-summary-field-val" id="summary-step-name">—</strong>
+                                        </div>
+
+                                        <div class="quote-summary-field-item">
+                                            <span class="quote-summary-field-label">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                                İletişim Telefonu
+                                            </span>
+                                            <strong class="quote-summary-field-val" id="summary-step-phone">—</strong>
+                                        </div>
+
+                                        <div class="quote-summary-field-item">
+                                            <span class="quote-summary-field-label">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                                Kurumsal E-posta
+                                            </span>
+                                            <strong class="quote-summary-field-val" id="summary-step-email">—</strong>
+                                        </div>
+
+                                        <div class="quote-summary-field-item">
+                                            <span class="quote-summary-field-label">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                                                Şirket Ticari Unvanı
+                                            </span>
+                                            <strong class="quote-summary-field-val" id="summary-step-company">—</strong>
+                                        </div>
+
+                                        <div class="quote-summary-field-item">
+                                            <span class="quote-summary-field-label">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                                Faaliyet Şehri
+                                            </span>
+                                            <strong class="quote-summary-field-val" id="summary-step-city">İstanbul</strong>
+                                        </div>
+
+                                        <div class="quote-summary-field-item">
+                                            <span class="quote-summary-field-label">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                                Talep Başlangıç Tarihi
+                                            </span>
+                                            <strong class="quote-summary-field-val" id="summary-step-startdate">Hemen / İlk Müsaitlik</strong>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -354,7 +448,7 @@ include includePath('header.php');?>
                                     Önceki Adım
                                 </button>
                                 <button type="submit" class="btn btn-primary btn-lg" style="padding: 14px 42px;">
-                                    Teklif Talebini Gönder ✓
+                                    Teklif Talebini Gönder
                                 </button>
                             </div>
                         </div>
@@ -382,9 +476,8 @@ include includePath('header.php');?>
             <!-- ─── SAĞ: CANLI ÖZET & GÜVENCE KENAR ÇUBUĞU ──────────────── -->
             <aside>
                 <div class="quote-sidebar-card">
-                    <div class="flex items-center justify-between mb-4">
+                    <div class="mb-4">
                         <span class="editorial-tag m-0">Canlı Talep Özeti</span>
-                        <span class="text-xs text-muted fw-semibold">15 Dk Geri Dönüş</span>
                     </div>
 
                     <!-- Seçili Araç Görsel Önizlemesi -->
@@ -442,16 +535,18 @@ include includePath('header.php');?>
                         </div>
                     </div>
 
-                    <!-- Danışman İletişim Kutusu -->
-                    <div class="sidebar-contact-box mt-4">
-                        <div>
-                            <div class="text-xs" style="color: rgba(255,255,255,0.7) !important;">Hemen Bilgi Alın</div>
-                            <div class="text-sm fw-bold text-white"><?php e('topbar.phone'); ?></div>
+                    <!-- Danışman İletişim Kutusu (Yeniden Tasarlandı) -->
+                    <a href="tel:<?php echo preg_replace('/[^0-9]/', '', t('topbar.phone_full') ?: '08503005999'); ?>" class="sidebar-contact-card mt-4" title="Filo Danışmanını Ara">
+                        <div class="sidebar-contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
                         </div>
-                        <a href="tel:<?php echo preg_replace('/[^0-9]/', '', t('topbar.phone_full') ?: '08503005999'); ?>" class="btn btn-primary btn-sm" style="padding: 6px 14px; font-size: 12px;">
-                            Hemen Ara
-                        </a>
-                    </div>
+                        <div class="sidebar-contact-info">
+                            <span class="sidebar-contact-label">Kurumsal Danışma Hattı</span>
+                            <strong class="sidebar-contact-phone"><?php e('topbar.phone'); ?></strong>
+                        </div>
+                    </a>
                 </div>
             </aside>
         </div>

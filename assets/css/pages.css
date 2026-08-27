@@ -2680,6 +2680,8 @@
 }
 
 .quote-wizard-card {
+    position: relative;
+    z-index: 10;
     background: #ffffff;
     border: 1px solid var(--color-border-light);
     border-radius: var(--radius-lg, 8px);
@@ -2916,14 +2918,73 @@
     margin-top: 1px;
 }
 
-.sidebar-contact-box {
-    background-color: #0c131c;
-    border-radius: var(--radius-md, 6px);
-    padding: var(--space-4) var(--space-5);
+.sidebar-contact-card {
+    background: linear-gradient(135deg, #0c131c 0%, #161f2e 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 14px 18px;
     color: #ffffff;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 14px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 14px rgba(12, 19, 28, 0.2);
+}
+
+.sidebar-contact-card:hover {
+    background: linear-gradient(135deg, #111a26 0%, #1c2738 100%);
+    border-color: rgba(241, 90, 36, 0.35);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(12, 19, 28, 0.3), 0 0 0 1px rgba(241, 90, 36, 0.2);
+    color: #ffffff;
+}
+
+.sidebar-contact-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(241, 90, 36, 0.12);
+    border: 1px solid rgba(241, 90, 36, 0.25);
+    color: var(--color-orange);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.25s ease;
+}
+
+.sidebar-contact-card:hover .sidebar-contact-icon {
+    background: var(--color-orange);
+    color: #ffffff;
+    border-color: var(--color-orange);
+}
+
+.sidebar-contact-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+.sidebar-contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.sidebar-contact-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.sidebar-contact-phone {
+    font-size: 1.08rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
 }
 
 @media (max-width: 991px) {
@@ -3227,4 +3288,370 @@
         position: static;
     }
 }
+
+/* ─── 14. Custom DatePicker Component ───────────────────────────────── */
+.custom-datepicker {
+    position: relative;
+    width: 100%;
+    z-index: 60;
+}
+
+.custom-datepicker-input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.custom-datepicker-input {
+    width: 100%;
+    cursor: pointer;
+    background-color: #ffffff !important;
+    padding-right: 44px !important;
+    font-weight: 500;
+}
+
+.custom-datepicker-toggle-btn {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    padding: 8px;
+    color: var(--color-orange);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    transition: all var(--transition-fast);
+}
+
+.custom-datepicker-toggle-btn:hover {
+    background-color: rgba(241, 90, 36, 0.1);
+    color: var(--color-orange-dark);
+}
+
+.custom-datepicker-toggle-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Takvim Açılır Menüsü (Simgenin ve Input'un Tam Altında Konumlanır) */
+.custom-datepicker-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    width: 320px;
+    background: #ffffff;
+    border: 1px solid rgba(20, 30, 40, 0.12);
+    border-radius: 12px;
+    box-shadow: 0 20px 48px rgba(11, 25, 40, 0.2), 0 4px 12px rgba(11, 25, 40, 0.08);
+    padding: 16px;
+    z-index: 99999;
+    animation: datepickerSlideDown 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.custom-datepicker-dropdown.opens-up {
+    top: auto;
+    bottom: calc(100% + 8px);
+    animation: datepickerSlideUp 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes datepickerSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes datepickerSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.datepicker-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.datepicker-month-year {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-navy-900);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.datepicker-nav-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    border: 1px solid rgba(20, 30, 40, 0.08);
+    background: #fbfaf7;
+    color: var(--color-navy-800);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.datepicker-nav-btn:hover {
+    background: #f4f1e9;
+    color: var(--color-orange);
+    border-color: var(--color-orange);
+}
+
+.datepicker-nav-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+.datepicker-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--color-text-muted);
+    margin-bottom: 8px;
+}
+
+.datepicker-days-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 3px;
+    margin-bottom: 0;
+}
+
+.datepicker-day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--color-navy-900);
+    border-radius: 6px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.15s ease;
+    user-select: none;
+    background: transparent;
+}
+
+.datepicker-day:hover:not(.is-disabled):not(.is-empty) {
+    background: rgba(241, 90, 36, 0.1);
+    color: var(--color-orange);
+    font-weight: 700;
+}
+
+.datepicker-day.is-today {
+    border-color: var(--color-orange);
+    color: var(--color-orange);
+    font-weight: 700;
+}
+
+.datepicker-day.is-selected {
+    background: var(--color-orange) !important;
+    color: #ffffff !important;
+    font-weight: 700;
+    box-shadow: 0 3px 8px rgba(241, 90, 36, 0.35);
+}
+
+.datepicker-day.is-disabled {
+    color: #d1d5db;
+    cursor: not-allowed;
+    background: transparent;
+}
+
+.datepicker-day.is-empty {
+    cursor: default;
+    background: transparent;
+}
+
+@media (max-width: 480px) {
+    .custom-datepicker-dropdown {
+        width: 100%;
+        left: 0;
+        right: 0;
+    }
+}
+
+/* ─── 15. Modern, Şık ve Sade Talep Özeti Kartı (Step 4) ──────────────── */
+.quote-summary-card {
+    background: #ffffff;
+    border: 1px solid rgba(20, 30, 40, 0.09);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(11, 25, 40, 0.04);
+    margin-bottom: var(--space-6);
+    overflow: hidden;
+    transition: box-shadow var(--transition-normal);
+}
+
+.quote-summary-card:hover {
+    box-shadow: 0 8px 30px rgba(11, 25, 40, 0.07);
+}
+
+.quote-summary-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    background: #faf8f5;
+    border-bottom: 1px solid rgba(20, 30, 40, 0.06);
+}
+
+.quote-summary-card-header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.quote-summary-header-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: rgba(241, 90, 36, 0.1);
+    color: var(--color-orange);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.quote-summary-header-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+.quote-summary-card-title {
+    font-size: 0.96rem;
+    font-weight: 700;
+    color: var(--color-navy-900);
+    margin: 0 0 2px 0;
+    line-height: 1.2;
+}
+
+.quote-summary-card-subtitle {
+    font-size: 0.76rem;
+    color: var(--color-text-muted);
+    margin: 0;
+}
+
+.quote-summary-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-navy-800);
+    background: rgba(20, 42, 64, 0.06);
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+.quote-summary-edit-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: #ffffff;
+    border: 1px solid rgba(241, 90, 36, 0.25);
+    color: var(--color-orange);
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 5px 12px;
+    border-radius: 6px;
+    transition: all var(--transition-fast);
+}
+
+.quote-summary-edit-btn:hover {
+    background: var(--color-orange);
+    color: #ffffff;
+    border-color: var(--color-orange);
+}
+
+.quote-summary-edit-btn svg {
+    width: 13px;
+    height: 13px;
+}
+
+.quote-summary-card-body {
+    padding: 20px;
+}
+
+.quote-summary-fields-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px 18px;
+}
+
+.quote-summary-field-item {
+    background: #fdfcf9;
+    border: 1px solid rgba(20, 30, 40, 0.06);
+    border-radius: 8px;
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.quote-summary-field-item:hover {
+    border-color: rgba(241, 90, 36, 0.25);
+    background: #ffffff;
+}
+
+.quote-summary-field-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.73rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--color-text-muted);
+}
+
+.quote-summary-field-label svg {
+    width: 14px;
+    height: 14px;
+    color: var(--color-orange);
+}
+
+.quote-summary-field-val {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--color-navy-900);
+    word-break: break-word;
+    line-height: 1.35;
+}
+
+@media (max-width: 680px) {
+    .quote-summary-fields-grid {
+        grid-template-columns: 1fr;
+    }
+    .quote-summary-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+}
+
+
 
