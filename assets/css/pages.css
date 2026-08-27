@@ -1626,36 +1626,119 @@
     margin-bottom: var(--space-6);
 }
 
-/* ─── Vehicle Compare Page (arac-karsilastir.php) ─────────────────── */
-.compare-page-wrap {
-    padding: var(--space-12) 0;
+/* ─── Vehicle Compare Page (arac-karsilastir.php) — Redesigned ──── */
+.compare-control-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    margin-bottom: 24px;
+    box-shadow: none;
+    flex-wrap: wrap;
+}
+
+.compare-control-left,
+.compare-control-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.compare-counter-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(12, 19, 28, 0.05);
+    border: 1px solid rgba(12, 19, 28, 0.08);
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-navy-900);
+}
+
+.compare-counter-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--color-orange);
+}
+
+.compare-diff-toggle-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    user-select: none;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--color-navy-900);
+}
+
+.compare-diff-checkbox {
+    display: none;
+}
+
+.compare-diff-switch {
+    position: relative;
+    width: 38px;
+    height: 22px;
+    background-color: #cbd5e1;
+    border-radius: 20px;
+    transition: background-color var(--transition-fast);
+}
+
+.compare-diff-switch::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform var(--transition-fast);
+}
+
+.compare-diff-checkbox:checked + .compare-diff-switch {
+    background-color: var(--color-orange);
+}
+
+.compare-diff-checkbox:checked + .compare-diff-switch::after {
+    transform: translateX(16px);
+}
+
+/* Comparison Table Wrapper */
+.compare-table-wrapper {
+    background: #ffffff;
+    border: 1px solid var(--color-border-light);
+    border-radius: 16px;
+    overflow-x: auto;
+    box-shadow: 0 10px 30px rgba(12, 19, 28, 0.05);
+    margin-bottom: var(--space-12);
 }
 
 .compare-table {
     width: 100%;
+    table-layout: fixed;
     border-collapse: separate;
     border-spacing: 0;
-    background-color: #ffffff;
-    border: 1px solid var(--color-border-light);
-    border-radius: var(--radius-card);
-    overflow: hidden;
+    text-align: left;
+    min-width: 860px;
 }
 
 .compare-table th,
 .compare-table td {
-    padding: var(--space-4) var(--space-5);
-    border-bottom: 1px solid var(--color-border-light);
-    border-right: 1px solid var(--color-border-light);
-    text-align: center;
-}
-
-.compare-table th:first-child,
-.compare-table td:first-child {
-    text-align: left;
-    background-color: var(--color-paper);
-    font-weight: var(--font-weight-semibold);
-    color: var(--color-text-dark);
-    width: 240px;
+    border-bottom: 1px solid rgba(20, 30, 40, 0.07);
+    border-right: 1px solid rgba(20, 30, 40, 0.07);
+    vertical-align: middle;
+    box-sizing: border-box;
 }
 
 .compare-table th:last-child,
@@ -1663,26 +1746,325 @@
     border-right: none;
 }
 
-.compare-table tr:last-child td {
+.compare-table tbody tr:last-child td {
     border-bottom: none;
 }
 
-.compare-car-header {
+.compare-table tbody td {
+    width: 25%;
+    height: 76px;
+    min-height: 76px;
+    max-height: 76px;
+    font-size: 0.92rem;
+    color: var(--color-navy-950);
+    text-align: center;
+    background-color: #ffffff;
+    border-right: 1px solid rgba(20, 30, 40, 0.07);
+    border-bottom: 1px solid rgba(20, 30, 40, 0.06);
+    padding: 8px 16px;
+    vertical-align: middle;
+    overflow: hidden;
+    transition: background-color var(--transition-fast);
+}
+
+.compare-table tbody tr:hover td {
+    background-color: #faf9f6;
+}
+
+.compare-cell-label {
+    font-size: 0.70rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #64748b;
+    margin-bottom: 3px;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.compare-cell-value {
+    font-size: 0.90rem;
+    font-weight: 600;
+    color: var(--color-navy-950);
+    line-height: 1.3;
+    display: block;
+}
+
+/* Header Cells (Only Vehicle Images - Full Edge-to-Edge Fit) */
+.compare-table thead th {
+    width: 25%;
+    height: 200px;
+    min-height: 200px;
+    max-height: 200px;
+    padding: 0 !important;
+    background: transparent !important;
+    border-bottom: 2px solid rgba(20, 30, 40, 0.08);
+    border-right: 1px solid rgba(20, 30, 40, 0.06);
+    vertical-align: middle;
+    text-align: center;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+}
+
+.compare-vehicle-header {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 200px;
+    min-height: 200px;
+    max-height: 200px;
+    overflow: hidden;
+    background: transparent;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.compare-vehicle-remove {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgba(12, 19, 28, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    z-index: 5;
+}
+
+.compare-vehicle-remove:hover {
+    background: #dc2626;
+    border-color: #dc2626;
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+.compare-vehicle-img-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: hidden;
+    background: transparent;
+    margin: 0;
+    padding: 0;
+}
+
+.compare-vehicle-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border: none;
+    margin: 0;
+    padding: 0;
+    transition: transform var(--transition-base);
+}
+
+.compare-vehicle-header:hover .compare-vehicle-img-wrap img {
+    transform: scale(1.05);
+}
+
+/* Minimalist Empty Slot - Fixed Dimensions */
+.compare-empty-slot {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--space-2);
+    justify-content: center;
+    width: 100%;
+    height: 200px;
+    min-height: 200px;
+    max-height: 200px;
+    padding: 12px;
+    border: 2px dashed rgba(20, 30, 40, 0.15);
+    background: transparent;
+    text-decoration: none;
+    transition: all var(--transition-fast);
+    cursor: pointer;
+    box-sizing: border-box;
 }
 
-.compare-car-header img {
-    height: 80px;
-    object-fit: contain;
+.compare-empty-slot:hover {
+    border-color: var(--color-orange);
+    background: rgba(241, 90, 36, 0.04);
 }
 
-.compare-diff-highlight {
-    background-color: rgba(241, 90, 36, 0.05);
+.compare-empty-slot-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1px solid rgba(20, 30, 40, 0.12);
     color: var(--color-orange);
-    font-weight: var(--font-weight-semibold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    margin-bottom: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: all var(--transition-fast);
+}
+
+.compare-empty-slot:hover .compare-empty-slot-icon {
+    background: var(--color-orange);
+    color: #ffffff;
+    border-color: var(--color-orange);
+}
+
+.compare-empty-slot-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-navy-900);
+}
+
+/* Category Row Banner - Clean & Light (No Dark Background) */
+.compare-category-row th,
+.compare-category-row td {
+    background-color: #fbfaf8 !important;
+    color: var(--color-navy-950) !important;
+    font-size: 0.86rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.04em !important;
+    padding: 14px 20px !important;
+    border-top: 1px solid rgba(20, 30, 40, 0.08) !important;
+    border-bottom: 1px solid rgba(20, 30, 40, 0.08) !important;
+}
+
+.compare-category-row th {
+    color: var(--color-orange) !important;
+    border-left: 3px solid var(--color-orange) !important;
+    font-size: 0.88rem !important;
+}
+
+/* Differences Highlighting - KZY Brand Orange */
+.compare-table tbody tr.is-different td {
+    background-color: #fff4ed !important;
+    color: #9a3412 !important;
+    border-right: 1px solid rgba(241, 90, 36, 0.12) !important;
+    border-bottom: 1px solid rgba(241, 90, 36, 0.14) !important;
+}
+
+.compare-table tbody tr.is-different td .compare-cell-label {
+    color: var(--color-orange) !important;
+    font-weight: 700 !important;
+}
+
+.compare-table tbody tr.is-different td .compare-cell-value {
+    color: var(--color-navy-950) !important;
+    font-weight: 700 !important;
+}
+
+.compare-table tbody tr.is-different:hover td {
+    background-color: #ffede0 !important;
+}
+
+/* Empty State Card */
+.compare-empty-card {
+    background: #ffffff;
+    border: 1px solid var(--color-border-light);
+    border-radius: 16px;
+    padding: var(--space-12) var(--space-8);
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(12, 19, 28, 0.04);
+}
+
+.compare-empty-icon-wrap {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: rgba(241, 90, 36, 0.1);
+    color: var(--color-orange);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--space-6);
+}
+
+.compare-empty-title {
+    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    font-weight: 700;
+    color: var(--color-navy-950);
+    margin-bottom: var(--space-3);
+}
+
+.compare-empty-desc {
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+    max-width: 600px;
+    margin: 0 auto var(--space-8);
+    line-height: 1.6;
+}
+
+.compare-empty-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.compare-quick-item {
+    background: #faf9f6;
+    border: 1px solid rgba(20, 30, 40, 0.08);
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    transition: all var(--transition-fast);
+}
+
+.compare-quick-item:hover {
+    border-color: var(--color-orange);
+    background: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* Vehicle Picker Modal */
+.picker-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 14px;
+    max-height: 55vh;
+    overflow-y: auto;
+    padding: 4px;
+}
+
+.picker-card {
+    background: #faf9f6;
+    border: 1px solid rgba(20, 30, 40, 0.08);
+    border-radius: 10px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all var(--transition-fast);
+}
+
+.picker-card:hover {
+    border-color: var(--color-orange);
+    background: #ffffff;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.picker-card img {
+    height: 75px;
+    object-fit: contain;
+    margin-bottom: 8px;
 }
 
 /* ─── Package Compare Page (paket-karsilastir.php) ────────────────── */
@@ -2680,6 +3062,8 @@
 }
 
 .quote-wizard-card {
+    position: relative;
+    z-index: 10;
     background: #ffffff;
     border: 1px solid var(--color-border-light);
     border-radius: var(--radius-lg, 8px);
@@ -2838,33 +3222,39 @@
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
 }
 
+.sidebar-vehicle-top-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--color-navy-950);
+    margin-bottom: var(--space-4);
+    letter-spacing: -0.01em;
+}
+
 .sidebar-vehicle-preview {
-    background-color: #f7f6f2;
-    border-radius: var(--radius-md, 6px);
-    padding: var(--space-4);
+    width: 100%;
+    height: 180px;
+    border-radius: 10px;
+    overflow: hidden;
     margin-bottom: var(--space-6);
-    text-align: center;
-    border: 1px solid rgba(0, 0, 0, 0.04);
+    border: 1px solid var(--color-border-light);
+    position: relative;
+    background: transparent;
+    padding: 0;
 }
 
 .sidebar-vehicle-img {
     width: 100%;
-    height: 120px;
-    object-fit: contain;
-    margin-bottom: var(--space-3);
-    transition: transform var(--transition-fast);
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: none;
+    transition: transform var(--transition-base);
 }
 
-.sidebar-vehicle-title {
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: #121822;
-    margin-bottom: var(--space-1);
-}
-
-.sidebar-vehicle-version {
-    font-size: 0.8rem;
-    color: var(--color-text-muted);
+.sidebar-vehicle-preview:hover .sidebar-vehicle-img {
+    transform: scale(1.04);
 }
 
 .sidebar-specs-list {
@@ -2916,14 +3306,73 @@
     margin-top: 1px;
 }
 
-.sidebar-contact-box {
-    background-color: #0c131c;
-    border-radius: var(--radius-md, 6px);
-    padding: var(--space-4) var(--space-5);
+.sidebar-contact-card {
+    background: linear-gradient(135deg, #0c131c 0%, #161f2e 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 14px 18px;
     color: #ffffff;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 14px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 14px rgba(12, 19, 28, 0.2);
+}
+
+.sidebar-contact-card:hover {
+    background: linear-gradient(135deg, #111a26 0%, #1c2738 100%);
+    border-color: rgba(241, 90, 36, 0.35);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(12, 19, 28, 0.3), 0 0 0 1px rgba(241, 90, 36, 0.2);
+    color: #ffffff;
+}
+
+.sidebar-contact-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(241, 90, 36, 0.12);
+    border: 1px solid rgba(241, 90, 36, 0.25);
+    color: var(--color-orange);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.25s ease;
+}
+
+.sidebar-contact-card:hover .sidebar-contact-icon {
+    background: var(--color-orange);
+    color: #ffffff;
+    border-color: var(--color-orange);
+}
+
+.sidebar-contact-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+.sidebar-contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.sidebar-contact-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.sidebar-contact-phone {
+    font-size: 1.08rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
 }
 
 @media (max-width: 991px) {
@@ -3227,4 +3676,430 @@
         position: static;
     }
 }
+
+/* ─── 14. Custom DatePicker Component ───────────────────────────────── */
+.custom-datepicker {
+    position: relative;
+    width: 100%;
+    z-index: 60;
+}
+
+.custom-datepicker-input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.custom-datepicker-input {
+    width: 100%;
+    cursor: pointer;
+    background-color: #ffffff !important;
+    padding-right: 44px !important;
+    font-weight: 500;
+}
+
+.custom-datepicker-toggle-btn {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    padding: 8px;
+    color: var(--color-orange);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    transition: all var(--transition-fast);
+}
+
+.custom-datepicker-toggle-btn:hover {
+    background-color: rgba(241, 90, 36, 0.1);
+    color: var(--color-orange-dark);
+}
+
+.custom-datepicker-toggle-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Takvim Açılır Menüsü (Simgenin ve Input'un Tam Altında Konumlanır) */
+.custom-datepicker-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    width: 320px;
+    background: #ffffff;
+    border: 1px solid rgba(20, 30, 40, 0.12);
+    border-radius: 12px;
+    box-shadow: 0 20px 48px rgba(11, 25, 40, 0.2), 0 4px 12px rgba(11, 25, 40, 0.08);
+    padding: 16px;
+    z-index: 99999;
+    animation: datepickerSlideDown 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.custom-datepicker-dropdown.opens-up {
+    top: auto;
+    bottom: calc(100% + 8px);
+    animation: datepickerSlideUp 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes datepickerSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes datepickerSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.datepicker-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.datepicker-month-year {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-navy-900);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.datepicker-nav-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    border: 1px solid rgba(20, 30, 40, 0.08);
+    background: #fbfaf7;
+    color: var(--color-navy-800);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.datepicker-nav-btn:hover {
+    background: #f4f1e9;
+    color: var(--color-orange);
+    border-color: var(--color-orange);
+}
+
+.datepicker-nav-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+.datepicker-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--color-text-muted);
+    margin-bottom: 8px;
+}
+
+.datepicker-days-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 3px;
+    margin-bottom: 0;
+}
+
+.datepicker-day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--color-navy-900);
+    border-radius: 6px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.15s ease;
+    user-select: none;
+    background: transparent;
+}
+
+.datepicker-day:hover:not(.is-disabled):not(.is-empty) {
+    background: rgba(241, 90, 36, 0.1);
+    color: var(--color-orange);
+    font-weight: 700;
+}
+
+.datepicker-day.is-today {
+    border-color: var(--color-orange);
+    color: var(--color-orange);
+    font-weight: 700;
+}
+
+.datepicker-day.is-selected {
+    background: var(--color-orange) !important;
+    color: #ffffff !important;
+    font-weight: 700;
+    box-shadow: 0 3px 8px rgba(241, 90, 36, 0.35);
+}
+
+.datepicker-day.is-disabled {
+    color: #d1d5db;
+    cursor: not-allowed;
+    background: transparent;
+}
+
+.datepicker-day.is-empty {
+    cursor: default;
+    background: transparent;
+}
+
+@media (max-width: 480px) {
+    .custom-datepicker-dropdown {
+        width: 100%;
+        left: 0;
+        right: 0;
+    }
+}
+
+/* ─── 15. Modern, Şık ve Sade Talep Özeti Kartı (Step 4) ──────────────── */
+.quote-summary-card {
+    background: #ffffff;
+    border: 1px solid rgba(20, 30, 40, 0.09);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(11, 25, 40, 0.04);
+    margin-bottom: var(--space-6);
+    overflow: hidden;
+    transition: box-shadow var(--transition-normal);
+}
+
+.quote-summary-card:hover {
+    box-shadow: 0 8px 30px rgba(11, 25, 40, 0.07);
+}
+
+.quote-summary-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    background: #faf8f5;
+    border-bottom: 1px solid rgba(20, 30, 40, 0.06);
+}
+
+.quote-summary-card-header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.quote-summary-header-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: rgba(241, 90, 36, 0.1);
+    color: var(--color-orange);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.quote-summary-header-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+.quote-summary-card-title {
+    font-size: 0.96rem;
+    font-weight: 700;
+    color: var(--color-navy-900);
+    margin: 0 0 2px 0;
+    line-height: 1.2;
+}
+
+.quote-summary-card-subtitle {
+    font-size: 0.76rem;
+    color: var(--color-text-muted);
+    margin: 0;
+}
+
+.quote-summary-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-navy-800);
+    background: rgba(20, 42, 64, 0.06);
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+.quote-summary-edit-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: #ffffff;
+    border: 1px solid rgba(241, 90, 36, 0.25);
+    color: var(--color-orange);
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 5px 12px;
+    border-radius: 6px;
+    transition: all var(--transition-fast);
+}
+
+.quote-summary-edit-btn:hover {
+    background: var(--color-orange);
+    color: #ffffff;
+    border-color: var(--color-orange);
+}
+
+.quote-summary-edit-btn svg {
+    width: 13px;
+    height: 13px;
+}
+
+.quote-summary-card-body {
+    padding: 20px;
+}
+
+.quote-summary-fields-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px 18px;
+}
+
+.quote-summary-field-item {
+    background: #fdfcf9;
+    border: 1px solid rgba(20, 30, 40, 0.06);
+    border-radius: 8px;
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.quote-summary-field-item:hover {
+    border-color: rgba(241, 90, 36, 0.25);
+    background: #ffffff;
+}
+
+.quote-summary-field-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.73rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--color-text-muted);
+}
+
+.quote-summary-field-label svg {
+    width: 14px;
+    height: 14px;
+    color: var(--color-orange);
+}
+
+.quote-summary-field-val {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--color-navy-900);
+    word-break: break-word;
+    line-height: 1.35;
+}
+
+@media (max-width: 680px) {
+    .quote-summary-fields-grid {
+        grid-template-columns: 1fr;
+    }
+    .quote-summary-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+}
+
+/* ─── 15. FAQ Split Page Enhancements ───────────────────────────────── */
+.faq-cat-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+.faq-cat-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background: #ffffff;
+    border: 1px solid var(--color-border-light);
+    border-radius: 8px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--color-navy-900);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    text-align: left;
+    width: 100%;
+}
+
+.faq-cat-btn:hover {
+    border-color: var(--color-orange);
+    color: var(--color-orange);
+    transform: translateX(3px);
+}
+
+.faq-cat-btn.is-active {
+    background: #0c131c;
+    border-color: #0c131c;
+    color: #ffffff;
+}
+
+.faq-cat-count {
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.06);
+    color: inherit;
+}
+
+.faq-cat-btn.is-active .faq-cat-count {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+}
+
+.faq-side-contact-card {
+    background: linear-gradient(135deg, #0c131c 0%, #161f2e 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 18px 20px;
+    color: #ffffff;
+    box-shadow: 0 8px 20px rgba(12, 19, 28, 0.12);
+}
+
+
 

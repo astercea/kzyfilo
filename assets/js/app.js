@@ -18,9 +18,12 @@
     });
 
     // ─── Toast Notification System ──────────────────────────────────
-    window.showToast = function (message, type = 'primary', duration = 3500) {
+    window.showToast = function (message, type = 'primary', duration = 1000) {
         const container = document.getElementById('toast-container');
         if (!container) return;
+
+        // Bildirimler 1 saniye (1000ms) sonra otomatik kaybolur
+        const displayDuration = 1000;
 
         const toast = document.createElement('div');
         toast.className = `toast toast-${type}`;
@@ -38,18 +41,37 @@
         toast.innerHTML = `
             <span class="toast-icon" aria-hidden="true">${iconSvg}</span>
             <span class="toast-msg">${message}</span>
+            <button type="button" class="toast-close-btn" aria-label="Kapat" title="Kapat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
         `;
 
         container.appendChild(toast);
 
-        setTimeout(function () {
+        let timeoutId = null;
+
+        function closeToast() {
+            if (timeoutId) clearTimeout(timeoutId);
             toast.classList.add('toast-out');
-            toast.addEventListener('animationend', function () {
+            setTimeout(function () {
                 if (toast.parentNode) {
                     toast.parentNode.removeChild(toast);
                 }
+            }, 250);
+        }
+
+        const closeBtn = toast.querySelector('.toast-close-btn');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', function (e) {
+                e.stopPropagation();
+                closeToast();
             });
-        }, duration);
+        }
+
+        timeoutId = setTimeout(closeToast, displayDuration);
     };
 
     // ─── Sticky Header ──────────────────────────────────────────────

@@ -8,7 +8,7 @@
 
     const FAVORITES_KEY = 'kzy_favorites';
     const COMPARE_KEY = 'kzy_compare';
-    const MAX_COMPARE = 3;
+    const MAX_COMPARE = 4;
 
     // ─── Helpers ────────────────────────────────────────────────────
     function getFavorites() {
@@ -72,6 +72,12 @@
         const countBadge = document.getElementById('compare-tray-count');
         if (!tray || !itemsContainer) return;
 
+        // Karşılaştırma sayfasındayken alt çekmeceyi gizle
+        if (window.location.pathname.includes('arac-karsilastir.php')) {
+            tray.classList.remove('is-active');
+            return;
+        }
+
         const compareIds = getCompareList();
 
         if (compareIds.length === 0) {
@@ -88,11 +94,11 @@
         // Araç kartlarından veya global veriden model bilgisini çek
         itemsContainer.innerHTML = '';
         compareIds.forEach(function (id) {
-            const vehicleCard = document.querySelector(`.vehicle-card[data-id="${id}"]`);
             let brand = '';
             let model = '';
             let img = '';
 
+            const vehicleCard = document.querySelector(`.vehicle-card[data-id="${id}"]`);
             if (vehicleCard) {
                 brand = vehicleCard.getAttribute('data-brand') || '';
                 model = vehicleCard.querySelector('.vehicle-card-model')?.textContent.trim() || '';
@@ -109,10 +115,10 @@
             const itemEl = document.createElement('div');
             itemEl.className = 'compare-tray-item';
             itemEl.innerHTML = `
-                ${img ? `<img src="${img}" alt="${brand} ${model}" width="40" height="25">` : ''}
-                <span>${brand} ${model || 'Araç #' + id}</span>
+                ${img ? `<img src="${img}" alt="${brand} ${model}" width="38" height="22">` : ''}
+                <span class="compare-tray-item-name" title="${brand} ${model}">${brand} ${model || 'Araç #' + id}</span>
                 <button type="button" class="compare-tray-remove" data-remove-compare="${id}" title="Kaldır" aria-label="Kaldır">
-                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                         <line x1="18" y1="6" x2="6" y2="18"></line>
                         <line x1="6" y1="6" x2="18" y2="18"></line>
                     </svg>
@@ -215,6 +221,21 @@
                 saveCompareList([]);
                 if (window.showToast) {
                     window.showToast('Karşılaştırma listesi temizlendi.', 'primary');
+                }
+            });
+        }
+
+        // Karşılaştır Butonuna Tıklanınca: Sayfaya Yönlendir, Çekmeceyi Temizle ve Kapat
+        const compareTrayBtn = document.getElementById('compare-tray-btn');
+        if (compareTrayBtn) {
+            compareTrayBtn.addEventListener('click', function (e) {
+                const compareIds = getCompareList();
+                if (compareIds.length > 0) {
+                    e.preventDefault();
+                    const baseUrl = window.KZY?.baseUrl || '';
+                    const targetUrl = `${baseUrl}arac-karsilastir.php?ids=${compareIds.join(',')}`;
+                    saveCompareList([]);
+                    window.location.href = targetUrl;
                 }
             });
         }
