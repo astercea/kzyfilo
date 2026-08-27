@@ -476,23 +476,18 @@ include includePath('header.php');?>
             <!-- ─── SAĞ: CANLI ÖZET & GÜVENCE KENAR ÇUBUĞU ──────────────── -->
             <aside>
                 <div class="quote-sidebar-card">
-                    <div class="mb-4">
-                        <span class="editorial-tag m-0">Canlı Talep Özeti</span>
+                    <div class="mb-3">
+                        <div class="sidebar-vehicle-top-title" id="sidebar-vehicle-title">
+                            <?php echo esc(($currentVehicle['brand'] ?? 'Renault') . ' ' . ($currentVehicle['model'] ?? 'Clio')); ?>
+                        </div>
                     </div>
 
-                    <!-- Seçili Araç Görsel Önizlemesi -->
+                    <!-- Seçili Araç Görsel Önizlemesi (Kutuya Tam Sığdırılmış, Metinsiz) -->
                     <div class="sidebar-vehicle-preview" id="sidebar-preview-box">
                         <img src="<?php echo esc($currentVehicle['image'] ?? asset('images/vehicles/renault-clio.jpg')); ?>" 
                              id="sidebar-vehicle-img" 
                              alt="<?php echo esc($currentVehicle['brand'] ?? 'Araç'); ?>" 
                              class="sidebar-vehicle-img">
-                        
-                        <div class="sidebar-vehicle-title" id="sidebar-vehicle-title">
-                            <?php echo esc(($currentVehicle['brand'] ?? '') . ' ' . ($currentVehicle['model'] ?? '')); ?>
-                        </div>
-                        <div class="sidebar-vehicle-version" id="sidebar-vehicle-version">
-                            <?php echo esc($currentVehicle['version'] ?? ''); ?>
-                        </div>
                     </div>
 
                     <!-- Seçim Parametreleri Listesi -->
