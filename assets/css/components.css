@@ -1206,6 +1206,8 @@
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
     transform: scale(0.95);
     transition: transform var(--transition-base);
+    position: relative;
+    z-index: var(--z-modal);
 }
 
 .modal-backdrop.is-open .modal-dialog {
@@ -1481,7 +1483,7 @@
     border: 1px solid var(--color-border-dark);
     border-radius: var(--radius-card);
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
-    z-index: var(--z-modal);
+    z-index: var(--z-fixed);
     padding: var(--space-4) var(--space-6);
     opacity: 0;
     visibility: hidden;
