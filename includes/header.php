@@ -241,12 +241,12 @@ if (!defined('ROOT_DIR')) {
                     <!-- Header Actions (Right) -->
                     <div class="header-actions">
                         <!-- Search Icon Button -->
-                        <a href="<?php echo url('araclar.php'); ?>" class="header-action-icon" title="Araç Ara" aria-label="Araç Ara">
+                        <button type="button" class="header-action-icon header-search-trigger" id="header-search-btn" title="Araç Ara (Ctrl+K)" aria-label="Araç Ara" aria-haspopup="dialog">
                             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                 <circle cx="11" cy="11" r="8"></circle>
                                 <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                             </svg>
-                        </a>
+                        </button>
 
                         <!-- Listem Button -->
                         <a href="<?php echo url('listem.php'); ?>" class="header-action-icon header-list-btn" id="header-list-btn" title="<?php e('header.my_list'); ?>" aria-label="<?php e('header.my_list'); ?>">

@@ -24,6 +24,14 @@ if (!defined('ROOT_DIR')) {
     </div>
 
     <div class="mobile-menu-body">
+        <!-- Quick Search Bar Trigger in Mobile Menu -->
+        <div class="mobile-menu-search-wrap" style="padding: 12px 20px 4px;">
+            <button type="button" class="mobile-search-btn header-search-trigger" style="width: 100%; display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; color: rgba(255,255,255,0.7); font-size: 0.88rem; cursor: pointer;">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <span>Araç veya hizmet ara...</span>
+            </button>
+        </div>
+
         <nav class="mobile-nav" aria-label="Mobil Menü Bağlantıları">
             <a href="<?php echo url('index.php'); ?>" class="mobile-nav-link<?php echo activeClass('index.php'); ?>">
                 <?php e('header.home'); ?>

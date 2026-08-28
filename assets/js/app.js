@@ -10,6 +10,7 @@
         initStickyHeader();
         initMegaMenus();
         initMobileMenu();
+        initSearchModal();
         initFloatingContact();
         initCallbackModal();
         initCookieBanner();
@@ -537,6 +538,125 @@
                     }
                 });
             });
+        });
+    }
+
+    // ─── Global Search Modal (Minimalist Editorial Search Launcher) ──
+    function initSearchModal() {
+        const modal = document.getElementById('site-search-modal');
+        const backdrop = document.getElementById('site-search-backdrop');
+        const closeBtn = document.getElementById('site-search-close');
+        const searchInput = document.getElementById('site-search-input');
+        const clearBtn = document.getElementById('site-search-clear');
+        const searchForm = document.getElementById('site-search-form');
+        const triggers = document.querySelectorAll('.header-search-trigger, #header-search-btn');
+
+        if (!modal || !searchInput) return;
+
+        function updateModalPosition() {
+            const header = document.getElementById('site-header');
+            if (header && modal) {
+                const headerBottom = header.getBoundingClientRect().bottom;
+                modal.style.top = Math.max(0, Math.round(headerBottom)) + 'px';
+            }
+        }
+
+        function openSearch() {
+            updateModalPosition();
+            modal.classList.add('is-open');
+            modal.setAttribute('aria-hidden', 'false');
+            triggers.forEach(t => t.classList.add('is-active'));
+
+            // Eğer mobil menü açıksa kapat
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileBackdrop = document.getElementById('mobile-menu-backdrop');
+            if (mobileMenu && mobileMenu.classList.contains('is-open')) {
+                mobileMenu.classList.remove('is-open');
+                if (mobileBackdrop) mobileBackdrop.classList.remove('is-open');
+            }
+
+            setTimeout(function () {
+                searchInput.focus();
+                searchInput.select();
+            }, 60);
+        }
+
+        function closeSearch() {
+            modal.classList.remove('is-open');
+            modal.setAttribute('aria-hidden', 'true');
+            triggers.forEach(t => t.classList.remove('is-active'));
+        }
+
+        function toggleSearch() {
+            if (modal.classList.contains('is-open')) {
+                closeSearch();
+            } else {
+                openSearch();
+            }
+        }
+
+        // Trigger Listeners (Toggle on click)
+        triggers.forEach(btn => {
+            btn.addEventListener('click', function (e) {
+                e.preventDefault();
+                toggleSearch();
+            });
+        });
+
+        if (closeBtn) closeBtn.addEventListener('click', closeSearch);
+        if (backdrop) backdrop.addEventListener('click', closeSearch);
+
+        window.addEventListener('scroll', function () {
+            if (modal.classList.contains('is-open')) updateModalPosition();
+        }, { passive: true });
+
+        window.addEventListener('resize', function () {
+            if (modal.classList.contains('is-open')) updateModalPosition();
+        }, { passive: true });
+
+        // Input listener for clear button toggle
+        searchInput.addEventListener('input', function () {
+            if (clearBtn) {
+                clearBtn.classList.toggle('hidden', this.value.trim().length === 0);
+            }
+        });
+
+        // Clear button listener
+        if (clearBtn) {
+            clearBtn.addEventListener('click', function () {
+                searchInput.value = '';
+                clearBtn.classList.add('hidden');
+                searchInput.focus();
+            });
+        }
+
+        // Global Keyboard shortcuts (Ctrl+K, '/', Escape)
+        document.addEventListener('keydown', function (e) {
+            // Escape to close
+            if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+                closeSearch();
+                return;
+            }
+
+            // Ctrl + K or Cmd + K to open
+            if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')) {
+                e.preventDefault();
+                if (modal.classList.contains('is-open')) {
+                    closeSearch();
+                } else {
+                    openSearch();
+                }
+                return;
+            }
+
+            // Pressing '/' to search if not inside an active input or textarea
+            if (e.key === '/' && !modal.classList.contains('is-open')) {
+                const tag = document.activeElement ? document.activeElement.tagName.toLowerCase() : '';
+                if (tag !== 'input' && tag !== 'textarea' && !document.activeElement.isContentEditable) {
+                    e.preventDefault();
+                    openSearch();
+                }
+            }
         });
     }
 

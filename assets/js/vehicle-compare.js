@@ -327,84 +327,496 @@
 
     // ─── Listem (Favoriler) Sayfası ─────────────────────────────────
     function initFavoritesListPage() {
+        const activeView = document.getElementById('favorites-active-view');
+        const emptyView = document.getElementById('favorites-empty-view');
+        const heroMetrics = document.getElementById('favorites-hero-metrics');
         const grid = document.getElementById('favorites-vehicle-grid');
-        const emptyState = document.getElementById('favorites-empty-state');
+
+        // Header Metrics
+        const metricTotalCount = document.getElementById('metric-total-count');
+        const metricTotalPrice = document.getElementById('metric-total-price');
+
+        // Summary Sidebar
+        const summaryCount = document.getElementById('summary-vehicle-count');
+        const summarySubtotal = document.getElementById('summary-subtotal');
+        const summaryVat = document.getElementById('summary-vat');
+        const summaryGrandTotal = document.getElementById('summary-grand-total');
+        const summaryChips = document.getElementById('fav-summary-chips-container');
+
+        // Toolbar Elements
+        const filterTabs = document.querySelectorAll('.fav-filter-tab');
+        const sortSelect = document.getElementById('fav-sort-select');
+        const btnViewGrid = document.getElementById('btn-view-grid');
+        const btnViewList = document.getElementById('btn-view-list');
         const clearAllBtn = document.getElementById('btn-clear-favorites');
         const shareListBtn = document.getElementById('btn-share-list');
+        const printListBtn = document.getElementById('btn-print-list');
+        const exportCompareBtn = document.getElementById('btn-export-compare');
+        const bulkQuoteTriggers = document.querySelectorAll('.btn-bulk-quote-trigger');
+
+        // Tab counts
+        const countTabAll = document.getElementById('count-tab-all');
+        const countTabBinek = document.getElementById('count-tab-binek');
+        const countTabTicari = document.getElementById('count-tab-ticari');
+        const countTabEv = document.getElementById('count-tab-ev');
+
+        // Bulk Quote Modal
+        const bulkModal = document.getElementById('modal-bulk-quote');
+        const closeBulkModalBtn = document.getElementById('btn-close-bulk-modal');
+        const bulkModalChips = document.getElementById('modal-vehicle-chips-list');
+        const bulkModalForm = document.getElementById('bulk-quote-modal-form');
+
+        // Quick add buttons in empty state
+        const quickAddBtns = document.querySelectorAll('.btn-quick-add-favorite');
 
         if (!grid || !window.allVehiclesData) return;
 
+        let currentCategory = 'all';
+        let currentSort = 'default';
+        let currentViewMode = localStorage.getItem('kzy_fav_view') || 'grid';
+
+        // URL'den 'ids' parametresi varsa ve localStorage boşsa aktar
+        (function checkUrlIds() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const idsParam = urlParams.get('ids');
+            if (idsParam && window.KZYFavorites) {
+                const parsedIds = idsParam.split(',').map(id => parseInt(id.trim(), 10)).filter(id => !isNaN(id));
+                if (parsedIds.length > 0) {
+                    const currentFavs = window.KZYFavorites.getFavorites();
+                    const merged = Array.from(new Set([...currentFavs, ...parsedIds]));
+                    window.KZYFavorites.saveFavorites(merged);
+                }
+            }
+        })();
+
+        function applyViewMode(mode) {
+            currentViewMode = mode;
+            localStorage.setItem('kzy_fav_view', mode);
+
+            if (mode === 'list') {
+                grid.classList.add('is-list-view');
+                if (btnViewList) btnViewList.classList.add('is-active');
+                if (btnViewGrid) btnViewGrid.classList.remove('is-active');
+            } else {
+                grid.classList.remove('is-list-view');
+                if (btnViewGrid) btnViewGrid.classList.add('is-active');
+                if (btnViewList) btnViewList.classList.remove('is-active');
+            }
+        }
+
         function renderFavorites() {
             const favoriteIds = window.KZYFavorites ? window.KZYFavorites.getFavorites() : [];
-            const vehicles = window.allVehiclesData.filter(v => favoriteIds.includes(v.id));
+            const allVehicles = window.allVehiclesData || [];
+            const favoritedVehicles = allVehicles.filter(v => favoriteIds.includes(v.id));
 
-            if (vehicles.length === 0) {
-                grid.classList.add('hidden');
-                if (emptyState) emptyState.classList.remove('hidden');
+            // Eğer liste boşsa
+            if (favoritedVehicles.length === 0) {
+                if (activeView) activeView.classList.add('hidden');
+                if (heroMetrics) heroMetrics.classList.add('hidden');
+                if (emptyView) emptyView.classList.remove('hidden');
+                updateTabCounts([]);
                 return;
             }
 
-            grid.classList.remove('hidden');
-            if (emptyState) emptyState.classList.add('hidden');
+            // Liste doluysa
+            if (emptyView) emptyView.classList.add('hidden');
+            if (activeView) activeView.classList.remove('hidden');
+            if (heroMetrics) heroMetrics.classList.remove('hidden');
 
+            // Tab sayaçlarını güncelle
+            updateTabCounts(favoritedVehicles);
+
+            // Filtreleme (Kategoriye Göre)
+            let filtered = favoritedVehicles.filter(v => {
+                if (currentCategory === 'all') return true;
+                if (currentCategory === 'binek') return v.category === 'binek';
+                if (currentCategory === 'ticari') return v.category === 'ticari';
+                if (currentCategory === 'ev') {
+                    return v.fuel === 'elektrik' || v.fuel === 'hibrit' || (v.category === 'ev');
+                }
+                return true;
+            });
+
+            // Sıralama
+            if (currentSort === 'price-asc') {
+                filtered.sort((a, b) => (a.starting_price || 0) - (b.starting_price || 0));
+            } else if (currentSort === 'price-desc') {
+                filtered.sort((a, b) => (b.starting_price || 0) - (a.starting_price || 0));
+            } else if (currentSort === 'brand-asc') {
+                filtered.sort((a, b) => `${a.brand} ${a.model}`.localeCompare(`${b.brand} ${b.model}`, 'tr'));
+            }
+
+            // Maliyet & Sayı Hesaplamaları (Tüm favori araçlar üzerinden)
+            let totalMonthly = favoritedVehicles.reduce((sum, v) => sum + (v.starting_price || 0), 0);
+            let vatAmount = Math.round(totalMonthly * 0.20);
+            let grandTotal = totalMonthly + vatAmount;
+
+            // Header Metrikleri Güncelle
+            if (metricTotalCount) metricTotalCount.textContent = favoritedVehicles.length;
+            if (metricTotalPrice) metricTotalPrice.textContent = totalMonthly.toLocaleString('tr-TR');
+
+            // Sidebar Özetini Güncelle
+            if (summaryCount) summaryCount.textContent = `${favoritedVehicles.length} Adet`;
+            if (summarySubtotal) summarySubtotal.textContent = `${totalMonthly.toLocaleString('tr-TR')} ₺ / ay`;
+            if (summaryVat) summaryVat.textContent = `${vatAmount.toLocaleString('tr-TR')} ₺ / ay`;
+            if (summaryGrandTotal) summaryGrandTotal.textContent = `${grandTotal.toLocaleString('tr-TR')} ₺ / ay`;
+
+            // Sidebar Mini Araç Chip'leri
+            if (summaryChips) {
+                summaryChips.innerHTML = '';
+                favoritedVehicles.forEach(v => {
+                    const chip = document.createElement('div');
+                    chip.className = 'fav-summary-chip';
+                    chip.innerHTML = `
+                        <img src="${v.image}" alt="${v.brand} ${v.model}" width="28" height="18">
+                        <span>${v.brand} ${v.model}</span>
+                        <button type="button" class="fav-chip-remove btn-remove-fav" data-id="${v.id}" title="Listeden Çıkar">
+                            <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                        </button>
+                    `;
+                    summaryChips.appendChild(chip);
+                });
+            }
+
+            // Modal İçi Araç Chip'leri
+            if (bulkModalChips) {
+                bulkModalChips.innerHTML = '';
+                favoritedVehicles.forEach(v => {
+                    const chip = document.createElement('div');
+                    chip.className = 'modal-vehicle-chip';
+                    chip.innerHTML = `
+                        <span class="chip-dot"></span>
+                        <strong>${v.brand} ${v.model}</strong>
+                        <span class="chip-price">(${v.starting_price.toLocaleString('tr-TR')} ₺/ay)</span>
+                    `;
+                    bulkModalChips.appendChild(chip);
+                });
+            }
+
+            // Araç Kartlarını Render Et
             grid.innerHTML = '';
-            vehicles.forEach(function (v) {
-                const card = document.createElement('div');
-                card.className = 'vehicle-card';
-                card.setAttribute('data-id', v.id);
-                card.innerHTML = `
-                    <div class="vehicle-card-image">
-                        <a href="${window.KZY.baseUrl}arac-detay.php?slug=${v.slug}">
-                            <img src="${v.image}" alt="${v.brand} ${v.model}" width="360" height="225">
-                        </a>
-                        <div class="vehicle-card-actions-top">
-                            <button type="button" class="vehicle-card-action-btn is-active btn-favorite-toggle" data-id="${v.id}" title="Listeden Çıkar">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                            </button>
-                        </div>
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="fav-no-cat-results">
+                        <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        <p>Bu kategoride favoriye eklenmiş araç bulunmuyor.</p>
+                        <button type="button" class="btn btn-outline btn-sm" id="btn-reset-cat-filter">Tüm Araçları Göster</button>
                     </div>
-                    <div class="vehicle-card-body">
-                        <div class="vehicle-card-brand">${v.brand}</div>
-                        <h3 class="vehicle-card-model"><a href="${window.KZY.baseUrl}arac-detay.php?slug=${v.slug}">${v.model}</a></h3>
-                        <div class="vehicle-card-footer">
-                            <div class="vehicle-card-price">
-                                <span class="vehicle-card-price-label">Aylık (Demo)</span>
-                                <div class="vehicle-card-price-value">${v.starting_price.toLocaleString('tr-TR')} ₺</div>
+                `;
+                const resetCatBtn = document.getElementById('btn-reset-cat-filter');
+                if (resetCatBtn) {
+                    resetCatBtn.addEventListener('click', () => {
+                        currentCategory = 'all';
+                        filterTabs.forEach(t => t.classList.toggle('is-active', t.getAttribute('data-cat') === 'all'));
+                        renderFavorites();
+                    });
+                }
+                return;
+            }
+
+            const baseUrl = window.KZY?.baseUrl || '/';
+            const compareList = window.KZYFavorites ? window.KZYFavorites.getCompareList() : [];
+
+            filtered.forEach(v => {
+                const isCompared = compareList.includes(v.id);
+                const detailUrl = `${baseUrl}arac-detay.php?slug=${v.slug}`;
+                const quoteUrl = `${baseUrl}hizli-teklif.php?arac=${v.slug}`;
+
+                const card = document.createElement('div');
+                card.className = 'fav-vehicle-card';
+                card.setAttribute('data-id', v.id);
+
+                card.innerHTML = `
+                    <div class="fav-card-image-wrap">
+                        <a href="${detailUrl}" class="fav-card-image-link" tabindex="-1">
+                            <img src="${v.image}" alt="${v.brand} ${v.model}" width="340" height="200" loading="lazy">
+                        </a>
+                        <div class="fav-card-badges">
+                            ${v.is_campaign ? '<span class="badge badge-primary">Kampanyalı</span>' : ''}
+                            ${v.is_fast_delivery ? '<span class="badge badge-success">Hemen Teslim</span>' : ''}
+                            ${v.is_premium ? '<span class="badge badge-info">Premium</span>' : ''}
+                            <span class="badge badge-accent">${v.segment || 'Filo'}</span>
+                        </div>
+                        <button type="button" class="fav-card-remove-btn btn-remove-fav" data-id="${v.id}" title="Favorilerden Çıkar" aria-label="Favorilerden Çıkar">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="fav-card-content">
+                        <div class="fav-card-header">
+                            <div class="fav-card-brand">${v.brand}</div>
+                            <h3 class="fav-card-title">
+                                <a href="${detailUrl}">${v.model}</a>
+                            </h3>
+                            <div class="fav-card-version">${v.version || ''}</div>
+                        </div>
+
+                        <div class="fav-card-specs">
+                            <div class="fav-spec-item" title="Yakıt Türü">
+                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="22" x2="15" y2="22"></line><line x1="4" y1="9" x2="14" y2="9"></line><path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18"></path><path d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2h0a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5"></path></svg>
+                                <span>${v.fuel || 'Benzin'}</span>
                             </div>
-                            <div class="flex gap-2">
-                                <a href="${window.KZY.baseUrl}hizli-teklif.php?arac=${v.slug}" class="btn btn-primary btn-sm">Teklif Al</a>
-                                <a href="${window.KZY.baseUrl}arac-detay.php?slug=${v.slug}" class="btn btn-secondary btn-sm">İncele</a>
+                            <div class="fav-spec-item" title="Vites Türü">
+                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="6" r="3"></circle><line x1="6" y1="9" x2="6" y2="15"></line><line x1="9" y1="6" x2="15" y2="6"></line></svg>
+                                <span>${v.transmission || 'Otomatik'}</span>
+                            </div>
+                            <div class="fav-spec-item" title="Gövde Tipi">
+                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 2.8C2.1 11 2 11.5 2 12v4c0 .6.4 1 1 1h2"></path><circle cx="7" cy="17" r="2"></circle><circle cx="17" cy="17" r="2"></circle></svg>
+                                <span>${v.body || 'Sedan'}</span>
+                            </div>
+                        </div>
+
+                        <div class="fav-card-footer">
+                            <div class="fav-card-price-block">
+                                <span class="fav-price-label">Aylık Başlangıç Fiyatı</span>
+                                <div class="fav-price-val">
+                                    <strong>${v.starting_price.toLocaleString('tr-TR')} ₺</strong>
+                                    <small>+ KDV / ay</small>
+                                </div>
+                            </div>
+
+                            <div class="fav-card-actions">
+                                <a href="${quoteUrl}" class="btn btn-primary btn-sm fav-action-quote">
+                                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                                    <span>Teklif Al</span>
+                                </a>
+
+                                <button type="button" class="btn ${isCompared ? 'btn-secondary' : 'btn-outline'} btn-sm btn-card-toggle-compare" data-id="${v.id}">
+                                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18"></path><path d="M6 7l6-3 6 3"></path><path d="M3 13l3-6 3 6a3 3 0 0 1-6 0z"></path><path d="M15 13l3-6 3 6a3 3 0 0 1-6 0z"></path><path d="M4 21h16"></path></svg>
+                                    <span>${isCompared ? '✓ Karşılaştırılıyor' : 'Karşılaştır'}</span>
+                                </button>
+
+                                <a href="${detailUrl}" class="btn btn-ghost btn-sm" title="Detaylı İncele">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                                </a>
                             </div>
                         </div>
                     </div>
                 `;
+
                 grid.appendChild(card);
+            });
+
+            applyViewMode(currentViewMode);
+        }
+
+        function updateTabCounts(allFavs) {
+            const total = allFavs.length;
+            const binek = allFavs.filter(v => v.category === 'binek').length;
+            const ticari = allFavs.filter(v => v.category === 'ticari').length;
+            const ev = allFavs.filter(v => v.fuel === 'elektrik' || v.fuel === 'hibrit' || v.category === 'ev').length;
+
+            if (countTabAll) countTabAll.textContent = total;
+            if (countTabBinek) countTabBinek.textContent = binek;
+            if (countTabTicari) countTabTicari.textContent = ticari;
+            if (countTabEv) countTabEv.textContent = ev;
+        }
+
+        // ─── Event Listeners ────────────────────────────────────────
+
+        // Filter Tabs
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', function () {
+                filterTabs.forEach(t => t.classList.remove('is-active'));
+                this.classList.add('is-active');
+                currentCategory = this.getAttribute('data-cat') || 'all';
+                renderFavorites();
+            });
+        });
+
+        // Sort Select
+        if (sortSelect) {
+            sortSelect.addEventListener('change', function () {
+                currentSort = this.value;
+                renderFavorites();
             });
         }
 
+        // View Mode Toggle
+        if (btnViewGrid) {
+            btnViewGrid.addEventListener('click', () => applyViewMode('grid'));
+        }
+        if (btnViewList) {
+            btnViewList.addEventListener('click', () => applyViewMode('list'));
+        }
+
+        // Card Delegated Click Events (Remove & Compare)
+        document.body.addEventListener('click', function (e) {
+            // Remove Favorite button
+            const removeBtn = e.target.closest('.btn-remove-fav');
+            if (removeBtn) {
+                e.preventDefault();
+                e.stopPropagation();
+                const id = parseInt(removeBtn.getAttribute('data-id'), 10);
+                if (!id || !window.KZYFavorites) return;
+
+                const cardEl = document.querySelector(`.fav-vehicle-card[data-id="${id}"]`);
+                if (cardEl) {
+                    cardEl.classList.add('is-removing');
+                    setTimeout(() => {
+                        let currentFavs = window.KZYFavorites.getFavorites().filter(item => item !== id);
+                        window.KZYFavorites.saveFavorites(currentFavs);
+                        if (window.showToast) {
+                            window.showToast('Araç listenizden çıkarıldı.', 'primary');
+                        }
+                    }, 220);
+                } else {
+                    let currentFavs = window.KZYFavorites.getFavorites().filter(item => item !== id);
+                    window.KZYFavorites.saveFavorites(currentFavs);
+                }
+                return;
+            }
+
+            // Card Compare Button
+            const compareBtn = e.target.closest('.btn-card-toggle-compare');
+            if (compareBtn) {
+                e.preventDefault();
+                e.stopPropagation();
+                const id = parseInt(compareBtn.getAttribute('data-id'), 10);
+                if (!id || !window.KZYFavorites) return;
+
+                let compList = window.KZYFavorites.getCompareList();
+                if (compList.includes(id)) {
+                    compList = compList.filter(x => x !== id);
+                    window.KZYFavorites.saveCompareList(compList);
+                    if (window.showToast) window.showToast('Araç karşılaştırmadan çıkarıldı.', 'primary');
+                } else {
+                    if (compList.length >= 4) {
+                        if (window.showToast) window.showToast('En fazla 4 araç karşılaştırabilirsiniz.', 'error');
+                        return;
+                    }
+                    compList.push(id);
+                    window.KZYFavorites.saveCompareList(compList);
+                    if (window.showToast) window.showToast('Araç karşılaştırmaya eklendi.', 'success');
+                }
+                renderFavorites();
+                return;
+            }
+        });
+
+        // Quick add from suggestions (on empty state)
+        quickAddBtns.forEach(btn => {
+            btn.addEventListener('click', function () {
+                const id = parseInt(this.getAttribute('data-id'), 10);
+                if (!id || !window.KZYFavorites) return;
+
+                let currentFavs = window.KZYFavorites.getFavorites();
+                if (!currentFavs.includes(id)) {
+                    currentFavs.push(id);
+                    window.KZYFavorites.saveFavorites(currentFavs);
+                    if (window.showToast) {
+                        window.showToast('Araç listenize eklendi!', 'success');
+                    }
+                } else {
+                    if (window.showToast) {
+                        window.showToast('Araç zaten listenizde mevcut.', 'primary');
+                    }
+                }
+            });
+        });
+
+        // Export All Favorites to Compare Page
+        if (exportCompareBtn) {
+            exportCompareBtn.addEventListener('click', function () {
+                const favoriteIds = window.KZYFavorites ? window.KZYFavorites.getFavorites() : [];
+                if (favoriteIds.length === 0) return;
+
+                if (window.KZYFavorites) {
+                    window.KZYFavorites.saveCompareList(favoriteIds.slice(0, 4));
+                }
+                const baseUrl = window.KZY?.baseUrl || '';
+                window.location.href = `${baseUrl}arac-karsilastir.php?ids=${favoriteIds.slice(0, 4).join(',')}`;
+            });
+        }
+
+        // Share List
+        if (shareListBtn) {
+            shareListBtn.addEventListener('click', function () {
+                const favs = window.KZYFavorites ? window.KZYFavorites.getFavorites() : [];
+                if (favs.length === 0) return;
+                const shareUrl = window.location.origin + window.location.pathname + '?ids=' + favs.join(',');
+                if (navigator.clipboard) {
+                    navigator.clipboard.writeText(shareUrl).then(() => {
+                        if (window.showToast) {
+                            window.showToast('Favori liste bağlantısı panoya kopyalandı.', 'success');
+                        }
+                    });
+                }
+            });
+        }
+
+        // Print List
+        if (printListBtn) {
+            printListBtn.addEventListener('click', function () {
+                window.print();
+            });
+        }
+
+        // Clear All
         if (clearAllBtn) {
             clearAllBtn.addEventListener('click', function () {
-                if (window.KZYFavorites) {
-                    window.KZYFavorites.saveFavorites([]);
-                    renderFavorites();
-                    if (window.showToast) {
-                        window.showToast('Tüm liste temizlendi.', 'primary');
+                if (confirm('Tüm favori araç listenizi temizlemek istediğinize emin misiniz?')) {
+                    if (window.KZYFavorites) {
+                        window.KZYFavorites.saveFavorites([]);
+                        renderFavorites();
+                        if (window.showToast) {
+                            window.showToast('Tüm favori listeniz temizlendi.', 'primary');
+                        }
                     }
                 }
             });
         }
 
-        if (shareListBtn) {
-            shareListBtn.addEventListener('click', function () {
-                const favs = window.KZYFavorites ? window.KZYFavorites.getFavorites() : [];
-                const shareUrl = window.location.origin + window.location.pathname + '?ids=' + favs.join(',');
-                if (navigator.clipboard) {
-                    navigator.clipboard.writeText(shareUrl).then(() => {
-                        if (window.showToast) {
-                            window.showToast('Liste bağlantısı panoya kopyalandı.', 'success');
-                        }
-                    });
+        // Bulk Quote Modal Open / Close
+        function openBulkModal() {
+            if (!bulkModal) return;
+            bulkModal.classList.add('is-open');
+        }
+
+        function closeBulkModal() {
+            if (!bulkModal) return;
+            bulkModal.classList.remove('is-open');
+        }
+
+        bulkQuoteTriggers.forEach(btn => {
+            btn.addEventListener('click', openBulkModal);
+        });
+
+        if (closeBulkModalBtn) {
+            closeBulkModalBtn.addEventListener('click', closeBulkModal);
+        }
+
+        if (bulkModal) {
+            bulkModal.addEventListener('click', function (e) {
+                if (e.target === bulkModal) closeBulkModal();
+            });
+        }
+
+        // Bulk Quote Form Submit
+        if (bulkModalForm) {
+            bulkModalForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const submitBtn = document.getElementById('btn-submit-bulk-quote');
+                if (submitBtn) {
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = '<span>Talebiniz Alınıyor...</span>';
                 }
+
+                setTimeout(() => {
+                    closeBulkModal();
+                    if (submitBtn) {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = '<span>Teklif Talebini İlet</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>';
+                    }
+                    bulkModalForm.reset();
+                    if (window.showToast) {
+                        window.showToast('Toplu filo teklif talebiniz başarıyla iletildi! Kurumsal danışmanımız 15 dakika içinde sizinle iletişime geçecektir.', 'success', 6000);
+                    }
+                }, 800);
             });
         }
 

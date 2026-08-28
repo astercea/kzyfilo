@@ -115,6 +115,7 @@ if (!defined('ROOT_DIR')) {
     </div><!-- /.page-wrapper -->
 
     <!-- ─── Reusable Modals & Widgets ───────────────────────────────── -->
+    <?php include includePath('search-modal.php'); ?>
     <?php include includePath('compare-tray.php'); ?>
     <?php include includePath('cookie-banner.php'); ?>
     <?php include includePath('floating-contact.php'); ?>
