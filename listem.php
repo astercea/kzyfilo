@@ -21,44 +21,11 @@ $breadcrumbs = [
 include includePath('header.php');
 ?>
 
-<!-- ─── 1. PAGE HEADER & LIVE METRICS ──────────────────────────────── -->
-<div class="page-header favorites-header-banner">
+<!-- ─── 1. PAGE HEADER ─────────────────────────────────────────────── -->
+<div class="page-header">
     <div class="container">
-        <div class="favorites-header-content">
-            <div class="favorites-header-left" data-reveal="fade-up">
-                <span class="badge badge-accent mb-2">KZY Executive List</span>
-                <h1 class="page-title"><?php e('my_list.title'); ?></h1>
-                <p class="page-subtitle"><?php e('my_list.subtitle'); ?></p>
-                <?php include includePath('breadcrumbs.php'); ?>
-            </div>
-
-            <!-- Canlı Liste İstatistikleri (Dinamik JS) -->
-            <div class="favorites-header-metrics hidden" id="favorites-hero-metrics" data-reveal="fade-left">
-                <div class="fav-metric-card">
-                    <span class="fav-metric-label"><?php e('my_list.total_vehicles'); ?></span>
-                    <div class="fav-metric-val">
-                        <span id="metric-total-count">0</span>
-                        <small>Model</small>
-                    </div>
-                </div>
-                <div class="fav-metric-divider"></div>
-                <div class="fav-metric-card">
-                    <span class="fav-metric-label"><?php e('my_list.est_monthly'); ?></span>
-                    <div class="fav-metric-val text-accent">
-                        <span id="metric-total-price">0</span>
-                        <small>₺ / ay</small>
-                    </div>
-                </div>
-                <div class="fav-metric-divider"></div>
-                <div class="fav-metric-card">
-                    <span class="fav-metric-label">Vergi Avantajı</span>
-                    <div class="fav-metric-val">
-                        <span>%100</span>
-                        <small>Gider Gösterme</small>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <h1><?php e('my_list.title'); ?></h1>
+        <?php include includePath('breadcrumbs.php'); ?>
     </div>
 </div>
 
